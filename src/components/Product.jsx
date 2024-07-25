@@ -34,7 +34,7 @@ const Product = ({ item }) => {
         <span className="relative mt-2">
           <p className="opacity-70 lg:text-2xl sm:text-lg">
             {pay}
-            <span className="opacity-100 w-16 bottom-3.5 right-0 inline-block absolute border-b-2 border-black"></span>
+            <span className="opacity-100 md:w-16 w-10 bottom-3.5 right-0 inline-block absolute border-b-2 border-black"></span>
           </p>
           <p className="px-1 text-white text-lg self-center font-mono rounded-md bg-red-500 sm:text-sm">
             10%

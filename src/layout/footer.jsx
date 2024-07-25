@@ -14,7 +14,7 @@ import { RiHome2Line } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <>
+    <div>
       {/* desktop footer */}
       <div className="md:grid hidden  md:grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 items-center container mx-auto border-t-2 mt-5">
         <img src={organs} alt="" className="mx-auto" />
@@ -41,8 +41,8 @@ const Footer = () => {
       </div>
 
       {/* mobil footer */}
-      <div className="fixed bottom-0 w-10/12 z-10 left- ">
-        <div className=" flex my-5 bg-slate-50 w-full shadow-md md:hidden h-16 justify-around mx-auto border-2 font-IrHoma text-[12px] border-black rounded-3xl items-center container child:text-center ">
+      <div className="  w-full relative flex justify-center -m-6">
+        <div className="fixed bottom-0 z-10 flex my-5 bg-slate-50 w-full shadow-md md:hidden h-16 justify-around mx-auto border-2 font-IrHoma text-[12px] border-black rounded-3xl items-center container child:text-center ">
           <span className=" ">
             <MdOutlinePersonOutline className=" mx-auto text-2xl" />
             <p className="  ">کاربری</p>
@@ -64,7 +64,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
