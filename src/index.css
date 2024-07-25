@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "IrHoma";
+    src: url("../src/assets/fonts/IRHoma.woff2"), format("woff2");
+    font-display: swap;
+  }
+}
+
+.slick-slider  {
+  margin: 0 ;
+  
+}
+
+.slick-slider > div {
+  /* gap: 20px !important; */
+}
