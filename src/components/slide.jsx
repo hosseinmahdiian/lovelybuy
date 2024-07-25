@@ -7,7 +7,7 @@ const Slide = ({ item ,select}) => {
       <div className={`relative `} name={name}>
         <img
           src={image}
-          className={`md:w-[245px] md:h-[118px] sm:w-[205px] sm:h-[90px]  w-[190px] sm:h-[80px]${
+          className={`md:w-[245px] md:h-[118px] sm:w-[205px] sm:h-[90px]  w-[180px] sm:h-[75px]${
             !(name == select.name) && ` opacity-25`
           } `}
           id={name}
