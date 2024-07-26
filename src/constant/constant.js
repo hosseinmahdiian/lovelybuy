@@ -5,7 +5,7 @@ const settingsForSlide = {
   slidesToShow: 4,
   slidesToScroll: 4,
   initialSlide: 0,
-  // rtl:true,
+  rtl:true,
 
   responsive: [
     {

@@ -6,6 +6,9 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { BsPersonCircle } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
 const Header = () => {
+
+  
+
   return (
     <>
       {/* // desctop header */}
