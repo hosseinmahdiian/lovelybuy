@@ -16,29 +16,29 @@ const Product = ({ item }) => {
     console.log(count);
   };
   return (
-    <div className="xl:w-60 xl:h-[410px] \\ lg:w-56 lg:h-[400px] \\ md:w-48 \\ sm:w-52 sm:h-80 \\ w-80 h-80 \\ mx-auto rounded-3xl border-2 relative font-IrHoma shadow-md">
+    <div className="xl:w-60 xl:h-[410px] \\ lg:w-56 lg:h-[400px] \\ md:w-48 \\ sm:w-52 sm:h-80 \\ es:w-44 es:h-64 \\ w-80 h-80 \\   mx-auto rounded-3xl border-2 relative font-IrHoma es:mb-3.5 ">
       <img
         src={image}
         alt=""
-        className=" lg:w-52 lg:h-52 // sm:w-40 sm:h-40  \\ w-40 h-40  mx-auto my-4 "
+        className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40  \\ es:w-28 es:h-28 w-40 h-40  mx-auto my-4 "
       />
       <span
         onClick={() => setSave(!save)}
-        className="absolute xl:bottom-[370px] \\ lg:bottom-[350px] \\ md:bottom-[280px] \\ sm:bottom-[275px] \\ bottom-[275px] right-5 child:text-2xl "
+        className="absolute xl:bottom-[370px] \\ lg:bottom-[350px] \\ md:bottom-[280px] \\ sm:bottom-[275px] \\ es:bottom-[210px] \\  bottom-[275px] right-5 child:sm:text-2xl child:es:text-lg "
       >
         {save ? <FaBookmark /> : <FaRegBookmark />}
       </span>
 
-      <h2 className="text-right mr-3 font-bold sm:text-sm lg:text-lg ">
+      <h2 className="text-right mr-3 font-bold es:text-[12px] sm:text-sm lg:text-lg ">
         {title}
       </h2>
       <div className="child:flex child:gap-3 child:mr-2">
-        <span className="relative mt-2">
-          <p className="opacity-70 lg:text-2xl sm:text-lg">
+        <span className="relative mt-2 items-center">
+          <p className="opacity-70 lg:text-2xl sm:text-lg es:text-[12px]">
             {pay}
-            <span className="opacity-100 md:w-16 w-10 bottom-3.5 right-0 inline-block absolute border-b-2 border-black"></span>
+            <span className="opacity-100 md:w-16 sm:w-10 es:w-8 sm:bottom-3.5 es:bottom-3 right-0 inline-block absolute border-b-2 border-black"></span>
           </p>
-          <p className="px-1 text-white text-lg self-center font-mono rounded-md bg-red-500 sm:text-sm">
+          <p className="sm:px-1 py-0 text-white text-lg self-center font-mono rounded-md  bg-red-500 sm:text-sm es:px-0.5 es:text-[10px]">
             10%
           </p>
         </span>

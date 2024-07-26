@@ -7,7 +7,7 @@ const Products = () => {
  
   return (
     <div className="container mx-auto mt-5 ">
-      <div className="xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid sm:grid-cols-2 container">
+      <div className="xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2 container">
         {data.map((item, index) => (
           <span key={index} className="mb-5">
             <Product item={item} />
