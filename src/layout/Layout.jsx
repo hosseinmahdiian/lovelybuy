@@ -5,7 +5,7 @@ import Footer from "./footer";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="border-4  ">
+      <div className=" ">
         <Header />
         {children}
         <span className="h-20 md:h-0 inline-block"></span>
