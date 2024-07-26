@@ -14,17 +14,23 @@ const Header = () => {
       {/* // desctop header */}
       <div className=" container w-full mx-auto  ">
         <div className="md:flex justify-between py-[31px] hidden bg-white z-10 fixed top-0 container  border-b-2">
-          <img
-            src={logo}
-            alt=""
-            className=" lg:inline-block w-[140px] h-11 xl:mx-[27px] mx-3 "
-          />
+          <span className="mr-[15px] h-[50px] w-[50px] lg:border-0 md:border rounded-xl border-black">
+            <LuPhoneCall className="hidden md:inline-block m-[13px] h-6 w-6" />
+          </span>
+          <div className="hidden lg:inline-block">
+            <h1>
+              <span className="text-blue-400">021</span>42156644
+            </h1>
+            <p className="text-sm font-bold ">باما در تماس باشید</p>
+          </div>
 
-          <input
-            type="text"
-            placeholder="جستجوی کالا"
-            className="hidden md:inline-block shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-xl border-black"
-          />
+          <div className="hidden lg:inline-block ml-[15px]">
+            <h4 className=" font-bold">اشکان حسنوند</h4>
+            <p className="text-center opacity-75">09216919291</p>
+          </div>
+          <span className="hidden md:inline-block mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black">
+            <BsPersonCircle className="m-[13px] h-6 w-6  " />
+          </span>
 
           <span className="hidden md:inline-block mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black">
             <BsBookmarkFill className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
@@ -40,27 +46,21 @@ const Header = () => {
             </span>
           </div>
 
+          <input
+            type="text"
+            placeholder="جستجوی کالا"
+            className="hidden md:inline-block shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-xl border-black"
+          />
           <span className="hidden md:inline-block lg:hidden mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black">
             <RiShoppingBag3Line className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
           </span>
 
-          <span className="hidden md:inline-block mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black">
-            <BsPersonCircle className="m-[13px] h-6 w-6  " />
-          </span>
-          <div className="hidden lg:inline-block ml-[15px]">
-            <h4 className=" font-bold">اشکان حسنوند</h4>
-            <p className="text-center opacity-75">09216919291</p>
-          </div>
 
-          <div className="hidden lg:inline-block">
-            <h1>
-              <span className="text-blue-400">021</span>42156644
-            </h1>
-            <p className="text-sm font-bold ">باما در تماس باشید</p>
-          </div>
-          <span className="mr-[15px] h-[50px] w-[50px] lg:border-0 md:border rounded-xl border-black">
-            <LuPhoneCall className="hidden md:inline-block m-[13px] h-6 w-6" />
-          </span>
+          <img
+            src={logo}
+            alt=""
+            className=" lg:inline-block w-[140px] h-11 xl:mx-[27px] mx-3 "
+          />
         </div>
       </div>
 
