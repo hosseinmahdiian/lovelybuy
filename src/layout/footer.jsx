@@ -41,8 +41,8 @@ const Footer = () => {
       </div>
 
       {/* mobil footer */}
-      <div className="  w-full relative flex justify-center ">
-        <div className="fixed bottom-0 z-10 flex my-5 bg-slate-50 w-full shadow-md md:hidden h-16 justify-around mx-auto border-2 font-IrHoma text-[12px] border-black rounded-3xl items-center container child:text-center ">
+      <div className="  w-full relative flex justify-center  ">
+        <div className="fixed  bottom-0 z-10 flex my-5 bg-slate-50 w-full shadow-md md:hidden h-16 justify-around mx-auto border-2 font-IrHoma text-[12px] border-black rounded-3xl items-center container child:text-center ">
           <span className=" ">
             <MdOutlinePersonOutline className=" mx-auto text-2xl" />
             <p className="  ">کاربری</p>

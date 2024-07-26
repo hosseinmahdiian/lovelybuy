@@ -3,9 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily:{
-        IrHoma:"IrHoma"
-      }
+      fontFamily: {
+        IrHoma: "IrHoma",
+      },
+      screens: {
+        es:'380px'
+      },
     },
   },
   plugins: [
