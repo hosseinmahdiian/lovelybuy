@@ -86,11 +86,11 @@ const Accont = () => {
 
       {/*  */}
       <div
-        className={`font-IrHoma w-5/6 mx-auto ${
+        className={`font-IrHoma child:w-5/6 w-full ${
           reduce.acconte ? `block` : `hidden`
         }`}
       >
-        <div className="py-6 flex items-center justify-between px-3 border-b">
+        <div className="py-6 flex !w-full items-center justify-between px-3 border-b">
           <h1 className="font-IrSana text-red-600">حساب کار بری</h1>
           <span
             onClick={() => {
@@ -122,7 +122,7 @@ const Accont = () => {
           </div>
         </div>
 
-        <div>
+        <div className="mx-auto">
           <div>
             <div className="flex items-center gap-3">
               <span>
@@ -142,7 +142,7 @@ const Accont = () => {
               />
               <label
                 htmlFor="pass"
-                className="absolute text-sm  font-IrHomama start-3 top-1.5 transition-all ease-linear peer-focus:start-4 peer-focus:-top-3.5 peer-focus:text-[12px] bg-white px-2"
+                className="absolute text-sm  font-IrHomama start-3 top-1.5 transition-all ease-linear peer-focus:start-4 peer-focus:-top-3 peer-focus:text-[12px] bg-white mx-2"
               >
                 تعییر رمز عبور
               </label>
