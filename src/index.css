@@ -8,6 +8,11 @@
     src: url("../src/assets/fonts/IRHoma.woff2"), format("woff2");
     font-display: swap;
   }
+  @font-face {
+    font-family: "IrSana";
+    src: url("../src/assets/fonts/IRSans.woff2"), format("woff2");
+    font-display: swap;
+  }
 }
 
 .slick-slider  {

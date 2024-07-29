@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Item from "./Item";
-import { itemsData } from "../constant/DataSets";
+import { itemsData } from "../../constant/DataSets";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { settingsForitem } from "../constant/constant";
+import { settingsForitem } from "../../constant/constant";
 
 const Items = () => {
   const [data, setdata] = useState(itemsData);

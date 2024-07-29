@@ -1,14 +1,17 @@
-import React from "react";
+import React, { createContext, useContext } from "react";
 
 import logo from "../assets/images/logo.png";
 import { BsBookmarkFill } from "react-icons/bs";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { BsPersonCircle } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
+import { reducerContext } from "../constant/Context";
+// import { reducerContext } from "../App";
 const Header = () => {
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
 
-  
-
+  console.log(reduce);
   return (
     <>
       {/* // desctop header */}
@@ -28,7 +31,12 @@ const Header = () => {
             <h4 className=" font-bold">اشکان حسنوند</h4>
             <p className="text-center opacity-75">09216919291</p>
           </div>
-          <span className="hidden md:inline-block mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black">
+          <span
+            className="hidden md:inline-block mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black"
+            onClick={() => {
+              dispach({ type: "acconte" });
+            }}
+          >
             <BsPersonCircle className="m-[13px] h-6 w-6  " />
           </span>
 
@@ -54,7 +62,6 @@ const Header = () => {
             placeholder="جستجوی کالا"
             className="hidden md:inline-block shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-xl border-black"
           />
-
 
           <img
             src={logo}

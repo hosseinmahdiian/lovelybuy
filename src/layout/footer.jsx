@@ -6,13 +6,6 @@ import { IoLogoGoogle } from "react-icons/io";
 import { FaTwitter } from "react-icons/fa";
 import { BiLogoFacebook } from "react-icons/bi";
 
-import { MdOutlinePersonOutline } from "react-icons/md";
-import { BiCategory } from "react-icons/bi";
-import { CiShoppingTag } from "react-icons/ci";
-import { IoIosSearch } from "react-icons/io";
-import { RiHome2Line } from "react-icons/ri";
-import { isMobile, MobileOnlyView } from "react-device-detect";
-
 const Footer = () => {
   return (
     <div>
@@ -40,34 +33,6 @@ const Footer = () => {
           خرید همواره با تخفیف رو با ما تجربه کنید
         </h2>
       </div>
-
-      {/* mobil footer */}
-      <MobileOnlyView>
-
-      <div className={`  w-full relative  justify-center flex  `}>
-        <div className="fixed  bottom-0 z-10 flex my-5 bg-slate-50 w-full shadow-md  h-16 justify-around mx-auto border-2 font-IrHoma text-[12px] border-black rounded-3xl items-center container child:text-center ">
-          <span className=" ">
-            <MdOutlinePersonOutline className=" mx-auto text-2xl" />
-            <p className="  ">کاربری</p>
-          </span>
-          <span>
-            <BiCategory className=" mx-auto text-2xl" />
-            <p>دسته بندی</p>
-          </span>
-          <span className=" p-3 bg-slate-300 rounded-3xl  ">
-            <CiShoppingTag className=" text-3xl" />
-          </span>
-          <span>
-            <IoIosSearch className=" mx-auto text-2xl" />
-            <p>جستجو</p>
-          </span>
-          <span>
-            <RiHome2Line className=" mx-auto text-2xl" />
-            <p>خانه</p>
-          </span>
-        </div>
-      </div>
-      </MobileOnlyView>
     </div>
   );
 };

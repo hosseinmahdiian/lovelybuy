@@ -3,8 +3,8 @@ import Slider from "react-slick";
 import Slide from "./slide";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { slideDadta } from "../constant/DataSets";
-import { settingsForSlide } from "../constant/constant";
+import { slideDadta } from "../../constant/DataSets";
+import { settingsForSlide } from "../../constant/constant";
 
 function Slides() {
   const [slid, setSlid] = useState(slideDadta);
