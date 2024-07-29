@@ -21,7 +21,7 @@ const Conter = () => {
             <span
               className=" "
               onClick={() => {
-                dispach({ type: "acconte" });
+                dispach({ type: "logIn" });
               }}
             >
               <MdOutlinePersonOutline className=" mx-auto text-2xl" />

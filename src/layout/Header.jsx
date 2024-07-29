@@ -34,7 +34,7 @@ const Header = () => {
           <span
             className="hidden md:inline-block mx-[15px] h-[50px] w-[50px]  border rounded-xl border-black"
             onClick={() => {
-              dispach({ type: "acconte" });
+              dispach({ type: "logIn" });
             }}
           >
             <BsPersonCircle className="m-[13px] h-6 w-6  " />

@@ -4,22 +4,28 @@ import Layout from "./layout/Layout";
 import { createContext, useReducer } from "react";
 import { reducerContext } from "./constant/Context";
 
-export default function App() {
+function App() {
   const FnReducer = (state, action) => {
     switch (action.type) {
       case "acconte":
         return {
           ...state,
-          acconte: !state.acconte 
+          acconte: !state.acconte,
         };
-        break;
-    
+
+      case "logIn":
+        return {
+          ...state,
+          logIn: !state.logIn,
+        };
+
       default:
         break;
     }
   };
   const init = {
-    acconte:false,
+    acconte: false,
+    logIn: false,
   };
   const reducer = useReducer(FnReducer, init);
   return (
@@ -34,5 +40,5 @@ export default function App() {
   );
 }
 
-// export default App;
+export default App;
 // export { reducerContext };
