@@ -234,7 +234,52 @@ const BuyProDuctsData = [
     pay: 600000,
     offer: 550000,
   },
-  
 ];
 
-export { slideDadta, itemsData, CategoryData, productsData,BuyProDuctsData };
+const DeliveryData = [
+  { day: "satueday", title: "شنبه", date: "7مرداد", id: 1 },
+  {
+    day: "sunday",
+    title: "یکشنیه",
+    date: "8مرداد",
+    id: 2,
+  },
+  {
+    day: "monday",
+    title: "دوشنبه",
+    date: "9مرداد",
+    id: 3,
+  },
+  { day: "tuesday",
+    title: "سه شنبه",
+    date: "10مرداد", 
+    id: 4 
+  },
+  {
+    day: "wendesday",
+    title: "چهار شنبه",
+    date: "11مرداد",
+    id: 5,
+  },
+  {
+    day: "thursday",
+    title: "پنجشنبه",
+    date: "12مرداد",
+    id: 6,
+  },
+  {
+    day: "friday",
+    title: "جمعه",
+    date: "13مزداد",
+    id: 7,
+  },
+];
+
+export {
+  slideDadta,
+  itemsData,
+  CategoryData,
+  productsData,
+  BuyProDuctsData,
+  DeliveryData,
+};
