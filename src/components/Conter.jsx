@@ -16,7 +16,7 @@ const Conter = () => {
       <div>
         <MobileOnlyView>
         <div className={`  w-full relative  justify-center flex  `}>
-          <div className="fixed  bottom-0 z-10 flex my-5 bg-slate-50 w-full shadow-md  h-16 justify-around mx-auto border-2 font-IrHoma text-[12px] border-black rounded-3xl items-center container child:text-center ">
+          <div className="fixed  bottom-0 z-10 flex my-5 bg-slate-50 w-full shadow-md  h-16 justify-around mx-auto border-2 font-IrSans text-[12px] border-black rounded-3xl items-center container child:text-center ">
             {/* <NavLink to="/acconte"> */}
             <span
               className=" "
@@ -32,7 +32,7 @@ const Conter = () => {
               <BiCategory className=" mx-auto text-2xl" />
               <p>دسته بندی</p>
             </span>
-            <span className=" p-3 bg-slate-300 rounded-3xl  ">
+            <span className=" p-3 bg-slate-300 rounded-3xl  " onClick={()=>dispach({type:"basket"})}>
               <CiShoppingTag className=" text-3xl" />
             </span>
             <span>

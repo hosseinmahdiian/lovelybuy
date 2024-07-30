@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div>
       {/* desktop footer */}
-      <div className="md:grid hidden  md:grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 items-center container mx-auto border-t-2 mt-5">
+      <div className="md:grid hidden  md:grid-cols-1 font-IrSans  lg:grid-cols-2 xl:grid-cols-3 items-center container mx-auto border-t-2 mt-5">
         <img src={organs} alt="" className="mx-auto" />
         <div className="flex w-96 justify-around child:w-10 child:h-10  child:rounded-lg  child:bg-slate-300 mx-auto">
           <span className="   ">

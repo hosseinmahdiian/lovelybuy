@@ -8,7 +8,7 @@ import Routers from "../router/Router";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className=" ">
+      <div className="font-IrSans ">
         <Header />
         <span className="h-20 md:h-0 inline-block"></span>
         {children}

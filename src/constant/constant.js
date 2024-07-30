@@ -1,12 +1,11 @@
 const settingsForSlide = {
   // dots: true,
   infinite: false,
-  speed: 500,
   slidesToShow: 4,
-  slidesToScroll: 4,
-  initialSlide: 0,
-  // rtl:true,
-
+  slidesToScroll: 1,
+  // autoplay: true,
+  // autoplaySpeed: 2000,
+  // rtl: true,
   responsive: [
     {
       breakpoint: 1024,
@@ -18,15 +17,22 @@ const settingsForSlide = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
         // initialSlide: 1,
       },
     },
     {
-      breakpoint: 480,
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 400,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
@@ -87,7 +93,7 @@ const settingsForitem = {
   slidesToScroll: 1,
   initialSlide: 0,
   variableWidth: true,
-  
+
   className: "slider variable-width",
   // centerMode: true,
   // rtl:true,
@@ -128,4 +134,4 @@ const settingsForitem = {
     },
   ],
 };
-export { settingsForSlide, settingsForCategory  ,settingsForitem};
+export { settingsForSlide, settingsForCategory, settingsForitem };

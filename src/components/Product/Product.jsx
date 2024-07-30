@@ -16,7 +16,7 @@ const Product = ({ item }) => {
     console.log(count);
   };
   return (
-    <div className="xl:w-60 xl:h-[410px] \\ lg:w-56 lg:h-[400px] \\ md:w-48 \\ sm:w-52 sm:h-80 \\ es:w-44 es:h-64 \\ w-80 h-80 \\   mx-auto rounded-3xl border-2 relative font-IrHoma es:mb-3.5 ">
+    <div className="xl:w-60 xl:h-[410px] \\ lg:w-56 lg:h-[400px] \\ md:w-48 \\ sm:w-52 sm:h-80 \\ es:w-44 es:h-[270px] \\ w-80 h-80 \\   mx-auto rounded-3xl border-2 relative font-IrSans es:mb-3.5 line-clamp-1">
       <img
         src={image}
         alt=""
@@ -24,7 +24,7 @@ const Product = ({ item }) => {
       />
       <span
         onClick={() => setSave(!save)}
-        className="absolute xl:bottom-[370px] \\ lg:bottom-[350px] \\ md:bottom-[280px] \\ sm:bottom-[275px] \\ es:bottom-[210px] \\  bottom-[275px] right-5 child:sm:text-2xl child:es:text-lg "
+        className="absolute xl:bottom-[370px] \\ lg:bottom-[350px] \\ md:bottom-[280px] \\ sm:bottom-[275px] \\ es:bottom-[210px] \\  bottom-[275px] left-5 child:sm:text-2xl child:es:text-lg "
       >
         {save ? <FaBookmark /> : <FaRegBookmark />}
       </span>
@@ -34,11 +34,11 @@ const Product = ({ item }) => {
       </h2>
       <div className="child:flex child:gap-3 child:mr-2">
         <span className="relative mt-2 items-center">
-          <p className="opacity-70 lg:text-2xl sm:text-lg es:text-[12px]">
+          <p className="opacity-70 lg:text-xl  es:text-[12px]">
             {pay}
             <span className="opacity-100 md:w-16 sm:w-10 es:w-8 sm:bottom-3.5 es:bottom-3 right-0 inline-block absolute border-b-2 border-black"></span>
           </p>
-          <p className="sm:px-1 py-0 text-white text-lg self-center font-mono rounded-md  bg-red-500 sm:text-sm es:px-0.5 es:text-[10px]">
+          <p className="sm:px-1 py-0 text-white text-lg self-center font-sans rounded-md  bg-red-500 sm:text-sm es:px-0.5 es:text-[10px]">
             10%
           </p>
         </span>
@@ -48,16 +48,16 @@ const Product = ({ item }) => {
         </span>
       </div>
 
-      <div className="mt-2 w-full mb-3">
+      <div className="sm:mt-3 w-full mb-3">
         {count == 0 ? (
           <button
-            className="lg:w-fit h-10 bg-white shadow-md w-full lg:border-2 border-t-2 mx-auto items-center block lg:px-10  lg:bg-blue-600 lg:h-10 xl:h-12 lg:rounded-xl rounded-b-2xl lg:text-white text-red-500 "
+            className="lg:w-fit h-12 bg-white shadow-md w-full  text-sm lg:border-2 border-t-2 mx-auto items-center block lg:px-10  lg:bg-blue-600 lg:h-10 xl:h-12 lg:rounded-xl rounded-b-2xl lg:text-white text-red-500 "
             onClick={increaseHandeler}
           >
             افزودن به سبد خرید
           </button>
         ) : (
-          <div className="flex items-center shadow-md justify-around border-t-2 lg:border-0 bg-red-500 lg:bg-white overflow-hidden child:text-white rounded-b-2xl mt-2">
+          <div className="flex items-center sm:shadow-none shadow-md justify-around border-t-2 lg:border-0 bg-red-500 lg:bg-white overflow-hidden child:text-white rounded-b-2xl mt-2">
             <button
               className="xl:w-12 xl:h-12 \\ w-10 h-10   lg:border-[3px] lg:rounded-xl lg:text-green-700 text-2xl border-green-600 "
               onClick={increaseHandeler}

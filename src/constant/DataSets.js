@@ -3,7 +3,7 @@ import glosery from "../assets/images/glosery.png";
 import electic from "../assets/images/electic.png";
 import fruts from "../assets/images/fruts.png";
 import tomato from "../assets/images/tomato.png";
-import yogert from "../assets/images/yogert.png";
+import yogurt from "../assets/images/yogurt.png";
 import can from "../assets/images/can.jpg";
 import milk from "../assets/images/milk.jpg";
 import meet from "../assets/images/meet.jpg";
@@ -30,7 +30,7 @@ const slideDadta = [
   },
   {
     image: electic,
-    name: "electic",
+    name: "ele33ctic",
     title: "الکترونیک",
     select: false,
   },
@@ -61,7 +61,6 @@ const CategoryData = [
     title: "روغن",
     select: false,
   },
-  
 ];
 
 const itemsData = [
@@ -76,7 +75,7 @@ const itemsData = [
     select: false,
   },
   {
-    name: "spagety",
+    name: "spaghetti",
     title: "ماکارونی و رشته",
     select: false,
   },
@@ -85,7 +84,6 @@ const itemsData = [
     title: "روغن",
     select: false,
   },
-  
 ];
 
 const productsData = [
@@ -98,8 +96,8 @@ const productsData = [
     offer: 180000,
   },
   {
-    image: yogert,
-    name: "yogert",
+    image: yogurt,
+    name: "yogurt",
     title: " ماست چکیده کاله",
     paylod: 0,
     pay: 250000,
@@ -122,8 +120,8 @@ const productsData = [
     offer: 180000,
   },
   {
-    image: yogert,
-    name: "yogert",
+    image: yogurt,
+    name: "yogurt",
     title: " ماست چکیده کاله",
     paylod: 0,
     pay: 250000,
@@ -146,8 +144,8 @@ const productsData = [
     offer: 180000,
   },
   {
-    image: yogert,
-    name: "yogert",
+    image: yogurt,
+    name: "yogurt",
     title: " ماست چکیده کاله",
     paylod: 0,
     pay: 250000,
@@ -170,8 +168,8 @@ const productsData = [
     offer: 180000,
   },
   {
-    image: yogert,
-    name: "yogert",
+    image: yogurt,
+    name: "yogurt",
     title: " ماست چکیده کاله",
     paylod: 0,
     pay: 250000,
@@ -194,8 +192,8 @@ const productsData = [
     offer: 180000,
   },
   {
-    image: yogert,
-    name: "yogert",
+    image: yogurt,
+    name: "yogurt",
     title: " ماست چکیده کاله",
     paylod: 0,
     pay: 250000,
@@ -211,4 +209,32 @@ const productsData = [
   },
 ];
 
-export { slideDadta, itemsData, CategoryData, productsData };
+const BuyProDuctsData = [
+  {
+    image: tomato,
+    name: "tomato",
+    title: " رب گوجه فرنگی چین چین",
+    paylod: 2,
+    pay: 200000,
+    offer: 180000,
+  },
+  {
+    image: yogurt,
+    name: "yogurt",
+    title: " ماست چکیده کاله",
+    paylod: 1,
+    pay: 250000,
+    offer: 195000,
+  },
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو لوبیا دلپذیر",
+    paylod: 4,
+    pay: 600000,
+    offer: 550000,
+  },
+  
+];
+
+export { slideDadta, itemsData, CategoryData, productsData,BuyProDuctsData };

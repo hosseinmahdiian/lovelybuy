@@ -20,20 +20,26 @@ function Slides() {
 
   return (
     <>
+      {/* <Dddd /> */}
       <div className="container mx-auto  lg:w-[1200px]  ">
-        <Slider {...settingsForSlide}>
-          {slid.map(
-            (item) =>
-              !!item.name && (
-                <span key={item.name} name={item.name} onClick={clickhandler}>
-                  <Slide item={item} select={select} />
-                </span>
-              )
-          )}
-        </Slider>
+        <div className="slider-container">
+          <Slider {...settingsForSlide}>
+            {slid.map(
+              (item) =>
+                !!item.name && (
+                  <span key={item.name} name={item.name} onClick={clickhandler}>
+                    <Slide item={item} select={select} />
+                  </span>
+                )
+            )}
+          </Slider>
+        </div>
       </div>
     </>
   );
 }
+
+
+
 
 export default Slides;

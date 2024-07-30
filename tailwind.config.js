@@ -5,10 +5,10 @@ export default {
     extend: {
       fontFamily: {
         IrHoma: "IrHoma",
-        IrSana: "IrSana",
+        IrSans: "IrSans",
       },
       screens: {
-        es: "380px",
+        es: "360px",
       },
     },
   },

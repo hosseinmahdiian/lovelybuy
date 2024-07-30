@@ -9,15 +9,14 @@
     font-display: swap;
   }
   @font-face {
-    font-family: "IrSana";
+    font-family: "IrSans";
     src: url("../src/assets/fonts/IRSans.woff2"), format("woff2");
     font-display: swap;
   }
 }
 
-.slick-slider  {
-  margin: 0 ;
-  
+.slick-slider {
+  /* margin: 0 ; */
 }
 
 .slick-slider > div {

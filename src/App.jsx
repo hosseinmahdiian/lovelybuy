@@ -7,10 +7,10 @@ import { reducerContext } from "./constant/Context";
 function App() {
   const FnReducer = (state, action) => {
     switch (action.type) {
-      case "acconte":
+      case "acconut":
         return {
           ...state,
-          acconte: !state.acconte,
+          acconut: !state.acconut,
         };
 
       case "logIn":
@@ -19,14 +19,29 @@ function App() {
           logIn: !state.logIn,
         };
 
+      case "basket":
+        return {
+          ...state,
+          basket: !state.basket,
+        };
+
+      case "pay":
+        return {
+          ...state,
+          pay: !state.pay,
+        };
+
       default:
         break;
     }
   };
   const init = {
-    acconte: false,
+    acconut: false,
     logIn: false,
+    basket:false,
+    pay:false,
   };
+  
   const reducer = useReducer(FnReducer, init);
   return (
     <>

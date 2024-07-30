@@ -27,7 +27,7 @@ const Category = ({item,select}) => {
         </span>
         <span
           id={name}
-          className="w-full font-IrHoma  mt-2 text-center rounded-xl items-center inline-block  "
+          className="w-full font-IrSans  mt-2 text-center rounded-xl items-center inline-block  "
         >
           {title}
         </span>

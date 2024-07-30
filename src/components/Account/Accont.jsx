@@ -7,22 +7,23 @@ import { GoUnlock } from "react-icons/go";
 import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout } from "react-icons/md";
 
-const Accont = () => {
+const Acconut = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   return (
     <div className=" h-full bg-white border mx-auto relative">
-      <div className={`${reduce.acconte ? `hidden` : `block`}`}>
+      <div className={`${reduce.acconut ? `hidden` : `block`}`}>
         <div
-          className={` py-6 flex items-center justify-between px-3 border-b`}
+          className={` py-10 flex items-center justify-between px-3 border-b`}
         >
           <h1 className="font-IrSana text-red-600">ورود به فروشگاه</h1>
           <span
+            className=" w-8 h-8 text-center cursor-pointer"
             onClick={() => {
               dispach({ type: "logIn" });
             }}
           >
-            <IoIosArrowBack />
+            <IoIosArrowBack className=" mt-1.5" />
           </span>
         </div>
         <img src={logo} alt="" className="mx-auto mb-20 mt-10 " />
@@ -58,7 +59,7 @@ const Accont = () => {
 
           <button
             onClick={() => {
-              dispach({ type: "acconte" });
+              dispach({ type: "acconut" });
             }}
             className="w-3/4 h-10 bg-blue-500 block mx-auto mt-5 rounded-lg text-white font-IrHoma"
           >
@@ -87,17 +88,18 @@ const Accont = () => {
       {/*  */}
       <div
         className={`font-IrHoma child:w-5/6 w-full ${
-          reduce.acconte ? `block` : `hidden`
+          reduce.acconut ? `block` : `hidden`
         }`}
       >
-        <div className="py-6 flex !w-full items-center justify-between px-3 border-b">
+        <div className="py-10 flex !w-full items-center justify-between px-3 border-b">
           <h1 className="font-IrSana text-red-600">حساب کار بری</h1>
           <span
+            className=" w-8 h-8 text-center cursor-pointer"
             onClick={() => {
               dispach({ type: "logIn" });
             }}
           >
-            <IoIosArrowBack />
+            <IoIosArrowBack className="  mt-1.5" />
           </span>
         </div>
 
@@ -165,7 +167,7 @@ const Accont = () => {
           <div
             className="flex gap-3 text-red-600 items-center mt-4"
             onClick={() => {
-              dispach({ type: "acconte" });
+              dispach({ type: "acconut" });
             }}
           >
             <span>
@@ -179,4 +181,4 @@ const Accont = () => {
   );
 };
 
-export default Accont;
+export default Acconut;
