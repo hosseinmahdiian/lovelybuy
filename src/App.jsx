@@ -31,6 +31,17 @@ function App() {
           pay: !state.pay,
         };
 
+      case "successful":
+        return {
+          ...state,
+          successful: !state.successful,
+        };
+
+      case "save":
+        return {
+          ...state,
+          save: !state.save,
+        };
       default:
         break;
     }
@@ -40,6 +51,8 @@ function App() {
     logIn: false,
     basket:false,
     pay:false,
+    successful:false,
+    save:false,
   };
   
   const reducer = useReducer(FnReducer, init);

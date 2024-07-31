@@ -6,6 +6,7 @@ import { FiCreditCard, FiTruck } from "react-icons/fi";
 import melat from "../../assets/images/melat.png";
 import { IoTimeOutline } from "react-icons/io5";
 import { DeliveryData } from "../../constant/DataSets";
+import Successsful from "./Successsful";
 const PayProducts = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -13,7 +14,7 @@ const PayProducts = () => {
   const [delivery, setDelivery] = useState(DeliveryData);
   const [select, setSelect] = useState(delivery[0]);
   return (
-    <div className="bg-white mx-auto relative h-full">
+    <div className="bg-white mx-auto relative h-full relative">
       <div className={` py-10 flex items-center justify-between px-3 border-b`}>
         <h1 className="font-IrSana text-red-600"> ادامه خرید</h1>
         <span
@@ -131,9 +132,9 @@ const PayProducts = () => {
               name="pay"
               id="melat"
               className="accent-black"
+              checked={true}
             />
             <label htmlFor="melat" className="flex items-center py-3">
-              {" "}
               <img src={melat} alt="" className="w-8" />
               <p>درگاه بانک ملت</p>
             </label>
@@ -172,10 +173,27 @@ const PayProducts = () => {
 
           <button
             className=" w-11/12 bg-blue-600 rounded-lg h-14 block mx-auto text-white my-2"
-            onClick={() => dispach({ type: "pay" })}
+            onClick={() => {
+              dispach({ type: "successful" });
+              // console.log(reduce.successful);
+            }}
           >
             انتقال به درگاه
           </button>
+        </div>
+
+        <div
+          onClick={() => {
+            dispach({ type: "successful" });
+          }}
+          className={`w-full h-full bg-black fixed right-0 top-0 z-10 bg-opacity-30 ${
+            reduce.successful ? ` ` : `hidden`
+          }  `}
+        ></div>
+        <div className={`
+          ${reduce.successful ?`block`: `hidden`}
+          absolute  -right-1/2 -left-1/2  top-96 z-[35] `}>
+          <Successsful  dispach={dispach}/>
         </div>
       </div>
     </div>

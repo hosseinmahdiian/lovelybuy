@@ -23,7 +23,10 @@ const Header = () => {
             placeholder="جستجوی کالا"
             className="hidden md:inline-block shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-xl border-black"
           />
-          <span className="hidden md:inline-block  h-[50px] w-[50px]  border rounded-xl border-black">
+          <span
+            onClick={() => dispach({ type: "save" })}
+            className="hidden md:inline-block  h-[50px] w-[50px]  border rounded-xl border-black"
+          >
             <BsBookmarkFill className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
           </span>
           <div
@@ -86,7 +89,10 @@ const Header = () => {
           </div>
           <div className="flex">
             {/* //bookmark */}
-            <span className="   h-[50px] w-[50px]  ">
+            <span
+              className="   h-[50px] w-[50px]  "
+              onClick={() => dispach({ type: "save" })}
+            >
               <BsBookmarkFill className="m-[13px] h-6 w-6 " />
             </span>
             <span>

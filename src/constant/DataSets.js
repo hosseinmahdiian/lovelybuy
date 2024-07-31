@@ -250,11 +250,7 @@ const DeliveryData = [
     date: "9مرداد",
     id: 3,
   },
-  { day: "tuesday",
-    title: "سه شنبه",
-    date: "10مرداد", 
-    id: 4 
-  },
+  { day: "tuesday", title: "سه شنبه", date: "10مرداد", id: 4 },
   {
     day: "wendesday",
     title: "چهار شنبه",
@@ -275,6 +271,16 @@ const DeliveryData = [
   },
 ];
 
+const FilterData = [
+  { title: "همه محصولات", name: "all" },
+  { title: "پر فروش ترین", name: "top-sell" },
+  { title: "پر تخفیف", name: "top-offer" },
+  { title:  "فقط برای تو", name: "for-you" },
+  { title: " نخری رفته", name: "last-time" },
+  { title: " ارزانترین", name: "cheap" },
+  { title: " گرانترین", name: "expensive" },
+];
+
 export {
   slideDadta,
   itemsData,
@@ -282,4 +288,5 @@ export {
   productsData,
   BuyProDuctsData,
   DeliveryData,
+  FilterData,
 };
