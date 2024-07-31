@@ -3,7 +3,7 @@ import { FaXmark } from "react-icons/fa6";
 
 const Successsful = ({ dispach }) => {
   return (
-    <div className="w-[480px] mx-auto  rounded-lg p-5 font-IrSans bg-white ">
+    <div className="w-[390px] mx-auto  rounded-lg p-5 font-IrSans bg-white ">
       <div className="flex justify-between  border-b pb-3">
         <h2 className="text-green-600">تراکنش موفق</h2>
         <span

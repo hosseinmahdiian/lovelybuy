@@ -14,7 +14,7 @@ const PayProducts = () => {
   const [delivery, setDelivery] = useState(DeliveryData);
   const [select, setSelect] = useState(delivery[0]);
   return (
-    <div className="bg-white mx-auto relative h-full relative">
+    <div className="bg-white mx-auto relative h-full ">
       <div className={` py-10 flex items-center justify-between px-3 border-b`}>
         <h1 className="font-IrSana text-red-600"> ادامه خرید</h1>
         <span
@@ -192,7 +192,7 @@ const PayProducts = () => {
         ></div>
         <div className={`
           ${reduce.successful ?`block`: `hidden`}
-          absolute  -right-1/2 -left-1/2  top-96 z-[35] `}>
+          absolute  right-0 left-0  top-1/4  z-[35] `}>
           <Successsful  dispach={dispach}/>
         </div>
       </div>
