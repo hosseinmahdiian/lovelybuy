@@ -281,6 +281,56 @@ const FilterData = [
   { title: " گرانترین", name: "expensive" },
 ];
 
+const OrderData = [
+  {
+    image: tomato,
+    name: "tomato",
+    title: " رب گوجه فرنگی چین چین",
+    paylod: 2,
+    pay: 200000,
+    offer: 180000,
+  },
+  {
+    image: yogurt,
+    name: "yogurt",
+    title: " ماست چکیده کاله",
+    paylod: 1,
+    pay: 250000,
+    offer: 195000,
+  },
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو لوبیا دلپذیر",
+    paylod: 4,
+    pay: 600000,
+    offer: 550000,
+  },
+  {
+    image: tomato,
+    name: "tomato",
+    title: " رب گوجه فرنگی چین چین",
+    paylod: 5,
+    pay: 200000,
+    offer: 180000,
+  },
+  {
+    image: yogurt,
+    name: "yogurt",
+    title: " ماست چکیده کاله",
+    paylod: 8,
+    pay: 250000,
+    offer: 195000,
+  },
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو لوبیا دلپذیر",
+    paylod: 3,
+    pay: 600000,
+    offer: 550000,
+  },
+];
 export {
   slideDadta,
   itemsData,
@@ -289,4 +339,5 @@ export {
   BuyProDuctsData,
   DeliveryData,
   FilterData,
+  OrderData,
 };
