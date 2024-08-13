@@ -3,6 +3,7 @@ import Routers from "./router/Router";
 import Layout from "./layout/Layout";
 import { createContext, useReducer } from "react";
 import { reducerContext } from "./constant/Context";
+import Home from "./components/Home";
 
 function App() {
   const FnReducer = (state, action) => {
@@ -49,18 +50,21 @@ function App() {
   const init = {
     acconut: false,
     logIn: false,
-    basket:false,
-    pay:false,
-    successful:false,
-    save:false,
+    basket: false,
+    pay: false,
+    successful: false,
+    save: false,
   };
-  
+
   const reducer = useReducer(FnReducer, init);
   return (
     <>
       <reducerContext.Provider value={reducer}>
         <BrowserRouter>
-          <Layout />
+          <Layout>
+            <Home />
+          </Layout>
+
           {/* <Routers /> */}
         </BrowserRouter>
       </reducerContext.Provider>

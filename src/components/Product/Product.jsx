@@ -16,7 +16,7 @@ const Product = ({ item }) => {
     console.log(count);
   };
   return (
-    <div className="xl:w-60 xl:h-[410px] \\ lg:w-56 lg:h-[400px] \\ md:w-48 \\ sm:w-52 sm:h-80 \\ es:w-44 es:h-[270px] \\ w-80 h-80 \\   mx-auto rounded-3xl border-2 relative font-IrSans es:mb-3.5 line-clamp-1">
+    <div className="xl:w-60 xl:h-[410px] \\ lg:w-56 lg:h-[400px] \\ md:w-48 \\ sm:w-52 sm:h-80 \\ es:w-44 es:h-[270px] \\ w-80 h-80 \\  bg-white mx-auto rounded-xl border-2 relative font-IrSans es:mb-3.5 line-clamp-1">
       <img
         src={image}
         alt=""
@@ -29,7 +29,7 @@ const Product = ({ item }) => {
         {save ? <FaBookmark /> : <FaRegBookmark />}
       </span>
 
-      <h2 className="text-right mr-3 font-bold es:text-[12px] sm:text-sm lg:text-lg ">
+      <h2 className="text-right mr-3 font-bold es:text-[12px] sm:text-sm lg:text-lg overf ">
         {title}
       </h2>
       <div className="child:flex child:gap-3 child:mr-2">

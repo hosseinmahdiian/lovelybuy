@@ -19,7 +19,7 @@ const Home = () => {
   if (!reduce.save) {
     return (
       <>
-        <div className="lg:mt-28 md:mt-20 h-full  ">
+        <div className="lg:mt-28 md:mt-20 h-[calc(100%+64px)] ">
           <div
             onClick={() => {
               dispach({ type: "logIn" });
@@ -45,11 +45,10 @@ const Home = () => {
             }  `}
           ></div>
           <Order/>
-          <Slides />
+          {/* <Slides /> */}
           <Categorys />
           <Filters />
           <Products />
-          <Conter />
           {/*  account & log in */}
           <div
             className={` ${
