@@ -5,7 +5,7 @@ import { FiTruck } from "react-icons/fi";
 const Order = () => {
     const [order ,setOrder]=useState(OrderData)
   return (
-    <div className="flex container justify-around mx-auto border-b mb-3 pb-3">
+    <div className="flex container justify-around mx-auto border-b mb-3 pb-3 bg-white pt-3">
       <div className=" flex items-center gap-2">
         <span className="">
           <FiTruck className="mx-3" />
