@@ -29,7 +29,7 @@ const SinUp = ({ data, dispach }) => {
           <button
             onClick={() => {
               dispach({ type: "SinUp" });
-              dispach({ type: "Login" });
+              // dispach({ type: "Login" });
             }}
             className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
