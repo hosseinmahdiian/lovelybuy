@@ -132,7 +132,7 @@ const PayProducts = () => {
               name="pay"
               id="melat"
               className="accent-black"
-              checked={true}
+              // checked={true}
             />
             <label htmlFor="melat" className="flex items-center py-3">
               <img src={melat} alt="" className="w-8" />
@@ -190,10 +190,12 @@ const PayProducts = () => {
             reduce.successful ? ` ` : `hidden`
           }  `}
         ></div>
-        <div className={`
-          ${reduce.successful ?`block`: `hidden`}
-          absolute  right-0 left-0  top-1/4  z-[35] `}>
-          <Successsful  dispach={dispach}/>
+        <div
+          className={`
+          ${reduce.successful ? `block` : `hidden`}
+          absolute  right-0 left-0  top-1/4  z-[35] `}
+        >
+          <Successsful dispach={dispach} />
         </div>
       </div>
     </div>

@@ -1,23 +1,26 @@
 import React, { useContext } from 'react';
 import { reducerContext } from '../../constant/Context';
+import { IoIosArrowBack } from 'react-icons/io';
+import { GoUnlock } from 'react-icons/go';
+import { GrLocation } from 'react-icons/gr';
+import { MdOutlineLogout } from 'react-icons/md';
 
 const AcccountLogin = () => {
-    const reducer = useContext(reducerContext);
-    const [reduce, dispach] = reducer;
+    
     return (
       <>
         <div
-          className={`font-IrHoma child:w-5/6 w-full ${
-            reduce.acconut ? `block` : `hidden`
-          }`}
+          className={`font-IrHoma child:w-5/6 w-full bg-white 
+            
+          `}
         >
           <div className="py-10 flex !w-full items-center justify-between px-3 border-b">
             <h1 className="font-IrSana text-red-600">حساب کار بری</h1>
             <span
               className=" w-8 h-8 text-center cursor-pointer"
-              onClick={() => {
-                dispach({ type: "logIn" });
-              }}
+              // onClick={() => {
+              //   dispach({ type: "logIn" });
+              // }}
             >
               <IoIosArrowBack className="  mt-1.5" />
             </span>
@@ -86,9 +89,9 @@ const AcccountLogin = () => {
 
             <div
               className="flex gap-3 text-red-600 items-center mt-4"
-              onClick={() => {
-                dispach({ type: "acconut" });
-              }}
+              // onClick={() => {
+              //   dispach({ type: "acconut" });
+              // }}
             >
               <span>
                 <MdOutlineLogout />

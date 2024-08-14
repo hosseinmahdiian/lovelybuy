@@ -6,30 +6,33 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { BsPersonCircle } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
 import { reducerContext } from "../constant/Context";
+import { NavLink, useNavigate } from "react-router-dom";
 // import { reducerContext } from "../App";
 const Header = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
+  const Navigat = useNavigate()
   // console.log(reduce);
   return (
     <>
       {/* // desctop header */}
-      <div className="w-full bg-white xl:h-32 lg:h-32 md:h-22  ">
+      <div className="w-full bg-white lg:h-28 border-b  ">
         <div className=" container w-full mx-auto font-IrSana relative">
-          <div className="lg:flex justify-between gap-3 py-[31px] hidden bg-white items-center z-10 absolute top-0 container  border-b-2">
+          <div className="lg:flex justify-between gap-3 py-[31px] hidden bg-white items-center z-10 absolute -top-[1px] container  border-b">
             <img src={logo} alt="" className=" lg:inline-block w-fit h-11  " />
             <input
               type="text"
               placeholder="جستجوی کالا"
-              className="hidden md:inline-block shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-xl border-black"
+              className="hidden md:inline-block px-5 shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-[10px] "
             />
-            <span
-              onClick={() => dispach({ type: "save" })}
+            <NavLink 
+            to={`${reduce.save ? `/`:`/Save`}`}
+              onClick={() => {dispach({ type: "save" })}}
               className="hidden md:inline-block  h-[50px] w-[50px]  border rounded-xl border-black"
             >
               <BsBookmarkFill className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
-            </span>
+            </NavLink >
             <div
               className="hidden  w-[140px] h-[50px] border rounded-xl cursor-pointer border-red-600 lg:flex items-center justify-evenly bg-[#FFEEEE]"
               onClick={() => {
@@ -64,14 +67,14 @@ const Header = () => {
               <BsPersonCircle className="m-[13px] h-6 w-6  " />
             </span>
             <div className="hidden lg:inline-block ml-[15px]">
-              <h4 className=" font-bold">اشکان حسنوند</h4>
+              <h4 className=" font-bold text-nowrap">اشکان حسنوند</h4>
               <p className="text-center opacity-75">09216919291</p>
             </div>
             <div className="hidden lg:inline-block">
               <h1>
                 <span className="text-blue-400">021</span>42156644
               </h1>
-              <p className="text-sm font-bold ">باما در تماس باشید</p>
+              <p className="text-sm font-bold text-nowrap">باما در تماس باشید</p>
             </div>
 
             <span className="mr-[15px] h-[50px] w-[50px] lg:border-0 md:border rounded-xl border-black">

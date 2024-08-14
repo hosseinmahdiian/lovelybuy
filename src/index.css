@@ -41,6 +41,12 @@
     src: url("../src/assets/fonts/IranSans/IRANSans_UltraLight.ttf"), format("woff2");
     font-display: swap;
   }
+
+   @font-face {
+    font-family: "IRANSansFaNum";
+    src: url("../src/assets/fonts/IranSans/IRANSansFaNum.ttf"), format("woff2");
+    font-display: swap;
+  }
 }
 
 

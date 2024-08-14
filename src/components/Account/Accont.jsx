@@ -13,20 +13,8 @@ const Acconut = () => {
   const [reduce, dispach] = reducer;
   return (
     <div className=" h-full bg-white border mx-auto relative">
-      <div className={`${reduce.acconut ? `hidden` : `block`}`}>
-        {/* <div
-          className={` py-10 flex items-center justify-between px-3 border-b`}
-        >
-          <h1 className="font-IrSana text-red-600">ورود به فروشگاه</h1>
-          <span
-            className=" w-8 h-8 text-center cursor-pointer"
-            onClick={() => {
-              dispach({ type: "logIn" });
-            }}
-          >
-            <IoIosArrowBack className=" mt-1.5" />
-          </span>
-        </div> */}
+      <div className={``}>
+       
         <img src={logo} alt="" className="mx-auto mb-20 mt-40 " />
 
         <div className=" ">
@@ -34,10 +22,10 @@ const Acconut = () => {
             <input
               className="peer border px-5 rounded-[10px] outline-gray-300 h-14 w-full "
               placeholder=" "
-              id="search"
+              id="phone"
             />
             <label
-              htmlFor="search"
+              htmlFor="phone"
               className="absolute start-1 IrHomama top-4 rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
             >
               شماره موبایل
@@ -45,9 +33,9 @@ const Acconut = () => {
           </div>
 
           <button
-            onClick={() => {
-              dispach({ type: "acconut" });
-            }}
+            // onClick={() => {
+            //   dispach({ type: "acconut" });
+            // }}
             className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
             ادامه

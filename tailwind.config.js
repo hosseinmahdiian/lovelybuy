@@ -10,6 +10,7 @@ export default {
         IRANSans_Light: "IRANSans_Light",
         IRANSans_Medium: "IRANSans_Medium",
         IRANSans_UltraLight: "IRANSans_UltraLight",
+        IRANSans_FaNum:"IRANSansFaNum",
       },
       screens: {
         es: "360px",

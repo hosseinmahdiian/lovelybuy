@@ -62,10 +62,9 @@ function App() {
       <reducerContext.Provider value={reducer}>
         <BrowserRouter>
           <Layout>
-            <Home />
+            {/* <Home /> */}
+            <Routers />
           </Layout>
-
-          {/* <Routers /> */}
         </BrowserRouter>
       </reducerContext.Provider>
     </>

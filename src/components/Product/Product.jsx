@@ -65,13 +65,15 @@ const Product = ({ item }) => {
                   <span className="opacity-100  w-full  items-center bottom-2  right-0 inline-block absolute border-b border-black"></span>
                 </p>
                 <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
-                  <p className="px-1 mx-auto pt-0.5 text-white  self-center font-IrSans rounded-md  text-[10px] ">
+                  <p className="px-1 mx-auto pt-0.5 text-white  self-center font-IrSans rounded-md  text-[10px]  ">
                     10 %
                   </p>
                 </div>
               </span>
               <span className="flex items-center ">
-                <p className=" text-[14px] inline-block ">{offer}</p>
+                <p className=" text-[14px] inline-block font-IRANSans_FaNum">
+                  {offer}
+                </p>
                 <p className=" text-[14px] inline-block  mr-1">تومان</p>
               </span>
             </div>
@@ -95,7 +97,7 @@ const Product = ({ item }) => {
             >
               <HiPlusSm className="w-full text-center" />
             </button>
-            <span className=" text-xl lg:text-black h-12 xl:h-12 pt-2.5 ">
+            <span className=" text-xl font-IRANSans_FaNum lg:text-black h-12 xl:h-12 pt-2.5 ">
               {count}
             </span>
             <button
