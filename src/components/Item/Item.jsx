@@ -6,7 +6,7 @@ const Item = ({ item, select }) => {
     <div className={`mt-6 items-center mx-auto w-fit relative`} name={name}>
       <span
         id={name}
-        className={` font-IrSans  rounded-xl items-center inline-block  px-2  w-fit border ${(name==select.name)?`text-white bg-black bg-opacity-80`:``}  `}
+        className={` font-IrSans text-nowrap  rounded-xl items-center inline-block  px-6  w-fit border ${(name==select.name)?`text-white bg-black bg-opacity-80`:`bg-white`}  `}
       >
         {title}
       </span>

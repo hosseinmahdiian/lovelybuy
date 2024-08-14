@@ -4,8 +4,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        IrHoma: "IrHoma",
-        IrSans: "IrSans",
+        IRANSans: "IRANSans",
+        IRANSans_Black: "IRANSans_Black",
+        IRANSans_Bold: "IRANSans_Bold",
+        IRANSans_Light: "IRANSans_Light",
+        IRANSans_Medium: "IRANSans_Medium",
+        IRANSans_UltraLight: "IRANSans_UltraLight",
       },
       screens: {
         es: "360px",

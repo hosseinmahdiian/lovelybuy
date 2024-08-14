@@ -25,8 +25,8 @@ const Filters = () => {
       {/* <Slider {...settingsForitem} className="   "> */}
       <div className="flex gap-5  overflow-x-scroll delivery mr-6">
         {data.map((item, index) => (
-          <span onClick={clickhandler} key={index}>
-            <Filter item={item} select={select} className=" mb-5" />
+          <span onClick={clickhandler} key={index} >
+            <Filter item={item} select={select} className=" mb-5 " />
           </span>
         ))}
       </div>

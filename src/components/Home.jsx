@@ -10,6 +10,7 @@ import Account from "./Account/Accont";
 import Basket from "./Basket/Basket";
 import PayProducts from "./Basket/PayProducts";
 import Order from "./order"
+import Loader from "./Loader";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -19,7 +20,7 @@ const Home = () => {
   if (!reduce.save) {
     return (
       <>
-        <div className="lg:mt-28 md:mt-20 h-[calc(100%+64px)] ">
+        <div className="   ">
           <div
             onClick={() => {
               dispach({ type: "logIn" });
@@ -44,12 +45,14 @@ const Home = () => {
               reduce.pay ? ` ` : `hidden`
             }  `}
           ></div>
-          <Order/>
+          <Order />
           {/* <Slides /> */}
           <Categorys />
           <Filters />
           <Products />
-          {/*  account & log in */}
+          {/* account & log in */}
+
+          {/* <Loader /> */}
           <div
             className={` ${
               reduce.logIn

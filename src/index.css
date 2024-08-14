@@ -3,17 +3,46 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "IrHoma";
-    src: url("../src/assets/fonts/IRHoma.woff2"), format("woff2");
+ 
+
+
+   @font-face {
+    font-family: "IRANSans";
+    src: url("../src/assets/fonts/IranSans/IRANSans.ttf"), format("woff2");
     font-display: swap;
   }
   @font-face {
-    font-family: "IrSans";
-    src: url("../src/assets/fonts/IRSans.woff2"), format("woff2");
+    font-family: "IRANSans_Black";
+    src: url("../src/assets/fonts/IranSans/IRANSans_Black.ttf"), format("woff2");
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: "IRANSans_Bold";
+    src: url("../src/assets/fonts/IranSans/IRANSans_Bold.ttf"), format("woff2");
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: "IRANSans_Light";
+    src: url("../src/assets/fonts/IranSans/IRANSans_Light.ttf"), format("woff2");
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: "IRANSans_Medium";
+    src: url("../src/assets/fonts/IranSans/IRANSans_Medium.ttf"), format("woff2");
+    font-display: swap;
+  }
+  
+
+   @font-face {
+    font-family: "IRANSans_UltraLight";
+    src: url("../src/assets/fonts/IranSans/IRANSans_UltraLight.ttf"), format("woff2");
     font-display: swap;
   }
 }
+
 
 .slick-slider {
   /* margin: 0 ; */
@@ -30,9 +59,10 @@
 
 .delivery::-webkit-scrollbar {
     /* Customize the scrollbar width */
-    width: 50px;
-    height: 5px;
-    border-radius: 20px;
+    /* width: 50px; */
+    /* height: 5px; */
+    /* border-radius: 0px; */
+    display: none;
 }
 
 .delivery::-webkit-scrollbar-track {

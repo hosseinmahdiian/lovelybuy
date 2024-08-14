@@ -9,8 +9,8 @@ const Filter = ({ item, select }) => {
         id={name}
         name={name}
         // style={{}}
-        className={` font-IrSans  rounded-xl items-center h-7 px-2  w-fit border  mt-6 whitespace-nowrap ${
-          name == select.name ? `text-white bg-black bg-opacity-80` : ``
+        className={` font-IrSans  rounded-full items-center h-8 px-4  pt-0.5  w-fit border  mt-6 whitespace-nowrap ${
+          name == select.name ? `text-white bg-black bg-opacity-80` : `bg-white`
         }  `}
       >
         {title}
