@@ -1,8 +1,13 @@
 import React from "react";
 
-const NewAccount = () => {
+const NewAccount = ({ data, dispach }) => {
   return (
-    <div className="bg-white h-full">
+    <div
+      className={` h-full bg-white border mx-auto relative ${
+        !data.NewAccount ? `hidden` : `block`
+      }`}
+    >
+      {" "}
       <div className="pt-20">
         <div className="mx-auto w-[calc(100%-80px)] ">
           <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
@@ -114,7 +119,16 @@ const NewAccount = () => {
           </select>
           {/*  */}
         </div>
-        <button className="w-[calc(100%-60px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white ">
+        <button
+          onClick={() => {
+            // console.log(data.Account);
+            dispach({ type: "NewAccount" });
+            dispach({ type: "SinUp" });
+
+            // console.log(data.Account);
+          }}
+          className="w-[calc(100%-60px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
+        >
           ذخیره اطلاعات
         </button>
 

@@ -9,7 +9,8 @@ import ChengPass from "./ChengPass";
 
 const Pages = () => {
   const init = {
-    Account: false,
+    Account: true,
+    AcconutHave:false,
     SinUp: false,
     Login: false,
     Vrify: false,
@@ -17,7 +18,7 @@ const Pages = () => {
     NewAccount: false,
   };
 
-  const reducerFN = () => {
+  const reducerFN = (state, action) => {
     switch (action.type) {
       case "Account":
         return {
@@ -59,15 +60,19 @@ const Pages = () => {
     }
   };
 
-  const [informationAccount, dispacher] = useReducer(reducerFN, init);
+  const info = useReducer(reducerFN, init);
+  const [data, dispach] = info;
+  // console.log({ dispach });
+
+  //  dispach({ type: "Account" });
   return (
     <div className="h-full">
-      {/* <Acconut /> */}
-      {/* <Vrify/> */}
-      {/* <NewAccount/> */}
-      {/* <SinUp/> */}
-      {/* <ChengPass/> */}
-      {/* <AcccountLogin/> */}
+      <Acconut data={data} dispach={dispach} />
+      <Vrify data={data} dispach={dispach} />
+      <NewAccount data={data} dispach={dispach} />
+      <SinUp data={data} dispach={dispach} />
+      <ChengPass data={data} dispach={dispach} />
+      <AcccountLogin data={data} dispach={dispach} />
     </div>
   );
 };

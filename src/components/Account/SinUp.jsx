@@ -1,9 +1,14 @@
 import React from "react";
 import { BsFileEarmarkText } from "react-icons/bs";
 
-const SinUp = () => {
+const SinUp = ({ data, dispach }) => {
   return (
-    <div className=" h-full bg-white border mx-auto relative">
+    <div
+      className={` h-full bg-white border mx-auto relative pt-60 ${
+        !data.SinUp ? `hidden` : `block`
+      }`}
+    >
+      {" "}
       <div className={``}>
         <div className=" ">
           <div className="relative w-[calc(100%-64px)] mx-auto ">
@@ -22,20 +27,30 @@ const SinUp = () => {
           </div>
 
           <button
-            // onClick={() => {
-            //   dispach({ type: "acconut" });
-            // }}
+            onClick={() => {
+              dispach({ type: "SinUp" });
+              dispach({ type: "Login" });
+            }}
             className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
             ادامه
           </button>
-          <a href="" className=" mt-5 mx-auto text-blue-500 block w-fit ">
+          <p
+            
+            onClick={() => {
+              // console.log(data.Account);
+              dispach({ type: "SinUp" });
+              dispach({ type: "ChengPass" });
+
+              // console.log(data.Account);
+            }}
+            className=" mt-5 mx-auto text-blue-500 block w-fit "
+          >
             {" "}
             نیاز به کمک دارم
-          </a>
+          </p>
         </div>
       </div>
-
       {/*  */}
     </div>
   );

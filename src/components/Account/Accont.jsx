@@ -8,13 +8,17 @@ import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
 
-const Acconut = () => {
-  const reducer = useContext(reducerContext);
-  const [reduce, dispach] = reducer;
+const Acconut = ({ data,dispach }) => {
+  // const [data, dispach] = info
+  console.log(data.Account);
+
   return (
-    <div className=" h-full bg-white border mx-auto relative">
+    <div
+      className={` h-full bg-white border mx-auto relative ${
+        !data.Account ? `hidden` : `block`
+      }`}
+    >
       <div className={``}>
-       
         <img src={logo} alt="" className="mx-auto mb-20 mt-40 " />
 
         <div className=" ">
@@ -33,9 +37,13 @@ const Acconut = () => {
           </div>
 
           <button
-            // onClick={() => {
-            //   dispach({ type: "acconut" });
-            // }}
+            onClick={() => {
+              // console.log(data.Account);
+              dispach({ type: "Account" });
+              dispach({ type: "Vrify" });
+
+              // console.log(data.Account);
+            }}
             className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
             ادامه
@@ -46,9 +54,9 @@ const Acconut = () => {
           </a>
         </div>
 
-        <div className="flex w-full  right-8 items-center  absolute gap-2 bottom-6 ">
+        <div className="flex w-fit right-0 left-0 mx-auto items-center  absolute gap-2 bottom-6 ">
           <span>
-            <BsFileEarmarkText  className="text-xl"/>
+            <BsFileEarmarkText className="text-xl" />
           </span>
           <p className="text-lg mb-0.5">
             با ورود به فروشگاه

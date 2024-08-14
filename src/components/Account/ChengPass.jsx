@@ -1,8 +1,13 @@
 import React from "react";
 
-const ChengPass = () => {
+const ChengPass = ({ data, dispach }) => {
   return (
-    <div className=" h-full bg-white border mx-auto relative">
+    <div
+      className={` h-full bg-white border mx-auto relative ${
+        !data.ChengPass ? `hidden` : `block`
+      }`}
+    >
+      {" "}
       <div className={``}>
         <div className="w-[calc(100%-64px)] mx-auto  mt-28">
           <h1 className="mb-6 text-lg">رمز عبور</h1>
@@ -26,9 +31,10 @@ const ChengPass = () => {
           </div>
 
           <button
-            // onClick={() => {
-            //   dispach({ type: "acconut" });
-            // }}
+            onClick={() => {
+              dispach({ type: "ChengPass" });
+              dispach({ type: "Account" });
+            }}
             className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
             ادامه
@@ -39,7 +45,6 @@ const ChengPass = () => {
           </a>
         </div>
       </div>
-
       {/*  */}
     </div>
   );
