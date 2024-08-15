@@ -9,7 +9,7 @@ const AcccountLogin = ({ data, dispach }) => {
   return (
     <>
       <div
-        className={` h-full bg-white border mx-auto relative px-8 ${
+        className={`  bg-white  mx-auto relative px-8 ${
           !data.Login ? `hidden` : `block`
         }`}
       >

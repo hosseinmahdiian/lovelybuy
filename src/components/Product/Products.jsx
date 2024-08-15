@@ -7,10 +7,10 @@ const Products = () => {
 
   return (
     <div className=" mx-auto mt-1 py-2.5  bg-[#F5F5F5]">
-      <div className="container mx-auto   bg-">
+      <div className="container mx-auto ">
         <div className="2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2 container">
           {data.map((item, index) => (
-            <span key={index} className="mb-5 mx2">
+            <span key={index} className="mb-5 h-[calc(100%+64px)]">
               <Product item={item} />
             </span>
           ))}

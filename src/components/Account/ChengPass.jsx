@@ -3,7 +3,7 @@ import React from "react";
 const ChengPass = ({ data, dispach }) => {
   return (
     <div
-      className={` h-full bg-white border mx-auto relative ${
+      className={`  bg-white  mx-auto relative ${
         !data.ChengPass ? `hidden` : `block`
       }`}
     >

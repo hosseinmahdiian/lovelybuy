@@ -5,7 +5,7 @@ const Vrify = ({ data, dispach }) => {
 
   return (
     <div
-      className={` h-full bg-white border mx-auto relative px-8 ${
+      className={`  bg-white  mx-auto relative px-8 ${
         !data.Vrify ? `hidden` : `block`
       }`}
     >

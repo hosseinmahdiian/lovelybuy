@@ -3,12 +3,12 @@ import React from "react";
 const NewAccount = ({ data, dispach }) => {
   return (
     <div
-      className={` h-full bg-white border mx-auto relative ${
+      className={`   bg-white  mx-auto relative pb-4 ${
         !data.NewAccount ? `hidden` : `block`
       }`}
     >
       {" "}
-      <div className="pt-20">
+      <div className="pt-14">
         <div className="mx-auto w-[calc(100%-80px)] ">
           <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
           <p className="mb-6">تکمیل اطلاعات کاربری</p>
@@ -117,6 +117,21 @@ const NewAccount = ({ data, dispach }) => {
             <option value="">دزفول</option>
             <option value="">اهواز</option>
           </select>
+          {/*  */}
+          <div className="relative   ">
+            <textarea
+              className="peer border px-5 py-2 rounded-[10px] outline-gray-300 h-20 w-full "
+              placeholder=" "
+              type="text"
+              id="unit"
+            />
+            <label
+              htmlFor="unit"
+              className="absolute  start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+            >
+              واحد خدمت
+            </label>
+          </div>
           {/*  */}
         </div>
         <button

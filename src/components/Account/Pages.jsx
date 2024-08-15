@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import { reducerContext } from "../../constant/Context";
 import Acconut from "./Accont";
 import AcccountLogin from "./Acccount-Login";
@@ -10,7 +10,7 @@ import ChengPass from "./ChengPass";
 const Pages = () => {
   const init = {
     Account: true,
-    AcconutHave:false,
+    AcconutHave: false,
     SinUp: false,
     Login: false,
     Vrify: false,
@@ -62,11 +62,22 @@ const Pages = () => {
 
   const info = useReducer(reducerFN, init);
   const [data, dispach] = info;
+
+  const reducer = useContext(reducerContext);
+  const [reduce, dispachre] = reducer;
+
+  useEffect(() => {
+    if(reduce.logIn){
+    document.documentElement.classList.add("overflow-y-hidden");
+   }else {
+      document.documentElement.classList.remove("overflow-y-hidden");
+    };
+  }, [reduce.logIn]);
   // console.log({ dispach });
 
   //  dispach({ type: "Account" });
   return (
-    <div className="h-full">
+    <div className="h-full overflow-y-scroll delivery bg-white ">
       <Acconut data={data} dispach={dispach} />
       <Vrify data={data} dispach={dispach} />
       <NewAccount data={data} dispach={dispach} />
