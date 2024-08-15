@@ -77,7 +77,9 @@ const NewAccount = ({ data, dispach }) => {
             id=""
             className="w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none  "
           >
-            <option value="">----------</option>
+            <option selected disabled value="">
+              ارگان
+            </option>
             <option value="">بیمارستان عشایر</option>
             <option value=""> دانشگاه علوم پزشکی لرستان</option>
           </select>
@@ -101,7 +103,9 @@ const NewAccount = ({ data, dispach }) => {
             id=""
             className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
           >
-            <option value="">----------</option>
+            <option selected disabled value="">
+              استان
+            </option>
             <option value="">خوزستان</option>
             <option value="">لرستان</option>
           </select>
@@ -111,7 +115,9 @@ const NewAccount = ({ data, dispach }) => {
             id=""
             className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
           >
-            <option value="">----------</option>
+            <option selected disabled value="">
+              شهر
+            </option>
             <option value="">خرم آباد</option>
             <option value="">بروجرد</option>
             <option value="">دزفول</option>
