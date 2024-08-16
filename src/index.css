@@ -82,6 +82,3 @@
     /* Customize the scrollbar thumb */
 }
 
-input[type=text]:focus {
-  border: none;
-}

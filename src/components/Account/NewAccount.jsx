@@ -20,6 +20,7 @@ const NewAccount = ({ data, dispach }) => {
               className="peer border rounded-[10px] outline-gray-300 h-12 w-full  px-5"
               placeholder=" "
               id="name"
+              type="text"
             />
             <label
               htmlFor="name"
@@ -33,6 +34,7 @@ const NewAccount = ({ data, dispach }) => {
             <input
               className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
               placeholder=" "
+              type="text"
               id="lastName"
             />
             <label
@@ -48,6 +50,7 @@ const NewAccount = ({ data, dispach }) => {
               className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
               placeholder=" "
               id="personId"
+              type="text"
             />
             <label
               htmlFor="personId"
@@ -77,11 +80,11 @@ const NewAccount = ({ data, dispach }) => {
             id=""
             className="w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none  "
           >
-            <option selected disabled value="">
+            <option selected disabled value={0}>
               ارگان
             </option>
-            <option value="">بیمارستان عشایر</option>
-            <option value=""> دانشگاه علوم پزشکی لرستان</option>
+            <option value="1">بیمارستان عشایر</option>
+            <option value="2"> دانشگاه علوم پزشکی لرستان</option>
           </select>
           {/* -------------------- */}
           <div className="relative    ">
@@ -89,6 +92,7 @@ const NewAccount = ({ data, dispach }) => {
               className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5"
               placeholder=" "
               id="duty"
+              type="text"
             />
             <label
               htmlFor="duty"
@@ -103,11 +107,11 @@ const NewAccount = ({ data, dispach }) => {
             id=""
             className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
           >
-            <option selected disabled value="">
+            <option selected disabled value={0}>
               استان
             </option>
-            <option value="">خوزستان</option>
-            <option value="">لرستان</option>
+            <option value="1">خوزستان</option>
+            <option value="2">لرستان</option>
           </select>
           {/*  */}
           <select
@@ -115,13 +119,13 @@ const NewAccount = ({ data, dispach }) => {
             id=""
             className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
           >
-            <option selected disabled value="">
+            <option selected disabled value={0}>
               شهر
             </option>
-            <option value="">خرم آباد</option>
-            <option value="">بروجرد</option>
-            <option value="">دزفول</option>
-            <option value="">اهواز</option>
+            <option value="1">خرم آباد</option>
+            <option value="2">بروجرد</option>
+            <option value="3">دزفول</option>
+            <option value="4">اهواز</option>
           </select>
           {/*  */}
           <div className="relative   ">

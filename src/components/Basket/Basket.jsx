@@ -14,15 +14,15 @@ const Basket = () => {
 
   return (
     <div className="bg-white mx-auto relative h-full ">
-      <div className={` py-6 px-8 border-b`}>
+      <div className={` py-6 px-3 border-b`}>
         <span
-          className=" h-8 text-center gap-2 cursor-pointer flex items-center"
+          className=" h-5 text-center gap-2 cursor-pointer flex items-center"
           onClick={() => {
             dispach({ type: "basket" });
           }}
         >
           <IoIosArrowForward className="text-xl" />
-          <h1 className="font-IrSana text-red-600 text-xl font-bold text-nowrap">
+          <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
             {" "}
             سبد خرید
           </h1>

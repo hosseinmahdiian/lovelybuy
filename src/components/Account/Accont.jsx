@@ -10,7 +10,7 @@ import { BsFileEarmarkText } from "react-icons/bs";
 
 const Acconut = ({ data,dispach }) => {
   // const [data, dispach] = info
-  console.log(data.Account);
+  // console.log(data.Account);
 
   return (
     <div

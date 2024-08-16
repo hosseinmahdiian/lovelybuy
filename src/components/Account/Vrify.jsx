@@ -1,7 +1,7 @@
 import React from "react";
 
 const Vrify = ({ data, dispach }) => {
-  console.log(data.Vrify);
+  // console.log(data.Vrify);
 
   return (
     <div

@@ -6,6 +6,7 @@ import Category from "../components//Category/Categorys";
 
 import Save from "../components/Save";
 import Search from "../components/Search/Search";
+import Private from "../components/Private/Private ";
 const Routers = () => {
   return (
     <Routes>
@@ -13,6 +14,7 @@ const Routers = () => {
       <Route path="*" element={<NotFind />} />
       <Route path="Save" element={<Save />} />
       <Route path="Search" element={<Search />} />
+      <Route path="Private" element={<Private />} />
     </Routes>
   );
 };

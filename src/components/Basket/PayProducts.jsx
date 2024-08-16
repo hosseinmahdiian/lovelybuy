@@ -30,13 +30,13 @@ const PayProducts = () => {
         className={` py-6 flex  gap-2 items-center justify-between px-3 border-b`}
       >
         <span
-          className=" flex h-8 text-center gap-2 cursor-pointer"
+          className=" flex h-5 text-center gap-2 cursor-pointer"
           onClick={() => {
             dispach({ type: "pay" });
           }}
         >
           <IoIosArrowForward className="text-xl mt-1 " />
-          <h1 className="font-IrSana text-red-600 text-xl font-bold">
+          <h1 className="font-IrSana text-red-600 text-lg font-bold">
             {" "}
             ادامه خرید
           </h1>

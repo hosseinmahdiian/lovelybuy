@@ -43,6 +43,11 @@ function App() {
           ...state,
           save: !state.save,
         };
+      case "Conection":
+        return {
+          ...state,
+          Conection: !state.Conection,
+        };
       default:
         break;
     }
@@ -54,6 +59,7 @@ function App() {
     pay: false,
     successful: false,
     save: false,
+    Conection:false,
   };
 
   const reducer = useReducer(FnReducer, init);

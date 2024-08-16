@@ -13,6 +13,7 @@ import Order from "./order"
 import Loader from "./Loader";
 import Pages from "./Account/Pages";
 import Successsful from "./Basket/Successsful";
+import Conection from "./Private/Conection";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -45,6 +46,14 @@ const Home = () => {
             }}
             className={`w-full h-full bg-black fixed top-0 z-20 bg-opacity-30 ${
               reduce.pay ? ` ` : `hidden`
+            }  `}
+          ></div>
+          <div
+            onClick={() => {
+              dispach({ type: "Conection" });
+            }}
+            className={`w-full h-full bg-black fixed top-0 z-50 bg-opacity-30 ${
+              reduce.Conection ? ` ` : `hidden`
             }  `}
           ></div>
           <Order />
@@ -91,9 +100,16 @@ const Home = () => {
           <div
             className={`
           ${reduce.successful ? `block` : `hidden`}
-          absolute  right-0 left-0  top-1/4  z-[35] `}
+          absolute  right-0 left-0  top-1/4  h-full z-[35] bg-slate-400`}
           >
             <Successsful dispach={dispach} />
+          </div>
+          <div
+            className={`
+          ${reduce.Conection ? `block` : `hidden`}
+          absolute  right-0 left-0 mx-auto  top-1/4  z-[35] bg-slate-400`}
+          >
+            <Conection dispach={dispach} />
           </div>
         </div>
       </>
