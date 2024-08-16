@@ -8,13 +8,13 @@ const NewAccount = ({ data, dispach }) => {
       }`}
     >
       {" "}
-      <div className="pt-14">
-        <div className="mx-auto w-[calc(100%-80px)] ">
+      <div className="pt-12">
+        <div className="mx-auto w-[calc(100%-40px)] ">
           <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
           <p className="mb-6">تکمیل اطلاعات کاربری</p>
         </div>
 
-        <div className="mt-6 child:mb-5 mx-8 ">
+        <div className="mt-6 child:mb-5 mx-5 ">
           <div className="relative   ">
             <input
               className="peer border rounded-[10px] outline-gray-300 h-12 w-full  px-5"
@@ -66,7 +66,7 @@ const NewAccount = ({ data, dispach }) => {
             />
             <label
               htmlFor="pass"
-              className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+              className="absolute start-1 IrHomama top-2.5 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
             >
               رمزعبور{" "}
             </label>

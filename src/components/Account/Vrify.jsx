@@ -5,12 +5,12 @@ const Vrify = ({ data, dispach }) => {
 
   return (
     <div
-      className={`  bg-white  mx-auto relative px-8 ${
+      className={`  bg-white  mx-auto relative px-5 ${
         !data.Vrify ? `hidden` : `block`
       }`}
     >
       {" "}
-      <div className="mt-36">
+      <div className="mt-28">
         <h2 className="mb-6">کد تایید را وارد کنید</h2>
         <p>کد تایید را به شماره موبایل 09216919291 ارسال گردید</p>
         <p>

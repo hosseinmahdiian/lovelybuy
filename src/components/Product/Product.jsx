@@ -17,13 +17,13 @@ const Product = ({ item }) => {
     console.log(count);
   };
   return (
-    <div className="xl:w-60 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-80  \\  md:px-0  px-0.5  mx-auto rounded-2xl lg:border-2 relative font-IrSans mb-0.5 lg:mb-0  border-b-0 line-clamp-1">
+    <div className="xl:w-60 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-80  \\  md:px-0  px-0.5  mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1">
       <div className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm ">
         {/* <div className=" bg-white border-b rounded-br-lg"> */}
         <img
           src={image}
           alt=""
-          className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-28 es:h-28 w-40 h-40  bg-white mx-auto "
+          className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-32 es:h-32 w-40 h-40  bg-white mx-auto "
         />
         <span
           onClick={() => setSave(!save)}
@@ -32,7 +32,7 @@ const Product = ({ item }) => {
           {save ? <FaBookmark /> : <FaRegBookmark />}
         </span>
 
-        <h2 className="text-right mr-3  line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
+        <h2 className="text-right mr-3 pt-2  line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
           {title}
         </h2>
         <div>
@@ -53,16 +53,16 @@ const Product = ({ item }) => {
             </span>
           </div> */}
 
-          <div className="child:gap-3 child:mr-2  mt-3  flex  justify-between mx-2">
+          <div className="child:gap-3 child:mr-2  mt-1  flex  justify-between mx-2">
             <div>
               {/* <p>تعداد</p>
               <p>تاریخ</p> */}
             </div>
             <div className="flex-col child:flex my-1">
               <span className="relative  items-center justify-end  !flex">
-                <p className="opacity-70 text-[10px] relative">
+                <p className="opacity-70 text-[0.800rem] relative">
                   {pay}
-                  <span className="opacity-100  w-full  items-center bottom-2  right-0 inline-block absolute border-b border-black"></span>
+                  <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
                 </p>
                 <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
                   <p className="px-1 mx-auto pt-0.5 text-white  self-center font-IrSans rounded-md  text-[10px]  ">

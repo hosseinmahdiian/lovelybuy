@@ -10,7 +10,7 @@ import ChengPass from "./ChengPass";
 const Pages = () => {
   const init = {
     Account: true,
-    AcconutHave: false,
+    AcconutHave: true,
     SinUp: false,
     Login: false,
     Vrify: false,

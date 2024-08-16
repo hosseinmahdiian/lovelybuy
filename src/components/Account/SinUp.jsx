@@ -8,14 +8,14 @@ const SinUp = ({ data, dispach }) => {
   return (
     <>
       <div
-        className={`  bg-white  mx-auto relative pt-60 ${
+        className={`  bg-white  mx-auto relative pt-52 ${
           !data.SinUp ? `hidden` : `block`
         }`}
       >
         {" "}
         <div className={``}>
           <div className=" ">
-            <div className="relative w-[calc(100%-64px)] mx-auto ">
+            <div className="relative w-[calc(100%-40px)] mx-auto ">
               <input
                 className="peer border px-5 rounded-[10px] outline-gray-300 h-14 w-full "
                 placeholder=" "
@@ -36,7 +36,7 @@ const SinUp = ({ data, dispach }) => {
                 dispach({ type: "Account" });
                 dispachre({ type: "logIn" });
               }}
-              className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
+              className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
             >
               ادامه
             </button>

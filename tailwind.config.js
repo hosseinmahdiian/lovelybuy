@@ -13,7 +13,7 @@ export default {
         IRANSans_FaNum:"IRANSansFaNum",
       },
       screens: {
-        es: "360px",
+        es: "370px",
       },
     },
   },

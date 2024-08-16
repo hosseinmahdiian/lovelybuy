@@ -9,13 +9,13 @@ const ChengPass = ({ data, dispach }) => {
     >
       {" "}
       <div className={``}>
-        <div className="w-[calc(100%-64px)] mx-auto  mt-28">
+        <div className="w-[calc(100%-40px)] mx-auto  mt-28">
           <h1 className="mb-6 text-lg">رمز عبور</h1>
           <p className="mb-16">رمز عبور جدید را وارد کنید</p>
         </div>
 
         <div className=" ">
-          <div className="relative w-[calc(100%-64px)] mx-auto ">
+          <div className="relative w-[calc(100%-40px)] mx-auto ">
             <input
               className="peer border px-5 rounded-[10px] outline-gray-300 h-14 w-full "
               placeholder=" "
@@ -35,7 +35,7 @@ const ChengPass = ({ data, dispach }) => {
               dispach({ type: "ChengPass" });
               dispach({ type: "Account" });
             }}
-            className="w-[calc(100%-64px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
+            className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
             ادامه
           </button>
