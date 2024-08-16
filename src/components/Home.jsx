@@ -12,6 +12,7 @@ import PayProducts from "./Basket/PayProducts";
 import Order from "./order"
 import Loader from "./Loader";
 import Pages from "./Account/Pages";
+import Successsful from "./Basket/Successsful";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -86,6 +87,13 @@ const Home = () => {
             // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
           >
             <PayProducts />
+          </div>
+          <div
+            className={`
+          ${reduce.successful ? `block` : `hidden`}
+          absolute  right-0 left-0  top-1/4  z-[35] `}
+          >
+            <Successsful dispach={dispach} />
           </div>
         </div>
       </>

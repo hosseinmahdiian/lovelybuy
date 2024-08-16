@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { FaMinus } from "react-icons/fa6";
+import { HiPlusSm } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
 
 const BuyProducts = ({ item }) => {
   const { name, paylod, title, pay, offer, image } = item;
@@ -14,45 +17,55 @@ const BuyProducts = ({ item }) => {
 
   if (count > 0) {
     return (
-      <div className="flex w-11/12 font-IrSans border-b mx-auto py-5 ">
-        <img src={image} alt="" className="w-24 h-24" />
-        <div className="w-full ">
-          <h2 className="line-clamp-1 font-bold">{title}</h2>
-          <div className="flex justify-between ">
-            <div className="flex items-center gap-4   bg-white   rounded-b-2xl mt-2">
-              <button
-                className=" w-8 h-8 text-center   border-[3px] rounded-xl text-green-700 text-xl border-green-600 "
-                onClick={increaseHandeler}
-              >
-                +
-              </button>
-              <span className=" text-xl text-red-600 ">{count}</span>
-              <button
-                className=" w-8 h-8 border-[3px] rounded-xl text-red-700 text-xl border-red-600 "
-                onClick={decreaseHandeler}
-              >
-                -
-              </button>
-            </div>
+      <>
+        <div className="flex w-11/12 font-IrSans border-b mx-4 py-2 ">
+          <img
+            src={image}
+            alt=""
+            className="w-[70px] h-[70px] border rounded-md ml-2"
+          />
+          <div className="w-full ">
+            <h2 className="line-clamp-1 font-bold text-sm">{title}</h2>
+            <div className="flex justify-between h-10 ">
+              <div className="flex items-center gap-4   bg-white   rounded-b-2xl ">
+                <div className="flex items-center gap-4   mt-6 bg-white  mr  rounded-b-2xl mr-2">
+                  <button
+                    className=" w-8 h-8 text-center   border rounded-[10px] text-green-700 text-xl border-green-600 "
+                    onClick={increaseHandeler}
+                  >
+                    <HiPlusSm className="w-full text-center" />
+                  </button>
+                  <span className=" text-xl text-red-600  w-4 text-center mx-3">{count}</span>
+                  <button
+                    className=" w-8 h-8 border rounded-[10px] text-red-700 text-xl border-red-600 "
+                    onClick={decreaseHandeler}
+                  >
+                    <FaMinus className="w-full text-center text-sm" />
+                  </button>
+                </div>
+              </div>
 
-            <div className="child:flex child:gap-3 child:mr-2">
-              <span className="relative mt-2 items-center">
-                <p className="opacity-70 text-[12px]">
-                  {pay}
-                  <span className="opacity-100  w-10  bottom-2  right-0 inline-block absolute border-b-2 border-black"></span>
-                </p>
-                <p className="px-1 py-0 text-white  self-center font-IrSans rounded-md  bg-red-500 text-sm  ">
-                  10%
-                </p>
-              </span>
-              <span>
-                <p className=" text ">{offer}</p>
-                <p className=" text ">تومان</p>
-              </span>
+              <div className="child:flex child:gap-3 child:mr-2  mt-3 ">
+                <span className="relative  items-center justify-end ">
+                  <p className="opacity-70 text-[13px] relative">
+                    {pay}
+                    <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
+                  </p>
+                  <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center">
+                    <p className="px-1 mx-auto pt-0.5 text-white  self-center font-IrSans rounded-md  text-[10px] ">
+                      10 %
+                    </p>
+                  </div>
+                </span>
+                <span className="flex items-center ">
+                  <p className=" text-[14px] inline-block ">{offer}</p>
+                  <p className=" text-[14px] inline-block ">تومان</p>
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 };

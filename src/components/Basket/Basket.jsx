@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { reducerContext } from "../../constant/Context";
 import { BuyProDuctsData } from "../../constant/DataSets";
 import BuyProducts from "./BuyProducts";
 import PayProducts from "./PayProducts";
+import Successsful from "./Successsful";
 
 const Basket = () => {
   const reducer = useContext(reducerContext);
@@ -12,16 +13,19 @@ const Basket = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-white mx-auto relative h-full relative">
-      <div className={` py-10 flex items-center justify-between px-3 border-b`}>
-        <h1 className="font-IrSana text-red-600"> سبد خرید</h1>
+    <div className="bg-white mx-auto relative h-full ">
+      <div className={` py-6 px-8 border-b`}>
         <span
-          className=" w-8 h-8 text-center cursor-pointer"
+          className=" h-8 text-center gap-2 cursor-pointer flex items-center"
           onClick={() => {
             dispach({ type: "basket" });
           }}
         >
-          <IoIosArrowBack className="mt-1.5" />
+          <IoIosArrowForward className="text-xl" />
+          <h1 className="font-IrSana text-red-600 text-xl font-bold text-nowrap">
+            {" "}
+            سبد خرید
+          </h1>
         </span>
       </div>
 
@@ -32,7 +36,7 @@ const Basket = () => {
           </div>
         ))}
 
-        <div className="absolute bottom-0 border-t w-full bg-white ">
+        <div className=" bg-white  bottom-6 w-full left-0 right-0  absolute border-t px5">
           <div className="flex text-gray-400 justify-between mx-5 mt-2">
             <p>مجموعه خرید</p>
             <span className="flex gap-0.5">
@@ -41,7 +45,7 @@ const Basket = () => {
             </span>
           </div>
 
-          <div className="flex text-gray-400 justify-between mx-5 mt-2">
+          <div className="flex text-gray-400 justify-between mx-5 mt-1">
             <p>مجموع تخفیف</p>
             <span className="flex gap-0.5">
               <p>{}</p>
@@ -49,28 +53,27 @@ const Basket = () => {
             </span>
           </div>
 
-          <div className="flex text-gray-400 justify-between mx-5 mt-2">
+          <div className="flex text-gray-400 justify-between mx-5 mt-1">
             <p> هزینه ارسال</p>
             <p>رایگان</p>
           </div>
 
-          <div className="flex justify-between mx-5 text-lg mt-2">
+          <div className="flex justify-between mx-5 text-lg mt-">
             <p>قابل پرداخت</p>
             <span className="flex gap-0.5">
-              <p>{}</p>
+              <p>{2164896}</p>
               <p>تومان</p>
             </span>
           </div>
 
           <button
-            className=" w-10/12 bg-blue-600 rounded-lg h-14 block mx-auto text-white my-2"
+            className=" w-[calc(100%-40px)] bg-blue-600 rounded-lg mt-4 h-12 block mx-auto text-white my-2"
             onClick={() => dispach({ type: "pay" })}
           >
             ادامه خرید
           </button>
-
-
         </div>
+        
       </div>
     </div>
   );
