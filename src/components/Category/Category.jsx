@@ -5,7 +5,7 @@ const Category = ({item,select}) => {
   // console.log(select);
   return (
     <>
-      <div className={`mt-6 items-center mx-auto !w-fit relative`} name={name}>
+      <div className={`items-center mx-auto  relative`} name={name}>
         <img
           src={image}
           className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${

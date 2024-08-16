@@ -61,6 +61,30 @@ const CategoryData = [
     title: "روغن",
     select: false,
   },
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو",
+    select: true,
+  },
+  {
+    image: meet,
+    name: "meet",
+    title: "گوشت",
+    select: false,
+  },
+  {
+    image: milk,
+    name: "milk",
+    title: "شیر",
+    select: false,
+  },
+  {
+    image: oil,
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
 ];
 
 const itemsData = [

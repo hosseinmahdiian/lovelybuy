@@ -6,7 +6,7 @@ const Products = () => {
   const [data, setData] = useState(productsData);
 
   return (
-    <div className=" mx-auto mt-1 py-2.5  bg-[#F5F5F5]">
+    <div className=" mx-auto  py-2.5  bg-[#F5F5F5]">
       <div className="container mx-auto ">
         <div className="2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2 container">
           {data.map((item, index) => (

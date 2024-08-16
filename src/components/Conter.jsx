@@ -17,9 +17,9 @@ const Conter = () => {
         <div className={`  w-full   justify-center flex  `}>
           <div className="fixed  -bottom-5 z-10 flex my-5 bg-white w-full   h-16 justify-around mx-auto border-t font-IrSans text-[12px]  items-center  child:text-center ">
             {/* <NavLink to="/acconte"> */}
-            <span className=" ">
+            <NavLink to="Search" className=" ">
               <IoIosSearch className=" mx-auto text-2xl" />
-            </span>
+            </NavLink>
             {/* </NavLink> */}
 
             <CiShoppingTag

@@ -81,3 +81,7 @@
     background: #9c9a9a;
     /* Customize the scrollbar thumb */
 }
+
+input[type=text]:focus {
+  border: none;
+}

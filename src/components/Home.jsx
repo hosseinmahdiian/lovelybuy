@@ -50,9 +50,10 @@ const Home = () => {
           {/* <Slides /> */}
           <Categorys />
           <Filters />
-          <Products />
+          <div className="mt-1">
+            <Products />
+          </div>{" "}
           {/* account & log in */}
-
           {/* <Loader /> */}
           <div
             className={` ${

@@ -17,12 +17,9 @@ const Items = () => {
     });
   };
   return (
-    <div
-      className="container m-auto  border-black border-opacity-20 pb-3 "
-      id="items"
-    >
+    <div className=" w-full  border-black border-opacity-20 pb-3 " id="items">
       {/* <Slider {...settingsForitem} className="   "> */}
-      <div className="flex gap-2 overflow-hidden mr-6">
+      <div className="flex gap-2 overflow-x-scroll delivery">
         {data.map((item, index) => (
           <span onClick={clickhandler} key={index}>
             <Item item={item} select={select} className=" mb-5" />

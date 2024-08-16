@@ -20,14 +20,14 @@ const Categorys = () => {
     });
   };
   return (
-    <div className="container mx-auto ">
+    <div className=" mx-auto ">
       {/* <Slider
         {...settingsForCategory}
         className=" container mx-auto  lg:w-[500px]  "
       > */}
-      <div className="flex gap-2 overflow-hidden mr-5 ">
+      <div className="flex gap-2  w-full overflow-scroll ">
         {data.map((item, index) => (
-          <span key={index} onClick={clickhandler}>
+          <span key={index} onClick={clickhandler} className="  ">
             <Category item={item} select={select} />
           </span>
         ))}

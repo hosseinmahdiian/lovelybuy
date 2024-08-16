@@ -5,12 +5,14 @@ import NotFind from "../components/NotFind";
 import Category from "../components//Category/Categorys";
 
 import Save from "../components/Save";
+import Search from "../components/Search/Search";
 const Routers = () => {
   return (
     <Routes>
       <Route index element={<Home />} />
       <Route path="*" element={<NotFind />} />
       <Route path="Save" element={<Save />} />
+      <Route path="Search" element={<Search />} />
     </Routes>
   );
 };
