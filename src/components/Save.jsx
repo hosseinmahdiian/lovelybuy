@@ -14,7 +14,7 @@ const Save = () => {
   const [reduce, dispach] = reducer;
   return (
     <>
-      <div className="lg:mt-36 md:mt-32 h-full mt-[75px] ">
+      <div className=" h-full mt-[75px] ">
         <div
           onClick={() => {
             dispach({ type: "logIn" });

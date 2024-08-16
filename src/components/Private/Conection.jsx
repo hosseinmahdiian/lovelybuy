@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -12,8 +12,16 @@ import { reducerContext } from "../../constant/Context";
 const Conection = () => {
     const reducer = useContext(reducerContext);
     const [reduce, dispach] = reducer;
+
+     useEffect(() => {
+       if (reduce.Conection) {
+         document.documentElement.classList.add("overflow-y-hidden");
+       } else {
+         document.documentElement.classList.remove("overflow-y-hidden");
+       }
+     }, [reduce.Conection]);
   return (
-    <div className="w-[calc(100%-40px)] max-w-[600px] mx-auto  rounded-[10px] pt-5 font-IrSans z-60 bg-white border ">
+    <div className="w-full rounded-[10px] pt-5 font-IrSans z-60 bg-white border ">
       <div className="flex justify-between  border-b pb-3 px-6">
         <h2 className=" font-bold text-lg text-red-500"> ارتباط با ما</h2>
         <span

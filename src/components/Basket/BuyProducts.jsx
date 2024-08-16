@@ -18,7 +18,7 @@ const BuyProducts = ({ item }) => {
   if (count > 0) {
     return (
       <>
-        <div className="flex w-11/12 font-IrSans border-b mx-4 py-2 ">
+        <div className="flex w-11/12 font-IrSans border-b mx-4 py-2  ">
           <img
             src={image}
             alt=""

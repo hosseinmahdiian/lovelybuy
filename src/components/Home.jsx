@@ -52,7 +52,7 @@ const Home = () => {
             onClick={() => {
               dispach({ type: "Conection" });
             }}
-            className={`w-full h-full bg-black fixed top-0 z-50 bg-opacity-30 ${
+            className={`w-full h-full bg-black fixed top-0 z-30 bg-opacity-30 ${
               reduce.Conection ? ` ` : `hidden`
             }  `}
           ></div>
@@ -100,14 +100,14 @@ const Home = () => {
           <div
             className={`
           ${reduce.successful ? `block` : `hidden`}
-          absolute  right-0 left-0  top-1/4  h-full z-[35] bg-slate-400`}
+          absolute  right-0 left-0  top-1/4 w-[calc(100%-40px)] max-w-[600px] mx-auto   z-[35]`}
           >
             <Successsful dispach={dispach} />
           </div>
           <div
             className={`
           ${reduce.Conection ? `block` : `hidden`}
-          absolute  right-0 left-0 mx-auto  top-1/4  z-[35] bg-slate-400`}
+          absolute  right-0 left-0 mx-auto  top-1/4  w-[calc(100%-40px)] max-w-[600px]   z-[35] `}
           >
             <Conection dispach={dispach} />
           </div>

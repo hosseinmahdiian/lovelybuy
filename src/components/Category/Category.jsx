@@ -5,7 +5,10 @@ const Category = ({item,select}) => {
   // console.log(select);
   return (
     <>
-      <div className={`items-center mx-auto  relative`} name={name}>
+      <div
+        className={`items-center mx-auto  relative md:w-[100px] md:h-[100px] w-[80px] h-[80px] `}
+        name={name}
+      >
         <img
           src={image}
           className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
@@ -18,9 +21,7 @@ const Category = ({item,select}) => {
 
         <span
           className={`absolute   bottom-10 left-3  ${
-            select.name == name
-              ? `inline-block`
-              : `hidden`
+            select.name == name ? `inline-block` : `hidden`
           }  `}
         >
           <TbSquareRoundedCheckFilled />

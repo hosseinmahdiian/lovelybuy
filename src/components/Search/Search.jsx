@@ -11,6 +11,11 @@ import { IoClose } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import Products from "../Product/Products";
 import Filters from "../Filter/Filters";
+import PayProducts from "../Basket/PayProducts";
+import Successsful from "../Basket/Successsful";
+import Conection from "../Private/Conection";
+import Pages from "../Account/Pages";
+import Basket from "../Basket/Basket";
 
 const Search = () => {
   const reducer = useContext(reducerContext);
@@ -21,7 +26,38 @@ const Search = () => {
     <>
       {/* headers */}
       <div className="w-full h-0 ">
-        {" "}
+        <div
+          onClick={() => {
+            dispach({ type: "logIn" });
+          }}
+          className={`w-full h-full bg-black fixed top-0 z-[51] bg-opacity-30 ${
+            reduce.logIn ? ` ` : `hidden`
+          }  `}
+        ></div>
+        <div
+          onClick={() => {
+            dispach({ type: "basket" });
+          }}
+          className={`w-full h-full bg-black fixed top-0 z-[51] bg-opacity-30 ${
+            reduce.basket ? ` ` : `hidden`
+          }  `}
+        ></div>
+        <div
+          onClick={() => {
+            dispach({ type: "pay" });
+          }}
+          className={`w-full h-full bg-black fixed top-0 z-[52] bg-opacity-30 ${
+            reduce.pay ? ` ` : `hidden`
+          }  `}
+        ></div>
+        <div
+          onClick={() => {
+            dispach({ type: "Conection" });
+          }}
+          className={`w-full h-full bg-black fixed top-0 z-[51] bg-opacity-30 ${
+            reduce.Conection ? ` ` : `hidden`
+          }  `}
+        ></div>{" "}
         <div className=" bg-b mx-auto  relative   ">
           <div className=" container w-full mx-auto font-IrSana absolute left-0 right-0 -top-28 z-50 ">
             <div className="lg:flex justify-between gap-3 py-[31px] hidden bg-white w-full  items-center  absolute mx-auto   border-b">
@@ -101,7 +137,7 @@ const Search = () => {
                   </div>
                 </div>
                 <div
-                  className="flex  border-r px-2"
+                  className="flex  border-r cursor-pointer px-2"
                   onClick={() => {
                     console.log(reduce.Conection);
                     dispach({ type: "Conection" });
@@ -159,6 +195,53 @@ const Search = () => {
         </div>
 
         <Products />
+      </div>
+      {/* ======================= */}
+      <div
+        className={` ${
+          reduce.logIn
+            ? ` sm:left-0 top-0  `
+            : `sm:-left-[8000px] -bottom-[8000px] `
+        } fixed  md:w-[500px] es:w-full  z-[55] h-full transition-all  ease-in-out `}
+      >
+        <Pages />
+      </div>
+      {/* Basket & pay */}
+      <div
+        className={` ${
+          reduce.basket
+            ? reduce.pay
+              ? ` sm:left-96 top-0 !z-[50] `
+              : ` sm:left-0 top-0  `
+            : `sm:-left-[8000px] -bottom-[8000px] `
+        } fixed  sm:w-[400px] es:w-full w-[375px] md:w-[500px] z-[55] h-full transition-all  ease-in-out border-r`}
+      >
+        <Basket />
+      </div>
+      <div
+        className={` ${
+          reduce.pay
+            ? ` sm:left-0 top-0  `
+            : `sm:-left-[8000px] -bottom-[8000px] `
+        } fixed  md:w-[500px] es:w-full  z-[55] h-full transition-all  ease-in-out `}
+
+        // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
+      >
+        <PayProducts />
+      </div>
+      <div
+        className={`
+          ${reduce.successful ? `block` : `hidden`}
+          absolute  right-0 left-0  top-1/4 w-[calc(100%-40px)] max-w-[600px] mx-auto   z-[55]`}
+      >
+        <Successsful dispach={dispach} />
+      </div>
+      <div
+        className={`
+          ${reduce.Conection ? `block` : `hidden`}
+          absolute  right-0 left-0 mx-auto  top-1/4  w-[calc(100%-40px)] max-w-[600px]   z-[55] `}
+      >
+        <Conection dispach={dispach} />
       </div>
     </>
   );

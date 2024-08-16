@@ -101,7 +101,7 @@ const Header = () => {
                   dispach({ type: "Conection" });
                 }}
               >
-                <span className=" h-[50px] w-[50px]  rounded-xl border-black">
+                <span className=" h-[50px] w-[50px]  rounded-xl border-black" >
                   <LuPhoneCall className="hidden md:inline-block m-[13px] h-6 w-6" />
                 </span>
                 <div className="hidden lg:inline-block   text-justify">
@@ -141,7 +141,7 @@ const Header = () => {
             >
               <BsBookmarkFill className="m-[13px] h-6 w-6 " />
             </NavLink>
-            <span>
+            <span onClick={()=>{dispach({ type: "Conection" })}}>
               <LuPhoneCall className="m-[13px] h-6 w-6" />
             </span>
           </div>
