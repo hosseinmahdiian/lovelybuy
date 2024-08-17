@@ -30,18 +30,20 @@ const Vrify = ({ data, dispach }) => {
           </span>
         </p>
       </div>
-      <div className=" flex gap-3 mt-8 mx-auto w-fit   ">
+      <div className=" child:flex-row-reverse gap-3 mt-8 mx-auto w-fit   ">
         <OTPInput
-        
           value={otp}
           onChange={setOtp}
           numInputs={4}
+          shouldAutoFocus={true}
+          lastInputFocused={true}
           // renderSeparator={<span>-</span>}
           renderInput={(props) => (
             <input
               {...props}
               type="number"
-              
+              autoFocus
+              // onFocus
               className=" !w-12 h-12 border border-blue-600 rounded-[10px]  mx-2"
             />
           )}
@@ -56,6 +58,7 @@ const Vrify = ({ data, dispach }) => {
             dispach({ type: "Vrify" });
             dispach({ type: "NewAccount" });
           }
+          // console.log(otp);
         }}
         className="w-full  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
       >
