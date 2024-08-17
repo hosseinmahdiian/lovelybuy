@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import OTPInput from "react-otp-input";
 
 const Vrify = ({ data, dispach }) => {
   // console.log(data.Vrify);
+
+  const [otp, setOtp] = useState("");
 
   return (
     <div
@@ -27,11 +30,22 @@ const Vrify = ({ data, dispach }) => {
           </span>
         </p>
       </div>
-      <div className=" flex gap-3 mt-8 mx-auto w-fit  child:w-12 child:h-12 child:border child:border-blue-600 child:rounded-[10px] child:px-4 ">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+      <div className=" flex gap-3 mt-8 mx-auto w-fit   ">
+        <OTPInput
+        
+          value={otp}
+          onChange={setOtp}
+          numInputs={4}
+          // renderSeparator={<span>-</span>}
+          renderInput={(props) => (
+            <input
+              {...props}
+              type="number"
+              
+              className=" !w-12 h-12 border border-blue-600 rounded-[10px]  mx-2"
+            />
+          )}
+        />
       </div>
       <button
         onClick={() => {
