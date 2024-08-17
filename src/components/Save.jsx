@@ -8,13 +8,15 @@ import Categorys from "./Category/Categorys";
 import Slides from "./Slider/Slides";
 import { reducerContext } from "../constant/Context";
 import Pages from "./Account/Pages";
+import Successsful from "./Basket/Successsful";
+import Conection from "./Private/Conection";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   return (
     <>
-      <div className=" h-full mt-[75px] ">
+      <div className=" h-full mt-5 ">
         <div
           onClick={() => {
             dispach({ type: "logIn" });
@@ -39,6 +41,8 @@ const Save = () => {
             reduce.pay ? ` ` : `hidden`
           }  `}
         ></div>
+
+      
         {/* <Slides /> */}
         <Categorys />
         <Items />
@@ -76,6 +80,22 @@ const Save = () => {
           // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
         >
           <PayProducts />
+        </div>
+
+        <div
+          className={`
+          ${reduce.successful ? `block` : `hidden`}
+          absolute  right-0 left-0  top-1/4 w-[calc(100%-40px)] max-w-[600px] mx-auto   z-[35]`}
+        >
+          <Successsful dispach={dispach} />
+        </div>
+
+        <div
+          className={`
+          ${reduce.Conection ? `block` : `hidden`}
+          absolute  right-0 left-0 mx-auto  top-1/4  w-full   z-[35] `}
+        >
+          <Conection dispach={dispach} />
         </div>
       </div>
     </>

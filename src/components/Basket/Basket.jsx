@@ -22,7 +22,7 @@ const Basket = () => {
 
   return (
     <div className="bg-white mx-auto relative h-full ">
-      <div className="h-full overflow-y-scroll delivery bg-">
+      <div className="h-full   bg-">
         <div className={` py-6 px-3 border-b`}>
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
@@ -38,7 +38,7 @@ const Basket = () => {
           </span>
         </div>
 
-        <div className=" h-[calc(100%+50px)] ">
+        <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
           {buyProducts.map((item, index) => (
             <div key={index}>
               <BuyProducts item={item} />

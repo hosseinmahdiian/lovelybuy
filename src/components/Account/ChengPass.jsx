@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { reducerContext } from "../../constant/Context";
 
 const ChengPass = ({ data, dispach }) => {
+
+   const reducer = useContext(reducerContext);
+   const [reduce, dispacher] = reducer;
   return (
     <div
       className={`  bg-white  mx-auto relative ${
@@ -39,10 +43,16 @@ const ChengPass = ({ data, dispach }) => {
           >
             ادامه
           </button>
-          <a href="" className=" mt-5 mx-auto text-blue-500 block w-fit ">
+          <p
+            href=""
+            className=" mt-5 mx-auto text-blue-500 block w-fit "
+            onClick={() => {
+              dispacher({ type: "Conection" });
+            }}
+          >
             {" "}
             نیاز به کمک دارم
-          </a>
+          </p>
         </div>
       </div>
       {/*  */}

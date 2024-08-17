@@ -184,7 +184,7 @@ const Search = () => {
           <span className="text-red-500 font-bold text-xl">بازگشت</span>
         </NavLink>
       </div>
-      <div className="lg:mt-0 mt-24">
+      <div className="lg:mt-0 mt-2">
         <p className="text-xl mt-7 container mx-auto pr-2.5">20 جستجوی اخیر</p>
         <Filters />
 

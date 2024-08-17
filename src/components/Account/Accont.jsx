@@ -8,9 +8,12 @@ import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
 
-const Acconut = ({ data,dispach }) => {
+const Acconut = ({ data, dispach }) => {
   // const [data, dispach] = info
   // console.log(data.Account);
+
+  const reducer = useContext(reducerContext);
+  const [reduce, dispacher] = reducer;
 
   return (
     <div
@@ -48,10 +51,18 @@ const Acconut = ({ data,dispach }) => {
           >
             ادامه
           </button>
-          <a href="" className=" mt-5 mx-auto text-blue-500 block w-fit ">
+          <p
+            href=""
+            className=" mt-5 mx-auto text-blue-500 block w-fit "
+            onClick={() => {
+              dispacher({ type: "Conection" });
+             
+             
+            }}
+          >
             {" "}
             نیاز به کمک دارم
-          </a>
+          </p>
         </div>
 
         <div className="flex w-fit right-0 left-0 mx-auto items-center  absolute gap-2 bottom-6 ">

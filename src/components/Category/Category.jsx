@@ -20,7 +20,7 @@ const Category = ({item,select}) => {
         />
 
         <span
-          className={`absolute   bottom-10 left-3  ${
+          className={`absolute   bottom-2 left-3  ${
             select.name == name ? `inline-block` : `hidden`
           }  `}
         >
