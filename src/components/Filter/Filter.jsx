@@ -3,6 +3,8 @@ import React from "react";
 
 const Filter = ({ item, select }) => {
   const { title, name } = item;
+  // console.log(select);
+  
   return (
     // <div className={`mt-6 items-center max-w-none relative`} name={name}>
       <div

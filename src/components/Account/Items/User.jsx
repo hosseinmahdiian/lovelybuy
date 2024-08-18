@@ -13,24 +13,30 @@ import { BsFileEarmarkText } from "react-icons/bs";
 import Filter from "../../Filter/Filter";
 // import Filters from "../Filter/Filters";
 import { FilterData, UserData } from "../../../constant/DataSets";
-const User = () => {
-  
+
+
+
+const User = ( {dispach} ) => {
+
+
   const [data1, setdata] = useState(UserData);
-   const [select, setSelect] = useState(data1[0]);
-   console.log(data1);
-   
-   const clickhandler = (e) => {
-     data1.map((item) => {
-       if (item.name == e.target.id) {
-         setSelect(() => item);
-       }
-     });
-   };
-    return (
+  const [select, setSelect] = useState(data1[0]);
+  //  console.log(data1);
+  const reducer = useContext(reducerContext);
+  const [reduce, dispacher] = reducer;
+  const clickhandler = (e) => {
+    data1.map((item) => {
+      if (item.name == e.target.id) {
+        setSelect(() => item);
+      }
+    });
+  };
+console.log(dispach);
+
+  return (
     <div>
       <div className="mx-4 overflow-y-scroll delivery  h-[calc(100%-50px)] ">
         {" "}
-       
         <div
           className="hiss
           "
@@ -67,7 +73,6 @@ const User = () => {
               </span>
             </div>
           </div>
-          
         </div>
         <div className="border-b pb-5">
           <div className="flex items-center gap-3">
@@ -163,11 +168,12 @@ const User = () => {
             <p className="text-black "> درباره ما </p>
           </div>
           <div
-            className="flex gap-3 text-red-600 items-center mt-3"
+            className="flex gap-3 text-red-600 items-center mt-3 cursor-pointer"
             onClick={() => {
               dispach({ type: "Login" });
               dispach({ type: "Account" });
               dispacher({ type: "logIn" });
+              console.log("dfhdfhdfhfdh");
             }}
           >
             <span>

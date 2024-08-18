@@ -65,7 +65,7 @@ const Save = () => {
             reduce.logIn
               ? ` sm:left-0 top-0  `
               : `sm:-left-[8000px] -bottom-[8000px] `
-          } fixed  md:w-[500px] es:w-full  z-[12] h-full transition-all  ease-in-out `}
+          } fixed  md:w-[400px] es:w-full  z-[12] h-full transition-all  ease-in-out `}
         >
           <Pages />
         </div>
@@ -77,7 +77,7 @@ const Save = () => {
                 ? ` sm:left-96 top-0 !z-[11] `
                 : ` sm:left-0 top-0  `
               : `sm:-left-[8000px] -bottom-[8000px] `
-          } fixed  sm:w-[400px] es:w-full w-[375px] md:w-[500px] z-[16] h-full transition-all  ease-in-out border-r`}
+          } fixed  sm:w-[400px] es:w-full  z-[16] h-full transition-all  ease-in-out border-r`}
         >
           <Basket />
         </div>
@@ -86,7 +86,7 @@ const Save = () => {
             reduce.pay
               ? ` sm:left-0 top-0  `
               : `sm:-left-[8000px] -bottom-[8000px] `
-          } fixed  md:w-[500px] es:w-full  z-20 h-full transition-all  ease-in-out `}
+          } fixed  md:w-[400px] es:w-full  z-20 h-full transition-all  ease-in-out `}
 
           // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
         >

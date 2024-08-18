@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 
-const Accountt = () => {
+const History = () => {
     return (
       <div>
         <div className="  bg-green-600 my-4  text-white border      rounded-2xl mt-5">
@@ -40,4 +40,4 @@ const Accountt = () => {
     );
 }
 
-export default Accountt;
+export default History;

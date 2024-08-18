@@ -120,10 +120,11 @@ const sendSMS = (mobile) => {
     //   }
     // });
 
-    console.log(Code);
+    // console.log(Code);
     
   }
 };
+
   // ===============================================
   return (
     <div className="h-full overflow-y-scroll delivery bg-white  ">
