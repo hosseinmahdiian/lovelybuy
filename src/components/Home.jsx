@@ -70,7 +70,7 @@ const Home = () => {
               reduce.logIn
                 ? ` sm:left-0 top-0  `
                 : `sm:-left-[8000px] -bottom-[8000px] `
-            } fixed  md:w-[500px] es:w-full  z-[12] h-full transition-all  ease-in-out `}
+            } fixed  md:w-[400px] es:w-full  z-[12] h-full transition-all  ease-in-out `}
           >
             <Pages />
           </div>
@@ -91,7 +91,7 @@ const Home = () => {
               reduce.pay
                 ? ` sm:left-0 top-0  `
                 : `sm:-left-[8000px] -bottom-[8000px] `
-            } fixed  md:w-[500px] es:w-full  z-20 h-full transition-all  ease-in-out `}
+            } fixed  md:w-[400px] es:w-full  z-20 h-full transition-all  ease-in-out `}
 
             // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
           >

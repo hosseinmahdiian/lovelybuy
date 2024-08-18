@@ -4,7 +4,7 @@ import { itemsData } from "../../constant/DataSets";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { settingsForitem } from "../../constant/constant";
+// import { settingsForitem } from "../../constant/constant";
 
 const Items = () => {
   const [data, setdata] = useState(itemsData);
@@ -17,14 +17,19 @@ const Items = () => {
     });
   };
   return (
-    <div className=" w-full  container  mx-auto border-black border-opacity-20 pb-3 " id="items">
+    <div
+      className=" w-full    mx-auto border-black border-opacity-20 pb-3 "
+      id="items"
+    >
       {/* <Slider {...settingsForitem} className="   "> */}
-      <div className="flex gap-2 overflow-x-scroll delivery pr-3">
-        {data.map((item, index) => (
-          <span onClick={clickhandler} key={index}>
-            <Item item={item} select={select} className=" mb-5" />
-          </span>
-        ))}
+      <div className=" overflow-x-scroll delivery pr-3">
+        <div className="flex gap-2 container mx-auto">
+          {data.map((item, index) => (
+            <span onClick={clickhandler} key={index}>
+              <Item item={item} select={select} className=" mb-5" />
+            </span>
+          ))}
+        </div>
       </div>
       {/* </Slider> */}
     </div>

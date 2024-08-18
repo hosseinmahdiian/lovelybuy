@@ -4,7 +4,7 @@ import Category from "./Category";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { settingsForCategory } from "../../constant/constant";
+// import { settingsForCategory } from "../../constant/constant";
 import { CategoryData } from "../../constant/DataSets";
 
 const Categorys = () => {
@@ -21,7 +21,7 @@ const Categorys = () => {
   };
   return (
     <>
-      <div className="flex gap-2   overflow-x-scroll  h-[140px] container mx-auto delivery ">
+      <div className="flex gap-2   overflow-x-scroll  h-[140px] container mx-auto delivery px-12 ">
         {data.map((item, index) => (
           <span key={index} onClick={clickhandler} className="    ">
             <Category item={item} select={select} />

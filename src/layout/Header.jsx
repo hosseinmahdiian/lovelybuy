@@ -18,8 +18,8 @@ const Header = () => {
     <>
       {/* // desctop header */}
       <div className="w-full bg-white lg:h-28 border-b  ">
-        <div className=" container w-full mx-auto font-IrSana relative ">
-          <div className="lg:flex   py-[31px] hidden bg-white items-center z-10 absolute -top-[1px] container  justify-between">
+        <div className=" container w-full mx-auto font-IrSana relative  ">
+          <div className="lg:flex  xl:px-12 lg:px-12 md:px-0 py-[31px] hidden bg-white items-center z-10 absolute -top-[1px] container  justify-between">
             <div  className="flex gap-4 items-center justify-between">
               <NavLink to="/">
                 <img
@@ -30,7 +30,7 @@ const Header = () => {
               </NavLink>
               <NavLink
                 to="/Search"
-                className="hidden md:inline-block px-5 shadow-md  lg:w-[350px]  m xl:w-[650px] h-[50px] border rounded-[10px] "
+                className="hidden md:inline-block px-5 shadow-md  lg:w-[350px]  m xl:w-[600px] h-[50px] border rounded-[10px] "
               >
                 <span className="mt-2.5 inline-block">جستوجو</span>
               </NavLink>

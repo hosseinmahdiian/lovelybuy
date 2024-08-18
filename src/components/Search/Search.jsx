@@ -58,9 +58,9 @@ const Search = () => {
             reduce.Conection ? ` ` : `hidden`
           }  `}
         ></div>{" "}
-        <div className=" bg-b mx-auto  relative   ">
-          <div className=" container w-full mx-auto font-IrSana absolute left-0 right-0 -top-28 z-50 ">
-            <div className="lg:flex justify-between gap-3 py-[31px] hidden bg-white w-full  items-center  absolute mx-auto   border-b">
+        <div className="  mx-auto  relative   ">
+          <div className=" container w-full mx-auto font-IrSana absolute left-0 right-0 -top-28 z-50  ">
+            <div className="lg:flex justify-between gap-3 py-[31px] hidden bg-white w-full  items-center  px  absolute mx-auto   border-b">
               <div className="flex items-center gap-3 w-full justify-between">
                 <NavLink to="/">
                   {" "}
@@ -74,7 +74,7 @@ const Search = () => {
                   autoFocus
                   type="text"
                   placeholder="جستجوی کالا"
-                  className="hidden focus:outline-0 md:inline-block focus:border-0 px-5 shadow-md md:w-[300px] w-[400px] xl:w-[650px] h-[50px] border rounded-[10px] "
+                  className="hidden focus:outline-0 md:inline-block focus:border-0 px-5 shadow-md md:w-[300px] w-[400px] xl:w-[600px] h-[50px] border rounded-[10px] "
                 />
               </div>
               <div className="flex items-center ">

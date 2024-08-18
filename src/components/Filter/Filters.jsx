@@ -4,7 +4,7 @@ import { FilterData, itemsData } from "../../constant/DataSets";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { settingsForitem } from "../../constant/constant";
+// import { settingsForitem } from "../../constant/constant";
 import Filter from "./Filter";
 
 const Filters = () => {
@@ -19,7 +19,7 @@ const Filters = () => {
   };
   return (
     <div
-      className="  bg pb-3 "
+      className="  bg pb-3 px-12 "
       id="items"
     >
       {/* <Slider {...settingsForitem} className="   "> */}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import logo from "../../assets/images/logo.png";
@@ -8,12 +8,14 @@ import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
 
-const Acconut = ({ data, dispach }) => {
+const Acconut = ({ data, dispach, sendSms }) => {
   // const [data, dispach] = info
   // console.log(data.Account);
 
   const reducer = useContext(reducerContext);
   const [reduce, dispacher] = reducer;
+
+  const [mobile, setMobile] = useState(0);
 
   return (
     <div
@@ -44,7 +46,7 @@ const Acconut = ({ data, dispach }) => {
               // console.log(data.Account);
               dispach({ type: "Account" });
               dispach({ type: "Vrify" });
-
+              sendSms(mobile);
               // console.log(data.Account);
             }}
             className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
@@ -56,8 +58,6 @@ const Acconut = ({ data, dispach }) => {
             className=" mt-5 mx-auto text-blue-500 block w-fit "
             onClick={() => {
               dispacher({ type: "Conection" });
-             
-             
             }}
           >
             {" "}

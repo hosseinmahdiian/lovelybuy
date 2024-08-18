@@ -108,6 +108,106 @@ const itemsData = [
     title: "روغن",
     select: false,
   },
+  {
+    name: "bread",
+    title: "نان",
+    select: true,
+  },
+  {
+    name: "rice",
+    title: "برنج",
+    select: false,
+  },
+  {
+    name: "spaghetti",
+    title: "ماکارونی و رشته",
+    select: false,
+  },
+  {
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
+  {
+    name: "bread",
+    title: "نان",
+    select: true,
+  },
+  {
+    name: "rice",
+    title: "برنج",
+    select: false,
+  },
+  {
+    name: "spaghetti",
+    title: "ماکارونی و رشته",
+    select: false,
+  },
+  {
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
+  {
+    name: "bread",
+    title: "نان",
+    select: true,
+  },
+  {
+    name: "rice",
+    title: "برنج",
+    select: false,
+  },
+  {
+    name: "spaghetti",
+    title: "ماکارونی و رشته",
+    select: false,
+  },
+  {
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
+  {
+    name: "bread",
+    title: "نان",
+    select: true,
+  },
+  {
+    name: "rice",
+    title: "برنج",
+    select: false,
+  },
+  {
+    name: "spaghetti",
+    title: "ماکارونی و رشته",
+    select: false,
+  },
+  {
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
+  {
+    name: "bread",
+    title: "نان",
+    select: true,
+  },
+  {
+    name: "rice",
+    title: "برنج",
+    select: false,
+  },
+  {
+    name: "spaghetti",
+    title: "ماکارونی و رشته",
+    select: false,
+  },
+  {
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
 ];
 
 const productsData = [

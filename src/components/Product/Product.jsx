@@ -17,7 +17,7 @@ const Product = ({ item }) => {
     console.log(count);
   };
   return (
-    <div className="xl:w-60 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-80  \\  md:px-0  px-0.5  mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1">
+    <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-80  \\  md:px-0  px-0.5  mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       <div className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm ">
         {/* <div className=" bg-white border-b rounded-br-lg"> */}
         <img
