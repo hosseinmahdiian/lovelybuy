@@ -10,6 +10,8 @@ import { reducerContext } from "../constant/Context";
 import Pages from "./Account/Pages";
 import Successsful from "./Basket/Successsful";
 import Conection from "./Private/Conection";
+import { NavLink } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
@@ -42,7 +44,16 @@ const Save = () => {
           }  `}
         ></div>
 
-      
+        <div className="mt-5 container mx-auto mb-5">
+          <NavLink
+            to="/"
+            className="lg:flex hidden item-center align-middle gap-2 mr-5 "
+          >
+            <IoIosArrowForward className=" mt-1 text-2xl" />
+            <span className="text-red-500 font-bold text-xl">بازگشت</span>
+          </NavLink>
+        </div>
+
         {/* <Slides /> */}
         <Categorys />
         <Items />

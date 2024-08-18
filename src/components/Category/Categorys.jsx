@@ -20,15 +20,15 @@ const Categorys = () => {
     });
   };
   return (
-    <>
-      <div className="flex gap-2   overflow-x-scroll  h-[140px] container mx-auto delivery px-12 ">
+    <div className=" overflow-x-scroll delivery">
+      <div className="flex gap-2    h-[140px] container mx-auto  px-8 ">
         {data.map((item, index) => (
           <span key={index} onClick={clickhandler} className="    ">
             <Category item={item} select={select} />
           </span>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

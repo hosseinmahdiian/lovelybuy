@@ -63,7 +63,7 @@
   margin: 0;
 }
 
-.delivery::-webkit-scrollbar {
+*::-webkit-scrollbar {
     /* Customize the scrollbar width */
     /* width: 50px; */
     /* height: 5px; */
@@ -71,13 +71,13 @@
     display: none;
 }
 
-.delivery::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     /* Customize the scrollbar track */
     background: #f5f3f3;
   
   }
   
-  .delivery::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #9c9a9a;
     /* Customize the scrollbar thumb */
 }

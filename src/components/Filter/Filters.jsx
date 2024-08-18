@@ -18,14 +18,11 @@ const Filters = () => {
     });
   };
   return (
-    <div
-      className="  bg pb-3 px-12 "
-      id="items"
-    >
+    <div className="  bg pb-3 overflow-x-scroll delivery" id="items">
       {/* <Slider {...settingsForitem} className="   "> */}
-      <div className="flex gap-2  container mx-auto overflow-x-scroll delivery  ">
+      <div className="flex gap-2  container mx-auto   px-8  ">
         {data.map((item, index) => (
-          <span onClick={clickhandler} key={index} >
+          <span onClick={clickhandler} key={index}>
             <Filter item={item} select={select} className=" mb-5 " />
           </span>
         ))}

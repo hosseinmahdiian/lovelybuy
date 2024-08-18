@@ -82,7 +82,7 @@ const Home = () => {
                   ? ` sm:left-96 top-0 !z-[11] `
                   : ` sm:left-0 top-0  `
                 : `sm:-left-[8000px] -bottom-[8000px] `
-            } fixed  sm:w-[400px] es:w-full w-[375px] md:w-[500px] z-[16] h-full transition-all  ease-in-out border-r`}
+            } fixed  md:w-[400px] es:w-full  z-[16] h-full transition-all  ease-in-out border-r`}
           >
             <Basket />
           </div>

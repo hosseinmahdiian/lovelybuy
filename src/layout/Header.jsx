@@ -25,14 +25,14 @@ const Header = () => {
                 <img
                   src={logo}
                   alt=""
-                  className=" lg:inline-block w-fit h-11  "
+                  className=" lg:inline-block w-fit h-11 mt-2  "
                 />
               </NavLink>
               <NavLink
                 to="/Search"
                 className="hidden md:inline-block px-5 shadow-md  lg:w-[350px]  m xl:w-[600px] h-[50px] border rounded-[10px] "
               >
-                <span className="mt-2.5 inline-block">جستوجو</span>
+                <span className="mt-2.5 inline-block text-gray-400">   جستجو کالا</span>
               </NavLink>
             </div>
             <div className="flex items-center">

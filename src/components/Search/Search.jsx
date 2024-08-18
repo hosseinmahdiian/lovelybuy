@@ -60,14 +60,14 @@ const Search = () => {
         ></div>{" "}
         <div className="  mx-auto  relative   ">
           <div className=" container w-full mx-auto font-IrSana absolute left-0 right-0 -top-28 z-50  ">
-            <div className="lg:flex justify-between gap-3 py-[31px] hidden bg-white w-full  items-center  px  absolute mx-auto   border-b">
-              <div className="flex items-center gap-3 w-full justify-between">
+            <div className="lg:flex justify-between px-12  py-[31px] hidden bg-white w-full  items-center   absolute mx-auto   border-b">
+              <div className="flex w-full   items-center gap-3 ">
                 <NavLink to="/">
                   {" "}
                   <img
                     src={logo}
                     alt=""
-                    className=" lg:inline-block w-fit h-11  "
+                    className=" lg:inline-block w-fit h-11 mt-2 "
                   />
                 </NavLink>
                 <input
@@ -178,18 +178,18 @@ const Search = () => {
       <div className="mt-5 container mx-auto">
         <NavLink
           to="/"
-          className="lg:flex hidden item-center align-middle gap-2 mt "
+          className="lg:flex hidden item-center align-middle gap-2 mr-5 "
         >
           <IoIosArrowForward className=" mt-1 text-2xl" />
           <span className="text-red-500 font-bold text-xl">بازگشت</span>
         </NavLink>
       </div>
       <div className="lg:mt-0 mt-2">
-        <p className="text-xl mt-7 container mx-auto pr-2.5">20 جستجوی اخیر</p>
+        <p className="text-xl mt-7 container mx-auto pr-2.5 mr-5">20 جستجوی اخیر</p>
         <Filters />
 
         <div className=" bg-[#F5F5F5]  pr-2.5">
-          <p className="  text-xl mt-1 pb-1.5 pt-7 container mx-auto ">
+          <p className="  text-xl mt-1 pb-1.5 pt-7  mr-5 container mx-auto ">
             20 محصول اخیر
           </p>
         </div>

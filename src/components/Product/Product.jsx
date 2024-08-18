@@ -90,9 +90,9 @@ const Product = ({ item }) => {
             افزودن به سبد خرید
           </button>
         ) : (
-          <div className="  flex items-center  lg:py-1.5 justify-around  lg:border-0 bg-blue-500 lg:bg-white  child:text-white rounded-b-3xl ">
+          <div className="  flex items-center   lg:py-1.5 justify-around  lg:border-0 bg-blue-500 lg:bg-white  child:text-white rounded-b-3xl ">
             <button
-              className=" xl:w-12 xl:h-12 \\ w-10 h-10  lg:border-[3px] lg:rounded-xl lg:text-green-700 text-3xl border-green-600 "
+              className="  w-10 h-10  lg:border-[3px] lg:rounded-xl lg:text-green-700 text-3xl border-green-600 "
               onClick={increaseHandeler}
             >
               <HiPlusSm className="w-full text-center" />
@@ -101,7 +101,7 @@ const Product = ({ item }) => {
               {count}
             </span>
             <button
-              className="xl:w-12 xl:h-12 \\ w-10 h-10 lg:border-[3px] lg:rounded-xl lg:text-red-700  border-red-600 "
+              className=" w-10 h-10 lg:border-[3px] lg:rounded-xl lg:text-red-700  border-red-600 "
               onClick={decreaseHandeler}
             >
               <FaMinus className="w-full text-center" />

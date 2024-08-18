@@ -85,6 +85,55 @@ const CategoryData = [
     title: "روغن",
     select: false,
   },
+
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو",
+    select: true,
+  },
+  {
+    image: meet,
+    name: "meet",
+    title: "گوشت",
+    select: false,
+  },
+  {
+    image: milk,
+    name: "milk",
+    title: "شیر",
+    select: false,
+  },
+  {
+    image: oil,
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو",
+    select: true,
+  },
+  {
+    image: meet,
+    name: "meet",
+    title: "گوشت",
+    select: false,
+  },
+  {
+    image: milk,
+    name: "milk",
+    title: "شیر",
+    select: false,
+  },
+  {
+    image: oil,
+    name: "oil",
+    title: "روغن",
+    select: false,
+  },
 ];
 
 const itemsData = [
@@ -447,10 +496,31 @@ const FilterData = [
   { title: "همه محصولات", name: "all" },
   { title: "پر فروش ترین", name: "top-sell" },
   { title: "پر تخفیف", name: "top-offer" },
-  { title:  "فقط برای تو", name: "for-you" },
+  { title: "فقط برای تو", name: "for-you" },
   { title: " نخری رفته", name: "last-time" },
   { title: " ارزانترین", name: "cheap" },
   { title: " گرانترین", name: "expensive" },
+  { title: "همه محصولات", name: "all" },
+  { title: "پر فروش ترین", name: "top-sell" },
+  { title: "پر تخفیف", name: "top-offer" },
+  { title: "فقط برای تو", name: "for-you" },
+  { title: " نخری رفته", name: "last-time" },
+  { title: " ارزانترین", name: "cheap" },
+  { title: " گرانترین", name: "expensive" },
+  { title: "همه محصولات", name: "all" },
+  { title: "پر فروش ترین", name: "top-sell" },
+  { title: "پر تخفیف", name: "top-offer" },
+  { title: "فقط برای تو", name: "for-you" },
+  { title: " نخری رفته", name: "last-time" },
+  { title: " ارزانترین", name: "cheap" },
+  { title: " گرانترین", name: "expensive" },
+];
+
+const UserData = [
+  { title: " پروفایل", name: "user" },
+  { title: " حساب سرمایه ", name: "account" },
+  { title: "سابقه خرید ", name: "history" },
+  
 ];
 
 const OrderData = [
@@ -512,4 +582,5 @@ export {
   DeliveryData,
   FilterData,
   OrderData,
+  UserData,
 };
