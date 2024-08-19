@@ -10,7 +10,7 @@ import { BsFileEarmarkText } from "react-icons/bs";
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 
-const Acconut = ({ data, dispach, sendSms, setMobile, mobile,setForm }) => {
+const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
   // const [data, dispach] = info
   // console.log(data.Account);
 
