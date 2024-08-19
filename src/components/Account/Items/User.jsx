@@ -31,7 +31,7 @@ const User = ( {dispach} ) => {
       }
     });
   };
-console.log(dispach);
+// console.log(dispach);
 
   return (
     <div>
@@ -173,7 +173,6 @@ console.log(dispach);
               dispach({ type: "Login" });
               dispach({ type: "Account" });
               dispacher({ type: "logIn" });
-              console.log("dfhdfhdfhfdh");
             }}
           >
             <span>

@@ -30,7 +30,7 @@ const AcccountLogin = ({ data, dispach }) => {
       }
     });
   };
-console.log(dispach);
+// console.log(dispach);
 
   return (
     <>

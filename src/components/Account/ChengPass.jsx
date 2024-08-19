@@ -7,7 +7,7 @@ const ChengPass = ({ data, dispach }) => {
    const [reduce, dispacher] = reducer;
   return (
     <div
-      className={`  bg-white  mx-auto relative ${
+      className={`  bg-white  mx-auto relative pt-1 ${
         !data.ChengPass ? `hidden` : `block`
       }`}
     >

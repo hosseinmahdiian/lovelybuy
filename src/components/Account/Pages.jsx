@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { reducerContext } from "../../constant/Context";
 import Acconut from "./Accont";
 import AcccountLogin from "./Acccount-Login";
@@ -78,12 +78,16 @@ const Pages = () => {
   //  dispach({ type: "Account" });
 
   // ===============================================
+
+  const [mobile, setMobile] = useState(0);
+
+  const [code,setCode]=useState(0)
 const Random = () => {
   let randomNumber = 1000 + Math.floor(Math.random() * (9999 - 1000));
   return randomNumber;
 };
 
-const sendSMS = (mobile) => {
+const sendSMS = () => {
   if (!mobile) {
     console.log({
       severity: "error",
@@ -96,7 +100,8 @@ const sendSMS = (mobile) => {
     });
   } else {
     // setDisplay(true);
-    const Code = Random();
+    const Code = Random()
+     setCode(Code);
     // setCode(Code);
     const data = {
       Mobile: mobile,
@@ -120,16 +125,16 @@ const sendSMS = (mobile) => {
     //   }
     // });
 
-    // console.log(Code);
+    
     
   }
 };
 
   // ===============================================
   return (
-    <div className="h-full overflow-y-scroll delivery bg-white  ">
-      <Acconut data={data} dispach={dispach} sendSms={sendSMS} />
-      <Vrify data={data} dispach={dispach} />
+    <div className="h-full  bg-white  ">
+      <Acconut data={data} dispach={dispach} sendSms={sendSMS} mobile={mobile} setMobile={setMobile} />
+      <Vrify data={data} dispach={dispach} code={code}/>
       <NewAccount data={data} dispach={dispach} />
       <SinUp data={data} dispach={dispach} />
       <ChengPass data={data} dispach={dispach} />

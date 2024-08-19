@@ -8,18 +8,24 @@ import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
 
-const Acconut = ({ data, dispach, sendSms }) => {
+const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
   // const [data, dispach] = info
   // console.log(data.Account);
 
   const reducer = useContext(reducerContext);
   const [reduce, dispacher] = reducer;
 
-  const [mobile, setMobile] = useState(0);
+  // const [mobile, setMobile] = useState(0);
+  const [mobileAlert, setMobileAlert] = useState("");
+
+  const chenchHandeler = (e) => {
+    // console.log(e.target.value);
+    setMobile(e.target.value);
+  };
 
   return (
     <div
-      className={` h-full bg-white border mx-auto relative ${
+      className={` h-full w-full bg-white border  relative ${
         !data.Account ? `hidden` : `block`
       }`}
     >
@@ -32,21 +38,38 @@ const Acconut = ({ data, dispach, sendSms }) => {
               className="peer border px-5 rounded-[10px] outline-gray-300 h-14 w-full "
               placeholder=" "
               id="phone"
+              type="number"
+              onChange={chenchHandeler}
             />
             <label
               htmlFor="phone"
-              className="absolute start-1 IrHomama top-4 rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+              className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                !!mobile ? `start-2.5 -top-2 !text-sm` : `top-4`
+              }`}
             >
               شماره موبایل
             </label>
           </div>
+          <p htmlFor="" className=" h-4 py-2 mx-8 w-full text-red-500">
+            {mobileAlert}
+          </p>
 
           <button
             onClick={() => {
               // console.log(data.Account);
-              dispach({ type: "Account" });
-              dispach({ type: "Vrify" });
-              sendSms(mobile);
+              if (mobile.length == 11 && !!mobile) {
+                dispach({ type: "Account" });
+                dispach({ type: "Vrify" });
+                setMobileAlert("");
+                sendSms(mobile);
+              }
+
+              // console.log(
+              //   ` 111${mobile <= 0} \n 222${
+              //    ( mobile.length >0)
+              //   }`
+              // );
+
               // console.log(data.Account);
             }}
             className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"

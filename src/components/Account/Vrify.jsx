@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 
-const Vrify = ({ data, dispach }) => {
-  // console.log(data.Vrify);
-
-  const [otp, setOtp] = useState("");
-
+const Vrify = ({ data, dispach, code }) => {
+  const [otp, setOtp] = useState(code);
+  // setOtp(code)
+  useEffect(() => {
+    console.log(code);
+    setOtp(()=>code);
+  }, []);
   return (
     <div
-      className={`  bg-white  mx-auto relative px-5 ${
+      className={`  bg-white  mx-auto relative px-5 pt-1 ${
         !data.Vrify ? `hidden` : `block`
       }`}
     >
@@ -28,6 +30,7 @@ const Vrify = ({ data, dispach }) => {
           >
             ویرایش شماره
           </span>
+          <div>{code}</div>
         </p>
       </div>
       <div className=" child:flex-row-reverse gap-3 mt-8 mx-auto w-fit   ">
@@ -51,14 +54,17 @@ const Vrify = ({ data, dispach }) => {
       </div>
       <button
         onClick={() => {
-          if (data.AcconutHave) {
-            dispach({ type: "Vrify" });
-            dispach({ type: "SinUp" });
+          if (otp == code) {
+            if (data.AcconutHave) {
+              dispach({ type: "Vrify" });
+              dispach({ type: "SinUp" });
+            } else {
+              dispach({ type: "Vrify" });
+              dispach({ type: "NewAccount" });
+            }
           } else {
-            dispach({ type: "Vrify" });
-            dispach({ type: "NewAccount" });
+            console.log("کد اشتباه است");
           }
-          // console.log(otp);
         }}
         className="w-full  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
       >

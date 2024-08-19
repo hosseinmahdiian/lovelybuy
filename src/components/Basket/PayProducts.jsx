@@ -17,7 +17,7 @@ const PayProducts = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
-  const [Check, setCheck] = useState(true);
+  const [Check, setCheck] = useState(false);
   const [Time, setTime] = useState("");
 
   const [delivery, setDelivery] = useState(DeliveryData);
