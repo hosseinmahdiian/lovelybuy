@@ -3,7 +3,6 @@ const Slide = ({ item ,select}) => {
   const { image, title, name } = item;
 
   return (
-    <div>
       <div className={`relative `} name={name}>
         <img
           src={image}
@@ -19,7 +18,6 @@ const Slide = ({ item ,select}) => {
           {title}
         </span>
       </div>
-    </div>
   );
 };
 

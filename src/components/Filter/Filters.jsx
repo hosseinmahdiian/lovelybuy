@@ -18,7 +18,7 @@ const Filters = () => {
     });
   };
   return (
-    <div className="  bg pb-3 overflow-x-scroll delivery" id="items">
+    <div className="   pb-3 overflow-x-scroll " id="items">
       {/* <Slider {...settingsForitem} className="   "> */}
       <div className="flex gap-2  container mx-auto   px-8  ">
         {data.map((item, index) => (

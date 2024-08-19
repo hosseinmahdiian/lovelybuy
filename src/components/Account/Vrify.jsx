@@ -5,10 +5,10 @@ const Vrify = ({ data, dispach, code }) => {
   const [otp, setOtp] = useState(code);
   const [messeage, setMesseage] = useState("");
   // setOtp(code)
-  useEffect(() => {
-    // console.log(code);
-    setOtp(()=>code);
-  }, [code]);
+  // useEffect(() => {
+  //   // console.log(code);
+  //   setOtp(()=>code);
+  // }, [code]);
   return (
     <div
       className={`  bg-white  mx-auto relative px-5 pt-1 ${
@@ -32,7 +32,7 @@ const Vrify = ({ data, dispach, code }) => {
           >
             ویرایش شماره
           </span>
-          <div className="font-bold"> کد ورود : {code}</div>
+          {/* <div className="font-bold"> کد ورود : {code}</div> */}
           {!!messeage && <div className="font-bold text-red-500">{messeage}</div>}
         </p>
       </div>

@@ -21,18 +21,18 @@ function Slides() {
   return (
     <>
       {/* <Dddd /> */}
-      <div className="container mx-auto  lg:w-[1200px]  ">
-        <div className="slider-container">
-          <Slider {...settingsForSlide}>
-            {slid.map(
-              (item) =>
-                !!item.name && (
-                  <span key={item.name} name={item.name} onClick={clickhandler}>
-                    <Slide item={item} select={select} />
-                  </span>
-                )
-            )}
-          </Slider>
+      <div className="  overflow-x-scroll  ">
+        <div className=" mx-auto  container flex gap-2">
+          {/* <Slider {...settingsForSlide}> */}
+          {slid.map(
+            (item) =>
+              !!item.name && (
+                <span key={item.name} name={item.name} onClick={clickhandler}>
+                  <Slide item={item} select={select} />
+                </span>
+              )
+          )}
+          {/* </Slider> */}
         </div>
       </div>
     </>

@@ -10,7 +10,7 @@ import { BsFileEarmarkText } from "react-icons/bs";
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 
-const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
+const Acconut = ({ data, dispach, sendSms, setMobile, mobile,setForm }) => {
   // const [data, dispach] = info
   // console.log(data.Account);
 
@@ -23,6 +23,7 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
   const chenchHandeler = (e) => {
     // console.log(e.target.value);
     setMobile(e.target.value);
+    setForm({ mobile: e.target.value });
     // Formik.handelChench;
   };
 
@@ -75,7 +76,7 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
                 dispach({ type: "Account" });
                 dispach({ type: "Vrify" });
                 setMobileAlert("");
-                sendSms(mobile);
+                sendSms();
               } else if (!mobile) {
                 setMobileAlert("شماره موبایل را وارد کنید");
               } else {
