@@ -3,11 +3,12 @@ import OTPInput from "react-otp-input";
 
 const Vrify = ({ data, dispach, code }) => {
   const [otp, setOtp] = useState(code);
+  const [messeage, setMesseage] = useState("");
   // setOtp(code)
   useEffect(() => {
-    console.log(code);
+    // console.log(code);
     setOtp(()=>code);
-  }, []);
+  }, [code]);
   return (
     <div
       className={`  bg-white  mx-auto relative px-5 pt-1 ${
@@ -26,11 +27,13 @@ const Vrify = ({ data, dispach, code }) => {
               // console.log(data.Account);
               dispach({ type: "Account" });
               dispach({ type: "Vrify" });
+              setMesseage('')
             }}
           >
             ویرایش شماره
           </span>
-          <div>{code}</div>
+          <div className="font-bold"> کد ورود : {code}</div>
+          {!!messeage && <div className="font-bold text-red-500">{messeage}</div>}
         </p>
       </div>
       <div className=" child:flex-row-reverse gap-3 mt-8 mx-auto w-fit   ">
@@ -62,8 +65,11 @@ const Vrify = ({ data, dispach, code }) => {
               dispach({ type: "Vrify" });
               dispach({ type: "NewAccount" });
             }
+          } else if(!otp || otp.length < 4) {
+            setMesseage("کد را وارد کنید")
           } else {
-            console.log("کد اشتباه است");
+            setMesseage("کد اشتباه است");
+            
           }
         }}
         className="w-full  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"

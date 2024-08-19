@@ -19,7 +19,7 @@ const Header = () => {
       {/* // desctop header */}
       <div className="w-full bg-white lg:h-28 border-b  ">
         <div className=" container w-full mx-auto font-IrSana relative  ">
-          <div className="lg:flex  xl:px-12 lg:px-12 md:px-0 py-[31px] hidden bg-white items-center z-10 absolute -top-[1px] container  justify-between">
+          <div className="lg:flex  xl:px-12 lg:px-12 md:px-0 py-[31px] hidden bg-white items-center z-10 absolute -top-[2px] container  border-b justify-between">
             <div  className="flex gap-4 items-center justify-between">
               <NavLink to="/">
                 <img

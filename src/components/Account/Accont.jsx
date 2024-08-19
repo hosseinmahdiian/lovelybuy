@@ -7,6 +7,8 @@ import { GoUnlock } from "react-icons/go";
 import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
+import { Formik, useFormik } from "formik";
+import * as Yup from "yup";
 
 const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
   // const [data, dispach] = info
@@ -21,8 +23,19 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
   const chenchHandeler = (e) => {
     // console.log(e.target.value);
     setMobile(e.target.value);
+    // Formik.handelChench;
   };
 
+  // useFormik({
+  //   initialValues: {
+  //     phone: "",
+  //   },
+  //   validationSchema: Yup.object({
+  //     phone: Yup.number()
+  //       .max(11, "شماره را به درستی وارد کنید")
+  //       .required("شماره را وارد کنید"),
+  //   }),
+  // });
   return (
     <div
       className={` h-full w-full bg-white border  relative ${
@@ -38,6 +51,7 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
               className="peer border px-5 rounded-[10px] outline-gray-300 h-14 w-full "
               placeholder=" "
               id="phone"
+              name="phone"
               type="number"
               onChange={chenchHandeler}
             />
@@ -62,13 +76,13 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile }) => {
                 dispach({ type: "Vrify" });
                 setMobileAlert("");
                 sendSms(mobile);
+              } else if (!mobile) {
+                setMobileAlert("شماره موبایل را وارد کنید");
+              } else {
+                setMobileAlert("شماره موبایل را به درستی وارد کنید");
               }
 
-              // console.log(
-              //   ` 111${mobile <= 0} \n 222${
-              //    ( mobile.length >0)
-              //   }`
-              // );
+              // console.log(` 111${!mobile} \n 222${mobile.length > 0}`);
 
               // console.log(data.Account);
             }}

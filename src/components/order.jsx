@@ -5,7 +5,7 @@ import { FiTruck } from "react-icons/fi";
 const Order = () => {
     const [order ,setOrder]=useState(OrderData)
   return (
-    <div className="  lg:mx-0 mx-2.5 text-justify border-b mtborder-b  mb-3 pb-3 bg-white pt-3">
+    <div className="  lg:mx-0  text-justify border-b mtborder-b  mb-3 pb-3 bg-white pt-3">
       <div className="flex  justify-around mx-auto container lg:px-12">
         <div className=" flex items-center gap-2  ">
           <span className="hidden lg:block">
