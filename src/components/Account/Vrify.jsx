@@ -85,7 +85,7 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
         }}
         disabled={timer == 0}
         className={`w-full  h-14 block mx-auto mt-8 rounded-[10px]  font-IrHoma ${
-          timer == 0 ? ` bg-gray-400 text-gray-300` : ` bg-blue-500 text-white`
+          timer == 0 ? ` bg-gray-200 text-gray-600` : ` bg-blue-500 text-white`
         }`}
       >
         ادامه
@@ -101,9 +101,9 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
         </div>
         <button
           disabled={timer != 0}
-          className={`px-8 h-12 text-nowrap rounded-[10px] ${
+          className={`px-8 h-10 text-nowrap rounded-[10px] ${
             timer != 0
-              ? ` bg-gray-400 text-gray-300`
+              ? ` bg-gray-200 text-gray-600`
               : ` bg-blue-500 text-white`
           } `}
           onClick={() => {

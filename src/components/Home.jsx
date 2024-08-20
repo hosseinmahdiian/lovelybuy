@@ -57,7 +57,7 @@ const Home = () => {
             }  `}
           ></div> */}
           <Order />
-          {/* <Slides /> */}
+          <Slides />
           <Categorys />
           <Filters />
           <div className="mt-1">

@@ -3,10 +3,10 @@ const Slide = ({ item ,select}) => {
   const { image, title, name } = item;
 
   return (
-      <div className={`relative `} name={name}>
+      <div className={`relative md:w-[245px]  sm:w-[205px]   es:w-[170px]  `} name={name}>
         <img
           src={image}
-          className={`md:w-[245px] md:h-[118px] sm:w-[205px] sm:h-[90px]  es:w-[170px] sm:h-[75px]${
+          className={`${
             !(name == select.name) && ` opacity-25`
           } `}
           id={name}

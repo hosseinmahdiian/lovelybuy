@@ -34,6 +34,54 @@ const slideDadta = [
     title: "الکترونیک",
     select: false,
   },
+  {
+    image: device,
+    name: "device",
+    title: "لوازم خانگی",
+    select: true,
+  },
+  {
+    image: glosery,
+    name: "glosery",
+    title: "سوپرمارکت",
+    select: false,
+  },
+  {
+    image: fruts,
+    name: "fruts",
+    title: " میوه و تره بار",
+    select: false,
+  },
+  {
+    image: electic,
+    name: "ele33ctic",
+    title: "الکترونیک",
+    select: false,
+  },
+  {
+    image: device,
+    name: "device",
+    title: "لوازم خانگی",
+    select: true,
+  },
+  {
+    image: glosery,
+    name: "glosery",
+    title: "سوپرمارکت",
+    select: false,
+  },
+  {
+    image: fruts,
+    name: "fruts",
+    title: " میوه و تره بار",
+    select: false,
+  },
+  {
+    image: electic,
+    name: "ele33ctic",
+    title: "الکترونیک",
+    select: false,
+  },
 ];
 
 const CategoryData = [

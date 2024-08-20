@@ -19,7 +19,7 @@ const Order = () => {
         <div className=" hidden gap-3 relative lg:flex">
           {order.map((item, index) => (
             <div key={index}>
-              <img className="w-16 h-16" src={item.image} alt="" />
+              <img className="xl:w-16  xl:h-16  w-[60px] mt-2 xl:mt-0 " src={item.image} alt="" />
               <span className="absolute bottom-0 rounded-full border-red-500 border w-6 text-center bg-white text-red-500 h2">
                 {item.paylod}
               </span>
