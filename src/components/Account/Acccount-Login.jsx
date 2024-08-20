@@ -13,7 +13,7 @@ import Filters from "../Filter/Filters";
 import { FilterData, UserData } from "../../constant/DataSets";
 import User from "./Items/User";
  import Acconutt from "./Items/Account";
-import History from "./Items/History";
+import History from "./Items/History/History";
 
 const AcccountLogin = ({ data, dispach }) => {
   const reducer = useContext(reducerContext);

@@ -23,12 +23,12 @@ const Items = () => {
 
   const scrollL = () => {
     if (scroll.current) {
-      scroll.current.scrollBy({ left: 400, behavior: "smooth" });
+      scroll.current.scrollBy({ left: -400, behavior: "smooth" });
     }
   };
   const scrollR = () => {
     if (scroll.current) {
-      scroll.current.scrollBy({ left: -400, behavior: "smooth" });
+      scroll.current.scrollBy({ left: 400, behavior: "smooth" });
     }
   };
 

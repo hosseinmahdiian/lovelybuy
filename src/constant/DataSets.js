@@ -571,6 +571,42 @@ const UserData = [
   
 ];
 
+const HistoryOrderData = [
+  {
+    image: tomato,
+    name: "tomato",
+    title: " رب گوجه فرنگی چین چین",
+    paylod: 2,
+    pay: 200000,
+    offer: 180000,
+  },
+  {
+    image: yogurt,
+    name: "yogurt",
+    title: " ماست چکیده کاله",
+    paylod: 1,
+    pay: 250000,
+    offer: 195000,
+  },
+  {
+    image: can,
+    name: "can",
+    title: "کنسرو لوبیا دلپذیر",
+    paylod: 4,
+    pay: 600000,
+    offer: 550000,
+  },
+  {
+    image: tomato,
+    name: "tomato",
+    title: " رب گوجه فرنگی چین چین",
+    paylod: 5,
+    pay: 200000,
+    offer: 180000,
+  },
+
+];
+
 const OrderData = [
   {
     image: tomato,
@@ -631,4 +667,5 @@ export {
   FilterData,
   OrderData,
   UserData,
+  HistoryOrderData,
 };

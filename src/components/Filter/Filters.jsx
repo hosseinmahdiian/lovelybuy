@@ -42,13 +42,13 @@ const Filters = () => {
           <span className="absolute h-full right-1  items-center lg:flex hidden">
             <IoIosArrowDropright
               className=" align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600"
-              onClick={scrollL}
+              onClick={scrollR}
             />
           </span>
           <span className="absolute h-full left-1  lg:flex hidden items-center">
             <IoIosArrowDropleft
               className=" align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600"
-              onClick={scrollR}
+              onClick={scrollL}
             />
           </span>
           <div className="flex gap-2    items-center  ">

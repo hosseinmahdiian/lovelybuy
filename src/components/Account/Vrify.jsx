@@ -5,10 +5,10 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
   const [otp, setOtp] = useState(code);
   const [messeage, setMesseage] = useState("");
   // setOtp(code)
-  // useEffect(() => {
-  //   // console.log(code);
-  //   setOtp(()=>code);
-  // }, [code]);
+  useEffect(() => {
+    // console.log(code);
+    setOtp(()=>code);
+  }, [code]);
 
   var minutes = Math.floor(timer % 60);
   var seconds = Math.floor(timer / 60);

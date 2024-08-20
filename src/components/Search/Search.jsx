@@ -185,11 +185,11 @@ const Search = () => {
         </NavLink>
       </div>
       <div className="lg:mt-0 mt-2">
-        <p className="text-xl mt-7 container mx-auto pr-2.5 mr-5">20 جستجوی اخیر</p>
+        <p className="text-xl mt-7 container mx-auto pr-2.5 ">20 جستجوی اخیر</p>
         <Filters />
 
-        <div className=" bg-[#F5F5F5]  pr-2.5">
-          <p className="  text-xl mt-1 pb-1.5 pt-7  mr-5 container mx-auto ">
+        <div className=" bg-[#F5F5F5]  w-full pr-2.5">
+          <p className="  text-xl mt-1 pb-1.5 pt-7    container mx-auto ">
             20 محصول اخیر
           </p>
         </div>
