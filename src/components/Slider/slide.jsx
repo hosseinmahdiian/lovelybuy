@@ -3,7 +3,7 @@ const Slide = ({ item ,select}) => {
   const { image, title, name } = item;
 
   return (
-      <div className={`relative md:w-[245px]  sm:w-[205px]   es:w-[170px]  `} name={name}>
+      <div className={`relative md:w-[245px]  sm:w-[205px]   w-[170px]  `} name={name}>
         <img
           src={image}
           className={`${

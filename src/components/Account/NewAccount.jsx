@@ -90,22 +90,22 @@ const NewAccount = ({ data, dispach }) => {
             <option value="1">بیمارستان عشایر</option>
             <option value="2"> دانشگاه علوم پزشکی لرستان</option>
           </select>
-          {/* -------------------- */}
-          <div className="relative    ">
-            <input
-              className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5"
+          {/*  */}
+          <div className="relative  !mb-3 ">
+            <textarea
+              className="peer border px-5 py-2 rounded-[10px] outline-gray-300 h-20 w-full "
               placeholder=" "
-              id="duty"
               type="text"
+              id="unit"
             />
             <label
-              htmlFor="duty"
-              className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+              htmlFor="unit"
+              className="absolute  start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
             >
-              خدمت
+              واحد خدمت
             </label>
           </div>
-          {/*  */}
+         {/*  */}
           <select
             name=""
             id=""
@@ -132,20 +132,6 @@ const NewAccount = ({ data, dispach }) => {
             <option value="4">اهواز</option>
           </select>
           {/*  */}
-          <div className="relative   ">
-            <textarea
-              className="peer border px-5 py-2 rounded-[10px] outline-gray-300 h-20 w-full "
-              placeholder=" "
-              type="text"
-              id="unit"
-            />
-            <label
-              htmlFor="unit"
-              className="absolute  start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
-            >
-              واحد خدمت
-            </label>
-          </div>
           {/*  */}
         </div>
         <button

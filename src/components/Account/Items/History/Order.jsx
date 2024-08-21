@@ -10,29 +10,29 @@ const Order = () => {
         const [order, setOrder] = useState(HistoryOrderData);
 
     return (
-      <div className="my-4   text-gray-600">
+      <div className="my-4   text-gray-400">
         <div className="flex gap-2  mb-1">
-          <LuShoppingBag className="text-gray-400" />
-          <p className='text-black'> سفارش </p>
+          <LuShoppingBag className="" />
+          <p className="text-black"> سفارش </p>
           <p className="text-red-500">1243</p>
         </div>
         <div className="flex gap-2 mb-1">
-          <FaRegUserCircle className="text-gray-400" />
+          <FaRegUserCircle className="" />
           <p> اشکان حسنوند </p>
           <p>09216919291</p>
         </div>
         <div className="flex gap-2 mb-1">
-          <IoMdTime className="text-gray-400" />
+          <IoMdTime className="t" />
           <p> 1403/05/28 </p>
           <p> 21:00</p>
         </div>
         <div className="flex gap-2 mb-1">
-          <IoLocationOutline className="text-gray-400" />
+          <IoLocationOutline className="" />
           <p> محل تحویل </p>
           <p> بیمارستان عشایر</p>
         </div>
         <div className="flex gap-2 mb-3">
-          <AiOutlineFileText className="text-gray-400" />
+          <AiOutlineFileText className="" />
           <p>مجموعه فاکتور</p>
           <p> 000000تومان</p>
         </div>
@@ -40,7 +40,7 @@ const Order = () => {
           {order.map((item, index) => (
             <div key={index} className="border">
               <img
-                className="xl:w-16  xl:h-16  w-[60px] mt-2 xl:mt-0 "
+                className="xl:w-16  xl:h-16  w-[60px]  "
                 src={item.image}
                 alt=""
               />
@@ -49,7 +49,7 @@ const Order = () => {
               </span>
             </div>
           ))}
-          <span className="rounded-lg hidden lg:block w-16 h-16 bg-slate-300 text-center items-center p-2">
+          <span className="rounded-lg  block w-16 h-16 bg-slate-300 text-center items-center p-2">
             5+ <br /> کالا
           </span>
         </div>

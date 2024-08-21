@@ -12,7 +12,7 @@ import Filter from "../Filter/Filter";
 import Filters from "../Filter/Filters";
 import { FilterData, UserData } from "../../constant/DataSets";
 import User from "./Items/User";
- import Acconutt from "./Items/Account";
+import Acconutt from "./Items/Account";
 import History from "./Items/History/History";
 
 const AcccountLogin = ({ data, dispach }) => {
@@ -30,16 +30,16 @@ const AcccountLogin = ({ data, dispach }) => {
       }
     });
   };
-// console.log(dispach);
+  // console.log(dispach);
 
   return (
     <>
       <div
-        className={`  bg-white  mx-auto relative  h-screen ${
+        className={`  bg-white  mx-auto relative  h-screen  ${
           !data.Login ? `hidden` : `block`
         }`}
       >
-        <div className={` py-6 px-3 border-b`}>
+        <div className={` py-6 px-3 border-b  `}>
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
@@ -54,18 +54,19 @@ const AcccountLogin = ({ data, dispach }) => {
           </span>
         </div>
 
-        <div className="mx-4 overflow-y-scroll delivery  h-[calc(100%-70px)]  ">
-          <div className="flex gap-2  mx-auto w-fit  overflow-x-scroll delivery  ">
+        <div className="mx-4  h-full  ">
+          <div className="flex gap-2     mt-4 overflow-x-scroll delivery  ">
             {data1.map((item, index) => (
               <span onClick={clickhandler} key={index}>
                 <Filter item={item} select={select} className=" mb-5 " />
               </span>
             ))}
           </div>
-
-          <div>{select.name == "user" && <User dispach={dispach} />}</div>
-          <div>{select.name == "history" && <History />}</div>
-          <div>{select.name == "account" && <Acconutt />}</div>
+          <div className=" overflow-y-scroll  h-[calc(100vh-120px)] pb-5 ">
+            {select.name == "user" && <User dispach={dispach} />}
+            {select.name == "history" && <History />}
+            {select.name == "account" && <Acconutt />}
+          </div>
         </div>
       </div>
     </>

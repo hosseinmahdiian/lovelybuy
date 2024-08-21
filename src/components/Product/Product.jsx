@@ -17,7 +17,7 @@ const Product = ({ item }) => {
     console.log(count);
   };
   return (
-    <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-80  \\  md:px-0  px-0.5  mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
+    <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       <div className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm ">
         {/* <div className=" bg-white border-b rounded-br-lg"> */}
         <img
@@ -36,22 +36,7 @@ const Product = ({ item }) => {
           {title}
         </h2>
         <div>
-          {/* <div className="child:flex child:gap-3 child:mr-2 flex justify-between">
-            <div> hfg</div>
-            <span className="relative mt-2 items-center w-fit">
-              <p className="opacity-70 relative lg:text-xl  es:text-[12px]  ">
-                {pay}
-                <span className="opacity-100 w-full lg:bottom-3.5 es:bottom-2 right-0 inline-block absolute border-b-2 border-black"></span>
-              </p>
-              <p className="sm:px-1 py-0 text-white text-lg self-center font-sans rounded-md  bg-red-500 sm:text-sm es:px-0.5 es:text-[10px]">
-                10%
-              </p>
-            </span>
-            <span>
-              <p className=" lg:text-2xl">{offer}</p>
-              <p className=" lg:text-2xl">تومان</p>
-            </span>
-          </div> */}
+     
 
           <div className="child:gap-3 child:mr-2  mt-1  flex  justify-between mx-2">
             <div>

@@ -7,6 +7,7 @@ import NewAccount from "./NewAccount";
 import SinUp from "./SinUp";
 import ChengPass from "./ChengPass";
 import { sendSMS } from "./OTP";
+import Place from "./Place";
 // import { otpService } from "./OTP";
 
 const Pages = () => {
@@ -18,6 +19,7 @@ const Pages = () => {
     Vrify: false,
     ChengPass: false,
     NewAccount: false,
+    Place: false,
   };
 
   const reducerFN = (state, action) => {
@@ -50,6 +52,11 @@ const Pages = () => {
         return {
           ...state,
           ChengPass: !state.ChengPass,
+        };
+      case "Place":
+        return {
+          ...state,
+          Place: !state.Place,
         };
 
       case "NewAccount":
@@ -179,6 +186,7 @@ const Pages = () => {
       <NewAccount data={data} dispach={dispach} />
       <SinUp data={data} dispach={dispach} />
       <ChengPass data={data} dispach={dispach} />
+      <Place data={data} dispach={dispach} />
       <AcccountLogin data={data} dispach={dispach} />
     </div>
   );

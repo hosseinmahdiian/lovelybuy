@@ -33,10 +33,10 @@ const Filters = () => {
   };
 
   return (
-    <div className="relative  my-4 ">
-      <div className="  mx-auto container relative    ">
+    <div className="relative  mx-auto container my-4 ">
+      <div className="   relative    ">
         <div
-          className="  w-[calc(100%-80px)] mx-auto overflow-x-scroll   "
+          className="  lg:w-[calc(100%-80px)] mx-auto overflow-x-scroll   "
           ref={scroll}
         >
           <span className="absolute h-full right-1  items-center lg:flex hidden">

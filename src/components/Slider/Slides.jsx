@@ -33,10 +33,10 @@ function Slides() {
   };
 
   return (
-    <div className="relative  my-4 ">
-      <div className="  mx-auto container relative    ">
+    <div className="relative  my-4  w-full  mx-auto container  ">
+      <div className="   relative    w-full ">
         <div
-          className="  w-[calc(100%-80px)] mx-auto overflow-x-scroll   "
+          className="  lg:w-[calc(100%-80px)]   mx-auto overflow-x-scroll   "
           ref={scroll}
         >
           <span className="absolute h-full right-0  items-center lg:flex hidden border rounded-md  child:hover:text-gray-600 hover:border-black">
@@ -53,10 +53,10 @@ function Slides() {
           </span>
           <div className="flex gap-2   ">
             {slid.map(
-              (item) =>
+              (item, index) =>
                 !!item.name && (
                   <span
-                    key={item.name}
+                    key={index}
                     name={item.name}
                     className="  "
                     onClick={clickhandler}
