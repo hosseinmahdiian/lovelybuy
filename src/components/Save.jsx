@@ -47,10 +47,10 @@ const Save = () => {
         <div className="mt-5 container mx-auto mb-5">
           <NavLink
             to="/"
-            className="lg:flex hidden item-center align-middle gap-2 mr-5 "
+            className="flex  item-center align-middle gap-2 lg:mr-5 "
           >
-            <IoIosArrowForward className=" mt-1 text-2xl" />
-            <span className="text-red-500 font-bold text-xl">بازگشت</span>
+            <IoIosArrowForward className=" mt-1 lg:text-2xl" />
+            <span className="text-red-500 font-bold lg:text-xl ">بازگشت</span>
           </NavLink>
         </div>
 
