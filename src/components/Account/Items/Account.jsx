@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useParams, useSearchParams } from "react-router-dom";
-import iconcard from "../../../assets/SVG/icon-card.svg"
+import iconcard from "../../../assets/SVG/icon-card.svg";
 import { IoArrowDown, IoArrowUp } from "react-icons/io5";
 
 import inojy from "../../../assets/images/75 (1).png";
@@ -39,20 +39,17 @@ const Accountt = () => {
               </div>
             </div>
           </div>
-          <div className="w-11/12 my-3 mx-auto flex  justify-between">
+          <div className="w-11/12  mx-auto flex  justify-between">
             <p>سود شما</p>
             <span className="flex gap-2">
               <h2>0</h2>
               <p>تومان</p>
             </span>
           </div>
-          <div className="w-11/12 my-3 mx-auto flex  justify-between">
-            <p> زمان سنج سرمایه</p>
+          <div className="w-11/12  mx-auto flex  text-sm justify-between">
+            <p className=""> زمان سنج سرمایه</p>
             <span className="flex gap-2">
-              <p>50</p>
-              <p>تا</p>
-              <p>35</p>
-              <p>درصد</p>
+              <p> 35 تا 50 درصد سود</p>
             </span>
           </div>
 
@@ -92,7 +89,7 @@ const Accountt = () => {
         </div>
       </div>
       <hr className="my-5 " />
-      <div>
+      <div className="mb-32">
         <img src={iconcard} alt="" className=" w-fit mx-auto " />
 
         <p className="text-gray-400 text-center mt-3 text-sm">

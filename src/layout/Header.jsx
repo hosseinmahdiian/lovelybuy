@@ -7,6 +7,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
 import { reducerContext } from "../constant/Context";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { FaRegCircleUser } from "react-icons/fa6";
 // import { reducerContext } from "../App";
 const Header = () => {
   const reducer = useContext(reducerContext);
@@ -20,7 +21,7 @@ const Header = () => {
       <div className="w-full bg-white lg:h-28 border-b  ">
         <div className=" container w-full mx-auto font-IrSana relative  ">
           <div className="lg:flex  xl:px-12 lg:px-12 md:px-0 py-[31px] hidden bg-white items-center z-10 absolute -top-[2px] container  border-b ">
-            <div  className="flex gap-4 items-center justify-between w-full">
+            <div className="flex gap-4 items-center justify-between w-full">
               <NavLink to="/">
                 <img
                   src={logo}
@@ -32,7 +33,10 @@ const Header = () => {
                 to="/Search"
                 className="hidden md:inline-block px-5 shadow-md  w-[calc(100%-180px)]  h-[50px] border rounded-[10px] "
               >
-                <span className="mt-2.5 inline-block text-gray-400">   جستجو کالا</span>
+                <span className="mt-2.5 inline-block text-gray-400">
+                  {" "}
+                  جستجو کالا
+                </span>
               </NavLink>
             </div>
             <div className="flex items-center">
@@ -87,7 +91,7 @@ const Header = () => {
                 className=" border-x flex  items-center  px-2 cursor-pointer"
               >
                 <span className="hidden md:inline-block  h-[50px] w-[50px]   rounded-xl border-black">
-                  <BsPersonCircle className="m-[13px] h-6 w-6  " />
+                  <FaRegCircleUser className="m-[13px] h-6 w-6  " />
                 </span>
                 <div className="hidden lg:inline-block text-right">
                   <h4 className=" font-bold text-nowrap">اشکان حسنوند</h4>
@@ -101,7 +105,7 @@ const Header = () => {
                   dispach({ type: "Conection" });
                 }}
               >
-                <span className=" h-[50px] w-[50px]  rounded-xl border-black" >
+                <span className=" h-[50px] w-[50px]  rounded-xl border-black">
                   <LuPhoneCall className="hidden md:inline-block m-[13px] h-6 w-6" />
                 </span>
                 <div className="hidden lg:inline-block   text-justify">
@@ -141,7 +145,11 @@ const Header = () => {
             >
               <BsBookmarkFill className="m-[13px] h-6 w-6 " />
             </NavLink>
-            <span onClick={()=>{dispach({ type: "Conection" })}}>
+            <span
+              onClick={() => {
+                dispach({ type: "Conection" });
+              }}
+            >
               <LuPhoneCall className="m-[13px] h-6 w-6" />
             </span>
           </div>
