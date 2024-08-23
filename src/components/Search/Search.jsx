@@ -13,7 +13,7 @@ import Products from "../Product/Products";
 import Filters from "../Filter/Filters";
 import PayProducts from "../Basket/PayProducts";
 import Successsful from "../Basket/Successsful";
-import Conection from "../Private/Conection";
+import Conection from "../Conection";
 import Pages from "../Account/Pages";
 import Basket from "../Basket/Basket";
 
@@ -163,7 +163,7 @@ const Search = () => {
         <div className=" h-0 ">
           <div className="flex px-5 gap-5 h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
             <input
-            placeholder="جستجوی کالا"
+              placeholder="جستجوی کالا"
               autoFocus
               type="  "
               className="w-full text-xl focus:outline-0 h-12 px-5 rounded-[10px] "

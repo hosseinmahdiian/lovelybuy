@@ -7,6 +7,9 @@ const History = () => {
     <div className="mt-5">
       <Order />
       <Order />
+      <Order />
+      <Order />
+      <Order />
     </div>
   );
 };

@@ -7,7 +7,7 @@ const NewAccount = ({ data, dispach }) => {
    const [reduce, dispacher] = reducer;
   return (
     <div
-      className={` overflow-y-scroll h-screen  bg-white  mx-auto relative pb-4 ${
+      className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 ${
         !data.NewAccount ? `hidden` : `block`
       }`}
     >

@@ -1,7 +1,7 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import Conection from "./Conection";
+import Conection from "../Conection";
 
 const Private = () => {
   return (

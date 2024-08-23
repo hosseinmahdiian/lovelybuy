@@ -9,7 +9,7 @@ import Slides from "./Slider/Slides";
 import { reducerContext } from "../constant/Context";
 import Pages from "./Account/Pages";
 import Successsful from "./Basket/Successsful";
-import Conection from "./Private/Conection";
+import Conection from "./Conection";
 import { NavLink } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -54,7 +54,7 @@ const Save = () => {
           </NavLink>
         </div>
 
-        {/* <Slides /> */}
+        <Slides />
         <Categorys />
         <Items />
         <Products />

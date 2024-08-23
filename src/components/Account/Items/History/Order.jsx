@@ -11,27 +11,27 @@ const Order = () => {
 
     return (
       <div className="my-4   text-gray-400">
-        <div className="flex gap-2  mb-1">
+        <div className="flex gap-2 mb-1 items-center">
           <LuShoppingBag className="" />
           <p className="text-black"> سفارش </p>
           <p className="text-red-500">1243</p>
         </div>
-        <div className="flex gap-2 mb-1">
+        <div className="flex gap-2 mb-1 items-center">
           <FaRegUserCircle className="" />
           <p> اشکان حسنوند </p>
           <p>09216919291</p>
         </div>
-        <div className="flex gap-2 mb-1">
+        <div className="flex gap-2 mb-1 items-center">
           <IoMdTime className="t" />
           <p> 1403/05/28 </p>
           <p> 21:00</p>
         </div>
-        <div className="flex gap-2 mb-1">
+        <div className="flex gap-2 mb-1 items-center">
           <IoLocationOutline className="" />
           <p> محل تحویل </p>
           <p> بیمارستان عشایر</p>
         </div>
-        <div className="flex gap-2 mb-3">
+        <div className="flex gap-2 mb-3 items-center">
           <AiOutlineFileText className="" />
           <p>مجموعه فاکتور</p>
           <p> 000000تومان</p>

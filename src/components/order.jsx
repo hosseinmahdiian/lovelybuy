@@ -11,7 +11,7 @@ const Order = () => {
           <span className="hidden lg:block">
             <FiTruck className="mx-3" />
           </span>
-          <h1 className="md:text-lg text-sm">
+          <h1 className="md:text-lg text-sm px-4 md:px-0">
             سفارش به کد <span className="text-red-600">1245</span> تحویل محل پخش
             کالا بیمارستان شهدای عشایر در روز دوشنبه 11 اسفند ساعت 12 تا 14
           </h1>

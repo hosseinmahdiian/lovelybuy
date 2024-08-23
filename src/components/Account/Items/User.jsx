@@ -176,7 +176,7 @@ const User = ({ dispach }) => {
           <p className="text-black "> درباره ما </p>
         </div>
         <div
-          className="flex gap-3 text-red-600 items-center mt-3 cursor-pointer"
+          className="flex gap-3 text-red-600 items-center mt-3 cursor-pointer "
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });

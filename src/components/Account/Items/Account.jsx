@@ -4,7 +4,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 const Accountt = () => {
     return (
       <div>
-        <div className="  bg-green-600 my-4  text-white border      rounded-2xl mt-5">
+        <div className="  bg-green-600 my-4  text-white border      rounded-2xl mt-">
           <div className="w-11/12 my-3 mx-auto border-b border-white pb-3 ">
             <h2 className="mb-3">اشکان حسنوند</h2>
             <p>4060405531</p>

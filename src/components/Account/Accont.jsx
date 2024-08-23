@@ -39,7 +39,7 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
   // });
   return (
     <div
-      className={` h-full w-full bg-white border  relative ${
+      className={` h-full w-full  bg-white border  relative ${
         !data.Account ? `hidden` : `block`
       }`}
     >

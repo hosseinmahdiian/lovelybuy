@@ -209,14 +209,7 @@ const PayProducts = () => {
         </button>
       </div>
 
-      <div
-        onClick={() => {
-          dispach({ type: "successful" });
-        }}
-        className={`w-full h-full bg-black fixed right-0 top-0 z-40 bg-opacity-30 ${
-          reduce.successful ? ` ` : `hidden`
-        }  `}
-      ></div>
+     
     </div>
   );
 };

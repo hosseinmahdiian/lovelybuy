@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 
-import Telgram from "../../assets/SVG/Telgram.svg";
-import Eta from "../../assets/SVG/Eta.svg";
-import WhatsApp from "../../assets/SVG/WhatsApp.svg";
+import Telgram from "../assets/SVG/Telgram.svg";
+import Eta from "../assets/SVG/Eta.svg";
+import WhatsApp from "../assets/SVG/WhatsApp.svg";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbPhoneCall } from "react-icons/tb";
-import { reducerContext } from "../../constant/Context";
+import { reducerContext } from "../constant/Context";
 
 const Conection = () => {
   const reducer = useContext(reducerContext);
@@ -26,13 +26,11 @@ const Conection = () => {
         onClick={() => {
           dispach({ type: "Conection" });
           // dispach({ type: "logIn" });
-
         }}
-        className={`w-full h-full bg-black fixed top-0  bg-opacity-30 ${
+        className={`w-full h-screen bg-black  fixed top-0  bg-opacity-30 ${
           reduce.Conection ? ` ` : `hidden`
         }  `}
-        >
-      </div>
+      >
         <div className=" w-[calc(100%-40px)] max-w-[600px] mx-auto absolute top-1/4 left-0 right-0 rounded-[10px] pt-5 font-IrSans z-60 bg-white border ">
           <div className="flex justify-between  border-b pb-3 px-6">
             <h2 className=" font-bold text-lg text-red-500"> ارتباط با ما</h2>
@@ -86,6 +84,7 @@ const Conection = () => {
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 };
