@@ -32,6 +32,8 @@ function Slides() {
     }
   };
 
+  
+
   return (
     <div className="relative  my-4  w-full  mx-auto container  ">
       <div className="   relative    w-full ">

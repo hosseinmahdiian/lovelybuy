@@ -163,6 +163,7 @@ const Search = () => {
         <div className=" h-0 ">
           <div className="flex px-5 gap-5 h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
             <input
+            placeholder="جستجوی کالا"
               autoFocus
               type="  "
               className="w-full text-xl focus:outline-0 h-12 px-5 rounded-[10px] "

@@ -15,9 +15,9 @@ const Conection = () => {
 
   useEffect(() => {
     if (reduce.Conection || reduce.logIn) {
-      document.documentElement.classList.add("overflow-y-hidden");
+      document.documentElement.classList.add(`overflow-y-hidden`);
     } else {
-      document.documentElement.classList.remove("overflow-y-hidden");
+      document.documentElement.classList.remove(`overflow-y-hidden`);
     }
   }, [reduce.Conection]);
   return (
