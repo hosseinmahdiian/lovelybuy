@@ -163,8 +163,8 @@ const Search = () => {
         </div>
         {/* ======================= */}
         <div className=" h-0 ">
-          <div className="flex gap-5 h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
-            <NavLink to="/" className=" h-full w-20  mr-5">
+          <div className="flex h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
+            <NavLink to="/" className=" h-full w-14  mr-5">
               <IoIosArrowForward className=" text-3xl  h-full" />
             </NavLink>{" "}
             <input
@@ -175,10 +175,17 @@ const Search = () => {
                 setSearch(e.target.value);
               }}
               type="  "
-              className="w-[calc(100%-40px)] placeholder:text-red-500 text-xl focus:outline-0 h-12 rounded-[10px] "
+              className="w-[calc(100%-40px)]  placeholder:text-red-500 text-xl focus:outline-0 h-12 rounded-[10px] "
             />
             <div>
-              <IoClose className="text-red-500  border mx-2 text-3xl "  onClick={()=>{setSearch("")}}/>
+              {!!search && (
+                <IoClose
+                  className="text-red-500 ml-5  mx-2 text-3xl "
+                  onClick={() => {
+                    setSearch("");
+                  }}
+                />
+              )}
             </div>{" "}
           </div>
         </div>

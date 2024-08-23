@@ -55,13 +55,13 @@ const Order = ({ data, dispach }) => {
         </div>
         <div className="flex relative gap-2 ">
           {order.map((item, index) => (
-            <div key={index} className="border">
+            <div key={index} className=" ">
               <img
                 className="xl:w-16  xl:h-16  w-[60px]  "
                 src={item.image}
                 alt=""
               />
-              <span className="absolute bottom-0 rounded-full border-red-500 border w-6 text-center bg-white text-red-500 h2">
+              <span className="absolute bottom-0 rounded-full border-red-500 border w-6  text-center bg-white text-red-500 h-6">
                 {item.paylod}
               </span>
             </div>

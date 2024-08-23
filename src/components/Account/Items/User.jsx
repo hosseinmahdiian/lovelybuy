@@ -53,10 +53,10 @@ const User = ({ dispach }) => {
             </span>
           </div>
 
-          <div className=" flex my-4 justify-between child:border child:rounded-lg  mx-3">
+          <div className=" flex my-4 justify-between child:border child:rounded-xl  mx-3">
             <div className="relative  w-[calc(100%-140px)]  ">
               <input
-                className="peer focus:outline-none border border-blue-600 px-5 rounded-[10px] bg-[#DDEEFF] h-12 w-full "
+                className="peer focus:outline-none border border-blue-600 px-5 rounded-xl bg-[#DDEEFF] h-12 w-full "
                 placeholder=" "
                 id="pay"
               />
