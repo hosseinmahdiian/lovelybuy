@@ -33,7 +33,7 @@ const User = ({ dispach }) => {
         className="
           "
       >
-        <div className="  bg-gray-600 my-4  text-white border      rounded-2xl mt-5">
+        <div className="  bg-gray-600 my-4  text-white border      rounded-2xl mt-2">
           <div className="w-11/12 my-3 mx-auto border-b border-white pb-3 ">
             <h2 className="mb-3">اشکان حسنوند</h2>
             <p>4060405531</p>
@@ -176,7 +176,7 @@ const User = ({ dispach }) => {
           <p className="text-black "> درباره ما </p>
         </div>
         <div
-          className="flex gap-3 text-red-600 items-center mt-3 cursor-pointer "
+          className="flex gap-3  mb-5 text-red-600 items-center mt-3 cursor-pointer "
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });

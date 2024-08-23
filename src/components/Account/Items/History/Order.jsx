@@ -5,34 +5,51 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { AiOutlineFileText } from 'react-icons/ai';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { LuShoppingBag } from 'react-icons/lu';
+import ShowProducts from './Show-producs';
 
-const Order = () => {
-        const [order, setOrder] = useState(HistoryOrderData);
+const Order = ({ data, dispach }) => {
+  const [order, setOrder] = useState(HistoryOrderData);
 
-    return (
-      <div className="my-4   text-gray-400">
+  // console.log({ data, dispach });
+  
+
+  return (
+    <div
+      className="my-4  text-sm text-gray-600"
+      onClick={() => {
+        dispach({ type: "Show" });
+      }}
+    >
+      <div>
         <div className="flex gap-2 mb-1 items-center">
-          <LuShoppingBag className="" />
+          <LuShoppingBag className="text-gray-400" />
           <p className="text-black"> سفارش </p>
-          <p className="text-red-500">1243</p>
+          <div className="text-red-500 flex justify-between items-center w-full ">
+            <div className="flex  gap-3 items-center">
+              <p>1243</p>
+
+              <p className='border text-green-500 bg-green-100 py-1 px-3 rounded-full  '>تحویت شده</p>
+            </div>
+            <p> نمایش بیشتر</p>
+          </div>
         </div>
         <div className="flex gap-2 mb-1 items-center">
-          <FaRegUserCircle className="" />
+          <FaRegUserCircle className="text-gray-400" />
           <p> اشکان حسنوند </p>
           <p>09216919291</p>
         </div>
         <div className="flex gap-2 mb-1 items-center">
-          <IoMdTime className="t" />
+          <IoMdTime className="text-gray-400" />
           <p> 1403/05/28 </p>
           <p> 21:00</p>
         </div>
         <div className="flex gap-2 mb-1 items-center">
-          <IoLocationOutline className="" />
+          <IoLocationOutline className="text-gray-400" />
           <p> محل تحویل </p>
           <p> بیمارستان عشایر</p>
         </div>
         <div className="flex gap-2 mb-3 items-center">
-          <AiOutlineFileText className="" />
+          <AiOutlineFileText className="text-gray-400" />
           <p>مجموعه فاکتور</p>
           <p> 000000تومان</p>
         </div>
@@ -55,7 +72,8 @@ const Order = () => {
         </div>
         <hr className="mt-4" />
       </div>
-    );
-}
+    </div>
+  );
+};
 
 export default Order;

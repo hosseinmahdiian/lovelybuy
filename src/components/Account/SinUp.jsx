@@ -4,7 +4,7 @@ import { reducerContext } from "../../constant/Context";
 
 const SinUp = ({ data, dispach }) => {
   const reducer = useContext(reducerContext);
-  const [reduce, dispachre] = reducer;
+  const [reduce, dispacher] = reducer;
   return (
     <>
       <div
@@ -45,8 +45,8 @@ const SinUp = ({ data, dispach }) => {
             <p
               onClick={() => {
                 // console.log(data.Account);
-                dispach({ type: "SinUp" });
-                dispach({ type: "ChengPass" });
+                dispacher({ type: "Conection" });
+                
 
                 // console.log(data.Account);
               }}

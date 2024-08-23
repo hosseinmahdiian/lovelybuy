@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import logo from "../../assets/images/logo.png";
 
@@ -20,6 +20,8 @@ import Basket from "../Basket/Basket";
 const Search = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+
+  const [search, setSearch] = useState("");
 
   const ref = useRef;
   return (
@@ -161,16 +163,23 @@ const Search = () => {
         </div>
         {/* ======================= */}
         <div className=" h-0 ">
-          <div className="flex px-5 gap-5 h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
+          <div className="flex gap-5 h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
+            <NavLink to="/" className=" h-full w-20  mr-5">
+              <IoIosArrowForward className=" text-3xl  h-full" />
+            </NavLink>{" "}
             <input
               placeholder="جستجوی کالا"
               autoFocus
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
               type="  "
-              className="w-full text-xl focus:outline-0 h-12 px-5 rounded-[10px] "
+              className="w-[calc(100%-40px)] placeholder:text-red-500 text-xl focus:outline-0 h-12 rounded-[10px] "
             />
-            <NavLink to="/">
-              <IoClose className="text-red-500  mx-2 text-3xl " />
-            </NavLink>{" "}
+            <div>
+              <IoClose className="text-red-500  border mx-2 text-3xl "  onClick={()=>{setSearch("")}}/>
+            </div>{" "}
           </div>
         </div>
       </div>
@@ -182,7 +191,7 @@ const Search = () => {
           className="lg:flex hidden item-center align-middle gap-2 mr-5 "
         >
           <IoIosArrowForward className=" mt-1 text-2xl" />
-          <span className="text-red-500 font-bold text-xl">بازگشت</span>
+          <span className="text-red-500 font-bold text-xl">جستجو کالا</span>
         </NavLink>
       </div>
       <div className="lg:mt-0 mt-2">

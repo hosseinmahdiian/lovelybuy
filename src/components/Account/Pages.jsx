@@ -20,6 +20,7 @@ const Pages = () => {
     ChengPass: false,
     NewAccount: false,
     Place: false,
+    Show: false,
   };
 
   const reducerFN = (state, action) => {
@@ -59,6 +60,12 @@ const Pages = () => {
           Place: !state.Place,
         };
 
+      case "Show":
+        return {
+          ...state,
+          Show: !state.Show,
+        };
+
       case "NewAccount":
         return {
           ...state,
@@ -93,72 +100,7 @@ const Pages = () => {
   const [code, setCode] = useState(0);
   const [form, setForm] = useState({ mobile: "" });
 
-  // const Random = () => {
-  //   let randomNumber = 1000 + Math.floor(Math.random() * (9999 - 1000));
-  //   return randomNumber;
-  // };
-
-  // const sendSms = (data) => {
-  //   const headers = {
-  //     "X-API-KEY":
-  //       "L40UGRICQDvHN3F93OuDafT0xiom3okCphDgtrAfYjpng77f9ZzNaahQGyp9wI5b",
-  //     "Content-Type": "application/json",
-  //     ACCEPT: "text/plain",
-  //   };
-
-  //   return fetch("https://api.sms.ir/v1/send/verify", {
-  //     method: "POST",
-  //     headers: headers,
-  //     body: JSON.stringify(data),
-  //   }).then((response) => response.text());
-  // };
-
-  // const sendSMS = (setCode, form) => {
-  //   if (!form.mobile) {
-  //     setForm({
-  //       ...form,
-  //       severity: "error",
-  //       summary: " شماره را وارد کنید  .",
-  //     });
-
-  //     console.log({
-  //       severity: "error",
-  //       summary: " شماره را وارد کنید     .",
-  //     });
-  //   } else if (form.mobile.length < 11) {
-  //     setForm({
-  //       ...form,
-  //       severity: "error",
-  //       summary: " شماره را به درستی وارد کنید  .",
-  //     });
-  //     console.log({
-  //       severity: "error",
-  //       summary: " شماره را به درستی وارد کنید  .",
-  //     });
-  //   }
-  //   {
-  //     // setDisplay(true);
-  //     const Code = Random();
-  //     setCode(Code);
-  //     // setCode(Code);
-  //     const data = {
-  //       Mobile: form.mobile,
-  //       TemplateId: 312572,
-  //       Parameters: [
-  //         {
-  //           Name: "Code",
-  //           Value: Code,
-  //         },
-  //       ],
-  //     };
-  //     console.log(data);
-  //     sendSms(data).then((result) => {
-  //       console.log(result);
-  //     });
-  //   }
-  // };
-
-  // console.log(code);
+  
 
   const sendSms = () => {
     sendSMS(setCode, form, setTimer, dispach);

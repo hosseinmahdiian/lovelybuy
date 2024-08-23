@@ -9,6 +9,7 @@ import { MdOutlineLogout } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
+import { NavLink } from "react-router-dom";
 
 const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
   // const [data, dispach] = info
@@ -44,8 +45,13 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
       }`}
     >
       <div className={``}>
-        <img src={logo} alt="" className="mx-auto mb-20 mt-28 " />
+       
+          <img src={logo} alt="" className="mx-auto mb-20 mt-28 " onClick={()=>{
+              dispacher({ type: "logIn" });
+          }
 
+          }/>
+       
         <div className=" ">
           <div className="relative w-[calc(100%-40px)] mx-auto ">
             <input

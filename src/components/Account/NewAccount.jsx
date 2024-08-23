@@ -1,10 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { reducerContext } from "../../constant/Context";
+import { useSearchParams } from "react-router-dom";
 
 const NewAccount = ({ data, dispach }) => {
+  const reducer = useContext(reducerContext);
+  const [reduce, dispacher] = reducer;
 
-   const reducer = useContext(reducerContext);
-   const [reduce, dispacher] = reducer;
+  const [prams, setPrams] = useSearchParams();
+  useEffect(() => {
+
+    const role=prams.get("role")
+if(role=="user"){
+  
+}
+
+    console.log(prams.get("role"));
+  }, [prams]);
   return (
     <div
       className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 ${
@@ -105,7 +116,7 @@ const NewAccount = ({ data, dispach }) => {
               واحد خدمت
             </label>
           </div>
-         {/*  */}
+          {/*  */}
           <select
             name=""
             id=""
@@ -139,6 +150,7 @@ const NewAccount = ({ data, dispach }) => {
             // console.log(data.Account);
             dispach({ type: "NewAccount" });
             dispach({ type: "SinUp" });
+            setPrams({ role: "user" });
 
             // console.log(data.Account);
           }}

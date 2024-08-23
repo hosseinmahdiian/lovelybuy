@@ -39,7 +39,7 @@ const AcccountLogin = ({ data, dispach }) => {
           !data.Login ? `hidden` : `block`
         }`}
       >
-        <div className={` py-6 px-3 border-b  `}>
+        <div className={` py-6 px-3 border-b   `}>
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
@@ -55,7 +55,7 @@ const AcccountLogin = ({ data, dispach }) => {
         </div>
 
         <div className="mx-4  h-full  ">
-          <div className="flex gap-2     mt-4 overflow-x-scroll delivery  ">
+          <div className="flex gap-2   mb-2   mt-4 overflow-x-scroll delivery  ">
             {data1.map((item, index) => (
               <span onClick={clickhandler} key={index}>
                 <Filter item={item} select={select} className=" mb-5 " />
@@ -64,7 +64,7 @@ const AcccountLogin = ({ data, dispach }) => {
           </div>
           <div className=" overflow-y-scroll  h-[calc(100vh-120px)] pb-5 ">
             {select.name == "user" && <User dispach={dispach} />}
-            {select.name == "history" && <History />}
+            {select.name == "history" && <History dispach={dispach} data={data} />}
             {select.name == "account" && <Acconutt />}
           </div>
         </div>
