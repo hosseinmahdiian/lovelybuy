@@ -5,7 +5,7 @@ import ShowProducts from "./Show-producs";
 
 const History = ( {data,dispach}) => {
   return (
-    <div className="mt-5 pb-4">
+    <div className="mt-5 pb-20">
       {data.Show == true ? (
         <ShowProducts dispach={dispach} />
       ) : (

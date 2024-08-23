@@ -33,9 +33,16 @@ const User = ({ dispach }) => {
         className="
           "
       >
-        <div className="  bg-gray-600 my-4  text-white border      rounded-2xl mt-2">
-          <div className="w-11/12 my-3 mx-auto border-b border-white pb-3 ">
-            <h2 className="mb-3">اشکان حسنوند</h2>
+        <div className="  bg-[#DDEEFF] my-4  text-gray-600 border      rounded-2xl mt-2">
+          <div className="w-11/12 my-3 mx-auto border-b border-blue-600 pb-3 ">
+            <div className="flex justify-between  ">
+              <h2 className="mb-3 text-black font-bold">اشکان حسنوند</h2>
+              <div>
+                <p>
+                  <span>250</span> امتیاز
+                </p>
+              </div>{" "}
+            </div>{" "}
             <p>4060405531</p>
           </div>
           <div className="w-11/12 my-3 mx-auto flex  justify-between">
@@ -47,21 +54,21 @@ const User = ({ dispach }) => {
           </div>
 
           <div className=" flex my-4 justify-between child:border child:rounded-lg  mx-3">
-            <div className="relative mx-2 w-[calc(100%-60px)]  ">
+            <div className="relative mx-2 w-[calc(100%-140px)]  ">
               <input
-                className="peer border-white px-5 rounded-[10px] bg-gray-600 h-12 w-full focus:border-0 "
+                className="peer focus:outline-none border border-blue-600 px-5 rounded-[10px] bg-[#DDEEFF] h-12 w-full "
                 placeholder=" "
                 id="pay"
               />
               <label
                 htmlFor="pay"
-                className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-gray-600 text-white px-2"
+                className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm  bg-[#DDEEFF]  px-2"
               >
                 واریز مبلغ
               </label>
             </div>
-            <span className="w-12  h-12">
-              <IoIosArrowBack className="w-full  mt-3 mx-auto  " />
+            <span className="w-fit border  border-blue-600 align-middle h-12">
+              <p className="text-nowrap mt-2.5 px-5">انتقال به درگاه</p>
             </span>
           </div>
         </div>
@@ -176,7 +183,7 @@ const User = ({ dispach }) => {
           <p className="text-black "> درباره ما </p>
         </div>
         <div
-          className="flex gap-3  mb-5 text-red-600 items-center mt-3 cursor-pointer "
+          className="flex gap-3  mb-20 text-red-600 items-center mt-3 cursor-pointer "
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });

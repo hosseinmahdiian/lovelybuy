@@ -28,9 +28,9 @@ const Order = ({ data, dispach }) => {
             <div className="flex  gap-3 items-center">
               <p>1243</p>
 
-              <p className='border text-green-500 bg-green-100 py-1 px-3 rounded-full  '>تحویت شده</p>
+              <p className=' text-green-800 bg-green-100 py-1 px-3 rounded-full  '>تحویت شده</p>
             </div>
-            <p> نمایش بیشتر</p>
+            <p className='text-gray-600'> نمایش بیشتر</p>
           </div>
         </div>
         <div className="flex gap-2 mb-1 items-center">
