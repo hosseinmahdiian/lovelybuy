@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import { createContext, useReducer } from "react";
 import { reducerContext } from "./constant/Context";
 import Home from "./components/Home";
+import { QueryClient, QueryClientProvider, useQueryClient } from "react-query";
 
 function App() {
   const FnReducer = (state, action) => {
@@ -59,19 +60,23 @@ function App() {
     pay: false,
     successful: false,
     save: false,
-    Conection:false,
+    Conection: false,
   };
 
   const reducer = useReducer(FnReducer, init);
+
+  const QueryClint = new QueryClient({})
   return (
     <>
       <reducerContext.Provider value={reducer}>
-        <BrowserRouter>
-          <Layout>
-            {/* <Home /> */}
-            <Routers />
-          </Layout>
-        </BrowserRouter>
+        <QueryClientProvider client={QueryClint}>
+          <BrowserRouter>
+            <Layout>
+              {/* <Home /> */}
+              <Routers />
+            </Layout>
+          </BrowserRouter>
+        </QueryClientProvider>
       </reducerContext.Provider>
     </>
   );

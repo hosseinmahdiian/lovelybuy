@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Categorys from "./Category/Categorys";
 import Slides from "./Slider/Slides";
 import Items from "./Item/Items";
@@ -14,41 +14,56 @@ import Loader from "./Loader";
 import Pages from "./Account/Pages";
 import Successsful from "./Basket/Successsful";
 import Conection from "./Conection";
+import { useQuery } from "react-query";
+import { getCategory } from "./services/Catgory";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+  // useEffect(() => {
+  const [select, setSelect] = useState();
+
+  const { isLoading: isLoadCategory, data: slid } = useQuery(
+    ["get-category"],
+    getCategory
+  );
+  // console.log(slid?.data.data);
 
   // console.log(reduce);
+  // console.log(slid?.data.data);
+  // }, []);
 
   return (
     <>
-      <div className="   ">
-        <div
-          onClick={() => {
-            dispach({ type: "logIn" });
-          }}
-          className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-            reduce.logIn ? ` ` : `hidden`
-          }  `}
-        ></div>
-        <div
-          onClick={() => {
-            dispach({ type: "basket" });
-          }}
-          className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-            reduce.basket ? ` ` : `hidden`
-          }  `}
-        ></div>
-        <div
-          onClick={() => {
-            dispach({ type: "pay" });
-          }}
-          className={`w-full h-full bg-black fixed top-0 z-20 bg-opacity-30 ${
-            reduce.pay ? ` ` : `hidden`
-          }  `}
-        ></div>
-        {/* <div
+      {isLoadCategory ? (
+        <Loader />
+      ) : (
+        <div className="   ">
+          <div
+            onClick={() => {
+              dispach({ type: "logIn" });
+            }}
+            className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
+              reduce.logIn ? ` ` : `hidden`
+            }  `}
+          ></div>
+          <div
+            onClick={() => {
+              dispach({ type: "basket" });
+            }}
+            className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
+              reduce.basket ? ` ` : `hidden`
+            }  `}
+          ></div>
+          <div
+            onClick={() => {
+              dispach({ type: "pay" });
+            }}
+            className={`w-full h-full bg-black fixed top-0 z-20 bg-opacity-30 ${
+              reduce.pay ? ` ` : `hidden`
+            }  `}
+          ></div>
+          {/* <div
             onClick={() => {
               dispach({ type: "Conection" });
             }}
@@ -56,62 +71,67 @@ const Home = () => {
               reduce.Conection ? ` ` : `hidden`
             }  `}
           ></div> */}
-        <Order />
-        <Slides />
-        <Categorys />
-        <Filters />
-        <div className="mt-1">
-          <Products />
-        </div>{" "}
-        {/* account & log in */}
-        {/* <Loader /> */}
-        <div
-          className={` ${
-            reduce.logIn
-              ? ` left-0 top-0  `
-              : `sm:-left-[8000px] -bottom-[8000px] `
-          } fixed  sm:w-[400px] w-full  z-[12] h-full transition-all  ease-in-out `}
-        >
-          <Pages />
-        </div>
-        {/* Basket & pay */}
-        <div
-          className={` ${
-            reduce.basket
-              ? reduce.pay
-                ? ` sm:left-96 top-0 !z-[11] `
-                : ` left-0 top-0  `
-              : `sm:-left-[8000px] -bottom-[8000px] `
-          } fixed  sm:w-[400px] w-full  z-[16] h-full transition-all  ease-in-out border-r`}
-        >
-          <Basket />
-        </div>
-        <div
-          className={` ${
-            reduce.pay
-              ? ` sm:left-0 top-0  `
-              : `sm:-left-[8000px] -bottom-[8000px] `
-          } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
+          <Order />
+          <Slides
+            slid={slid?.data.data}
+            select={select}
+            setSelect={setSelect}
+          />
+          <Categorys sub={slid?.data.data} selectCatgory={select} />
+          <Filters />
+          <div className="mt-1">
+            <Products />
+          </div>{" "}
+          {/* account & log in */}
+          {/* <Loader /> */}
+          <div
+            className={` ${
+              reduce.logIn
+                ? ` left-0 top-0  `
+                : `sm:-left-[8000px] -bottom-[8000px] `
+            } fixed  sm:w-[400px] w-full  z-[12] h-full transition-all  ease-in-out `}
+          >
+            <Pages />
+          </div>
+          {/* Basket & pay */}
+          <div
+            className={` ${
+              reduce.basket
+                ? reduce.pay
+                  ? ` sm:left-96 top-0 !z-[11] `
+                  : ` left-0 top-0  `
+                : `sm:-left-[8000px] -bottom-[8000px] `
+            } fixed  sm:w-[400px] w-full  z-[16] h-full transition-all  ease-in-out border-r`}
+          >
+            <Basket />
+          </div>
+          <div
+            className={` ${
+              reduce.pay
+                ? ` sm:left-0 top-0  `
+                : `sm:-left-[8000px] -bottom-[8000px] `
+            } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
 
-          // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
-        >
-          <PayProducts />
-        </div>
-        <div
-          className={`
+            // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
+          >
+            <PayProducts />
+          </div>
+          <div
+            className={`
           ${reduce.successful ? `block` : `hidden`}
           absolute  right-0 left-0  top-1/4 w-[calc(100%-40px)] max-w-[600px] mx-auto   z-[35]`}
-        >
-          <Successsful  />
-        </div>
-        <div
-          className={`
+          >
+            <Successsful />
+          </div>
+          <div
+            className={`
           ${reduce.Conection ? `block` : `hidden`}
           absolute  h-full w-full  top-0   z-[35] `}
-        >
-          <Conection  />
+          >
+            <Conection />
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

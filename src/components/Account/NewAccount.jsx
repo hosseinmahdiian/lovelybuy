@@ -8,13 +8,11 @@ const NewAccount = ({ data, dispach }) => {
 
   const [prams, setPrams] = useSearchParams();
   useEffect(() => {
+    const role = prams.get("role");
+    if (role == "user") {
+    }
 
-    const role=prams.get("role")
-if(role=="user"){
-  
-}
-
-    console.log(prams.get("role"));
+    // console.log(prams.get("role"));
   }, [prams]);
   return (
     <div

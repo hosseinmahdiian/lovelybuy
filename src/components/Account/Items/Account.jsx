@@ -96,7 +96,7 @@ const Accountt = () => {
           <div>
             <h2 className="font-bold">سابقه تراکنش</h2>
 
-            <div className=" h-60 overflow-y-scroll  mb-40">
+            <div className="   mb-40">
               <div className="flex justify-between mt-4">
                 <div>
                   <div className="flex items-center gap-2">

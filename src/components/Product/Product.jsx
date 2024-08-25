@@ -3,23 +3,23 @@ import { FaMinus, FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 const Product = ({ item }) => {
-  const { image, title, pay, offer } = item;
+  const { image, name, sellPrice, oldPrice
+ } = item;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
-  //   console.log({ image, title, name });
+    // console.log(item);
 
   const increaseHandeler = () => {
     setCount(count + 1);
-    console.log(count);
+    // console.log(count);
   };
   const decreaseHandeler = () => {
     setCount(count - 1);
-    console.log(count);
+    // console.log(count);
   };
   return (
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       <div className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm ">
-        {/* <div className=" bg-white border-b rounded-br-lg"> */}
         <img
           src={image}
           alt=""
@@ -33,11 +33,9 @@ const Product = ({ item }) => {
         </span>
 
         <h2 className="text-right mr-3 pt-2  line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
-          {title}
+          {name}
         </h2>
         <div>
-     
-
           <div className="child:gap-3 child:mr-2  mt-1  flex  justify-between mx-2">
             <div>
               {/* <p>تعداد</p>
@@ -46,7 +44,7 @@ const Product = ({ item }) => {
             <div className="flex-col child:flex my-1">
               <span className="relative  items-center justify-end  !flex">
                 <p className="opacity-70 text-[0.800rem] relative">
-                  {pay}
+                  {sellPrice}
                   <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
                 </p>
                 <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
@@ -57,7 +55,7 @@ const Product = ({ item }) => {
               </span>
               <span className="flex items-center ">
                 <p className=" text-[14px] inline-block font-IRANSans_FaNum">
-                  {offer}
+                  {oldPrice}
                 </p>
                 <p className=" text-[14px] inline-block  mr-1">تومان</p>
               </span>
