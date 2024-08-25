@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import Item from "./Item";
 import { FilterData, itemsData } from "../../constant/DataSets";
 import Slider from "react-slick";
@@ -8,11 +8,25 @@ import "slick-carousel/slick/slick-theme.css";
 import Filter from "./Filter";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
-const Filters = () => {
-  const [data, setdata] = useState(FilterData);
-  const [select, setSelect] = useState(data[0]);
+const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
+  const [data, setData] = useState();
+  const [select, setSelect] = useState();
+
+  useEffect(() => {
+    sub.map((item, indxe) => {
+      if (item.id === selectCatgory) {
+        item.SubCat.map((item2, indxe) => {
+          if (item2.id === selectSubCatgory) {
+            setData(item2.SubSubCat);
+            setSelect(item2.SubSubCat[0]);
+          }
+        });
+      }
+    });
+  }, [selectSubCatgory]);
+
   const clickhandler = (e) => {
-    data.map((item) => {
+    data?.map((item) => {
       if (item.name == e.target.id) {
         setSelect(() => item);
       }
@@ -52,7 +66,7 @@ const Filters = () => {
             />
           </span>
           <div className="flex gap-2    items-center  ">
-            {data.map((item, index) => (
+            {data?.map((item, index) => (
               <span onClick={clickhandler} key={index}>
                 <Filter item={item} select={select} className=" mb-5 " />
               </span>

@@ -21,7 +21,9 @@ const Home = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   // useEffect(() => {
-  const [select, setSelect] = useState();
+  const [selectCatgory, setSelectCatgory] = useState();
+  const [selectSubCatgory, setSelectSubCatgory] = useState();
+// console.log(selectSubCatgory);
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
@@ -63,22 +65,22 @@ const Home = () => {
               reduce.pay ? ` ` : `hidden`
             }  `}
           ></div>
-          {/* <div
-            onClick={() => {
-              dispach({ type: "Conection" });
-            }}
-            className={`w-full h-full bg-blue-600 fixed top-0 z-50 bg-opacity-30 ${
-              reduce.Conection ? ` ` : `hidden`
-            }  `}
-          ></div> */}
           <Order />
           <Slides
             slid={slid?.data.data}
-            select={select}
-            setSelect={setSelect}
+            select={selectCatgory}
+            setSelect={setSelectCatgory}
           />
-          <Categorys sub={slid?.data.data} selectCatgory={select} />
-          <Filters />
+          <Categorys
+            sub={slid?.data.data}
+            selectCatgory={selectCatgory}
+            setSelectSubCatgory={setSelectSubCatgory}
+          />
+          <Filters
+            sub={slid?.data.data}
+            selectCatgory={selectCatgory}
+            selectSubCatgory={selectSubCatgory}
+          />
           <div className="mt-1">
             <Products />
           </div>{" "}

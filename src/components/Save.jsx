@@ -20,7 +20,9 @@ const Save = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
-  const [select, setSelect] = useState();
+  const [selectCatgory, setSelectCatgory] = useState();
+    const [selectSubCatgory, setSelectSubCatgory] = useState();
+
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
@@ -69,10 +71,14 @@ const Save = () => {
 
           <Slides
             slid={slid?.data.data}
-            select={select}
-            setSelect={setSelect}
+            select={selectCatgory}
+            setSelect={setSelectCatgory}
           />
-          <Categorys sub={slid?.data.data} selectCatgory={select} />
+          <Categorys
+            sub={slid?.data.data}
+            selectCatgory={selectCatgory}
+            setSelectSubCatgory={setSelectSubCatgory}
+          />
           <Items />
           <Products />
           <Conter />

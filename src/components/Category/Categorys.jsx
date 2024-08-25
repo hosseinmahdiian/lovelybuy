@@ -13,7 +13,7 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 
-const Categorys = ({ sub, selectCatgory }) => {
+const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState();
   // console.log(selectCatgory);
@@ -24,18 +24,17 @@ const Categorys = ({ sub, selectCatgory }) => {
       if (item.id === selectCatgory) {
         setData(item.SubCat);
         setSelect(item.SubCat[0]);
+        setSelectSubCatgory(item.SubCat[0].id);
       }
     });
   }, [selectCatgory]);
-  // console.log(data,select);
-
 
   const clickhandler = (e) => {
     data?.map((item) => {
       if (item.id == e.target.id) {
         setSelect(() => item);
         console.log("1111");
-        
+
         // console.log(item.name,select.name);
       }
     });
