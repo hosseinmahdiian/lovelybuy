@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { BsFileEarmarkText } from "react-icons/bs";
 import { reducerContext } from "../../constant/Context";
 
-const SinUp = ({ data, dispach }) => {
+const SinUp = () => {
   const reducer = useContext(reducerContext);
-  const [reduce, dispacher] = reducer;
+  const [reduce, dispach] = reducer;
   return (
     <>
       <div
         className={`  bg-white  mx-auto relative pt-52 ${
-          !data.SinUp ? `hidden` : `block`
+          !reduce.SinUp ? `hidden` : `block`
         }`}
       >
         {" "}
@@ -35,8 +35,7 @@ const SinUp = ({ data, dispach }) => {
                 dispach({ type: "SinUp" });
                 // dispach({ type: "Account" });
                 dispach({ type: "Login" });
-                // dispacher({ type: "logIn" });
-
+                // dispach({ type: "Derawe" });
               }}
               className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
             >
@@ -44,11 +43,11 @@ const SinUp = ({ data, dispach }) => {
             </button>
             <p
               onClick={() => {
-                // console.log(data.Account);
-                dispacher({ type: "Conection" });
+                // console.log(reduce.Account);
+                dispach({ type: "Conection" });
                 
 
-                // console.log(data.Account);
+                // console.log(reduce.Account);
               }}
               className=" mt-5 mx-auto text-blue-500 block w-fit "
             >

@@ -11,13 +11,11 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 import { useQuery } from "react-query";
-import { getCategory } from "../services/Catgory";
+import { getCategory } from "../../services/Catgory";
 import Loader from "../Loader";
 // import { settingsForSlide } from "../../constant/constant";
 
 function Slides({ slid, select, setSelect }) {
-  
-
   // console.log(slid[0]);
 
   // const [slid, setSlid] = useState(slideDadta);

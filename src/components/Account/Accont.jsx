@@ -11,47 +11,36 @@ import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 
-const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
-  // const [data, dispach] = info
-  // console.log(data.Account);
+const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
+  
 
   const reducer = useContext(reducerContext);
-  const [reduce, dispacher] = reducer;
+  const [reduce, dispach] = reducer;
 
-  // const [mobile, setMobile] = useState(0);
   const [mobileAlert, setMobileAlert] = useState("");
 
   const chenchHandeler = (e) => {
     // console.log(e.target.value);
     setMobile(e.target.value);
     setForm({ mobile: e.target.value });
-    // Formik.handelChench;
   };
 
-  // useFormik({
-  //   initialValues: {
-  //     phone: "",
-  //   },
-  //   validationSchema: Yup.object({
-  //     phone: Yup.number()
-  //       .max(11, "شماره را به درستی وارد کنید")
-  //       .required("شماره را وارد کنید"),
-  //   }),
-  // });
   return (
     <div
       className={` h-full w-full  bg-white border  relative ${
-        !data.Account ? `hidden` : `block`
+        !reduce.Account ? `hidden` : `block`
       }`}
     >
       <div className={``}>
-       
-          <img src={logo} alt="" className="mx-auto mb-20 mt-28 " onClick={()=>{
-              dispacher({ type: "logIn" });
-          }
+        <img
+          src={logo}
+          alt=""
+          className="mx-auto mb-20 mt-28 "
+          onClick={() => {
+            dispach({ type: "Derawe" });
+          }}
+        />
 
-          }/>
-       
         <div className=" ">
           <div className="relative w-[calc(100%-40px)] mx-auto ">
             <input
@@ -77,7 +66,7 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
 
           <button
             onClick={() => {
-              // console.log(data.Account);
+              // console.log(reduce.Account);
               if (mobile.length == 11 && !!mobile) {
                 dispach({ type: "Account" });
                 dispach({ type: "Vrify" });
@@ -89,9 +78,6 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
                 setMobileAlert("شماره موبایل را به درستی وارد کنید");
               }
 
-              // console.log(` 111${!mobile} \n 222${mobile.length > 0}`);
-
-              // console.log(data.Account);
             }}
             className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
           >
@@ -101,7 +87,7 @@ const Acconut = ({ data, dispach, sendSms, setMobile, mobile, setForm }) => {
             href=""
             className=" mt-5 mx-auto text-blue-500 block w-fit "
             onClick={() => {
-              dispacher({ type: "Conection" });
+              dispach({ type: "Conection" });
             }}
           >
             {" "}

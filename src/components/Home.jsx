@@ -15,15 +15,13 @@ import Pages from "./Account/Pages";
 import Successsful from "./Basket/Successsful";
 import Conection from "./Conection";
 import { useQuery } from "react-query";
-import { getCategory } from "./services/Catgory";
+import { getCategory } from "../services/Catgory";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  // useEffect(() => {
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
-// console.log(selectSubCatgory);
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
@@ -31,9 +29,7 @@ const Home = () => {
   );
   // console.log(slid?.data.data);
 
-  // console.log(reduce);
-  // console.log(slid?.data.data);
-  // }, []);
+
 
   return (
     <>
@@ -43,10 +39,10 @@ const Home = () => {
         <div className="   ">
           <div
             onClick={() => {
-              dispach({ type: "logIn" });
+              dispach({ type: "Derawer" });
             }}
             className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-              reduce.logIn ? ` ` : `hidden`
+              reduce.Derawer? ` ` : `hidden`
             }  `}
           ></div>
           <div
@@ -85,10 +81,9 @@ const Home = () => {
             <Products />
           </div>{" "}
           {/* account & log in */}
-          {/* <Loader /> */}
           <div
             className={` ${
-              reduce.logIn
+              reduce.Derawer
                 ? ` left-0 top-0  `
                 : `sm:-left-[8000px] -bottom-[8000px] `
             } fixed  sm:w-[400px] w-full  z-[12] h-full transition-all  ease-in-out `}
@@ -113,8 +108,6 @@ const Home = () => {
                 ? ` sm:left-0 top-0  `
                 : `sm:-left-[8000px] -bottom-[8000px] `
             } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
-
-            // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
           >
             <PayProducts />
           </div>

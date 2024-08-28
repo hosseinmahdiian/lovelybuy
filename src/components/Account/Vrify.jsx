@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
+import { reducerContext } from "../../constant/Context";
 
-const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
+const Vrify = ({ code, mobile, timer, sendSms }) => {
   const [otp, setOtp] = useState(code);
   const [messeage, setMesseage] = useState("");
-  // setOtp(code)
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
+
   useEffect(() => {
-    // console.log(code);
     setOtp(()=>code);
   }, [code]);
 
   var minutes = Math.floor(timer % 60);
   var seconds = Math.floor(timer / 60);
 
-  // console.log( seconds,":",minutes);
 
   return (
     <div
       className={`  bg-white  mx-auto relative px-5 pt-1 ${
-        !data.Vrify ? `hidden` : `block`
+        !reduce.Vrify ? `hidden` : `block`
       }`}
     >
       {" "}
@@ -30,7 +31,7 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
           <span
             className="text-blue-500 cursor-pointer"
             onClick={() => {
-              // console.log(data.Account);
+              // console.log(reduce.Account);
               dispach({ type: "Account" });
               dispach({ type: "Vrify" });
               clearInterval();
@@ -39,7 +40,6 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
           >
             ویرایش شماره
           </span>
-          {/* <div className="font-bold"> کد ورود : {code}</div> */}
           {!!messeage && (
             <div className="font-bold text-red-500">{messeage}</div>
           )}
@@ -52,13 +52,11 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
           numInputs={4}
           shouldAutoFocus={true}
           lastInputFocused={true}
-          // renderSeparator={<span>-</span>}
           renderInput={(props) => (
             <input
               {...props}
               type="number"
               autoFocus
-              // onFocus
               className=" !w-12 h-12 border border-blue-600 rounded-[10px]  mx-2"
             />
           )}
@@ -66,10 +64,9 @@ const Vrify = ({ data, dispach, code, mobile, timer, sendSms, setTimer }) => {
       </div>
       <button
         onClick={() => {
-          console.log(otp, code);
           if (code != "") {
             if (otp == code) {
-              if (data.AcconutHave) {
+              if (reduce.AcconutHave) {
                 dispach({ type: "Vrify" });
                 dispach({ type: "SinUp" });
               } else {

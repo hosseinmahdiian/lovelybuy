@@ -30,10 +30,10 @@ const Search = () => {
       <div className="w-full h-0 ">
         <div
           onClick={() => {
-            dispach({ type: "logIn" });
+            dispach({ type: "Derawer" });
           }}
           className={`w-full h-full bg-black fixed top-0 z-[51] bg-opacity-30 ${
-            reduce.logIn ? ` ` : `hidden`
+            reduce.Derawer ? ` ` : `hidden`
           }  `}
         ></div>
         <div
@@ -125,8 +125,8 @@ const Search = () => {
                 </span>
                 <div
                   onClick={() => {
-                    // console.log(reduce.logIn);
-                    dispach({ type: "logIn" });
+                    // console.log(reduce.Derawer);
+                    dispach({ type: "Derawer" });
                   }}
                   className=" border-x flex  items-center  px-2 cursor-pointer"
                 >
@@ -216,7 +216,7 @@ const Search = () => {
       {/* ======================= */}
       <div
         className={` ${
-          reduce.logIn
+          reduce.Derawer
             ? ` sm:left-0 top-0  `
             : `sm:-left-[8000px] -bottom-[8000px] `
         } fixed  md:w-[400px] es:w-full  z-[55] h-full transition-all  ease-in-out `}

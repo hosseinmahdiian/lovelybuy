@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { HistoryOrderData, OrderData } from '../../../../constant/DataSets';
-import { IoMdTime } from 'react-icons/io';
-import { IoLocationOutline } from 'react-icons/io5';
-import { AiOutlineFileText } from 'react-icons/ai';
-import { FaRegUserCircle } from 'react-icons/fa';
-import { LuShoppingBag } from 'react-icons/lu';
-import ShowProducts from './Show-producs';
+import React, { useContext, useState } from "react";
+import { HistoryOrderData, OrderData } from "../../../../constant/DataSets";
+import { IoMdTime } from "react-icons/io";
+import { IoLocationOutline } from "react-icons/io5";
+import { AiOutlineFileText } from "react-icons/ai";
+import { FaRegUserCircle } from "react-icons/fa";
+import { LuShoppingBag } from "react-icons/lu";
+import ShowProducts from "./Show-producs";
+import { reducerContext } from "../../../../constant/Context";
 
-const Order = ({ data, dispach }) => {
+const Order = () => {
   const [order, setOrder] = useState(HistoryOrderData);
 
-  // console.log({ data, dispach });
-  
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
 
   return (
     <div
@@ -28,9 +29,11 @@ const Order = ({ data, dispach }) => {
             <div className="flex  gap-3 items-center">
               <p>1243</p>
 
-              <p className=' text-green-800 bg-green-100 py-1 px-3 rounded-full  '>تحویت شده</p>
+              <p className=" text-green-800 bg-green-100 py-1 px-3 rounded-full  ">
+                تحویت شده
+              </p>
             </div>
-            <p className='text-gray-600'> نمایش بیشتر</p>
+            <p className="text-gray-600"> نمایش بیشتر</p>
           </div>
         </div>
         <div className="flex gap-2 mb-1 items-center">

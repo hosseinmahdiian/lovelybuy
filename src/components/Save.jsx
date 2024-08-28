@@ -13,7 +13,7 @@ import Conection from "./Conection";
 import { NavLink } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { useQuery } from "react-query";
-import { getCategory } from "./services/Catgory";
+import { getCategory } from "../services/Catgory";
 import Loader from "./Loader";
 
 const Save = () => {
@@ -21,8 +21,7 @@ const Save = () => {
   const [reduce, dispach] = reducer;
 
   const [selectCatgory, setSelectCatgory] = useState();
-    const [selectSubCatgory, setSelectSubCatgory] = useState();
-
+  const [selectSubCatgory, setSelectSubCatgory] = useState();
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],

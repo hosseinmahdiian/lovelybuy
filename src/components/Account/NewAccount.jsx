@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { reducerContext } from "../../constant/Context";
 import { useSearchParams } from "react-router-dom";
 
-const NewAccount = ({ data, dispach }) => {
+const NewAccount = () => {
   const reducer = useContext(reducerContext);
-  const [reduce, dispacher] = reducer;
+  const [reduce, dispach] = reducer;
 
   const [prams, setPrams] = useSearchParams();
   useEffect(() => {
@@ -17,7 +17,7 @@ const NewAccount = ({ data, dispach }) => {
   return (
     <div
       className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 ${
-        !data.NewAccount ? `hidden` : `block`
+        !reduce.NewAccount ? `hidden` : `block`
       }`}
     >
       {" "}
@@ -145,12 +145,12 @@ const NewAccount = ({ data, dispach }) => {
         </div>
         <button
           onClick={() => {
-            // console.log(data.Account);
+            // console.log(reduce.Account);
             dispach({ type: "NewAccount" });
             dispach({ type: "SinUp" });
             setPrams({ role: "user" });
 
-            // console.log(data.Account);
+            // console.log(reduce.Account);
           }}
           className="w-[calc(100%-60px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
         >
@@ -161,7 +161,7 @@ const NewAccount = ({ data, dispach }) => {
           href=""
           className=" mt-5 mx-auto text-blue-500 block w-fit "
           onClick={() => {
-            dispacher({ type: "Conection" });
+            dispach({ type: "Conection" });
           }}
         >
           {" "}

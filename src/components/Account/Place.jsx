@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { reducerContext } from "../../constant/Context";
 
-const Place = ({ data, dispach }) => {
+const Place = () => {
   const reducer = useContext(reducerContext);
-
-  const [reduce, dispacher] = reducer;
+  const [reduce, dispach] = reducer;
   return (
     <div
       className={` overflow-y-scroll h-screen  bg-white  mx-auto relative pb-4 ${
-        !data.Place ? `hidden` : `block`
+        !reduce.Place ? `hidden` : `block`
       }`}
     >
       {" "}
@@ -46,11 +45,11 @@ const Place = ({ data, dispach }) => {
 
           <button
             onClick={() => {
-              // console.log(data.Account);
+              // console.log(reduce.Account);
               dispach({ type: "Place" });
               dispach({ type: "Login" });
 
-              // console.log(data.Account);
+              // console.log(reduce.Account);
             }}
             className="w-full mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
           >
@@ -61,7 +60,7 @@ const Place = ({ data, dispach }) => {
             href=""
             className=" mt-5 mx-auto text-blue-500 block w-fit "
             onClick={() => {
-              dispacher({ type: "Conection" });
+              dispach({ type: "Conection" });
             }}
           >
             {" "}

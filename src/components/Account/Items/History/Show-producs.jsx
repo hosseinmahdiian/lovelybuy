@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import BuyProducts from "./BuyProducts";
 import { HistoryOrderData } from "../../../../constant/DataSets";
 import { IoIosArrowForward } from "react-icons/io";
+import { reducerContext } from "../../../../constant/Context";
 
-
-
-const ShowProducts = ({ dispach }) => {
+const ShowProducts = () => {
   const [buyProducts, setBuyProducts] = useState(HistoryOrderData);
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
   return (
     <div className="mt-4 relative w-full h-[calc(100vh-180px)]">
       <div className={` py-6 px-3 border-b   `}>

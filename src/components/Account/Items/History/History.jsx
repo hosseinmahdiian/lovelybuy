@@ -1,42 +1,19 @@
-import React from "react";
-import { IoIosArrowBack } from "react-icons/io";
-import Order from "./Order"
+import React, { useContext } from "react";
+import Order from "./Order";
 import ShowProducts from "./Show-producs";
+import { reducerContext } from "../../../../constant/Context";
 
-const History = ( {data,dispach}) => {
+const History = () => {
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
   return (
     <div className="mt-5 pb-20">
-      {data.Show == true ? (
-        <ShowProducts dispach={dispach} />
-      ) : (
-        <Order dispach={dispach} data={data} />
-      )}
-
-      {data.Show == true ? (
-        <ShowProducts dispach={dispach} />
-      ) : (
-        <Order dispach={dispach} data={data} />
-      )}
-      {data.Show == true ? (
-        <ShowProducts dispach={dispach} />
-      ) : (
-        <Order dispach={dispach} data={data} />
-      )}
-      {data.Show == true ? (
-        <ShowProducts dispach={dispach} />
-      ) : (
-        <Order dispach={dispach} data={data} />
-      )}
-      {data.Show == true ? (
-        <ShowProducts dispach={dispach} />
-      ) : (
-        <Order dispach={dispach} data={data} />
-      )}
-      {data.Show == true ? (
-        <ShowProducts dispach={dispach} />
-      ) : (
-        <Order dispach={dispach} data={data} />
-      )}
+      {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {reduce.Show == true ? <ShowProducts /> : <Order />}
     </div>
   );
 };

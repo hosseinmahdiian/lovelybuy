@@ -15,9 +15,9 @@ import User from "./Items/User";
 import Acconutt from "./Items/Account";
 import History from "./Items/History/History";
 
-const AcccountLogin = ({ data, dispach }) => {
+const AcccountLogin = () => {
   const reducer = useContext(reducerContext);
-  const [reduce, dispacher] = reducer;
+  const [reduce, dispach] = reducer;
 
   const [data1, setdata] = useState(UserData);
   const [select, setSelect] = useState(data1[0]);
@@ -36,14 +36,14 @@ const AcccountLogin = ({ data, dispach }) => {
     <>
       <div
         className={`  bg-white  mx-auto relative  h-screen  ${
-          !data.Login ? `hidden` : `block`
+          !reduce.Login ? `hidden` : `block`
         }`}
       >
         <div className={` py-6 px-3 border-b   `}>
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
-              dispacher({ type: "logIn" });
+              dispach({ type: "Derawer" });
             }}
           >
             <IoIosArrowForward className="text-xl" />
@@ -64,7 +64,9 @@ const AcccountLogin = ({ data, dispach }) => {
           </div>
           <div className=" overflow-y-scroll  h-[calc(100vh-120px)] pb-5 ">
             {select.name == "user" && <User dispach={dispach} />}
-            {select.name == "history" && <History dispach={dispach} data={data} />}
+            {select.name == "history" && (
+              <History dispach={dispach} reduce={reduce} />
+            )}
             {select.name == "account" && <Acconutt />}
           </div>
         </div>

@@ -1,10 +1,11 @@
+import axios from "axios";
 import { useState } from "react";
 
 export const Random = () => {
   let randomNumber = 1000 + Math.floor(Math.random() * (9999 - 1000));
   return randomNumber;
 };
-
+const API = "https://api.sms.ir/v1/send/verify";
 let intervalId;
 export const sendSms = (data) => {
   const headers = {
@@ -14,40 +15,31 @@ export const sendSms = (data) => {
     ACCEPT: "text/plain",
   };
 
-  return fetch("https://api.sms.ir/v1/send/verify", {
+  return fetch(API, {
     method: "POST",
     headers: headers,
     body: JSON.stringify(data),
-  }).then((response) => response.text());
+  })
+    .then((response) => response.text())
+    .catch((e) => console.log(e));
 };
 
-export const sendSMS = (setCode, form, setTimer, dispach) => {
+export const sendSMS = (setCode, form, setTimer) => {
   if (!form.mobile) {
     setForm({
       ...form,
       severity: "error",
       summary: " شماره را وارد کنید  .",
     });
-
-    // console.log({
-    //   severity: "error",
-    //   summary: " شماره را وارد کنید        .",
-    // });
   } else if (form.mobile.length < 11) {
     setForm({
       ...form,
       severity: "error",
       summary: " شماره را به درستی وارد کنید  .",
     });
-    // console.log({
-    //   severity: "error",
-    //   summary: " شماره را به درستی وارد کنید  .",
-    // });
   } else {
-    // setDisplay(true);
     const Code = Random();
     setCode(Code);
-    // setCode(Code);
     const data = {
       Mobile: form.mobile,
       TemplateId: 312572,
@@ -67,7 +59,6 @@ export const sendSMS = (setCode, form, setTimer, dispach) => {
     });
   }
 };
-// const [intervalId, setIntervalId] = useState(null);
 
 const startTimer = (setTimer, setCode) => {
   const id = setInterval(() => {

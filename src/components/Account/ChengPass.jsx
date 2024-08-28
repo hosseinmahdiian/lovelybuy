@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { reducerContext } from "../../constant/Context";
 
-const ChengPass = ({ data, dispach }) => {
+const ChengPass = () => {
 
    const reducer = useContext(reducerContext);
-   const [reduce, dispacher] = reducer;
+   const [reduce, dispach] = reducer;
   return (
     <div
       className={`  bg-white  mx-auto relative pt-1 ${
-        !data.ChengPass ? `hidden` : `block`
+        !reduce.ChengPass ? `hidden` : `block`
       }`}
     >
       {" "}
@@ -47,7 +47,7 @@ const ChengPass = ({ data, dispach }) => {
             href=""
             className=" mt-5 mx-auto text-blue-500 block w-fit "
             onClick={() => {
-              dispacher({ type: "Conection" });
+              dispach({ type: "Conection" });
             }}
           >
             {" "}

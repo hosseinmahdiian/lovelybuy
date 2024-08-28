@@ -3,13 +3,21 @@ import { MdOutlinePersonOutline } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
 import { CiShoppingTag } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
-import { RiHome2Line, RiMapPinTimeLine, RiShoppingBag3Line } from "react-icons/ri";
+import {
+  RiHome2Line,
+  RiMapPinTimeLine,
+  RiShoppingBag3Line,
+} from "react-icons/ri";
 import { MobileOnlyView } from "react-device-detect";
 import { NavLink } from "react-router-dom";
 import { reducerContext } from "../constant/Context";
 import { GoCreditCard } from "react-icons/go";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { PiCreditCardLight, PiUserCircle, PiUserCircleCheckDuotone } from "react-icons/pi";
+import {
+  PiCreditCardLight,
+  PiUserCircle,
+  PiUserCircleCheckDuotone,
+} from "react-icons/pi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 
 const Conter = () => {
@@ -20,31 +28,30 @@ const Conter = () => {
       <MobileOnlyView>
         <div className={`  w-full   justify-center flex  `}>
           <div className="fixed  -bottom-5 z-10 flex my-5 bg-white w-full   h-16 justify-around mx-auto border-t font-IrSans text-[12px]  items-center  child:text-center ">
-            {/* <NavLink to="/acconte"> */}
-            {/* </NavLink> */}
-
             <RiMapPinTimeLine
               className=" text-2xl "
-              onClick={() => dispach({ type: "basket" })}
+              onClick={() => {
+                // dispach({ type: "basket" });
+              }}
             />
 
             <span
               onClick={() => {
-                dispach({ type: "logIn" });
+                // dispach({ type: "Derawer" });
               }}
             >
               <PiCreditCardLight className=" mx-auto text-2xl " />
             </span>
-              <HiOutlineShoppingBag
-                className=" text-2xl "
-                onClick={() => dispach({ type: "basket" })}
-              />
+            <HiOutlineShoppingBag
+              className=" text-2xl "
+              onClick={() => dispach({ type: "basket" })}
+            />
             <NavLink to="Search" className=" ">
               <IoIosSearch className=" mx-auto text-2xl" />
             </NavLink>
             <span
               onClick={() => {
-                dispach({ type: "logIn" });
+                dispach({ type: "Derawer" });
               }}
             >
               <PiUserCircleCheckDuotone className=" mx-auto text-2xl " />
