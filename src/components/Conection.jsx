@@ -14,7 +14,7 @@ const Conection = () => {
   const [reduce, dispach] = reducer;
 
   useEffect(() => {
-    if (reduce.Conection || reduce.logIn) {
+    if (reduce.Conection || reduce.Deraver) {
       document.documentElement.classList.add(`overflow-y-hidden`);
     } else {
       document.documentElement.classList.remove(`overflow-y-hidden`);
@@ -25,20 +25,28 @@ const Conection = () => {
       <div
         onClick={() => {
           dispach({ type: "Conection" });
-          // dispach({ type: "logIn" });
         }}
         className={`w-full h-screen bg-black  fixed top-0  bg-opacity-30 ${
           reduce.Conection ? ` ` : `hidden`
         }  `}
       >
-        <div className=" w-[calc(100%-40px)] max-w-[600px] mx-auto absolute top-1/4 left-0 right-0 rounded-[10px] pt-5 font-IrSans z-60 bg-white border ">
+        <div
+          onClick={() => {
+            dispach({ type: "Conection" });
+            // console.log("===");
+          }}
+          className=" w-[calc(100%-40px)] max-w-[600px] mx-auto absolute top-1/4 left-0 right-0 rounded-[10px] pt-5 font-IrSans z-60 bg-white border "
+        >
           <div className="flex justify-between  border-b pb-3 px-6">
             <h2 className=" font-bold text-lg text-red-500"> ارتباط با ما</h2>
             <span
-              className="w-5 h-5"
-              onClick={() => dispach({ type: "Conection" })}
+              className="w-5 h-5  cursor-pointer"
+              onClick={() => {
+                dispach({ type: "Conection" });
+                // console.log("===");
+              }}
             >
-              <FaXmark className="text-red-500 text-xl " />
+              <FaXmark className="text-red-500 text-xl text-center " />
             </span>
           </div>
           <div className=" mx-4 mt-5">

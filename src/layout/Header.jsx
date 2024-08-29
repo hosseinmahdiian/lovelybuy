@@ -41,10 +41,10 @@ const Header = () => {
             </div>
             <div className="flex items-center">
               <NavLink
-                to={`${reduce.save ? `/` : `/Save`}`}
-                onClick={() => {
-                  dispach({ type: "save" });
-                }}
+                to={`/Save`}
+                // onClick={() => {
+                //   dispach({ type: "save" });
+                // }}
                 className="h flex px-2"
               >
                 <div className="hidden md:inline-block  h-[50px] w-[50px]  cursor-pointer rounded-xl border-black  ">
@@ -85,10 +85,10 @@ const Header = () => {
               </span>
               <div
                 onClick={() => {
-                  // console.log(reduce.logIn);
-                  dispach({ type: "logIn" });
+                  // console.log(reduce.Derawer);
+                  dispach({ type: "Derawer" });
                 }}
-                className=" border-x flex  items-center  px-2 cursor-pointer"
+                className=" border-x flex  items-center  px-2 cursor-pointer "
               >
                 <span className="hidden md:inline-block  h-[50px] w-[50px]   rounded-xl border-black">
                   <FaRegCircleUser className="m-[13px] h-6 w-6  " />

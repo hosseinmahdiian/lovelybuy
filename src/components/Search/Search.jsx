@@ -16,6 +16,8 @@ import Successsful from "../Basket/Successsful";
 import Conection from "../Conection";
 import Pages from "../Account/Pages";
 import Basket from "../Basket/Basket";
+import Items from "../Item/Items";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 const Search = () => {
   const reducer = useContext(reducerContext);
@@ -52,17 +54,10 @@ const Search = () => {
             reduce.pay ? ` ` : `hidden`
           }  `}
         ></div>
-        <div
-          onClick={() => {
-            dispach({ type: "Conection" });
-          }}
-          className={`w-full h-full bg-black fixed top-0 z-[51] bg-opacity-30 ${
-            reduce.Conection ? ` ` : `hidden`
-          }  `}
-        ></div>{" "}
+
         <div className="  mx-auto  relative   ">
           <div className=" container w-full mx-auto font-IrSana absolute left-0 right-0 -top-28 z-50  ">
-            <div className="lg:flex justify-between px-12  py-[31px] hidden bg-white w-full  items-center   absolute mx-auto   border-b">
+            <div className="lg:flex justify-between px-12  py-[30px] hidden bg-white w-full  items-center   absolute mx-auto   border-b">
               <div className="flex w-full   items-center gap-3 ">
                 <NavLink to="/">
                   {" "}
@@ -76,7 +71,7 @@ const Search = () => {
                   autoFocus
                   type="text"
                   placeholder="جستجوی کالا"
-                  className="hidden focus:outline-0 md:inline-block focus:border-0 px-5 shadow-md md:w-[300px] w-[400px] xl:w-[600px] h-[50px] border rounded-[10px] "
+                  className="hidden focus:outline-0 md:inline-block focus:border-0 px-5 shadow-md  w-[calc(100%-180px)]  h-[50px] border rounded-[10px] "
                 />
               </div>
               <div className="flex items-center ">
@@ -131,7 +126,7 @@ const Search = () => {
                   className=" border-x flex  items-center  px-2 cursor-pointer"
                 >
                   <span className="hidden md:inline-block  h-[50px] w-[50px]   rounded-xl border-black">
-                    <BsPersonCircle className="m-[13px] h-6 w-6  " />
+                    <FaRegCircleUser className="m-[13px] h-6 w-6  " />
                   </span>
                   <div className="hidden lg:inline-block text-right">
                     <h4 className=" font-bold text-nowrap">اشکان حسنوند</h4>
@@ -141,7 +136,7 @@ const Search = () => {
                 <div
                   className="flex  border-r cursor-pointer px-2"
                   onClick={() => {
-                    console.log(reduce.Conection);
+                    // console.log(reduce.Conection);
                     dispach({ type: "Conection" });
                   }}
                 >
@@ -195,18 +190,18 @@ const Search = () => {
       <div className="mt-5 container mx-auto">
         <NavLink
           to="/"
-          className="lg:flex hidden item-center align-middle gap-2 mr-5 "
+          className="lg:flex hidden item-center align-middle gap-2 pr-2 "
         >
           <IoIosArrowForward className=" mt-1 text-2xl" />
-          <span className="text-red-500 font-bold text-xl">جستجو کالا</span>
+          <span className="text-red-500 font-bold text-xl pr2">جستجو کالا</span>
         </NavLink>
       </div>
       <div className="lg:mt-0 mt-2">
-        <p className="text-xl mt-7 container mx-auto pr-2.5 ">20 جستجوی اخیر</p>
-        <Filters />
+        <p className="text-xl mt-7 container mx-auto  pr-2">20 جستجوی اخیر</p>
+        <Items />
 
-        <div className=" bg-[#F5F5F5]  w-full pr-2.5">
-          <p className="  text-xl mt-1 pb-1.5 pt-7    container mx-auto ">
+        <div className=" bg-[#F5F5F5]  w-full ">
+          <p className="  text-xl mt-1 pb-1.5 pt-7  pr-2  container mx-auto ">
             20 محصول اخیر
           </p>
         </div>
@@ -256,7 +251,7 @@ const Search = () => {
       <div
         className={`
           ${reduce.Conection ? `block` : `hidden`}
-          absolute  right-0 left-0 mx-auto  top-1/4  w-[calc(100%-40px)] max-w-[600px]   z-[55] `}
+          absolute  mx-auto  top-1/4  w-[calc(100%-40px)] max-w-[600px]   z-[55] `}
       >
         <Conection dispach={dispach} />
       </div>

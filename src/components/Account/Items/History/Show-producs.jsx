@@ -9,19 +9,16 @@ const ShowProducts = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   return (
-    <div className="mt-4 relative w-full h-[calc(100vh-180px)]">
-      <div className={` py-6 px-3 border-b   `}>
+    <div className="m relative w-full h-[calc(100vh-180px)]">
+      <div className={` py-2 px-3 border-b   `}>
         <span
-          className=" h-5 text-center gap-2 cursor-pointer flex items-center"
+          className=" h- text-center gap-2 cursor-pointer flex items-center"
           onClick={() => {
-            dispach({ type: "ُShow" });
+            dispach({ type: "Show" });
           }}
         >
           <IoIosArrowForward className="text-xl" />
-          <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
-            {" "}
-            سابقه سفارش
-          </h1>
+         
         </span>
       </div>
       <div className=" bg-white ">

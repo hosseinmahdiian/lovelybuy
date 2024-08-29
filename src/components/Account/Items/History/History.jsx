@@ -9,11 +9,11 @@ const History = () => {
   return (
     <div className="mt-5 pb-20">
       {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {/*
       {reduce.Show == true ? <ShowProducts /> : <Order />}
       {reduce.Show == true ? <ShowProducts /> : <Order />}
       {reduce.Show == true ? <ShowProducts /> : <Order />}
-      {reduce.Show == true ? <ShowProducts /> : <Order />}
-      {reduce.Show == true ? <ShowProducts /> : <Order />}
+      {reduce.Show == true ? <ShowProducts /> : <Order />} */}
     </div>
   );
 };

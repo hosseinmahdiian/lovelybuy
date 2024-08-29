@@ -31,13 +31,17 @@ const Conter = () => {
             <RiMapPinTimeLine
               className=" text-2xl "
               onClick={() => {
-                // dispach({ type: "basket" });
+                dispach({ type: "Derawer" });
+                dispach({ type: "Show" });
+                
               }}
             />
 
             <span
               onClick={() => {
-                // dispach({ type: "Derawer" });
+                dispach({ type: "Derawer" });
+                dispach({ type: "Show" });
+                
               }}
             >
               <PiCreditCardLight className=" mx-auto text-2xl " />

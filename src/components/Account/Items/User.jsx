@@ -33,9 +33,9 @@ const User = ({ dispach }) => {
         className="
           "
       >
-        <div className="  bg-[#DDEEFF] my-4  text-gray-600 border      rounded-2xl mt-2">
+        <div className="  bg-[#DDEEFF] my-4  text-gray-600 pb-3      rounded-2xl mt-2">
           <div className="w-11/12 my-3 mx-auto border-b border-blue-400 pb-3 ">
-            <div className="flex justify-between  ">
+            <div className="flex justify-between pt-4 ">
               <h2 className="mb-3 text-black font-bold">اشکان حسنوند</h2>
               <div>
                 <p>

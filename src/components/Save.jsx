@@ -36,10 +36,10 @@ const Save = () => {
         <div className=" h-full mt-5 ">
           <div
             onClick={() => {
-              dispach({ type: "logIn" });
+              dispach({ type: "Derawer" });
             }}
             className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-              reduce.logIn ? ` ` : `hidden`
+              reduce.Derawer ? ` ` : `hidden`
             }  `}
           ></div>
           <div
@@ -59,7 +59,7 @@ const Save = () => {
             }  `}
           ></div>
 
-          <div className="mt-5 container mx-auto mb-5">
+          <div className="mt-5 container mx-auto mb-5 pr-2">
             <NavLink to="/" className="flex  item-center  gap-2  ">
               <IoIosArrowForward className=" mt lg:text-2xl" />
               <span className="text-red-500 font-bold lg:text-xl ">
@@ -84,7 +84,7 @@ const Save = () => {
           {/*  account & log in */}
           <div
             className={` ${
-              reduce.logIn
+              reduce.Derawer
                 ? ` sm:left-0 top-0  `
                 : `sm:-left-[8000px] -bottom-[8000px] `
             } fixed  md:w-[400px] es:w-full  z-[12] h-full transition-all  ease-in-out `}

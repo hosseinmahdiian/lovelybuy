@@ -9,9 +9,7 @@ const Products = () => {
   // const [Pdata, setData] = useState(productsData);
 
   const { isLoading, data } = useQuery(["get-products"], getProducts);
-  // console.log("================================================================================================================================================================================================");
-  // console.log(data?.data.data[0], "first");
-  console.log(data?.data.data);
+  
 
   return (
     <>

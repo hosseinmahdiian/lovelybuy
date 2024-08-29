@@ -1,3 +1,5 @@
+// ======================================================================
+// reducer
 export const FnReducer = (state, action) => {
   switch (action.type) {
     case "acconut":
@@ -6,10 +8,10 @@ export const FnReducer = (state, action) => {
         acconut: !state.acconut,
       };
 
-    case "logIn":
+    case "History":
       return {
         ...state,
-        logIn: !state.logIn,
+        History: !state.History,
       };
 
     case "basket":
@@ -97,7 +99,6 @@ export const FnReducer = (state, action) => {
 };
 export const init = {
   acconut: false,
-  logIn: false,
   basket: false,
   pay: false,
   successful: false,
@@ -112,5 +113,6 @@ export const init = {
   NewAccount: false,
   Place: false,
   Show: false,
-  Derawer: false,
+  History:false,
+  Derawer: true,
 };

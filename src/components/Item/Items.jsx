@@ -10,6 +10,9 @@ import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 const Items = () => {
   const [data, setdata] = useState(itemsData);
   const [select, setSelect] = useState(data[0]);
+  const [endScroll, setEndScroll] = useState(0);
+  const scroll = useRef(null);
+  
   const clickhandler = (e) => {
     data.map((item) => {
       if (item.name == e.target.id) {
@@ -18,18 +21,24 @@ const Items = () => {
     });
   };
 
-
-  const scroll = useRef(null);
-
-  const scrollL = () => {
+  const scrollR = () => {
     if (scroll.current) {
       scroll.current.scrollBy({ left: -400, behavior: "smooth" });
     }
   };
-  const scrollR = () => {
+  const scrollL = (e) => {
     if (scroll.current) {
       scroll.current.scrollBy({ left: 400, behavior: "smooth" });
     }
+  };
+
+  const scrollHandler = (e) => {
+    setEndScroll(
+      Math.round(
+        (e.target.scrollLeft / (e.target.scrollWidth - e.target.clientWidth)) *
+          -100
+      )
+    );
   };
 
   return (
@@ -37,17 +46,22 @@ const Items = () => {
       <div className="   relative    ">
         <div
           className="  lg:w-[calc(100%-80px)] mx-auto overflow-x-scroll   "
+          onScroll={scrollHandler}
           ref={scroll}
         >
-          <span className="absolute h-full right-1  items-center lg:flex hidden">
+          <span className="absolute h-full right-1  items-center lg:flex hidden ">
             <IoIosArrowDropright
-              className=" align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600"
+              className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600 ${
+                endScroll === 0 && `hidden`
+              }`}
               onClick={scrollL}
             />
           </span>
           <span className="absolute h-full left-1  lg:flex hidden items-center">
             <IoIosArrowDropleft
-              className=" align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600"
+              className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600 ${
+                endScroll === 100 && `hidden`
+              }`}
               onClick={scrollR}
             />
           </span>
@@ -62,7 +76,6 @@ const Items = () => {
       </div>
     </div>
   );
-
 };
 
 export default Items;
