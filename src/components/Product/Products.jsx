@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import { getProducts } from "../../services/Products";
 import Loader from "../Loader";
 
+
 const Products = () => {
   // const [Pdata, setData] = useState(productsData);
 

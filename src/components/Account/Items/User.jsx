@@ -187,7 +187,7 @@ const User = ({ dispach }) => {
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });
-            dispacher({ type: "logIn" });
+            dispacher({ type: "Derawer" });
           }}
         >
           <span>

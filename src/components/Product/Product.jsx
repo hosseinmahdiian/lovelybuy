@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaMinus, FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
+import noImage from "../../assets/images/no-image.png";
+
 const Product = ({ item }) => {
   const { image, name, sellPrice, oldPrice
  } = item;
@@ -21,7 +23,7 @@ const Product = ({ item }) => {
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       <div className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm ">
         <img
-          src={image}
+          src={!!image?image:noImage}
           alt=""
           className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-32 es:h-32 w-40 h-40  bg-white mx-auto "
         />

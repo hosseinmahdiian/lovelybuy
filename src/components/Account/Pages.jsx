@@ -8,6 +8,7 @@ import SinUp from "./SinUp";
 import ChengPass from "./ChengPass";
 import { sendSMS } from "./OTP";
 import Place from "./Place";
+import Chose from "./Duti/Chose";
 // import { otpService } from "./OTP";
 
 const Pages = () => {
@@ -53,6 +54,7 @@ const Pages = () => {
       />
       <NewAccount />
       <SinUp />
+      <Chose />
       <ChengPass />
       <Place />
       <AcccountLogin />

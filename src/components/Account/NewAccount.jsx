@@ -1,19 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { reducerContext } from "../../constant/Context";
 import { useSearchParams } from "react-router-dom";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const NewAccount = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-
+const [arrowCity,setArrowCity]=useState(false)
   const [prams, setPrams] = useSearchParams();
   useEffect(() => {
-    const role = prams.get("role");
+    const role = prams.get("logIn");
     if (role == "user") {
     }
 
     // console.log(prams.get("role"));
   }, [prams]);
+
   return (
     <div
       className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 ${
@@ -21,7 +23,7 @@ const NewAccount = () => {
       }`}
     >
       {" "}
-      <div className="pt-12">
+      <div className="pt-12 mb-5">
         <div className="mx-auto w-[calc(100%-40px)] ">
           <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
           <p className="mb-6">تکمیل اطلاعات کاربری</p>
@@ -91,6 +93,39 @@ const NewAccount = () => {
           <select
             name=""
             id=""
+            className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
+          >
+            <option selected disabled value={0}>
+              استان
+            </option>
+            <option value="1">خوزستان</option>
+            <option value="2">لرستان</option>
+          </select>
+          {/*  */}
+          <div>
+            <span>{arrowCity ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
+            <select
+              name=""
+              id=""
+              className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
+              onClick={() => {
+                console.log(arrowCity);
+                setArrowCity((item) => !item);
+              }}
+            >
+              <option selected disabled value={0}>
+                شهر
+              </option>
+              <option value="1">خرم آباد</option>
+              <option value="2">بروجرد</option>
+              <option value="3">دزفول</option>
+              <option value="4">اهواز</option>
+            </select>
+          </div>
+          {/*  */}
+          {/* <select
+            name=""
+            id=""
             className="w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none  "
           >
             <option selected disabled value={0}>
@@ -99,7 +134,7 @@ const NewAccount = () => {
             <option value="1">بیمارستان عشایر</option>
             <option value="2"> دانشگاه علوم پزشکی لرستان</option>
           </select>
-          {/*  */}
+          
           <div className="relative  !mb-3 ">
             <textarea
               className="peer border px-5 py-2 rounded-[10px] outline-gray-300 h-20 w-full "
@@ -113,46 +148,22 @@ const NewAccount = () => {
             >
               واحد خدمت
             </label>
-          </div>
-          {/*  */}
-          <select
-            name=""
-            id=""
-            className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
-          >
-            <option selected disabled value={0}>
-              استان
-            </option>
-            <option value="1">خوزستان</option>
-            <option value="2">لرستان</option>
-          </select>
-          {/*  */}
-          <select
-            name=""
-            id=""
-            className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
-          >
-            <option selected disabled value={0}>
-              شهر
-            </option>
-            <option value="1">خرم آباد</option>
-            <option value="2">بروجرد</option>
-            <option value="3">دزفول</option>
-            <option value="4">اهواز</option>
-          </select>
-          {/*  */}
+          </div> */}
           {/*  */}
         </div>
+
         <button
           onClick={() => {
             // console.log(reduce.Account);
             dispach({ type: "NewAccount" });
-            dispach({ type: "SinUp" });
+                dispach({ type: "Chose" });
+            // dispach({ type: "SinUp" });
+
             setPrams({ role: "user" });
 
             // console.log(reduce.Account);
           }}
-          className="w-[calc(100%-60px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
+          className="w-[calc(100%-40px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
         >
           ذخیره اطلاعات
         </button>

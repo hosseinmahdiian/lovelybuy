@@ -82,6 +82,16 @@ export const FnReducer = (state, action) => {
         ...state,
         Show: !state.Show,
       };
+    case "Info":
+      return {
+        ...state,
+        Info: !state.Info,
+      };
+    case "Chose":
+      return {
+        ...state,
+        Chose: !state.Chose,
+      };
 
     case "NewAccount":
       return {
@@ -114,5 +124,7 @@ export const init = {
   Place: false,
   Show: false,
   History:false,
-  Derawer: true,
+  Derawer: true,//====
+  Info:false,
+  Chose:false,
 };

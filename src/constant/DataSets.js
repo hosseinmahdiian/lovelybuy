@@ -572,6 +572,12 @@ const UserData = [
   
 ];
 
+const infoProducts = [
+  { title: "توضیحات", name: "info" },
+  { title: "توضیحات", name: "discription" },
+  { title: "بررسی", name: "review" },
+];
+
 const HistoryOrderData = [
   {
     image: tomato,
@@ -669,5 +675,6 @@ export {
   OrderData,
   UserData,
   HistoryOrderData,
+  infoProducts,
 };
 

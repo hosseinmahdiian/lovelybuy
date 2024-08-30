@@ -16,6 +16,7 @@ import Successsful from "./Basket/Successsful";
 import Conection from "./Conection";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
+import Info from "./Info";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -42,7 +43,7 @@ const Home = () => {
               dispach({ type: "Derawer" });
             }}
             className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-              reduce.Derawer? ` ` : `hidden`
+              reduce.Derawer ? ` ` : `hidden`
             }  `}
           ></div>
           <div
@@ -80,6 +81,16 @@ const Home = () => {
           <div className="mt-1">
             <Products />
           </div>{" "}
+          {/* ===== */}
+          <div
+            className={` ${
+              reduce.Info
+                ? ` sm:left-0 top-0  `
+                : `sm:-left-[8000px] -bottom-[8000px] `
+            } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
+          >
+            <Info />
+          </div>
           {/* account & log in */}
           <div
             className={` ${
