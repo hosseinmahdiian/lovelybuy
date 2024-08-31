@@ -6,7 +6,8 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 const NewAccount = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-const [arrowCity,setArrowCity]=useState(false)
+const [arrowCity,setArrowCity]=useState(true)
+const [arrowProvince, setArrowProvince] = useState(true);
   const [prams, setPrams] = useSearchParams();
   useEffect(() => {
     const role = prams.get("logIn");
@@ -90,26 +91,35 @@ const [arrowCity,setArrowCity]=useState(false)
             </label>
           </div>
           {/*  */}
-          <select
-            name=""
-            id=""
-            className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
-          >
-            <option selected disabled value={0}>
-              استان
-            </option>
-            <option value="1">خوزستان</option>
-            <option value="2">لرستان</option>
-          </select>
-          {/*  */}
-          <div>
-            <span>{arrowCity ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
+          <div className="relative">
+            <span className="absolute end-3 top-4">
+              {arrowProvince ? <IoIosArrowDown /> : <IoIosArrowUp />}
+            </span>
             <select
               name=""
               id=""
               className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
               onClick={() => {
-                console.log(arrowCity);
+                setArrowProvince((item) => !item);
+              }}
+            >
+              <option selected disabled value={0}>
+                استان
+              </option>
+              <option value="1">خوزستان</option>
+              <option value="2">لرستان</option>
+            </select>
+          </div>
+          {/*  */}
+          <div className="relative">
+            <span className="absolute end-3 top-4">
+              {arrowCity ? <IoIosArrowDown /> : <IoIosArrowUp />}
+            </span>
+            <select
+              name=""
+              id=""
+              className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
+              onClick={() => {
                 setArrowCity((item) => !item);
               }}
             >
@@ -156,7 +166,7 @@ const [arrowCity,setArrowCity]=useState(false)
           onClick={() => {
             // console.log(reduce.Account);
             dispach({ type: "NewAccount" });
-                dispach({ type: "Chose" });
+            dispach({ type: "Chose" });
             // dispach({ type: "SinUp" });
 
             setPrams({ role: "user" });

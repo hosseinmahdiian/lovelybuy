@@ -92,7 +92,7 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
             />
           </span>
 
-          <div className="flex gap-2 h-[110px]  ">
+          <div className="flex gap-2    ">
             {data?.map((item, index) => (
               <span key={index} onClick={clickhandler} className="    ">
                 <Category item={item} select={select} />

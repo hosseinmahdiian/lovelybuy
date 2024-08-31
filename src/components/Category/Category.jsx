@@ -6,7 +6,7 @@ const Category = ({ item, select }) => {
   return (
     <>
       <div
-        className={`items-center mx-auto  relative md:w-[100px] md:h-[100px] w-[80px] h-[80px] `}
+        className={`items-center mx-auto  relative `}
         id={id}
       >
         <img
@@ -20,7 +20,7 @@ const Category = ({ item, select }) => {
         />
 
         <span
-          className={`absolute   bottom-2 left-3  ${
+          className={`absolute   bottom-10 left-3  ${
             select.id == id ? `inline-block` : `hidden`
           }  `}
         >

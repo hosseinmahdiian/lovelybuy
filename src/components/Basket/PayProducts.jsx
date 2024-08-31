@@ -7,6 +7,7 @@ import melat from "../../assets/images/melat.png";
 import { IoTimeOutline } from "react-icons/io5";
 import { DeliveryData } from "../../constant/DataSets";
 import Successsful from "./Successsful";
+import { sp } from "../../constant/Functions";
 
 const time = [
   { time: "ساعت 7 تا 8", id: 1 },
@@ -193,7 +194,7 @@ const PayProducts = () => {
         <div className="flex justify-between mx-5 text-lg mt-">
           <p>قابل پرداخت</p>
           <span className="flex gap-0.5">
-            <p>{2164896}</p>
+            <p>{sp(2164896)}</p>
             <p>تومان</p>
           </span>
         </div>

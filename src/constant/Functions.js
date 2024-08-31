@@ -134,3 +134,10 @@ export const init = {
   Chose: false,
   InPerson: false,
 };
+
+
+export const sp = (number) => {
+  const seperatedNumber = number?.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
+  const joinedNumber = seperatedNumber?.join(",");
+  return joinedNumber;
+};

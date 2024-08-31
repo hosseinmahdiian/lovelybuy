@@ -3,6 +3,7 @@ import { FaMinus, FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import noImage from "../../assets/images/no-image.png";
+import { sp } from "../../constant/Functions";
 
 const Product = ({ item }) => {
   const { image, name, sellPrice, oldPrice
@@ -46,7 +47,7 @@ const Product = ({ item }) => {
             <div className="flex-col child:flex my-1">
               <span className="relative  items-center justify-end  !flex">
                 <p className="opacity-70 text-[0.800rem] relative">
-                  {sellPrice}
+                  {sp(sellPrice)}
                   <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
                 </p>
                 <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
@@ -57,7 +58,7 @@ const Product = ({ item }) => {
               </span>
               <span className="flex items-center ">
                 <p className=" text-[14px] inline-block font-IRANSans_FaNum">
-                  {oldPrice}
+                  {sp(oldPrice)}
                 </p>
                 <p className=" text-[14px] inline-block  mr-1">تومان</p>
               </span>

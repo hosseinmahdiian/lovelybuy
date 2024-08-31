@@ -10,22 +10,16 @@ import { sendSMS } from "./OTP";
 import Place from "./Place";
 import Chose from "./Duti/Chose";
 import InPerson from "../InPerson/InPerson";
+import Conter from "../Conter";
 // import { otpService } from "./OTP";
 
 const Pages = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
-  useEffect(() => {
-    if (reduce.logIn) {
-      document.documentElement.classList.add("overflow-y-hidden");
-    } else {
-      document.documentElement.classList.remove("overflow-y-hidden");
-    }
-  }, [reduce.logIn]);
-  // console.log({ dispach });
-
-  //  dispach({ type: "Account" });
+  reduce.Derawer
+    ? document.documentElement.classList.add("overflow-y-hidden")
+    : document.documentElement.classList.remove("overflow-y-hidden");
 
   // ===============================================
   const [timer, setTimer] = useState(null);
@@ -56,10 +50,12 @@ const Pages = () => {
       <NewAccount />
       <SinUp />
       <Chose />
-      
+
       <ChengPass />
       <Place />
       <AcccountLogin />
+      {/* <Conter/> */}
+      
     </div>
   );
 };

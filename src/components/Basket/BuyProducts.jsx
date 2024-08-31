@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaMinus } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { sp } from "../../constant/Functions";
 
 const BuyProducts = ({ item }) => {
   const { name, paylod, title, pay, offer, image } = item;
@@ -48,7 +49,7 @@ const BuyProducts = ({ item }) => {
               <div className="child:flex child:gap-3 child:mr-2  mt-3 ">
                 <span className="relative  items-center justify-end ">
                   <p className="opacity-70 text-[13px] relative">
-                    {pay}
+                    {sp(pay)}
                     <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
                   </p>
                   <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center">
@@ -58,7 +59,7 @@ const BuyProducts = ({ item }) => {
                   </div>
                 </span>
                 <span className="flex items-center ">
-                  <p className=" text-[14px] inline-block ">{offer}</p>
+                  <p className=" text-[14px] inline-block ">{sp(offer)}</p>
                   <p className=" text-[14px] inline-block ">تومان</p>
                 </span>
               </div>

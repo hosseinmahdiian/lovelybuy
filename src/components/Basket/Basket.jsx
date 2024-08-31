@@ -5,6 +5,7 @@ import { BuyProDuctsData } from "../../constant/DataSets";
 import BuyProducts from "./BuyProducts";
 import PayProducts from "./PayProducts";
 import Successsful from "./Successsful";
+import { sp } from "../../constant/Functions";
 
 const Basket = () => {
   const reducer = useContext(reducerContext);
@@ -72,7 +73,7 @@ const Basket = () => {
         <div className="flex justify-between mx-5 text-lg mt-">
           <p>قابل پرداخت</p>
           <span className="flex gap-0.5">
-            <p>{2164896}</p>
+            <p>{sp(2164896)}</p>
             <p>تومان</p>
           </span>
         </div>
