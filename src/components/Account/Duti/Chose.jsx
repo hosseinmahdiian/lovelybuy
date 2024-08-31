@@ -141,13 +141,15 @@ const Chose = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 items-center mx-5">
-          <div className="w-1/2 h-40 border bg-red-400 rounded-lg">org</div>
+        <div className="grid grid-cols-2 gap-3 items-center mx-5 ">
+          <div className="w- h-40 border bg-red-400 rounded-lg">org</div>
           <NavLink
             to="/InPerson"
-            className="w-1/2 h-40 border bg-red-400 rounded-lg"
+            className="w h-40 border bg-red-400 rounded-lg"
           ></NavLink>
         </div>
+        <div className="w-[calc(100%-40px)] mx-auto mt-3  h-40 border bg-red-700 rounded-lg"></div>
+        <div className="w-[calc(100%-40px)] mx-auto mt-3  h-40 border bg-blue-700 rounded-lg"></div>
       </div>
     </>
   );

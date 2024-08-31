@@ -135,12 +135,12 @@ const InPerson = () => {
                   <p className="text-gray-400 text-sm mt-2">واتساپ</p>
                 </div>
                 <div>
-                  <CgScreen />
-                  <p className="text-gray-400 text-sm mt-2">ایتا</p>
+                  <BiPhoneCall className=" w-fix mx-auto  text-3xl" />
+                  <p className="text-gray-400 text-sm mt-2">تماس</p>
                 </div>
                 <div>
-                  <CgScreen />
-                  <p className="text-gray-400 text-sm mt-2">تلگرام</p>
+                  <BiPhoneCall className=" w-fix mx-auto  text-3xl" />
+                  <p className="text-gray-400 text-sm mt-2">واتساپ</p>
                 </div>
               </div>
 
