@@ -7,7 +7,7 @@ import { useQuery } from "react-query";
 import { getCategory } from "../../services/Catgory";
 import Loader from "../Loader";
 import img from "../../assets/images/photo13134369710.jpg";
-import { FaBookmark } from "react-icons/fa";
+import { FaBookmark, FaPercentage } from "react-icons/fa";
 import { PiPercentLight } from "react-icons/pi";
 import { MdOutlineAccessTime } from "react-icons/md";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
@@ -69,7 +69,7 @@ const InPerson = () => {
                 <img src={img} alt="" className="rounded-full w-12 " />
                 <div className="w-full">
                   <div className="flex items-center justify-between ">
-                    <p className="text-xl">name</p>
+                    <p className="text-xl">فروشگاه زرین </p>
                     <div className="flex gap-5 items-center">
                       <p className="text-[#FF8A00] bg-[#FFE2C0] rounded-xl px-2  text-sm">
                         8.3/10
@@ -77,11 +77,11 @@ const InPerson = () => {
                       <FaBookmark />
                     </div>
                   </div>
-                  <p className="text-gray-500">item</p>
+                  <p className="text-gray-400">کیف و کفش زنانه</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 mt-2 mr-3">
-                <PiPercentLight className="text-gray-400" />
+                <FaPercentage className="text-gray-400" />
                 <p>تخقیف : 12 تا 24 درصد</p>
               </div>
               <div className="flex items-center gap-2  mt-1 mr-3 ">
@@ -94,14 +94,14 @@ const InPerson = () => {
                 {info.map((item) => (
                   <div
                     key={item.id}
-                    className={`w-fit  text-center 
+                    className={`w-14  text-center 
                      flex-col justify-center text-lg
                      `}
                     onClick={() => {
                       setSelect(item);
                     }}
                   >
-                    <div>{item.title}</div>
+                    <div className="text-nowrap">{item.title}</div>
                     <span
                       className={`  w-14 h-1 bg-red-500 rounded-t-lg ${
                         item.name == select.name
@@ -114,33 +114,33 @@ const InPerson = () => {
               </div>
 
               <div
-                className={` hidden justify-between items-center  ${
+                className={` hidden justify-between items-center  mt-2 ${
                   select.name == "conection" && `!flex`
                 }`}
               >
                 <div className=" ">
-                  <CgScreen className=" w-fix mx-auto" />
-                  <p className="text-gray-400 text-sm">سایت</p>
+                  <CgScreen className=" w-fix mx-auto text-3xl" />
+                  <p className="text-gray-400 text-sm mt-2">سایت</p>
                 </div>
                 <div>
-                  <IoLocationOutline className=" w-fix mx-auto" />
-                  <p className="text-gray-400 text-sm">لوکیشن</p>
+                  <IoLocationOutline className=" w-fix mx-auto  text-3xl" />
+                  <p className="text-gray-400 text-sm mt-2">لوکیشن</p>
                 </div>
                 <div>
-                  <BiPhoneCall className=" w-fix mx-auto" />
-                  <p className="text-gray-400 text-sm">تماس</p>
+                  <BiPhoneCall className=" w-fix mx-auto  text-3xl" />
+                  <p className="text-gray-400 text-sm mt-2">تماس</p>
                 </div>
                 <div>
-                  <BiPhoneCall className=" w-fix mx-auto" />
-                  <p className="text-gray-400 text-sm">واتساپ</p>
-                </div>
-                <div>
-                  <CgScreen />
-                  <p className="text-gray-400 text-sm">ایتا</p>
+                  <BiPhoneCall className=" w-fix mx-auto  text-3xl" />
+                  <p className="text-gray-400 text-sm mt-2">واتساپ</p>
                 </div>
                 <div>
                   <CgScreen />
-                  <p className="text-gray-400 text-sm">تلگرام</p>
+                  <p className="text-gray-400 text-sm mt-2">ایتا</p>
+                </div>
+                <div>
+                  <CgScreen />
+                  <p className="text-gray-400 text-sm mt-2">تلگرام</p>
                 </div>
               </div>
 
@@ -153,7 +153,12 @@ const InPerson = () => {
               </div>
             </div>
           </div>
-          <span className=" w-full  left-0 ring-0 mx-auto absolute -bottom-3 ">
+          <span
+            className=" w-full  left-0 ring-0 mx-auto absolute -bottom-3 "
+            onClick={() => {
+              setArrow((item) => !item);
+            }}
+          >
             {arrow ? (
               <IoIosArrowDown className="mx-auto w-10 text-2xl bg-white text-red-500 z-50" />
             ) : (

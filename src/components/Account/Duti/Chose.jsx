@@ -146,9 +146,7 @@ const Chose = () => {
           <NavLink
             to="/InPerson"
             className="w-1/2 h-40 border bg-red-400 rounded-lg"
-          >
-             
-          </NavLink>
+          ></NavLink>
         </div>
       </div>
     </>
