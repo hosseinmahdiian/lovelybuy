@@ -3,13 +3,10 @@ import Category from "./Category";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 // import { settingsForCategory } from "../../constant/constant";
-import { CategoryData } from "../../constant/DataSets";
 import {
   IoIosArrowBack,
-  IoIosArrowDropleft,
-  IoIosArrowDropright,
+  
   IoIosArrowForward,
 } from "react-icons/io";
 
@@ -62,10 +59,10 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
   // console.log(endScroll);
 
   return (
-    <div className="relative  mx-auto container boeder my-8    ">
-      <div className="   relative  w-full  ">
+    <div className="relative  mx-auto container boeder mt-8    ">
+      <div className="   relative  w-full  b ">
         <div
-          className="  lg:w-[calc(100%-80px)] mx-auto overflow-x-scroll   "
+          className="  lg:w-[calc(100%-80px)] mx-auto overflow-x-scroll  bgw  "
           onScroll={scrollHandler}
           ref={scroll}
         >
@@ -92,7 +89,7 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
             />
           </span>
 
-          <div className="flex gap-2 h-[110px]  ">
+          <div className="flex gap-2 h-fit border ">
             {data?.map((item, index) => (
               <span key={index} onClick={clickhandler} className="    ">
                 <Category item={item} select={select} />

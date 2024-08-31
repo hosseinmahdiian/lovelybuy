@@ -4,6 +4,7 @@ import { reducerContext } from "../../../constant/Context";
 import logo from "../../../assets/images/logo.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { slideDadta } from "../../../constant/DataSets";
+import { NavLink } from "react-router-dom";
 
 const Chose = () => {
   const reducer = useContext(reducerContext);
@@ -142,7 +143,12 @@ const Chose = () => {
 
         <div className="flex gap-3 items-center mx-5">
           <div className="w-1/2 h-40 border bg-red-400 rounded-lg">org</div>
-          <div className="w-1/2 h-40 border bg-red-400 rounded-lg"></div>
+          <NavLink
+            to="/InPerson"
+            className="w-1/2 h-40 border bg-red-400 rounded-lg"
+          >
+             
+          </NavLink>
         </div>
       </div>
     </>

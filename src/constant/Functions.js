@@ -103,6 +103,11 @@ export const FnReducer = (state, action) => {
         ...state,
         Derawer: !state.Derawer,
       };
+    case "InPerson":
+      return {
+        ...state,
+        InPerson: !state.InPerson,
+      };
     default:
       break;
   }
@@ -123,8 +128,9 @@ export const init = {
   NewAccount: false,
   Place: false,
   Show: false,
-  History:false,
-  Derawer: true,//====
-  Info:false,
-  Chose:false,
+  History: false,
+  Derawer: true, //====
+  Info: false,
+  Chose: false,
+  InPerson: false,
 };

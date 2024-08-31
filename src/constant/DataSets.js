@@ -572,6 +572,11 @@ const UserData = [
   
 ];
 
+const infoShop = [
+  { title: " ارتباط  ", name: "conection" },
+  { title: " معرفی ", name: "presentation" },
+  { title: " نظر کاربران ", name: "comment" },
+];
 const infoProducts = [
   { title: "توضیحات", name: "info" },
   { title: "توضیحات", name: "discription" },
@@ -676,5 +681,6 @@ export {
   UserData,
   HistoryOrderData,
   infoProducts,
+  infoShop,
 };
 
