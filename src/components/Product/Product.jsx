@@ -8,6 +8,8 @@ import { sp } from "../../constant/Functions";
 const Product = ({ item }) => {
   const { image, name, sellPrice, oldPrice
  } = item;
+//  console.log(item);
+ 
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
     // console.log(item);

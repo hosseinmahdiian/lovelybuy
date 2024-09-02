@@ -32,7 +32,7 @@ const Pages = () => {
     sendSMS(setCode, form, setTimer);
   };
   // ===============================================
-  return (
+  return  (
     <div className="h-full  bg-white  ">
       <Acconut
         sendSms={sendSms}

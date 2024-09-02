@@ -14,6 +14,7 @@ import { FilterData, UserData } from "../../constant/DataSets";
 import User from "./Items/User";
 import Acconutt from "./Items/Account";
 import History from "./Items/History/History";
+import { useSearchParams } from "react-router-dom";
 
 const AcccountLogin = () => {
   const reducer = useContext(reducerContext);
@@ -30,48 +31,51 @@ const AcccountLogin = () => {
       }
     });
   };
+  const [searchPrams, setSearchPrams] = useSearchParams();
   // console.log(dispach);
 
   return (
-    <>
-      <div
-        className={`  bg-white  mx-auto relative  h-screen  ${
-          !reduce.Login ? `hidden` : `block`
-        }`}
-      >
-        <div className={` py-6 px-3 border-b   `}>
-          <span
-            className=" h-5 text-center gap-2 cursor-pointer flex items-center"
-            onClick={() => {
-              dispach({ type: "Derawer" });
-            }}
-          >
-            <IoIosArrowForward className="text-xl" />
-            <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
-              {" "}
-              حساب کار بری
-            </h1>
-          </span>
-        </div>
+    reduce.Login && (
+      <>
+        <div
+          className={`  bg-white  mx-auto relative  h-screen  ${
+            !reduce.Login ? `hidden` : `block`
+          }`}
+        >
+          <div className={` py-6 px-3 border-b   `}>
+            <span
+              className=" h-5 text-center gap-2 cursor-pointer flex items-center"
+              onClick={() => {
+                dispach({ type: "Derawer" });
+              }}
+            >
+              <IoIosArrowForward className="text-xl" />
+              <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
+                {" "}
+                حساب کار بری
+              </h1>
+            </span>
+          </div>
 
-        <div className="mx-4  h-full  ">
-          <div className="flex gap-2   mb-2   mt-4 overflow-x-scroll delivery  ">
-            {data1.map((item, index) => (
-              <span onClick={clickhandler} key={index}>
-                <Filter item={item} select={select} className=" mb-5 " />
-              </span>
-            ))}
-          </div>
-          <div className=" overflow-y-scroll  h-[calc(100vh-120px)] pb-5 ">
-            {select.name == "user" && <User dispach={dispach} />}
-            {select.name == "history" && (
-              <History dispach={dispach} reduce={reduce} />
-            )}
-            {select.name == "account" && <Acconutt />}
+          <div className="mx-4  h-full  ">
+            <div className="flex gap-2   mb-2   mt-4 overflow-x-scroll delivery  ">
+              {data1.map((item, index) => (
+                <span onClick={clickhandler} key={index}>
+                  <Filter item={item} select={select} className=" mb-5 " />
+                </span>
+              ))}
+            </div>
+            <div className=" overflow-y-scroll  h-[calc(100vh-120px)] pb-5 ">
+              {select.name == "user" && <User dispach={dispach} />}
+              {select.name == "history" && (
+                <History dispach={dispach} reduce={reduce} />
+              )}
+              {select.name == "account" && <Acconutt />}
+            </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 };
 

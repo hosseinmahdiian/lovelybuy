@@ -17,6 +17,7 @@ import Conection from "./Conection";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
 import Info from "./Info";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -30,7 +31,8 @@ const Home = () => {
   );
   // console.log(slid?.data.data);
 
-
+  const [searchPrams, setSearchPrams] = useSearchParams();
+  // setSearchPrams({ LogIn: "false" });
 
   return (
     <>
@@ -40,7 +42,10 @@ const Home = () => {
         <div className="   ">
           <div
             onClick={() => {
-              dispach({ type: "Derawer" });
+              // searchPrams.get("LogIn") !== "false" &&
+                dispach({ type: "Derawer" });
+              console.log(searchPrams.get("LogIn") === "false");
+              
             }}
             className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
               reduce.Derawer ? ` ` : `hidden`

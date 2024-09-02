@@ -11,6 +11,7 @@ import { BsFileEarmarkText } from "react-icons/bs";
 import Filter from "../../Filter/Filter";
 // import Filters from "../Filter/Filters";
 import { FilterData, UserData } from "../../../constant/DataSets";
+import { useSearchParams } from "react-router-dom";
 
 const User = ({ dispach }) => {
   const [data1, setdata] = useState(UserData);
@@ -25,6 +26,8 @@ const User = ({ dispach }) => {
       }
     });
   };
+  const [searchPrams, setSearchPrams] = useSearchParams();
+  // setSearchPrams({ LogIn: "false" });
   // console.log(dispach);
 
   return (
@@ -187,7 +190,9 @@ const User = ({ dispach }) => {
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });
-            dispacher({ type: "Derawer" });
+            // dispacher({ type: "Derawer" });
+  setSearchPrams({ LogIn: "false" });
+
           }}
         >
           <span>

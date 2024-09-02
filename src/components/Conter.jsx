@@ -9,7 +9,7 @@ import {
   RiShoppingBag3Line,
 } from "react-icons/ri";
 import { MobileOnlyView } from "react-device-detect";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { reducerContext } from "../constant/Context";
 import { GoCreditCard } from "react-icons/go";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -23,7 +23,9 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 const Conter = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  return (
+  const [searchPrams, setSearchPrams] = useSearchParams();
+
+  return (searchPrams.get("LogIn")=="true") &&(
     <>
       <MobileOnlyView>
         <div className={`  w-full   justify-center flex  `}>

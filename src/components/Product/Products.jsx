@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { getProducts } from "../../services/Products";
 import Loader from "../Loader";
 import { reducerContext } from "../../constant/Context";
-
+import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
   // const [Pdata, setData] = useState(productsData);
@@ -13,6 +13,7 @@ const Products = () => {
   const [reduce, dispach] = reducer;
 
   const { isLoading, data } = useQuery(["get-products"], getProducts);
+  const [searchPrams, setSearchPrams] = useSearchParams();
   
 
   return (
@@ -21,7 +22,15 @@ const Products = () => {
         <div className="container w-full mx-auto ">
           <div className="2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2  mx-auto">
             {data?.data.data?.map((item, index) => (
-              <span key={index} className="mb-3  ">
+              <span
+                key={index}
+                className="mb-3  "
+                onClick={() => {
+                  setSearchPrams({ IdP: item.id });
+                  dispach({ type: "Derawer" });
+                  dispach({ type: "Info" });
+                }}
+              >
                 <Product item={item} />
               </span>
             ))}
