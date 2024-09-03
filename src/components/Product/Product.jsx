@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaMinus, FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import noImage from "../../assets/images/no-image.png";
 import { sp } from "../../constant/Functions";
+import { useSearchParams } from "react-router-dom";
+import { reducerContext } from "../../constant/Context";
 
 const Product = ({ item }) => {
-  const { image, name, sellPrice, oldPrice
- } = item;
-//  console.log(item);
- 
+  const { image, name, sellPrice, oldPrice } = item;
+  //  console.log(item);
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
-    // console.log(item);
+  // console.log(item);
 
   const increaseHandeler = () => {
     setCount(count + 1);
@@ -22,11 +24,19 @@ const Product = ({ item }) => {
     setCount(count - 1);
     // console.log(count);
   };
+  const [searchPrams, setSearchPrams] = useSearchParams();
   return (
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
-      <div className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm ">
+      <div
+        className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm "
+        onClick={() => {
+          setSearchPrams({ IdP: item.id });
+          // dispach({ type: "DerawerInfo" });
+          dispach({ type: "Info" });
+        }}
+      >
         <img
-          src={!!image?image:noImage}
+          src={!!image ? image : noImage}
           alt=""
           className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-32 es:h-32 w-40 h-40  bg-white mx-auto "
         />

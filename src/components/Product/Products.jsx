@@ -25,11 +25,7 @@ const Products = () => {
               <span
                 key={index}
                 className="mb-3  "
-                onClick={() => {
-                  setSearchPrams({ IdP: item.id });
-                  dispach({ type: "Derawer" });
-                  dispach({ type: "Info" });
-                }}
+                
               >
                 <Product item={item} />
               </span>

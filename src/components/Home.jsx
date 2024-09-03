@@ -16,7 +16,7 @@ import Successsful from "./Basket/Successsful";
 import Conection from "./Conection";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
-import Info from "./Info";
+import Info from "./Info/Info";
 import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
@@ -43,12 +43,21 @@ const Home = () => {
           <div
             onClick={() => {
               // searchPrams.get("LogIn") !== "false" &&
-                dispach({ type: "Derawer" });
+              dispach({ type: "Derawer" });
               console.log(searchPrams.get("LogIn") === "false");
-              
             }}
             className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
               reduce.Derawer ? ` ` : `hidden`
+            }  `}
+          ></div>
+          <div
+            onClick={() => {
+              // searchPrams.get("LogIn") !== "false" &&
+              dispach({ type: "Info" });
+              // console.log(searchPrams.get("LogIn") === "false");
+            }}
+            className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
+              reduce.Info ? ` ` : `hidden`
             }  `}
           ></div>
           <div
