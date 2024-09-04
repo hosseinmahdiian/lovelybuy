@@ -41,13 +41,18 @@ const Product = ({ item }) => {
           className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-32 es:h-32 w-40 h-40  bg-white mx-auto "
         />
         <span
-          onClick={() => setSave(!save)}
+          onClick={() => {setSave(!save)
+          dispach({ type: "Info" });
+
+          }
+            
+          }
           className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg "
         >
           {save ? <FaBookmark /> : <FaRegBookmark />}
         </span>
 
-        <h2 className="text-right mr-3 pt-2  line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
+        <h2 className="text-right mr-3 pt-2 sm:h-9 h-7 line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
           {name}
         </h2>
         <div>

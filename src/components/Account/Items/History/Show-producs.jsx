@@ -9,7 +9,7 @@ const ShowProducts = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   return (
-    <div className="m relative w-full h-[calc(100vh-180px)]">
+    <div className=" relative w-full  overflow-y-scroll sm:h-[calc(100vh-300px)] h-[calc(100vh-350px)] ">
       <div className={` py-2 px-3 border-b   `}>
         <span
           className=" h- text-center gap-2 cursor-pointer flex items-center"
@@ -18,17 +18,16 @@ const ShowProducts = () => {
           }}
         >
           <IoIosArrowForward className="text-xl" />
-         
         </span>
       </div>
-      <div className=" bg-white ">
+      <div className=" bg-white  ">
         {buyProducts.map((item, index) => (
           <div key={index} className="child:mx-auto">
             <BuyProducts item={item} />
           </div>
         ))}
 
-        <div className=" bg-white  bottom-0 w-full left-0 right-0 absolute border-t px5">
+        <div className=" bg-white   sm:bottom-2 bottom-16 w-full sm:w-[400px] mb-2 left-0  fixed border-t px5">
           <div className="flex text-gray-400 justify-between mx-5 mt-2">
             <p>مجموعه خرید</p>
             <span className="flex gap-0.5">

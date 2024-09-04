@@ -117,7 +117,7 @@ const User = ({ dispach }) => {
             <p className="">رمز عبور</p>
           </div>
           <div className=" flex items-center  justify-between ">
-            <p className="text-gray-400 mr-7  ">********</p>
+            <p className="text-gray-400 mr-7  mt-2 ">********</p>
             <p
               className=" text-blue-500 pb-2 cursor-pointer"
               onClick={() => {
