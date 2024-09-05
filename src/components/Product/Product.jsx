@@ -41,12 +41,10 @@ const Product = ({ item }) => {
           className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-32 es:h-32 w-40 h-40  bg-white mx-auto "
         />
         <span
-          onClick={() => {setSave(!save)
-          dispach({ type: "Info" });
-
-          }
-            
-          }
+          onClick={() => {
+            setSave(!save);
+            dispach({ type: "Info" });
+          }}
           className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg "
         >
           {save ? <FaBookmark /> : <FaRegBookmark />}
@@ -64,7 +62,7 @@ const Product = ({ item }) => {
             <div className="flex-col child:flex my-1">
               <span className="relative  items-center justify-end  !flex">
                 <p className="opacity-70 text-[0.800rem] relative">
-                  {sp(sellPrice)}
+                  {sp(oldPrice)}
                   <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
                 </p>
                 <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
@@ -75,7 +73,7 @@ const Product = ({ item }) => {
               </span>
               <span className="flex items-center ">
                 <p className=" text-[14px] inline-block font-IRANSans_FaNum">
-                  {sp(oldPrice)}
+                  {sp(sellPrice)}
                 </p>
                 <p className=" text-[14px] inline-block  mr-1">تومان</p>
               </span>

@@ -107,7 +107,7 @@ const Info = () => {
                   </span>
                   <span className="flex items-center ">
                     <p className=" text-[14px] inline-block font-IRANSans_FaNum">
-                      {sp(item?.buyPrice)}
+                      {sp(item?.sellPrice)}
                     </p>
                     <p className=" text-[14px] inline-block  mr-1">تومان</p>
                   </span>
