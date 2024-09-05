@@ -83,7 +83,7 @@ const Info = () => {
                 <img
                   src={!item?.image ? noImage : item?.image}
                   alt=""
-                  className="mt-2"
+                  className="mt-2 w-52 border"
                 />
               </div>
             </div>
