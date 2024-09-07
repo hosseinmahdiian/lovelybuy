@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { reducerContext } from "../../constant/Context";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { HiPlusSm } from "react-icons/hi";
 import { FaBookmark, FaMinus, FaRegBookmark } from "react-icons/fa";
 import { infoProducts } from "../../constant/DataSets";
@@ -50,6 +50,30 @@ const Info = () => {
     setItem(data?.data.data?.find((item) => item?.id == id));
   }, [id]);
 
+  const [endScroll, setEndScroll] = useState(0);
+  const scroll = useRef(null);
+
+  const scrollR = () => {
+    if (scroll.current) {
+      scroll.current.scrollBy({ left: -208, behavior: "smooth" });
+    }
+  };
+  const scrollL = () => {
+    if (scroll.current) {
+      scroll.current.scrollBy({ left: 208, behavior: "smooth" });
+    }
+  };
+  const scrollHandler = (e) => {
+    // console.log("================");
+
+    setEndScroll(
+      Math.round(
+        (e.target.scrollLeft / (e.target.scrollWidth - e.target.clientWidth)) *
+          -100
+      )
+    );
+  };
+
   console.log(item);
 
   return (
@@ -79,19 +103,50 @@ const Info = () => {
               >
                 {save ? <FaBookmark /> : <FaRegBookmark />}
               </span>
-              <div className="mx-auto  w-fit flex overflow-x-scroll">
-                <img
-                  src={!item?.image ? noImage : item?.image}
-                  alt=""
-                  className="mt-2 w-52 border"
-                />
-                {item?.gallery.map((item) => (
-                  <img
-                    src={item.url}
-                    alt=""
-                    className="mt-2 w-52 border"
+              <div className="mx-auto  w-full  flex overflow-x-scroll relative">
+                <span
+                  className={`absolute  right-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black
+              ${item?.gallery && endScroll === 0 && `!hidden`}
+              ${!item?.gallery[0].url && `!hidden`}
+               `}
+                >
+                  <IoIosArrowForward
+                    className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600 `}
+                    onClick={scrollL}
                   />
-                ))}
+                </span>
+                <span
+                  className={`absolute  left-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black 
+                ${endScroll === 100 && `!hidden`}
+                ${!item?.gallery[0].url && `!hidden`}
+                     `}
+                >
+                  <IoIosArrowBack
+                    className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600
+                
+              `}
+                    onClick={scrollR}
+                  />
+                </span>
+                <div
+                  className="mx-auto  w-[207px] flex overflow-x-scroll relative border"
+                  onScroll={scrollHandler}
+                  ref={scroll}
+                >
+                  <img
+                    src={!item?.image ? noImage : item?.image}
+                    alt=""
+                    className="mt-2 w-[207px] h-[207px] "
+                  />
+                  {item?.gallery[0].url &&
+                    item?.gallery.map((item) => (
+                      <img
+                        src={item.url}
+                        alt=""
+                        className="mt-2 w-[207px] h-[207px] "
+                      />
+                    ))}
+                </div>
               </div>
             </div>
             <div className="    overflow-hidden  ">
