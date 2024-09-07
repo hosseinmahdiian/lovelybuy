@@ -68,7 +68,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
                 if (p) {
                   searchPrams.delete("LogIn");
                   setSearchPrams(searchPrams);
-                  setSearchPrams({ LogIn: true });
+                  // setSearchPrams({ LogIn: true });
                 }
                 if (reduce.AcconutHave) {
                   dispach({ type: "Vrify" });

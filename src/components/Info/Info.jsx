@@ -74,7 +74,7 @@ const Info = () => {
     );
   };
 
-  console.log(item);
+  // console.log(item);
 
   return (
     reduce.Info && (
@@ -84,6 +84,8 @@ const Info = () => {
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
               dispach({ type: "Info" });
+              searchPrams.delete("IdP");
+              setSearchPrams(searchPrams);
             }}
           >
             <IoIosArrowForward className="text-xl" />
@@ -107,7 +109,7 @@ const Info = () => {
                 <span
                   className={`absolute  right-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black
               ${item?.gallery && endScroll === 0 && `!hidden`}
-              ${!item?.gallery[0].url && `!hidden`}
+              ${!item?.gallery[0]?.url && `!hidden`}
                `}
                 >
                   <IoIosArrowForward
@@ -118,7 +120,7 @@ const Info = () => {
                 <span
                   className={`absolute  left-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black 
                 ${endScroll === 100 && `!hidden`}
-                ${!item?.gallery[0].url && `!hidden`}
+                ${!item?.gallery[0]?.url && `!hidden`}
                      `}
                 >
                   <IoIosArrowBack
@@ -138,9 +140,10 @@ const Info = () => {
                     alt=""
                     className="mt-2 w-[207px] h-[207px] "
                   />
-                  {item?.gallery[0].url &&
+                  {item?.gallery[0]?.url &&
                     item?.gallery.map((item) => (
                       <img
+                      key={item.id}
                         src={item.url}
                         alt=""
                         className="mt-2 w-[207px] h-[207px] "

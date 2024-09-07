@@ -25,38 +25,43 @@ const Conter = () => {
   const [reduce, dispach] = reducer;
   const [searchPrams, setSearchPrams] = useSearchParams();
 
-  return (searchPrams.get("LogIn")=="true") &&(
-    <>
-      <MobileOnlyView>
+  return (
+    (!searchPrams.get("LogIn") || searchPrams.get("LogIn") == "true") && (
+      <>
+        <MobileOnlyView>
         <div className={`  w-full   justify-center flex  `}>
           <div className="fixed  -bottom-5 z-[1000] flex my-5 bg-white w-full   h-16 justify-around mx-auto border-t font-IrSans text-[12px]  items-center  child:text-center ">
             <RiMapPinTimeLine
               className=" text-2xl "
               onClick={() => {
+                reduce.Info && dispach({ type: "Info" });
                 dispach({ type: "Derawer" });
                 dispach({ type: "Show" });
-                
               }}
             />
 
             <span
               onClick={() => {
+                reduce.Info && dispach({ type: "Info" });
                 dispach({ type: "Derawer" });
                 dispach({ type: "Show" });
-                
               }}
             >
               <PiCreditCardLight className=" mx-auto text-2xl " />
             </span>
             <HiOutlineShoppingBag
               className=" text-2xl "
-              onClick={() => dispach({ type: "basket" })}
+              onClick={() => {
+                reduce.Info && dispach({ type: "Info" });
+                dispach({ type: "basket" });
+              }}
             />
             <NavLink to="Search" className=" ">
               <IoIosSearch className=" mx-auto text-2xl" />
             </NavLink>
             <span
               onClick={() => {
+                reduce.Info && dispach({ type: "Info" });
                 dispach({ type: "Derawer" });
               }}
             >
@@ -64,8 +69,9 @@ const Conter = () => {
             </span>
           </div>
         </div>
-      </MobileOnlyView>
-    </>
+        </MobileOnlyView>
+      </>
+    )
   );
 };
 

@@ -15,6 +15,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
 import Loader from "./Loader";
+import Info from "./Info/Info";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
@@ -56,6 +57,16 @@ const Save = () => {
             }}
             className={`w-full h-full bg-black fixed top-0 z-20 bg-opacity-30 ${
               reduce.pay ? ` ` : `hidden`
+            }  `}
+          ></div>
+          <div
+            onClick={() => {
+              // searchPrams.get("LogIn") !== "false" &&
+              dispach({ type: "Info" });
+              // console.log(searchPrams.get("LogIn") === "false");
+            }}
+            className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
+              reduce.Info ? ` ` : `hidden`
             }  `}
           ></div>
 
@@ -102,6 +113,15 @@ const Save = () => {
             } fixed  sm:w-[400px] es:w-full  z-[16] h-full transition-all  ease-in-out border-r`}
           >
             <Basket />
+          </div>
+          <div
+            className={` ${
+              reduce.Info
+                ? ` sm:left-0 top-0  `
+                : `sm:-left-[8000px] -bottom-[8000px] `
+            } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
+          >
+            <Info />
           </div>
           <div
             className={` ${
