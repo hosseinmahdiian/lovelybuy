@@ -110,7 +110,7 @@ const User = ({ dispach }) => {
           <p className="text-gray-400 mr-7">09216919291</p>
         </div>
         <div>
-          <div className="flex items-center gap-3 mb-1">
+          <div className="flex items-center gap-3 mb-">
             <span>
               <GoUnlock className="" />
             </span>
@@ -132,7 +132,7 @@ const User = ({ dispach }) => {
       </div>
       <div className="">
         <div
-          className="flex gap-3 items-center mt-4"
+          className="flex gap-3 items-center mt-5 "
           onClick={() => {
             // dispach({ type: "Login" });
             // dispach({ type: "Account" });
@@ -146,7 +146,7 @@ const User = ({ dispach }) => {
         </div>
 
         <div
-          className="flex gap-3 items-center mt-3"
+          className="flex gap-3 items-center mt-4 "
           // onClick={() => {
           //   dispach({ type: "Login" });
           //   dispach({ type: "Account" });
@@ -160,7 +160,7 @@ const User = ({ dispach }) => {
         </div>
 
         <div
-          className="flex gap-3 items-center mt-3"
+          className="flex gap-3 items-center mt-4 "
           // onClick={() => {
           //   dispach({ type: "Login" });
           //   dispach({ type: "Account" });
@@ -173,7 +173,7 @@ const User = ({ dispach }) => {
           <p className="text-black "> حریم خصوصی </p>
         </div>
         <div
-          className="flex gap-3 text-red-600 items-center mt-3"
+          className="flex gap-3 text-red-600 items-center mt-4 "
           // onClick={() => {
           //   dispach({ type: "Login" });
           //   dispach({ type: "Account" });
@@ -186,7 +186,7 @@ const User = ({ dispach }) => {
           <p className="text-black "> درباره ما </p>
         </div>
         <div
-          className="flex gap-3  mb-32 text-red-600 items-center mt-3 cursor-pointer "
+          className="flex gap-3  mb-32 text-red-600 items-center mt-4 cursor-pointer "
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });

@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { reducerContext } from "../../constant/Context";
+import { useSearchParams } from "react-router-dom";
 
 const ChengPass = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+  const [searchPrams, setSearchPrams] = useSearchParams();
+  const logIn = searchPrams.get("LogIn");
   return (
     reduce.ChengPass && (
       <div
@@ -36,8 +39,12 @@ const ChengPass = () => {
 
             <button
               onClick={() => {
+console.log(logIn);
+
                 dispach({ type: "ChengPass" });
-                dispach({ type: "Account" });
+                logIn
+                  ? dispach({ type: "Login" })
+                  : dispach({ type: "Account" });
               }}
               className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
             >

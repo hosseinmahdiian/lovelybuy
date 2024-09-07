@@ -79,12 +79,19 @@ const Info = () => {
               >
                 {save ? <FaBookmark /> : <FaRegBookmark />}
               </span>
-              <div className="mx-auto  w-fit">
+              <div className="mx-auto  w-fit flex overflow-x-scroll">
                 <img
                   src={!item?.image ? noImage : item?.image}
                   alt=""
                   className="mt-2 w-52 border"
                 />
+                {item?.gallery.map((item) => (
+                  <img
+                    src={item.url}
+                    alt=""
+                    className="mt-2 w-52 border"
+                  />
+                ))}
               </div>
             </div>
             <div className="    overflow-hidden  ">
