@@ -105,12 +105,12 @@ const Info = () => {
               >
                 {save ? <FaBookmark /> : <FaRegBookmark />}
               </span>
-              <div className="mx-auto  w-full  flex overflow-x-scroll relative">
+              <div className="mx-auto  w-full mt-2 flex overflow-x-scroll relative">
                 <span
                   className={`absolute  right-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black
-              ${item?.gallery && endScroll === 0 && `!hidden`}
-              ${!item?.gallery[0]?.url && `!hidden`}
-               `}
+                  ${item?.gallery && endScroll === 0 && `!hidden`}
+                  ${!item?.gallery[0]?.url && `!hidden`}
+                `}
                 >
                   <IoIosArrowForward
                     className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600 `}
@@ -124,14 +124,12 @@ const Info = () => {
                      `}
                 >
                   <IoIosArrowBack
-                    className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600
-                
-              `}
+                    className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600`}
                     onClick={scrollR}
                   />
                 </span>
                 <div
-                  className="mx-auto  w-[207px] flex overflow-x-scroll relative border snap-x child:snap-both"
+                  className="mx-auto  w-[207px] flex overflow-x-scroll relative border snap-x child:snap-center gap-3"
                   onScroll={scrollHandler}
                   ref={scroll}
                 >
@@ -143,7 +141,7 @@ const Info = () => {
                   {item?.gallery[0]?.url &&
                     item?.gallery.map((item) => (
                       <img
-                      key={item.id}
+                        key={item.id}
                         src={item.url}
                         alt=""
                         className="mt-2 w-[207px] h-[207px] "
@@ -179,7 +177,7 @@ const Info = () => {
                 </div>
               </div>
 
-              <div className=" rounded-b-xl  h-[calc(100vh-530px)] pb-40   bg-white ">
+              <div className=" rounded-b-xl  h-[calc(100vh-570px)] pb-40 mb-10  bg-white ">
                 <div className="bg-white mt-1   px-4">
                   <div className="flex gap-2   mb-2   pt-4 overflow-x-scroll    ">
                     {data1.map((item, index) => (
@@ -208,7 +206,7 @@ const Info = () => {
           </div>
         </div>
 
-        <div className=" absolute -bottom-4 w-full  mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
+        <div className=" absolute bottom-6 w-full  mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
           {count == 0 ? (
             <button
               className="w-[calc(100%-40px)] my-2.5  font-bold h-12    text-sm  mx-auto items-center block px-10  bg-blue-600  rounded-xl   text-white "
