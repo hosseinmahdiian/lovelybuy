@@ -131,7 +131,7 @@ const Info = () => {
                   />
                 </span>
                 <div
-                  className="mx-auto  w-[207px] flex overflow-x-scroll relative border"
+                  className="mx-auto  w-[207px] flex overflow-x-scroll relative border snap-x child:snap-center"
                   onScroll={scrollHandler}
                   ref={scroll}
                 >
