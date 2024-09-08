@@ -56,6 +56,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
                 type="number"
                 autoFocus
                 className=" !w-12 h-12 border border-blue-600 rounded-[10px]  mx-2"
+                inputMode="numeric"
               />
             )}
           />

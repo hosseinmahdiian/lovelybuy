@@ -57,6 +57,7 @@ useEffect(() => {
                 name="phone"
                 type="number"
                 onChange={chenchHandeler}
+                inputMode="numeric"
               />
               <label
                 htmlFor="phone"
