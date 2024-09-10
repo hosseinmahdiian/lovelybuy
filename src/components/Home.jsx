@@ -24,12 +24,13 @@ const Home = () => {
   const [reduce, dispach] = reducer;
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
+  const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
     getCategory
   );
-  // console.log(slid?.data.data);
+  // console.log(selectSubSubCatgory);
 
   const [searchPrams, setSearchPrams] = useSearchParams();
   // setSearchPrams({ LogIn: "false" });
@@ -44,7 +45,7 @@ const Home = () => {
             onClick={() => {
               // searchPrams.get("LogIn") !== "false" &&
               dispach({ type: "Derawer" });
-              console.log(searchPrams.get("LogIn") === "false");
+              // console.log(searchPrams.get("LogIn") === "false");
             }}
             className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
               reduce.Derawer ? ` ` : `hidden`
@@ -86,11 +87,12 @@ const Home = () => {
             sub={slid?.data.data}
             selectCatgory={selectCatgory}
             setSelectSubCatgory={setSelectSubCatgory}
-          />
+            />
           <Filters
             sub={slid?.data.data}
             selectCatgory={selectCatgory}
             selectSubCatgory={selectSubCatgory}
+            setSelectSubSubCatgory={setSelectSubSubCatgory}
           />
           <div className="mt-1">
             <Products />

@@ -8,33 +8,36 @@ import "slick-carousel/slick/slick-theme.css";
 import Filter from "./Filter";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
-const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
+const Filters = ({
+  sub,
+  selectSubCatgory,
+  selectCatgory,
+  setSelectSubSubCatgory,
+}) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState();
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
+  // console.log(select);
+
   useEffect(() => {
-    sub.map((item, indxe) => {
-      if (item.id === selectCatgory) {
-        item.SubCat.map((item2, indxe) => {
-          if (item2.id === selectSubCatgory) {
-            setData(item2.SubSubCat);
-            setSelect(item2.SubSubCat[0]);
-          }
-        });
-      }
-    });
+ 
+
+    setData(selectSubCatgory?.SubSubCat);
+    setSelectSubSubCatgory(selectSubCatgory?.SubSubCat[0])
+    setSelect(selectSubCatgory?.SubSubCat[0])
   }, [selectSubCatgory]);
 
   const clickhandler = (e) => {
+    console.log(e.target.id);
     data?.map((item) => {
-      if (item.name == e.target.id) {
-        setSelect(() => item);
+      if (item._id == e.target.id) {
+        setSelect(item);
+        setSelectSubSubCatgory(item);
       }
     });
   };
-
 
   const scrollL = () => {
     if (scroll.current) {
@@ -46,17 +49,17 @@ const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
       scroll.current.scrollBy({ left: -400, behavior: "smooth" });
     }
   };
-    const scrollHandler = (e) => {
-      console.log(
-        setEndScroll(
-          Math.round(
-            (e.target.scrollLeft /
-              (e.target.scrollWidth - e.target.clientWidth)) *
-              -100
-          )
+  const scrollHandler = (e) => {
+    console.log(
+      setEndScroll(
+        Math.round(
+          (e.target.scrollLeft /
+            (e.target.scrollWidth - e.target.clientWidth)) *
+            -100
         )
-      );
-    };
+      )
+    );
+  };
 
   return (
     <div className="relative  mx-auto container my-4 ">
@@ -84,7 +87,7 @@ const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
           </span>
           <div className="flex gap-2    items-center  ">
             {data?.map((item, index) => (
-              <span onClick={clickhandler} key={index}>
+              <span onClick={clickhandler} key={index} id={item.name}>
                 <Filter item={item} select={select} className=" mb-5 " />
               </span>
             ))}

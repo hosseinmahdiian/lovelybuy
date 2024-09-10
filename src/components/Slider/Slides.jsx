@@ -19,21 +19,23 @@ function Slides({ slid, select, setSelect }) {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
-
-  useEffect(() => {
-    setSelect(slid[0].id);
-  }, []);
   
+  useEffect(() => {
+    console.log(slid);
+    setSelect(slid[0]);
+  }, [slid]);
 
   const clickhandler = (e) => {
     slid?.map((item) => {
+      // console.log(item.id == e.target.id);
       if (item.id == e.target.id) {
-        setSelect(item.id);
+        setSelect(item);
+        setSelectCatgory(item);
+
       }
     });
   };
 
-  
   const scrollR = () => {
     if (scroll.current) {
       scroll.current.scrollBy({ left: -200, behavior: "smooth" });

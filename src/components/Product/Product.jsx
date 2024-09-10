@@ -14,7 +14,7 @@ const Product = ({ item }) => {
   const [reduce, dispach] = reducer;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
-  // console.log(item);
+  // console.log(item.id);
 
   const increaseHandeler = () => {
     setCount(count + 1);

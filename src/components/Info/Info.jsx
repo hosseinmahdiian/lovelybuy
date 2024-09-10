@@ -133,6 +133,7 @@ const Info = () => {
                   onScroll={scrollHandler}
                   ref={scroll}
                 >
+                  
                   <img
                     src={!item?.image ? noImage : item?.image}
                     alt=""

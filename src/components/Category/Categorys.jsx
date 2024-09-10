@@ -13,20 +13,24 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 
-const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
+const Categorys = ({
+  sub,
+  selectCatgory,
+  setSelectSubCatgory,
+}) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState(data);
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
- 
+  // console.log(selectCatgory);
 
   useEffect(() => {
     sub.map((item, indxe) => {
-      if (item.id === selectCatgory) {
+      if (item.id === selectCatgory?.id) {
         setData(item.SubCat);
         setSelect(item.SubCat[0]);
-        setSelectSubCatgory(item.SubCat[0].id);
+        setSelectSubCatgory(item.SubCat[0]);
       }
     });
   }, [selectCatgory]);
@@ -34,12 +38,13 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
   const clickhandler = (e) => {
     data?.map((item) => {
       if (item.id == e.target.id) {
-        setSelect(() => item);
-        // console.log("1111");
+        setSelect(item);
+        setSelectSubCatgory(item);
+
+        // console.log(item);
       }
     });
   };
-
 
   const scrollR = () => {
     if (scroll.current) {

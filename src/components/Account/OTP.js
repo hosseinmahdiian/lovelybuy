@@ -50,13 +50,13 @@ export const sendSMS = (setCode, form, setTimer) => {
         },
       ],
     };
-    sendSms(data).then((result) => {
-      if (JSON.parse(result).status == 1) {
-        setTimer(120);
-        clearInterval(intervalId);
-        startTimer(setTimer, setCode);
-      }
-    });
+    // sendSms(data).then((result) => {
+    //   if (JSON.parse(result).status == 1) {
+    //     setTimer(120);
+    //     clearInterval(intervalId);
+    //     startTimer(setTimer, setCode);
+    //   }
+    // });
   }
 };
 

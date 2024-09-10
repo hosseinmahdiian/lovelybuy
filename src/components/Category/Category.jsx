@@ -6,21 +6,19 @@ const Category = ({ item, select }) => {
   return (
     <>
       <div
-        className={`items-center mx-auto  relative `}
+        className={`items-center mx-auto  relative  md:w-[100px]  w-[80px]`}
         id={id}
       >
         <img
           src={image}
           className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
-            select.id == id
-              ? `border-black`
-              : ` border-black border-opacity-20`
+            select.id == id ? `border-black` : ` border-black border-opacity-20`
           } `}
           id={id}
         />
 
         <span
-          className={`absolute   bottom-10 left-3  ${
+          className={`absolute   bottom-[52px] left-3  ${
             select.id == id ? `inline-block` : `hidden`
           }  `}
         >
@@ -28,7 +26,7 @@ const Category = ({ item, select }) => {
         </span>
         <span
           id={id}
-          className="w-full font-IrSans  mt-2 text-center rounded-xl items-center inline-block  "
+          className="w-full font-IrSans  mt-2 text-center rounded-xl items-center inline-block  line-clamp-1 text-nowrap "
         >
           {title}
         </span>
