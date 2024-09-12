@@ -10,7 +10,12 @@ import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
 import { useSearchParams } from "react-router-dom";
 import { sp } from "../../constant/Functions";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const Info = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -20,7 +25,6 @@ const Info = () => {
 
   const [data1, setdata] = useState(infoProducts);
   const [select, setSelect] = useState(data1[0]);
-  // console.log(item);
 
   const increaseHandeler = () => {
     setCount(count + 1);
@@ -49,30 +53,6 @@ const Info = () => {
   useEffect(() => {
     setItem(data?.data.data?.find((item) => item?.id == id));
   }, [id]);
-
-  const [endScroll, setEndScroll] = useState(0);
-  const scroll = useRef(null);
-
-  const scrollR = () => {
-    if (scroll.current) {
-      scroll.current.scrollBy({ left: -208, behavior: "smooth" });
-    }
-  };
-  const scrollL = () => {
-    if (scroll.current) {
-      scroll.current.scrollBy({ left: 208, behavior: "smooth" });
-    }
-  };
-  const scrollHandler = (e) => {
-    // console.log("================");
-
-    setEndScroll(
-      Math.round(
-        (e.target.scrollLeft / (e.target.scrollWidth - e.target.clientWidth)) *
-          -100
-      )
-    );
-  };
 
   // console.log(item);
 
@@ -105,49 +85,63 @@ const Info = () => {
               >
                 {save ? <FaBookmark /> : <FaRegBookmark />}
               </span>
-              <div className="mx-auto  w-full mt-2 flex overflow-x-scroll relative">
-                <span
-                  className={`absolute  right-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black
-                  ${item?.gallery && endScroll === 0 && `!hidden`}
-                  ${!item?.gallery[0]?.url && `!hidden`}
-                `}
-                >
-                  <IoIosArrowForward
-                    className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600 `}
-                    onClick={scrollL}
-                  />
-                </span>
-                <span
-                  className={`absolute  left-5  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black 
-                ${endScroll === 100 && `!hidden`}
-                ${!item?.gallery[0]?.url && `!hidden`}
-                     `}
-                >
-                  <IoIosArrowBack
-                    className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600`}
-                    onClick={scrollR}
-                  />
-                </span>
-                <div
-                  className="mx-auto  w-[207px] flex overflow-x-scroll relative border snap-x child:snap-center gap-3"
-                  onScroll={scrollHandler}
-                  ref={scroll}
-                >
-                  
-                  <img
-                    src={!item?.image ? noImage : item?.image}
-                    alt=""
-                    className="mt-2 w-[207px] h-[207px] "
-                  />
-                  {item?.gallery[0]?.url &&
-                    item?.gallery.map((item) => (
+              <div className="mx-auto  w-full">
+                <div className="mx-auto   w-full ">
+                  <Swiper
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={50}
+                    navigation={{
+                      nextEl: ".button-next-slide",
+                      prevEl: ".button-prev-slide",
+                    }}
+                    pagination={{
+                      el: ".swiper-pagination",
+                      clickable: true,
+                      bulletActiveClass: "swiper-pagination-bullet-active",
+                      // lockClass: ".swiper-pagination-lock",
+                    }}
+                    slidesPerView={1}
+                  >
+                    <SwiperSlide>
                       <img
-                        key={item.id}
-                        src={item.url}
+                        src={
+                          !item?.image
+                            ? item?.gallery[0]?.url
+                              ? item?.gallery[0]?.url
+                              : noImage
+                            : item?.image
+                        }
                         alt=""
-                        className="mt-2 w-[207px] h-[207px] "
+                        className="mt-2 w-[207px] h-[207px] mx-auto border mb-8"
                       />
-                    ))}
+                    </SwiperSlide>
+                    {item?.gallery[0]?.url &&
+                      item?.gallery.map((item) => (
+                        <SwiperSlide key={item.id}>
+                          <img
+                            src={item.url}
+                            alt=""
+                            className="mt-2 w-[207px] h-[207px] mx-auto border mb-8 "
+                          />
+                        </SwiperSlide>
+                      ))}
+                    <span
+                      className={`button-prev-slide absolute  top-0 right-5 z-20  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black`}
+                    >
+                      <IoIosArrowForward
+                        className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600 `}
+                      />
+                    </span>
+                    <span
+                      className={`  button-next-slide absolute  left-5 top-0  items-center flex   rounded-md h-full  child:hover:text-gray-600 hover:border-black `}
+                    >
+                      <IoIosArrowBack
+                        className={`align-middle  z-10  text-3xl    text-gray-400 hover:text-gray-600`}
+                      />
+                    </span>
+                    <span className="swiper-pagination absolute  text-black child:mx-1 bottom-1  left-0 right-0 mx-auto "></span>
+                    
+                  </Swiper>
                 </div>
               </div>
             </div>

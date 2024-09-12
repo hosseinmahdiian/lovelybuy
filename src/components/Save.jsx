@@ -16,6 +16,7 @@ import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
 import Loader from "./Loader";
 import Info from "./Info/Info";
+import Filters from "./Filter/Filters";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
@@ -23,6 +24,8 @@ const Save = () => {
 
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
+  const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
+
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
@@ -69,7 +72,6 @@ const Save = () => {
               reduce.Info ? ` ` : `hidden`
             }  `}
           ></div>
-
           <div className="mt-5 container mx-auto mb-5 pr-2">
             <NavLink to="/" className="flex  item-center  gap-2  ">
               <IoIosArrowForward className=" mt lg:text-2xl" />
@@ -78,7 +80,6 @@ const Save = () => {
               </span>
             </NavLink>
           </div>
-
           <Slides
             slid={slid?.data.data}
             select={selectCatgory}
@@ -89,7 +90,12 @@ const Save = () => {
             selectCatgory={selectCatgory}
             setSelectSubCatgory={setSelectSubCatgory}
           />
-          <Items />
+          <Filters
+            sub={slid?.data.data}
+            selectCatgory={selectCatgory}
+            selectSubCatgory={selectSubCatgory}
+            setSelectSubSubCatgory={setSelectSubSubCatgory}
+          />{" "}
           <Products />
           <Conter />
           {/*  account & log in */}
@@ -134,7 +140,6 @@ const Save = () => {
           >
             <PayProducts />
           </div>
-
           <div
             className={`
           ${reduce.successful ? `block` : `hidden`}
@@ -142,7 +147,6 @@ const Save = () => {
           >
             <Successsful dispach={dispach} />
           </div>
-
           <div
             className={`
           ${reduce.Conection ? `block` : `hidden`}

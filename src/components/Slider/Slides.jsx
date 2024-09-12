@@ -21,7 +21,7 @@ function Slides({ slid, select, setSelect }) {
 
   
   useEffect(() => {
-    console.log(slid);
+    // console.log(slid);
     setSelect(slid[0]);
   }, [slid]);
 

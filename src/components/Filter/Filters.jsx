@@ -19,14 +19,11 @@ const Filters = ({
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
-  // console.log(select);
 
   useEffect(() => {
- 
-
     setData(selectSubCatgory?.SubSubCat);
-    setSelectSubSubCatgory(selectSubCatgory?.SubSubCat[0])
-    setSelect(selectSubCatgory?.SubSubCat[0])
+    setSelectSubSubCatgory(selectSubCatgory?.SubSubCat[0]);
+    setSelect(selectSubCatgory?.SubSubCat[0]);
   }, [selectSubCatgory]);
 
   const clickhandler = (e) => {
