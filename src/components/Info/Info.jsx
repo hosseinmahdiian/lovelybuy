@@ -93,6 +93,7 @@ const Info = () => {
                     navigation={{
                       nextEl: ".button-next-slide",
                       prevEl: ".button-prev-slide",
+                      // disabledClass: ".swiper-button-disabled",
                     }}
                     pagination={{
                       el: ".swiper-pagination",
@@ -112,7 +113,7 @@ const Info = () => {
                             : item?.image
                         }
                         alt=""
-                        className="mt-2 w-[207px] h-[207px] mx-auto border mb-8"
+                        className="mt-2  h-[207px] mx-auto border mb-8"
                       />
                     </SwiperSlide>
                     {item?.gallery[0]?.url &&
@@ -121,7 +122,7 @@ const Info = () => {
                           <img
                             src={item.url}
                             alt=""
-                            className="mt-2 w-[207px] h-[207px] mx-auto border mb-8 "
+                            className="mt-2  h-[207px] mx-auto border mb-8 "
                           />
                         </SwiperSlide>
                       ))}
@@ -140,7 +141,6 @@ const Info = () => {
                       />
                     </span>
                     <span className="swiper-pagination absolute  text-black child:mx-1 bottom-1  left-0 right-0 mx-auto "></span>
-                    
                   </Swiper>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const Info = () => {
         <div className=" absolute bottom-6 w-full  mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
           {count == 0 ? (
             <button
-              className="w-[calc(100%-40px)] my-2.5  font-bold h-12    text-sm  mx-auto items-center block px-10  bg-blue-600  rounded-xl   text-white "
+              className="w-[calc(100%-40px)] py-2.5  font-bold h-12    text-sm  mx-auto items-center block px-10  bg-blue-600  rounded-xl   text-white "
               onClick={increaseHandeler}
             >
               افزودن به سبد خرید

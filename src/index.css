@@ -79,3 +79,6 @@ input[type="number"]::-webkit-outer-spin-button {
  .swiper-pagination-bullet-active {
   background: rgb(229, 73, 73) !important;
 }
+.swiper-button-disabled > *{
+  color: rgba(100, 102, 102, 0.168) !important;
+}

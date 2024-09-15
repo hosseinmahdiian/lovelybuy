@@ -18,7 +18,7 @@ const Category = ({ item, select }) => {
         />
 
         <span
-          className={`absolute   bottom-[52px] left-3  ${
+          className={`absolute   md:top-[72px] top-[52px] left-3  ${
             select.id == id ? `inline-block` : `hidden`
           }  `}
         >
@@ -26,7 +26,7 @@ const Category = ({ item, select }) => {
         </span>
         <span
           id={id}
-          className="w-full font-IrSans  mt-2 text-center rounded-xl items-center inline-block  line-clamp-1 text-nowrap "
+          className="w-full font-IrSans  mt-2 text-[12px] text-center rounded-xl items-center inline-block    "
         >
           {title}
         </span>

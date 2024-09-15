@@ -38,7 +38,7 @@ const Product = ({ item }) => {
         <img
           src={!!image ? image : noImage}
           alt=""
-          className=" lg:w-52 lg:h-52 \\ sm:w-40 sm:h-40   \\ es:w-32 es:h-32 w-40 h-40  bg-white mx-auto "
+          className="  lg:h-52 \\  sm:h-40   \\  es:h-32  h-40 object-contain bg-white mx-auto "
         />
         <span
           onClick={() => {
