@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { reducerContext } from "../../constant/Context";
 import { useSearchParams } from "react-router-dom";
+import { authUser } from "./OTP";
 
 const Vrify = ({ code, mobile, timer, sendSms }) => {
   const [otp, setOtp] = useState(code);
@@ -65,6 +66,8 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
           onClick={() => {
             if (code != "") {
               if (otp == code) {
+                // console.log(mobile)
+                authUser(mobile);
                 let p = searchPrams.get("LogIn");
                 if (p) {
                   searchPrams.delete("LogIn");

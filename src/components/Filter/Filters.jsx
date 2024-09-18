@@ -19,21 +19,24 @@ const Filters = ({
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
-
   useEffect(() => {
     setData(selectSubCatgory?.SubSubCat);
     setSelectSubSubCatgory(selectSubCatgory?.SubSubCat[0]);
-    setSelect(selectSubCatgory?.SubSubCat[0]);
+    setSelect({_id:"all"});
   }, [selectSubCatgory]);
 
   const clickhandler = (e) => {
     console.log(e.target.id);
     data?.map((item) => {
-      if (item._id == e.target.id) {
+      if (item._id == e.target.id ) {
         setSelect(item);
         setSelectSubSubCatgory(item);
       }
     });
+    if("all" == e.target.id ){
+      setSelect({ _id: "all" });
+      setSelectSubSubCatgory({ _id: "all" });
+    }
   };
 
   const scrollL = () => {
@@ -83,6 +86,19 @@ const Filters = ({
             />
           </span>
           <div className="flex gap-2    items-center  ">
+            <div
+              onClick={clickhandler}
+              id={"all"}
+              // name={subCatID}
+              // style={{}}
+              className={` font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap ${
+                "all" == select?._id
+                  ? `text-white bg-black bg-opacity-80`
+                  : `bg-white`
+              }  `}
+            >
+              همه
+            </div>
             {data?.map((item, index) => (
               <span onClick={clickhandler} key={index} id={item.name}>
                 <Filter item={item} select={select} className=" mb-5 " />

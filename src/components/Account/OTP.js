@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import { baseAPI } from "../../API/API";
+import { saveCurrentUser } from "../../constant/auth/localStoreage";
 
 export const Random = () => {
   let randomNumber = 1000 + Math.floor(Math.random() * (9999 - 1000));
@@ -73,4 +75,12 @@ const startTimer = (setTimer, setCode) => {
     });
   }, 1000);
   intervalId = id;
+};
+
+export const authUser = (mobile) => {
+  axios
+    .post(`${baseAPI}/user/authUser`, { mobile })
+    .then((json) =>
+      saveCurrentUser("authUser", JSON.stringify(json.data.data))
+    );
 };

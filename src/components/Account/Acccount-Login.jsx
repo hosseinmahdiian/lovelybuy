@@ -25,6 +25,8 @@ const AcccountLogin = () => {
   // console.log(data1);
 
   const clickhandler = (e) => {
+    console.log(e.target);
+
     data1.map((item) => {
       if (item.name == e.target.id) {
         setSelect(() => item);
@@ -60,8 +62,19 @@ const AcccountLogin = () => {
           <div className="mx-4  h-full  ">
             <div className="flex gap-2   mb-2   mt-4 overflow-x-scroll delivery  ">
               {data1.map((item, index) => (
-                <span onClick={clickhandler} key={index}>
-                  <Filter item={item} select={select} className=" mb-5 " />
+                <span onClick={clickhandler} id={item.name} key={index}>
+                  <div
+                    id={item.name}
+                    name={item.name}
+                    
+                    className={` font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap ${
+                      item.name == select.name
+                        ? `text-white bg-black bg-opacity-80`
+                        : `bg-white`
+                    }  `}
+                  >
+                    {item.title}
+                  </div>
                 </span>
               ))}
             </div>

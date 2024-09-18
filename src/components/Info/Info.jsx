@@ -102,6 +102,7 @@ const Info = () => {
                       // lockClass: ".swiper-pagination-lock",
                     }}
                     slidesPerView={1}
+                    loop={true}
                   >
                     <SwiperSlide>
                       <img
@@ -113,7 +114,7 @@ const Info = () => {
                             : item?.image
                         }
                         alt=""
-                        className="mt-2  h-[207px] mx-auto border mb-8"
+                        className="mt-2  h-[207px] mx-auto border border-gray-100 mb-8 rounded-xl"
                       />
                     </SwiperSlide>
                     {item?.gallery[0]?.url &&
@@ -122,7 +123,7 @@ const Info = () => {
                           <img
                             src={item.url}
                             alt=""
-                            className="mt-2  h-[207px] mx-auto border mb-8 "
+                            className="mt-2  h-[207px] mx-auto border border-gray-100 mb-8  rounded-xl"
                           />
                         </SwiperSlide>
                       ))}

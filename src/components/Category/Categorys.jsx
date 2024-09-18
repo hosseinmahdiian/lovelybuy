@@ -12,12 +12,9 @@ import {
   IoIosArrowDropright,
   IoIosArrowForward,
 } from "react-icons/io";
+import { TbSquareRoundedCheckFilled } from "react-icons/tb";
 
-const Categorys = ({
-  sub,
-  selectCatgory,
-  setSelectSubCatgory,
-}) => {
+const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState(data);
   const [endScroll, setEndScroll] = useState(0);
@@ -29,7 +26,7 @@ const Categorys = ({
     sub.map((item, indxe) => {
       if (item.id === selectCatgory?.id) {
         setData(item.SubCat);
-        setSelect(item.SubCat[0]);
+        setSelect({ id: "66c91f8f531a33d8799c42e0" });
         setSelectSubCatgory(item.SubCat[0]);
       }
     });
@@ -40,10 +37,13 @@ const Categorys = ({
       if (item.id == e.target.id) {
         setSelect(item);
         setSelectSubCatgory(item);
-
-        // console.log(item);
       }
     });
+    console.log(e.target.id);
+    if ("66c91f8f531a33d8799c42e0" == e.target.id) {
+      
+      setSelect({ id: "66c91f8f531a33d8799c42e0" });
+    }
   };
 
   const scrollR = () => {
@@ -97,7 +97,37 @@ const Categorys = ({
             />
           </span>
 
-          <div className="flex gap-2    ">
+          <div className="flex  gap-2 ">
+            <div
+              className={`   relative  md:w-[100px]  w-[80px]`}
+              id={selectCatgory?.id}
+              onClick={clickhandler}
+            >
+              <img
+                src={selectCatgory?.image}
+                className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
+                  select?.id ==  "66c91f8f531a33d8799c42e0"
+                    ? `border-black`
+                    : ` border-black border-opacity-20`
+                } `}
+                id={selectCatgory?.id}
+              />
+
+              <span
+                className={`absolute   md:top-[72px] top-[52px] left-3  ${
+                  select?.id == '66c91f8f531a33d8799c42e0' ? `inline-block` : `hidden`
+                }  `}
+              >
+                <TbSquareRoundedCheckFilled />
+              </span>
+              <span
+                id={selectCatgory?.id}
+                className="w-full font-IrSans  mt-2 text-[12px] text-center rounded-xl items-center inline-block    "
+              >
+                {selectCatgory?.title}
+              </span>
+            </div>
+
             {data?.map((item, index) => (
               <span key={index} onClick={clickhandler} className="    ">
                 <Category item={item} select={select} />

@@ -12,6 +12,10 @@ import Filter from "../../Filter/Filter";
 // import Filters from "../Filter/Filters";
 import { FilterData, UserData } from "../../../constant/DataSets";
 import { useSearchParams } from "react-router-dom";
+import {
+  getCurrentUser,
+  LocalStorageService,
+} from "../../../constant/auth/localStoreage";
 
 const User = ({ dispach }) => {
   const [data1, setdata] = useState(UserData);
@@ -147,11 +151,10 @@ const User = ({ dispach }) => {
 
         <div
           className="flex gap-3 items-center mt-4 "
-          // onClick={() => {
-          //   dispach({ type: "Login" });
-          //   dispach({ type: "Account" });
-          //   dispacher({ type: "logIn" });
-          // }}
+          onClick={() => {
+            getCurrentUser("authUser");
+            console.log(LocalStorageService);
+          }}
         >
           <span>
             <BsFileEarmarkText />{" "}
@@ -191,8 +194,7 @@ const User = ({ dispach }) => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });
             // dispacher({ type: "Derawer" });
-  setSearchPrams({ LogIn: "false" });
-
+            setSearchPrams({ LogIn: "false" });
           }}
         >
           <span>
