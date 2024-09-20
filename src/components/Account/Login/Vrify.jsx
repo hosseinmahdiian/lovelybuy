@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
-import { reducerContext } from "../../constant/Context";
-import { useSearchParams } from "react-router-dom";
+import { reducerContext } from "../../../constant/Context";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { authUser } from "./OTP";
 
 const Vrify = ({ code, mobile, timer, sendSms }) => {
@@ -9,7 +9,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
   const [messeage, setMesseage] = useState("");
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-
+  const navigate = useNavigate();
   useEffect(() => {
     setOtp(() => code);
   }, [code]);
@@ -20,7 +20,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
 
   return (
     reduce.Vrify && (
-      <div className={`  bg-white  mx-auto relative px-5 pt-1 block `}>
+      <div className={` max-w-xl bg-white  mx-auto relative px-5 pt-1 block `}>
         {" "}
         <div className="mt-28">
           <h2 className="mb-6">کد تایید را وارد کنید</h2>
@@ -66,23 +66,8 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
           onClick={() => {
             if (code != "") {
               if (otp == code) {
-                // console.log(mobile)
                 authUser(mobile);
-                let p = searchPrams.get("LogIn");
-                if (p) {
-                  searchPrams.delete("LogIn");
-                  setSearchPrams(searchPrams);
-                  // setSearchPrams({ LogIn: true });
-                }
-                if (reduce.AcconutHave) {
-                  dispach({ type: "Vrify" });
-                  dispach({ type: "Login" });
-                  // dispach({ type: "SinUp" });
-                } else {
-                  dispach({ type: "Login" });
-                  dispach({ type: "Vrify" });
-                  // dispach({ type: "NewAccount" });
-                }
+                navigate("/");
               } else if (!otp || otp.length < 4) {
                 setMesseage("کد را وارد کنید");
               } else {

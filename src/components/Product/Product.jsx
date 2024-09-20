@@ -4,35 +4,48 @@ import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import noImage from "../../assets/images/no-image.png";
 import { sp } from "../../constant/Functions";
-import { useSearchParams } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  NavLink,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import { reducerContext } from "../../constant/Context";
 
 const Product = ({ item }) => {
-  const { image, name, sellPrice, oldPrice } = item;
+  const { image, name, sellPrice, oldPrice, id } = item;
   //  console.log(item);
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
-  // console.log(item.id);
 
   const increaseHandeler = () => {
     setCount(count + 1);
-    // console.log(count);
   };
   const decreaseHandeler = () => {
     setCount(count - 1);
-    // console.log(count);
   };
   const [searchPrams, setSearchPrams] = useSearchParams();
+  const navigate = useNavigate();
+
   return (
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
+      {/* <Link to={}> */}
+      <span
+        onClick={() => {
+          setSave(!save);
+          // dispach({ type: "Info" });
+        }}
+        className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg  "
+      >
+        {save ? <FaBookmark /> : <FaRegBookmark />}
+      </span>
       <div
         className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm "
         onClick={() => {
-          setSearchPrams({ IdP: item.id });
-          // dispach({ type: "DerawerInfo" });
-          dispach({ type: "Info" });
+          navigate(`/ProductID/${id}`);
         }}
       >
         <img
@@ -40,15 +53,6 @@ const Product = ({ item }) => {
           alt=""
           className="  lg:h-52 \\  sm:h-40   \\  es:h-32  h-40 object-contain bg-white mx-auto "
         />
-        <span
-          onClick={() => {
-            setSave(!save);
-            dispach({ type: "Info" });
-          }}
-          className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg "
-        >
-          {save ? <FaBookmark /> : <FaRegBookmark />}
-        </span>
 
         <h2 className="text-right mr-3 pt-2 sm:h-9 h-7 line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
           {name}
@@ -80,8 +84,8 @@ const Product = ({ item }) => {
             </div>
           </div>
         </div>
-        {/* </div> */}
       </div>
+      {/* </Link> */}
       <div className="   bg-white \\   overflow-hidden  mx-auto  rounded-t-md shadow-sm  rounded-b-3xl lg:rounded-none ">
         {count == 0 ? (
           <button

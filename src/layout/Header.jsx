@@ -6,7 +6,7 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { BsPersonCircle } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
 import { reducerContext } from "../constant/Context";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 // import { reducerContext } from "../App";
 const Header = () => {
@@ -53,7 +53,7 @@ const Header = () => {
                 <span className="">
                   <p className="text-nowrap"> ذخیره شده</p>
                   <span className="  text-red-600  bg-white text-center  ">
-                    52 کالا
+                    0 کالا
                   </span>
                 </span>
               </NavLink>
@@ -70,7 +70,7 @@ const Header = () => {
                 <span className="">
                   <p className="text-nowrap">سبد خرید</p>
                   <span className="  text-red-600  bg-white text-center  ">
-                    52 کالا
+                    0 کالا
                   </span>
                 </span>
               </div>
@@ -83,21 +83,20 @@ const Header = () => {
               >
                 <RiShoppingBag3Line className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
               </span>
-              <div
-                onClick={() => {
-                  // console.log(reduce.Derawer);
-                  dispach({ type: "Derawer" });
-                }}
-                className=" border-x flex  items-center  px-2 cursor-pointer "
-              >
-                <span className="hidden md:inline-block  h-[50px] w-[50px]   rounded-xl border-black">
-                  <FaRegCircleUser className="m-[13px] h-6 w-6  " />
-                </span>
-                <div className="hidden lg:inline-block text-right">
-                  <h4 className=" font-bold text-nowrap">اشکان حسنوند</h4>
-                  <p className=" opacity-75">09216919291</p>
+              <Link to="Account">
+                <div
+                  onClick={() => {}}
+                  className=" border-x flex  items-center  px-2 cursor-pointer "
+                >
+                  <span className="hidden md:inline-block  h-[50px] w-[50px]   rounded-xl border-black">
+                    <FaRegCircleUser className="m-[13px] h-6 w-6  " />
+                  </span>
+                  <div className="hidden lg:inline-block text-right">
+                    <h4 className=" font-bold text-nowrap">اشکان حسنوند</h4>
+                    <p className=" opacity-75">09216919291</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
               <div
                 className="flex  border-r px-2"
                 onClick={() => {

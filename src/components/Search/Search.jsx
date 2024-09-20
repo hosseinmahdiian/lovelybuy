@@ -14,7 +14,7 @@ import Filters from "../Filter/Filters";
 import PayProducts from "../Basket/PayProducts";
 import Successsful from "../Basket/Successsful";
 import Conection from "../Conection";
-import Pages from "../Account/Pages";
+import Login from "../Account/Login/Login";
 import Basket from "../Basket/Basket";
 import Items from "../Item/Items";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -30,15 +30,7 @@ const Search = () => {
   return (
     <>
       {/* headers */}
-      <div className="w-full h-0 ">
-        <div
-          onClick={() => {
-            dispach({ type: "Derawer" });
-          }}
-          className={`w-full h-full bg-black fixed top-0 z-[51] bg-opacity-30 ${
-            reduce.Derawer ? ` ` : `hidden`
-          }  `}
-        ></div>
+      <div className="w-full  ">
         <div
           onClick={() => {
             dispach({ type: "basket" });
@@ -55,18 +47,8 @@ const Search = () => {
             reduce.pay ? ` ` : `hidden`
           }  `}
         ></div>
-        <div
-          onClick={() => {
-            // searchPrams.get("LogIn") !== "false" &&
-            dispach({ type: "Info" });
-            // console.log(searchPrams.get("LogIn") === "false");
-          }}
-          className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-            reduce.Info ? ` ` : `hidden`
-          }  `}
-        ></div>
 
-        <div className="  mx-auto  relative   ">
+        <div className="  mx-auto  relative  mt-28 ">
           <div className=" container w-full mx-auto font-IrSana absolute left-0 right-0 -top-28 z-50  ">
             <div className="lg:flex justify-between px-12  py-[30px] hidden bg-white w-full  items-center   absolute mx-auto   border-b">
               <div className="flex w-full   items-center gap-3 ">
@@ -168,7 +150,7 @@ const Search = () => {
           </div>
         </div>
         {/* ======================= */}
-        <div className=" h-0 ">
+        <div className=" h-0  ">
           <div className="flex h-20  items-center absolute top-0 right-0 z-10 w-full lg:hidden border  justify-between    bg-white py-2 ">
             <NavLink to="/" className=" h-full w-14  mr-5">
               <IoIosArrowForward className=" text-3xl  h-full" />
@@ -198,9 +180,9 @@ const Search = () => {
       </div>
       {/* ============ */}
 
-      <div className="mt-5 container mx-auto">
+      <div className="pt-12 container mx-auto lg:block hidden">
         <NavLink
-          to="/"
+          to={-1}
           className="lg:flex hidden item-center align-middle gap-2 pr-2 "
         >
           <IoIosArrowForward className=" mt-1 text-2xl" />
@@ -209,26 +191,32 @@ const Search = () => {
       </div>
       <div className="lg:mt-0 mt-2">
         <p className="text-xl mt-7 container mx-auto  pr-2">20 جستجوی اخیر</p>
-        <Items />
+        {/* <Items /> */}
+        <p className="text-center font-bold text-red-500">
+          سابقه جستجویی در دسترس نیست
+        </p>
 
         <div className=" bg-[#F5F5F5]  w-full ">
           <p className="  text-xl mt-1 pb-1.5 pt-7  pr-2  container mx-auto ">
             20 محصول اخیر
           </p>
+          <p className="text-center font-bold text-red-500">
+            سابقه جستجویی در دسترس نیست
+          </p>
         </div>
 
-        <Products />
+        {/* <Products /> */}
       </div>
       {/* ======================= */}
-      <div
+      {/* <div
         className={` ${
           reduce.Derawer
             ? ` sm:left-0 top-0  `
             : `sm:-left-[8000px] -bottom-[8000px] `
         } fixed  md:w-[400px] es:w-full  z-[55] h-full transition-all  ease-in-out `}
       >
-        <Pages />
-      </div>
+        <Login />
+      </div> */}
       {/* Basket & pay */}
       <div
         className={` ${
@@ -241,7 +229,7 @@ const Search = () => {
       >
         <Basket />
       </div>
-      <div
+      {/* <div
         className={` ${
           reduce.Info
             ? ` sm:left-0 top-0  `
@@ -249,7 +237,7 @@ const Search = () => {
         } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
       >
         <Info />
-      </div>
+      </div> */}
       <div
         className={` ${
           reduce.pay

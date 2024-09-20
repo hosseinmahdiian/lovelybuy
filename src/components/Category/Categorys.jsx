@@ -41,7 +41,6 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
     });
     console.log(e.target.id);
     if ("66c91f8f531a33d8799c42e0" == e.target.id) {
-      
       setSelect({ id: "66c91f8f531a33d8799c42e0" });
     }
   };
@@ -98,35 +97,39 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
           </span>
 
           <div className="flex  gap-2 ">
-            <div
-              className={`   relative  md:w-[100px]  w-[80px]`}
-              id={selectCatgory?.id}
-              onClick={clickhandler}
-            >
-              <img
-                src={selectCatgory?.image}
-                className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
-                  select?.id ==  "66c91f8f531a33d8799c42e0"
-                    ? `border-black`
-                    : ` border-black border-opacity-20`
-                } `}
+            <span>
+              <div
+                className={`items-center   relative  md:w-[100px]  w-[80px]`}
                 id={selectCatgory?.id}
-              />
+                onClick={clickhandler}
+              >
+                <img
+                  src={selectCatgory?.image}
+                  className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
+                    select?.id == "66c91f8f531a33d8799c42e0"
+                      ? `border-black`
+                      : ` border-black border-opacity-20`
+                  } `}
+                  id={selectCatgory?.id}
+                />
 
-              <span
-                className={`absolute   md:top-[72px] top-[52px] left-3  ${
-                  select?.id == '66c91f8f531a33d8799c42e0' ? `inline-block` : `hidden`
-                }  `}
-              >
-                <TbSquareRoundedCheckFilled />
-              </span>
-              <span
-                id={selectCatgory?.id}
-                className="w-full font-IrSans  mt-2 text-[12px] text-center rounded-xl items-center inline-block    "
-              >
-                {selectCatgory?.title}
-              </span>
-            </div>
+                <span
+                  className={`absolute   md:top-[72px] top-[52px] left-3  ${
+                    select?.id == "66c91f8f531a33d8799c42e0"
+                      ? `inline-block`
+                      : `hidden`
+                  }  `}
+                >
+                  <TbSquareRoundedCheckFilled />
+                </span>
+                <span
+                  id={selectCatgory?.id}
+                  className="w-full font-IrSans  mt-2 text-[12px] text-center rounded-xl items-center inline-block    "
+                >
+                  {selectCatgory?.title}
+                </span>
+              </div>
+            </span>
 
             {data?.map((item, index) => (
               <span key={index} onClick={clickhandler} className="    ">

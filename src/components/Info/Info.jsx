@@ -8,7 +8,12 @@ import Filter from "../Filter/Filter";
 import noImage from "../../assets/images/no-image.png";
 import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
-import { useSearchParams } from "react-router-dom";
+import {
+  Navigate,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { sp } from "../../constant/Functions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -16,6 +21,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { MobileOnlyView } from "react-device-detect";
 const Info = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -42,30 +48,23 @@ const Info = () => {
     });
   };
   const { isLoading, data } = useQuery(["get-products"], getProducts);
-  const [searchPrams, setSearchPrams] = useSearchParams();
-  const id = searchPrams.get("IdP");
   const [item, setItem] = useState();
-
-  reduce.Info
-    ? document.documentElement.classList.add("overflow-y-hidden")
-    : document.documentElement.classList.remove("overflow-y-hidden");
-
+  const navigate = useNavigate();
+  const { ID } = useParams();
+  
   useEffect(() => {
-    setItem(data?.data.data?.find((item) => item?.id == id));
-  }, [id]);
+    setItem(data?.data.data?.find((item) => item?.id == ID));
+  }, [data]);
 
-  // console.log(item);
 
-  return (
-    reduce.Info && (
-      <div className="bg-white h-full border">
+  return !isLoading&&(
+    <div className="bg-[#F6F6F6]">
+      <div className="bg-white max-w-xl relative mx-auto  h-full ">
         <div className={` py-6 px-3 border-b   `}>
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
-              dispach({ type: "Info" });
-              searchPrams.delete("IdP");
-              setSearchPrams(searchPrams);
+              navigate(-1);
             }}
           >
             <IoIosArrowForward className="text-xl" />
@@ -202,7 +201,7 @@ const Info = () => {
           </div>
         </div>
 
-        <div className=" absolute bottom-6 w-full  mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
+        <div className=" absolute -bottom-6 w-[calc(100%-20px)]   left-0 right-0 mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
           {count == 0 ? (
             <button
               className="w-[calc(100%-40px)] py-2.5  font-bold h-12    text-sm  mx-auto items-center block px-10  bg-blue-600  rounded-xl   text-white "
@@ -229,9 +228,12 @@ const Info = () => {
               </button>
             </div>
           )}
+          <MobileOnlyView>
+            <div className="h-[64px] w-2"></div>
+          </MobileOnlyView>
         </div>
       </div>
-    )
+    </div>
   );
 };
 

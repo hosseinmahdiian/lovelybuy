@@ -1,4 +1,4 @@
 export const token =
-  "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZjOTIyYzc1MzFhMzNkODc5OWM0MzFhIiwiaWF0IjoxNzI2MzkzMjg0LCJleHAiOjE3MjY3ODkyODR9.jmgG7hc8mAss4rxEs_aZg33EJEEtJ9fbhRDZ4IabDKI";
+  "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZjOTIyYzc1MzFhMzNkODc5OWM0MzFhIiwiaWF0IjoxNzI2ODExMDE1LCJleHAiOjE3MjcyMDcwMTV9.hgzB4HfrZQbLZpm4r-wSJ623aNgHVj1_Ed1jb_PdLeU";
 
 export const baseAPI = "https://lovelybuy.liara.run";

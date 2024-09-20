@@ -11,7 +11,7 @@ import { BsFileEarmarkText } from "react-icons/bs";
 import Filter from "../../Filter/Filter";
 // import Filters from "../Filter/Filters";
 import { FilterData, UserData } from "../../../constant/DataSets";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   getCurrentUser,
   LocalStorageService,
@@ -20,7 +20,6 @@ import {
 const User = ({ dispach }) => {
   const [data1, setdata] = useState(UserData);
   const [select, setSelect] = useState(data1[0]);
-  //  console.log(data1);
   const reducer = useContext(reducerContext);
   const [reduce, dispacher] = reducer;
   const clickhandler = (e) => {
@@ -30,10 +29,15 @@ const User = ({ dispach }) => {
       }
     });
   };
-  const [searchPrams, setSearchPrams] = useSearchParams();
+  const navigate = useNavigate();
+  const [deposit, setDeposit] = useState();
+  // const [searchPrams, setSearchPrams] = useSearchParams();
   // setSearchPrams({ LogIn: "false" });
   // console.log(dispach);
 
+  const chenchHandeler = (e) => {
+    setDeposit(e.target.value);
+  };
   return (
     <div className="  delivery   ">
       <div
@@ -66,17 +70,31 @@ const User = ({ dispach }) => {
                 className="peer focus:outline-none border border-blue-600 px-5 rounded-xl bg-[#DDEEFF] h-12 w-full "
                 placeholder=" "
                 id="pay"
+                value={deposit}
+                onChange={(e) => chenchHandeler(e)}
+                type="number"
+                inputMode="numeric"
               />
               <label
                 htmlFor="pay"
-                className="absolute start-1 IrHomama top-2.5 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm  bg-[#DDEEFF]  px-2"
+                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-[#DDEEFF] px-2 ${
+                  !!deposit ? `start-2.5 -top-2 !text-sm` : `top-2`
+                }`}
               >
                 واریز مبلغ
               </label>
             </div>
-            <span className="w-fit border  border-blue-600 align-middle h-12">
-              <p className="text-nowrap mt-2.5 px-5">انتقال به درگاه</p>
-            </span>
+            {/* <span className="w-fit border  border-blue-600 align-middle h-12"> */}
+            <button
+              className={`text-nowrap  px-5 *:w-fit border  border-blue-600 align-middle h-12 ${
+                !deposit
+                  ? `!text-gray-400 !border-blue-400 `
+                  : ` text-white bg-blue-600`
+              }`}
+            >
+              انتقال به درگاه
+            </button>
+            {/* </span> */}
           </div>
         </div>
       </div>
@@ -95,8 +113,7 @@ const User = ({ dispach }) => {
           <p
             className=" text-blue-500 cursor-pointer"
             onClick={() => {
-              dispach({ type: "Login" });
-              dispach({ type: "Place" });
+              navigate("Place");
             }}
           >
             ویرایش
@@ -125,8 +142,7 @@ const User = ({ dispach }) => {
             <p
               className=" text-blue-500 pb-2 cursor-pointer"
               onClick={() => {
-                dispach({ type: "Login" });
-                dispach({ type: "ChengPass" });
+                navigate("ChengPasseord");
               }}
             >
               ویرایش
@@ -150,7 +166,7 @@ const User = ({ dispach }) => {
         </div>
 
         <div
-          className="flex gap-3 items-center mt-4 "
+          className="flex gap-3 items-center mt-6 "
           onClick={() => {
             getCurrentUser("authUser");
             console.log(LocalStorageService);
@@ -163,7 +179,7 @@ const User = ({ dispach }) => {
         </div>
 
         <div
-          className="flex gap-3 items-center mt-4 "
+          className="flex gap-3 items-center mt-6 "
           // onClick={() => {
           //   dispach({ type: "Login" });
           //   dispach({ type: "Account" });
@@ -176,7 +192,7 @@ const User = ({ dispach }) => {
           <p className="text-black "> حریم خصوصی </p>
         </div>
         <div
-          className="flex gap-3 text-red-600 items-center mt-4 "
+          className="flex gap-3 text-red-600 items-center mt-6 "
           // onClick={() => {
           //   dispach({ type: "Login" });
           //   dispach({ type: "Account" });
@@ -189,12 +205,12 @@ const User = ({ dispach }) => {
           <p className="text-black "> درباره ما </p>
         </div>
         <div
-          className="flex gap-3  mb-32 text-red-600 items-center mt-4 cursor-pointer "
+          className="flex gap-3  mb-32 text-red-600 items-center mt-6 cursor-pointer "
           onClick={() => {
             dispach({ type: "Login" });
             dispach({ type: "Account" });
             // dispacher({ type: "Derawer" });
-            setSearchPrams({ LogIn: "false" });
+            // setSearchPrams({ LogIn: "false" });
           }}
         >
           <span>

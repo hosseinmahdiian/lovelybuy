@@ -23,9 +23,7 @@ function App() {
         <QueryClientProvider client={QueryClint}>
           <BrowserRouter>
             {online ? (
-              <Layout>
                 <Routers />
-              </Layout>
             ) : (
               <NoInternet />
             )}

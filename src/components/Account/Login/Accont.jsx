@@ -1,52 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoInformationCircleOutline } from "react-icons/io5";
-import logo from "../../assets/images/logo.png";
-import { reducerContext } from "../../constant/Context";
-import { GoUnlock } from "react-icons/go";
-import { GrLocation } from "react-icons/gr";
-import { MdOutlineLogout } from "react-icons/md";
+
+import logo from "../../../assets/images/logo.png";
+import { reducerContext } from "../../../constant/Context";
+
 import { BsFileEarmarkText } from "react-icons/bs";
-import { Formik, useFormik } from "formik";
-import * as Yup from "yup";
-import { NavLink, useParams, useSearchParams } from "react-router-dom";
 
 const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [mobileAlert, setMobileAlert] = useState("");
 
-  const [searchPrams, setSearchPrams] = useSearchParams();
-useEffect(() => {
-  setSearchPrams({ LogIn: "false" });
-}, [searchPrams.get("LogIn") == false]); 
- const prams = useParams();
-  console.log();
-
-  
-
   const chenchHandeler = (e) => {
-    // console.log(e.target.value);
     setMobile(e.target.value);
     setForm({ mobile: e.target.value });
   };
 
   return (
     reduce.Account && (
-      <div
-        className={` h-full w-full  bg-white border  relative ${
-          !reduce.Account ? `hidden` : `block`
-        }`}
-      >
+      <div className={`bg-white max-w-xl relative mx-auto  h-full`}>
         <div className={``}>
-          <img
-            src={logo}
-            alt=""
-            className="mx-auto mb-20 mt-28 "
-            onClick={() => {
-              dispach({ type: "Derawe" });
-            }}
-          />
+          <img src={logo} alt="" className="mx-auto mb-20 mt-28 " />
 
           <div className=" ">
             <div className="relative w-[calc(100%-40px)] mx-auto ">
@@ -74,10 +47,10 @@ useEffect(() => {
 
             <button
               onClick={() => {
-                // console.log(reduce.Account);
-                if (mobile.length == 11 && !!mobile) {
+                if (mobile?.length == 11 && !!mobile) {
                   dispach({ type: "Account" });
                   dispach({ type: "Vrify" });
+
                   setMobileAlert("");
                   sendSms();
                 } else if (!mobile) {
@@ -91,18 +64,6 @@ useEffect(() => {
               ادامه
             </button>
 
-            {/* <button
-              className="w-[calc(100%-40px)]  h-14 bg-blue-500 block mx-auto mt-8 rounded-[10px] text-white font-IrHoma"
-              onClick={() => {
-                let p = searchPrams.get("LogIn");
-                if (p) {
-                  searchPrams.delete("LogIn");
-                  setSearchPrams(searchPrams);
-                }
-              }}
-            >
-              ===============
-            </button> */}
             <p
               href=""
               className=" mt-5 mx-auto text-blue-500 block w-fit "
@@ -115,7 +76,7 @@ useEffect(() => {
             </p>
           </div>
 
-          <div className="flex w-fit right-0 left-0 mx-auto items-center  absolute gap-2 bottom-6 ">
+          <div className="flex w-fit  mx-auto items-center gap-2 ">
             <span>
               <BsFileEarmarkText className="text-xl" />
             </span>

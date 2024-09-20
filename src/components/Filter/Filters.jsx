@@ -18,6 +18,7 @@ const Filters = ({
   const [select, setSelect] = useState();
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
+// console.log(selectCatgory)
 
   useEffect(() => {
     setData(selectSubCatgory?.SubSubCat);
@@ -91,7 +92,7 @@ const Filters = ({
               id={"all"}
               // name={subCatID}
               // style={{}}
-              className={` font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap ${
+              className={`font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap  ${
                 "all" == select?._id
                   ? `text-white bg-black bg-opacity-80`
                   : `bg-white`

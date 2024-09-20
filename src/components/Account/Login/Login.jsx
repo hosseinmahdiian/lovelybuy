@@ -1,19 +1,12 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
-import { reducerContext } from "../../constant/Context";
+import { reducerContext } from "../../../constant/Context";
 import Acconut from "./Accont";
-import AcccountLogin from "./Acccount-Login";
 import Vrify from "./Vrify";
-import NewAccount from "./NewAccount";
-import SinUp from "./SinUp";
-import ChengPass from "./ChengPass";
-import { sendSMS } from "./OTP";
-import Place from "./Place";
-import Chose from "./Duti/Chose";
-import InPerson from "../InPerson/InPerson";
-import Conter from "../Conter";
-// import { otpService } from "./OTP";
 
-const Pages = () => {
+import { sendSMS } from "./OTP";
+
+
+const Login = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
@@ -32,7 +25,7 @@ const Pages = () => {
     sendSMS(setCode, form, setTimer);
   };
   // ===============================================
-  return  (
+  return (
     <div className="h-full  bg-white  ">
       <Acconut
         sendSms={sendSms}
@@ -47,17 +40,16 @@ const Pages = () => {
         sendSms={sendSms}
         setTimer={setTimer}
       />
-      <NewAccount />
+      {/* <NewAccount />
       <SinUp />
       <Chose />
 
       <ChengPass />
       <Place />
-      <AcccountLogin />
+      <AcccountLogin /> */}
       {/* <Conter/> */}
-      
     </div>
   );
 };
 
-export default Pages;
+export default Login;
