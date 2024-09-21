@@ -7,19 +7,19 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { LuShoppingBag } from "react-icons/lu";
 import ShowProducts from "./Show-producs";
 import { reducerContext } from "../../../../constant/Context";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
   const [order, setOrder] = useState(HistoryOrderData);
 
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  const id = 44444;
+  const navigate = useNavigate();
   return (
     <div
       className="my-4  text-sm text-gray-600"
       onClick={() => {
-        dispach({ type: "Show" });
-      }}
+navigate("History/:1243");      }}
     >
       <div>
         <div className="flex gap-2 mb-1 items-center">

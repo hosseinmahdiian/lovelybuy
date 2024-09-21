@@ -30,7 +30,7 @@ const Routers = () => {
       <Route path="Account" element={<AcccountLogin />} />
       <Route path="Account/ChengPasseord" element={<ChengPass />} />
       <Route path="Account/Place" element={<Place />} />
-      <Route path="Account/History" element={<ShowProducts />} />
+      <Route path="Account/History/:ID" element={<ShowProducts />} />
       <Route path="chose" element={<Chose />} />
 
       {/* <Route path="Vrify" element={<Vrify />} /> */}

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { reducerContext } from "../../constant/Context";
 import { useQuery } from "react-query";
 import { decrypt } from "../../constant/auth/crypto";
-import { getFavorite } from "../../services/Favorite";
+import { getFavorite, getUniqueIds } from "../../services/Favorite";
 import Product from "../Product/Product";
 
 const Products = () => {
@@ -12,14 +12,14 @@ const Products = () => {
   const [authUser, setAuthUser] = useState(
     JSON.parse(decrypt(localStorage.getItem("authUser")))
   );
- 
+
   useEffect(() => {
     console.log("******22222");
 
     getFavorite(authUser?._id, setItem);
   }, [authUser?._id]);
-//   console.log(item?.data.data);
-
+  //   console.log(item?.data.data);
+  // getUniqueIds(item);
   return (
     <>
       <div className=" mx-auto  py-2.5  pb-20 bg-[#F5F5F5]">

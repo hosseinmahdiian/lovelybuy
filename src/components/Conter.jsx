@@ -56,10 +56,10 @@ const Conter = () => {
                   dispach({ type: "basket" });
                 }}
               />
-              <NavLink to="Search" className=" ">
+              <NavLink to="/Search" className=" ">
                 <IoIosSearch className=" mx-auto text-2xl" />
               </NavLink>
-              <span onClick={() => {navigate("Account");}}>
+              <span onClick={() => {navigate("/Account");}}>
                 <PiUserCircleCheckDuotone className=" mx-auto text-2xl " />
               </span>
             </div>

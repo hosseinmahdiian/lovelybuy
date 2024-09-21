@@ -8,7 +8,7 @@ const History = () => {
   const [reduce, dispach] = reducer;
   return (
     <div className="mt-5 pb-20">
-      {reduce.Show == true ? <ShowProducts /> : <Order />}
+        <Order />
       {/*
       {reduce.Show == true ? <ShowProducts /> : <Order />}
       {reduce.Show == true ? <ShowProducts /> : <Order />}

@@ -3,20 +3,25 @@ import BuyProducts from "./BuyProducts";
 import { HistoryOrderData } from "../../../../constant/DataSets";
 import { IoIosArrowForward } from "react-icons/io";
 import { reducerContext } from "../../../../constant/Context";
+import { MobileOnlyView } from "react-device-detect";
+import Conter from "../../../Conter";
+import { useNavigate } from "react-router-dom";
 
 const ShowProducts = () => {
   const [buyProducts, setBuyProducts] = useState(HistoryOrderData);
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+
+  const navigate = useNavigate();
+
   return (
-    <div className=" absolute w-full top-0  bg-white">
-      <div className=" relative w-full  overflow-y-scroll sm:h-[calc(100vh-300px)] h-[calc(100vh-350px)] ">
+    <div className=" absolute w-full max-w-xl mx-auto right-0 left-0 top-0  bg-white">
+      <div className=" relative w-full  overflow-y-scroll sm:h-[calc(100vh-200px)] h-[calc(100vh-350px)] ">
         <div className={`px-3 border-b  py-6 `}>
           <span
             className=" h- text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
-              dispach({ type: "Show" });
-            }}
+navigate("/Account")            }}
           >
             <IoIosArrowForward className="text-xl" />
             <p className="text-red-500 font-bold">سابقه سفارش 1242</p>
@@ -29,7 +34,7 @@ const ShowProducts = () => {
             </div>
           ))}
 
-          <div className=" bg-white  sm:bottom-2 bottom-16  mb-2 left-0 right-0  mx-auto max-w-xl fixed border-t px5">
+          <div className="  bg-white  sm:bottom-2 bottom-16  mb-2 left-0 right-0  mx-auto max-w-xl fixed border-t px5">
             <div className="flex text-gray-400 justify-between mx-5 mt-2">
               <p>مجموعه خرید</p>
               <span className="flex gap-0.5">
@@ -58,7 +63,11 @@ const ShowProducts = () => {
                 <p>تومان</p>
               </span>
             </div>
+            <MobileOnlyView>
+              <div className="h-14"></div>
+            </MobileOnlyView>
           </div>
+          <Conter />
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ const AcccountLogin = () => {
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
-              navigate(-1);
+              navigate("/");
             }}
           >
             <IoIosArrowForward className="text-xl" />
