@@ -13,7 +13,7 @@ const Header = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
-  const Navigat = useNavigate();
+  const navigat = useNavigate();
   // console.log(reduce);
   return (
     <>
@@ -112,8 +112,9 @@ const Header = () => {
               <div
                 className="flex  border-r px-2"
                 onClick={() => {
-                  console.log(reduce.Conection);
-                  dispach({ type: "Conection" });
+                  // console.log(reduce.Conection);
+                  // dispach({ type: "Conection" });
+                  navigat("InPerson");
                 }}
               >
                 <span className=" h-[50px] w-[50px]  rounded-xl border-black">
