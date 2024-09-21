@@ -3,6 +3,7 @@ import OTPInput from "react-otp-input";
 import { reducerContext } from "../../../constant/Context";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { authUser } from "./OTP";
+import { getCurrentUser } from "../../../constant/auth/localStoreage";
 
 const Vrify = ({ code, mobile, timer, sendSms }) => {
   const [otp, setOtp] = useState(code);
@@ -67,7 +68,11 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
             if (code != "") {
               if (otp == code) {
                 authUser(mobile);
-                navigate("/");
+                console.log(getCurrentUser("authUser"));
+                dispach({ type: "NewAccount" });
+                dispach({ type: "Vrify" });
+
+                // navigate("/");
               } else if (!otp || otp.length < 4) {
                 setMesseage("کد را وارد کنید");
               } else {

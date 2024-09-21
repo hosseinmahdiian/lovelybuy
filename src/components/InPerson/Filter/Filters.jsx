@@ -13,18 +13,18 @@ const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
-  useEffect(() => {
-    sub.map((item, indxe) => {
-      if (item.id === selectCatgory) {
-        item.SubCat.map((item2, indxe) => {
-          if (item2.id === selectSubCatgory) {
-            setData(item2.SubSubCat);
-            setSelect(item2.SubSubCat[0]);
-          }
-        });
-      }
-    });
-  }, [selectSubCatgory]);
+  // useEffect(() => {
+  //   sub.map((item, indxe) => {
+  //     if (item.id === selectCatgory) {
+  //       item.SubCat.map((item2, indxe) => {
+  //         if (item2.id === selectSubCatgory) {
+  //           setData(item2.SubSubCat);
+  //           setSelect(item2.SubSubCat[0]);
+  //         }
+  //       });
+  //     }
+  //   });
+  // }, []);
 
   const clickhandler = (e) => {
     data?.map((item) => {

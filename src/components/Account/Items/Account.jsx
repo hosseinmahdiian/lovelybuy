@@ -8,16 +8,20 @@ import inojy from "../../../assets/images/75 (1).png";
 import { GoCreditCard } from "react-icons/go";
 import { BiDownArrow } from "react-icons/bi";
 
+import empty from "../../../assets/images/Empty2.png";
 const Accountt = () => {
   // const [prams, setPrams] = useSearchParams();
   // useEffect(() => {
   //   setPrams({ prams: "account" });
   //   console.log(prams,"1234567890");
   // }, []);
-
   return (
     <>
       <div>
+        <img src={empty} alt="" className="border mx-auto mt-52" />
+      </div>
+
+      {/* <div>
         <div className="  bg-[#E0FFE5] my-4  text-gray-600  pb-3   rounded-2xl mt-2">
           <div className="w-11/12 my-3 mx-auto border-b border-green-400 pb-3 ">
             <div className="flex justify-between   pt-4">
@@ -164,7 +168,7 @@ const Accountt = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div>
         <div

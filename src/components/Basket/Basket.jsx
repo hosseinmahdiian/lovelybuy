@@ -6,6 +6,9 @@ import BuyProducts from "./BuyProducts";
 import PayProducts from "./PayProducts";
 import Successsful from "./Successsful";
 import { sp } from "../../constant/Functions";
+import { MobileOnlyView } from "react-device-detect";
+
+import empty from "../../assets/images/Empty2.png"
 
 const Basket = () => {
   const reducer = useContext(reducerContext);
@@ -41,11 +44,12 @@ const Basket = () => {
           </div>
 
           <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
-            {buyProducts.map((item, index) => (
+            <img src={empty} alt="" className="border mx-auto mt-52"/>
+            {/* {buyProducts.map((item, index) => (
               <div key={index}>
                 <BuyProducts item={item} />
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
         {/* ========================================== */}
@@ -85,6 +89,9 @@ const Basket = () => {
           >
             ادامه خرید
           </button>
+          <MobileOnlyView>
+            <div className="h-10"></div>
+          </MobileOnlyView>
         </div>
       </div>
     )

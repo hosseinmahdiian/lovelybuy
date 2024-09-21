@@ -84,7 +84,7 @@ const Header = () => {
                 <RiShoppingBag3Line className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
               </span>
               <Link to="Account">
-                <div
+                {/* <div
                   onClick={() => {}}
                   className=" border-x flex  items-center  px-2 cursor-pointer "
                 >
@@ -95,7 +95,19 @@ const Header = () => {
                     <h4 className=" font-bold text-nowrap">اشکان حسنوند</h4>
                     <p className=" opacity-75">09216919291</p>
                   </div>
-                </div>
+                </div> */}
+                <div
+                  onClick={() => {}}
+                  className=" border-x flex  items-center  px-2 cursor-pointer "
+                >
+                  <span className="hidden md:inline-block  h-[50px] w-[50px]   rounded-xl border-black">
+                    <FaRegCircleUser className="m-[13px] h-6 w-6  " />
+                  </span>
+                  <div className="hidden lg:inline-block text-right">
+                    <h4 className=" font-bold text-nowrap mb-1.5">ورود به حساب  </h4>
+                    
+                  </div>
+                </div> 
               </Link>
               <div
                 className="flex  border-r px-2"

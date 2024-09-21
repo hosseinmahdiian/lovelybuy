@@ -20,6 +20,8 @@ const Filters = ({
   const scroll = useRef(null);
 // console.log(selectCatgory)
 
+// console.log(selectSubCatgory);
+
   useEffect(() => {
     setData(selectSubCatgory?.SubSubCat);
     setSelectSubSubCatgory(selectSubCatgory?.SubSubCat[0]);

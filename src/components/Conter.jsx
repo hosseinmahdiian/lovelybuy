@@ -9,7 +9,7 @@ import {
   RiShoppingBag3Line,
 } from "react-icons/ri";
 import { MobileOnlyView } from "react-device-detect";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { reducerContext } from "../constant/Context";
 import { GoCreditCard } from "react-icons/go";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -24,51 +24,46 @@ const Conter = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [searchPrams, setSearchPrams] = useSearchParams();
-
+  const navigate = useNavigate();
   return (
     (!searchPrams.get("LogIn") || searchPrams.get("LogIn") == "true") && (
       <>
         <MobileOnlyView>
-        <div className={`  w-full   justify-center flex  `}>
-          <div className="fixed  -bottom-5 z-[1000] flex my-5 bg-white w-full   h-16 justify-around mx-auto border-t font-IrSans text-[12px]  items-center  child:text-center ">
-            <RiMapPinTimeLine
-              className=" text-2xl "
-              onClick={() => {
-                reduce.Info && dispach({ type: "Info" });
-                dispach({ type: "Derawer" });
-                dispach({ type: "Show" });
-              }}
-            />
+          <div className={`  w-full   justify-center flex  `}>
+            <div className="fixed  -bottom-5 z-[1000] flex my-5 bg-white w-full   h-16 justify-around mx-auto border-t font-IrSans text-[12px]  items-center  child:text-center ">
+              <RiMapPinTimeLine
+                className=" text-2xl "
+                onClick={() => {
+                  reduce.Info && dispach({ type: "Info" });
+                  dispach({ type: "Derawer" });
+                  dispach({ type: "Show" });
+                }}
+              />
 
-            <span
-              onClick={() => {
-                reduce.Info && dispach({ type: "Info" });
-                dispach({ type: "Derawer" });
-                dispach({ type: "Show" });
-              }}
-            >
-              <PiCreditCardLight className=" mx-auto text-2xl " />
-            </span>
-            <HiOutlineShoppingBag
-              className=" text-2xl "
-              onClick={() => {
-                reduce.Info && dispach({ type: "Info" });
-                dispach({ type: "basket" });
-              }}
-            />
-            <NavLink to="Search" className=" ">
-              <IoIosSearch className=" mx-auto text-2xl" />
-            </NavLink>
-            <span
-              onClick={() => {
-                reduce.Info && dispach({ type: "Info" });
-                dispach({ type: "Derawer" });
-              }}
-            >
-              <PiUserCircleCheckDuotone className=" mx-auto text-2xl " />
-            </span>
+              <span
+                onClick={() => {
+                  reduce.Info && dispach({ type: "Info" });
+                  dispach({ type: "Derawer" });
+                  dispach({ type: "Show" });
+                }}
+              >
+                <PiCreditCardLight className=" mx-auto text-2xl " />
+              </span>
+              <HiOutlineShoppingBag
+                className=" text-2xl "
+                onClick={() => {
+                  reduce.Info && dispach({ type: "Info" });
+                  dispach({ type: "basket" });
+                }}
+              />
+              <NavLink to="Search" className=" ">
+                <IoIosSearch className=" mx-auto text-2xl" />
+              </NavLink>
+              <span onClick={() => {navigate("Account");}}>
+                <PiUserCircleCheckDuotone className=" mx-auto text-2xl " />
+              </span>
+            </div>
           </div>
-        </div>
         </MobileOnlyView>
       </>
     )

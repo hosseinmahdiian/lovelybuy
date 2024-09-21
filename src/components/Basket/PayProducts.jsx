@@ -8,6 +8,7 @@ import { IoTimeOutline } from "react-icons/io5";
 import { DeliveryData } from "../../constant/DataSets";
 import Successsful from "./Successsful";
 import { sp } from "../../constant/Functions";
+import { MobileOnlyView } from "react-device-detect";
 
 const time = [
   { time: "ساعت 7 تا 8", id: 1 },
@@ -213,6 +214,9 @@ const PayProducts = () => {
           >
             انتقال به درگاه
           </button>
+          <MobileOnlyView>
+            <div className="h-10"></div>
+          </MobileOnlyView>
         </div>
       </div>
     )

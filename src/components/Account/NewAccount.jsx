@@ -1,30 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import { reducerContext } from "../../constant/Context";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { decrypt } from "../../constant/auth/crypto";
+import { editUser } from "../../services/User";
+import { ChengHandler } from "../../constant/Functions";
 
-const NewAccount = () => {
+const NewAccount = ({}) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [arrowCity, setArrowCity] = useState(true);
   const [arrowProvince, setArrowProvince] = useState(true);
-  const [prams, setPrams] = useSearchParams();
-  useEffect(() => {
-    const role = prams.get("logIn");
-    if (role == "user") {
-    }
+  const [authUser, setAuthUser] = useState(
+    JSON.parse(decrypt(localStorage.getItem("authUser")))
+  );
+  // console.log(authUser);
+  const navigate = useNavigate();
 
-    // console.log(prams.get("role"));
-  }, [prams]);
-
+  const [data, setData] = useState({});
   return (
     reduce.NewAccount && (
       <div
-        className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 ${
-          !reduce.NewAccount ? `hidden` : `block`
-        }`}
+        className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 max-w-xl `}
       >
-        {" "}
         <div className="pt-12 mb-5">
           <div className="mx-auto w-[calc(100%-40px)] ">
             <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
@@ -38,10 +36,15 @@ const NewAccount = () => {
                 placeholder=" "
                 id="name"
                 type="text"
+                value={data?.name}
+                name="name"
+                onChange={(e) => ChengHandler(e, setData)}
               />
               <label
                 htmlFor="name"
-                className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                  !!data?.name ? `start-2.5 -top-2 !text-sm` : `top-3`
+                }`}
               >
                 نام
               </label>
@@ -53,12 +56,17 @@ const NewAccount = () => {
                 placeholder=" "
                 type="text"
                 id="lastName"
+                value={data?.LastName}
+                name="LastName"
+                onChange={(e) => ChengHandler(e, setData)}
               />
               <label
                 htmlFor="lastName"
-                className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                  !!data?.LastName ? `start-2.5 -top-2 !text-sm` : `top-3`
+                }`}
               >
-                نام خانوادگی{" "}
+                نام خانوادگی
               </label>
             </div>
             {/*  */}
@@ -67,17 +75,23 @@ const NewAccount = () => {
                 className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
                 placeholder=" "
                 id="personId"
-                type="text"
+                type="number"
+                value={data?.personId}
+                name="personId"
+                onChange={(e) => ChengHandler(e, setData)}
+                inputMode="numeric"
               />
               <label
                 htmlFor="personId"
-                className="absolute start-1 IrHomama top-3 rounded-[10px] transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2"
+                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                  !!data?.personId ? `start-2.5 -top-2 !text-sm` : `top-3`
+                }`}
               >
                 کدملی{" "}
               </label>
             </div>
             {/*  */}{" "}
-            <div className="relative    ">
+            {/* <div className="relative    ">
               <input
                 className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5"
                 placeholder=" "
@@ -90,7 +104,7 @@ const NewAccount = () => {
               >
                 رمزعبور{" "}
               </label>
-            </div>
+            </div> */}
             {/*  */}
             <div className="relative">
               <span className="absolute end-3 top-4">
@@ -133,7 +147,6 @@ const NewAccount = () => {
                 <option value="4">اهواز</option>
               </select>
             </div>
-            {/*  */}
             {/* <select
             name=""
             id=""
@@ -160,19 +173,14 @@ const NewAccount = () => {
               واحد خدمت
             </label>
           </div> */}
-            {/*  */}
           </div>
 
           <button
             onClick={() => {
-              // console.log(reduce.Account);
-              dispach({ type: "NewAccount" });
-              dispach({ type: "Chose" });
-              // dispach({ type: "SinUp" });
+              navigate("/");
+              console.log(data);
 
-              setPrams({ role: "user" });
-
-              // console.log(reduce.Account);
+              editUser(authUser?._id, data);
             }}
             className="w-[calc(100%-40px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
           >

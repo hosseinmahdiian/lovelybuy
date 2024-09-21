@@ -20,7 +20,7 @@ export const getCurrentUser = (key) => {
     LocalStorageService.userToken = LocalStorageService.userJson.token;
     LocalStorageService.userID = LocalStorageService.userJson._id;
     LocalStorageService.userMobile = LocalStorageService.userJson.mobile;
-    return true;
+    return LocalStorageService.userJson;
   } else {
     return false;
   }

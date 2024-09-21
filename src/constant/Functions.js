@@ -135,9 +135,21 @@ export const init = {
   InPerson: false,
 };
 
-
 export const sp = (number) => {
-  const seperatedNumber = number?.toString().match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
+  const seperatedNumber = number
+    ?.toString()
+    .match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
   const joinedNumber = seperatedNumber?.join(",");
   return joinedNumber;
+};
+
+export const ChengHandler = (e, set) => {
+  set((data) => ({
+    ...data,
+    [e.target.name]: e.target.value,
+  }));
+};
+
+export const percent = (old, sell) => {
+  return Math.round(((old - sell) / old) * 100);
 };

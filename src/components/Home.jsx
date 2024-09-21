@@ -21,6 +21,9 @@ import { useSearchParams } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Slide from "./Slider/slide";
 import { checkTokenExamination } from "../constant/auth/Token-Service";
+import { getUser } from "../services/User";
+import { decrypt } from "../constant/auth/crypto";
+import { getFavorite } from "../services/Favorite";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -28,15 +31,27 @@ const Home = () => {
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
+  const [item, setItem] = useState();
 
+  const [authUser, setAuthUser] = useState(
+    JSON.parse(decrypt(localStorage.getItem("authUser")))
+  );
+  authUser;
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
     getCategory
   );
   useEffect(() => {
-    // console.log(slid);
     checkTokenExamination(slid?.data.data, "user");
   }, []);
+  // const { data: user } = useQuery(["get-user"], getUser(authUser?._id));
+  // console.log(user);
+  useEffect(() => {
+    console.log("*****");
+    
+    getFavorite(authUser?._id, setItem);
+  }, [authUser?._id]);
+
   return (
     <>
       {isLoadCategory ? (

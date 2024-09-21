@@ -4,7 +4,7 @@ import Acconut from "./Accont";
 import Vrify from "./Vrify";
 
 import { sendSMS } from "./OTP";
-
+import NewAccount from "../NewAccount";
 
 const Login = () => {
   const reducer = useContext(reducerContext);
@@ -39,15 +39,9 @@ const Login = () => {
         timer={timer}
         sendSms={sendSms}
         setTimer={setTimer}
+        // setAuthUser={setAuthUser}
       />
-      {/* <NewAccount />
-      <SinUp />
-      <Chose />
-
-      <ChengPass />
-      <Place />
-      <AcccountLogin /> */}
-      {/* <Conter/> */}
+      <NewAccount />
     </div>
   );
 };

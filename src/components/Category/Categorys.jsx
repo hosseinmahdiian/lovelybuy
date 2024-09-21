@@ -8,8 +8,6 @@ import Slider from "react-slick";
 import { CategoryData } from "../../constant/DataSets";
 import {
   IoIosArrowBack,
-  IoIosArrowDropleft,
-  IoIosArrowDropright,
   IoIosArrowForward,
 } from "react-icons/io";
 import { TbSquareRoundedCheckFilled } from "react-icons/tb";
@@ -28,6 +26,7 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
         setData(item.SubCat);
         setSelect({ id: "66c91f8f531a33d8799c42e0" });
         setSelectSubCatgory(item.SubCat[0]);
+        // console.log(item)
       }
     });
   }, [selectCatgory]);

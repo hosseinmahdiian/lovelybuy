@@ -5,7 +5,12 @@ import logo from "../../../assets/images/logo.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { slideDadta } from "../../../constant/DataSets";
 import { NavLink } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
+// import "./styles.css";
 const Chose = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -48,14 +53,10 @@ const Chose = () => {
   };
   return (
     <>
-      <div
-        className={`  h-full  mx-auto relative bg-[#F5F5F5]  ${
-          !reduce.Chose ? `hidden` : `block`
-        }`}
-      >
-        <div className="bg-white pb-3">
+      <div className={`  container h-full  mx-auto relative bg-[#F5F5F5]  `}>
+        <div className="bg-white pb-3 w-full">
           <div className="flex  justify-between items-center p-4 bg-white">
-            <img src={logo} alt="" className="w-4/12 h-8" />
+            <img src={logo} alt="" className="w-fit h-8" />
             <div className="w-7/12">
               <p>آدرس</p>
               <p className="text-wrap line-clamp-1">
@@ -109,33 +110,44 @@ const Chose = () => {
                 />
               </span>
               <div className="flex gap-2   ">
-                {slid?.map((item, index) => (
-                  <span
-                    key={index}
-                    id={item.id}
-                    className="  "
-                    onClick={clickhandler}
-                  >
-                    <div
-                      className={`relative md:w-[245px]  sm:w-[205px]   w-[170px]  `}
+                <Swiper
+                  pagination={{
+                    dynamicBullets: true,
+                  }}
+                  modules={[Pagination]}
+                  className="mySwiper"
+                >
+                  {" "}
+                  {slid?.map((item, index) => (
+                    <span
+                      key={index}
                       id={item.id}
+                      className="  "
+                      onClick={clickhandler}
                     >
-                      <img
-                        src={item?.image}
-                        // className={` w-72 h-20 ${
-                        //   id == select?.id && ` opacity-25 bg-black `
-                        // } `}
-                        id={item.id}
-                      />
-                      <span
-                        id={item.id}
-                        className="absolute bottom-1 font-IrSans ms:left-9 left-6 inline-block mx-auto md:w-[179px] md:h-[40px]  \\ sm:w-[149px] sm:h-[30px] \\ w-[125px] h-[30px] text-white bg-slate-600 bg-opacity-50 rounded-md border-white border-2 text-center pt-1"
-                      >
-                        {item.title}
-                      </span>
-                    </div>
-                  </span>
-                ))}
+                      <SwiperSlide>
+                        <div
+                          className={`relative  w-full  `}
+                          id={item.id}
+                        >
+                          <img
+                            src={item?.image}
+                            // className={` w-72 h-20 ${
+                            //   id == select?.id && ` opacity-25 bg-black `
+                            // } `}
+                            id={item.id}
+                          />
+                          <span
+                            id={item.id}
+                            className="absolute bottom-1 font-IrSans ms:left-9 left-6 inline-block mx-auto md:w-[179px] md:h-[40px]  \\ sm:w-[149px] sm:h-[30px] \\ w-[125px] h-[30px] text-white bg-slate-600 bg-opacity-50 rounded-md border-white border-2 text-center pt-1"
+                          >
+                            {item.title}
+                          </span>
+                        </div>
+                      </SwiperSlide>
+                    </span>
+                  ))}
+                </Swiper>
               </div>
             </div>
           </div>

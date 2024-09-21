@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaMinus, FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import noImage from "../../assets/images/no-image.png";
-import { sp } from "../../constant/Functions";
+import { percent, sp } from "../../constant/Functions";
 import {
   Link,
   Navigate,
@@ -12,6 +12,8 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { reducerContext } from "../../constant/Context";
+import { addFavorite, deleteFavorite } from "../../services/Favorite";
+import { decrypt } from "../../constant/auth/crypto";
 
 const Product = ({ item }) => {
   const { image, name, sellPrice, oldPrice, id } = item;
@@ -20,7 +22,11 @@ const Product = ({ item }) => {
   const [reduce, dispach] = reducer;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
+  const [authUser, setAuthUser] = useState(
+    JSON.parse(decrypt(localStorage.getItem("authUser")))
+  );
 
+  const [data, setData] = useState({ userID: authUser._id, productID: id });
   const increaseHandeler = () => {
     setCount(count + 1);
   };
@@ -37,6 +43,11 @@ const Product = ({ item }) => {
         onClick={() => {
           setSave(!save);
           // dispach({ type: "Info" });
+          // console.log(data);
+          // deleteFavorite(id);
+          addFavorite(data);
+// !save ? addFavorite(data) : deleteFavorite(id);
+          
         }}
         className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg  "
       >
@@ -71,7 +82,7 @@ const Product = ({ item }) => {
                 </p>
                 <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
                   <p className="px-1 mx-auto pt-0.5 text-white  self-center font-IrSans rounded-md  text-[10px]  ">
-                    10 %
+                    {percent(oldPrice, sellPrice)} %
                   </p>
                 </div>
               </span>
@@ -90,7 +101,9 @@ const Product = ({ item }) => {
         {count == 0 ? (
           <button
             className="lg:w-[calc(100%-20px)] lg:my-2.5  font-bold h-12  w-full  text-sm  mx-auto items-center block lg:px-10  lg:bg-blue-600 lg:h-10  lg:rounded-xl rounded-b-3xl  lg:text-white text-blue-500 "
-            onClick={increaseHandeler}
+            onClick={() => {
+              increaseHandeler();
+            }}
           >
             افزودن به سبد خرید
           </button>
@@ -98,7 +111,9 @@ const Product = ({ item }) => {
           <div className="  flex items-center   lg:py-1.5 justify-around  lg:border-0 bg-blue-500 lg:bg-white  child:text-white rounded-b-3xl ">
             <button
               className="  w-10 h-10  lg:border-[3px] lg:rounded-xl lg:text-green-700 text-3xl border-green-600 "
-              onClick={increaseHandeler}
+              onClick={() => {
+                increaseHandeler();
+              }}
             >
               <HiPlusSm className="w-full text-center" />
             </button>
@@ -107,7 +122,9 @@ const Product = ({ item }) => {
             </span>
             <button
               className=" w-10 h-10 lg:border-[3px] lg:rounded-xl lg:text-red-700  border-red-600 "
-              onClick={decreaseHandeler}
+              onClick={() => {
+                decreaseHandeler();
+              }}
             >
               <FaMinus className="w-full text-center" />
             </button>

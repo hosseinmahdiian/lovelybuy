@@ -1,27 +1,32 @@
 import React, { useContext, useState } from "react";
-import PayProducts from "./Basket/PayProducts";
-import Basket from "./Basket/Basket";
-import Conter from "./Conter";
-import Products from "./Product/Products";
-import Items from "./Item/Items";
-import Categorys from "./Category/Categorys";
-import Slides from "./Slider/Slides";
-import { reducerContext } from "../constant/Context";
-import Login from "./Account/Login/Login";
-import Successsful from "./Basket/Successsful";
-import Conection from "./Conection";
+import PayProducts from "../Basket/PayProducts";
+import Basket from "../Basket/Basket";
+import Conter from "../Conter";
+import Items from "../Item/Items";
+import Categorys from "../Category/Categorys";
+import Slides from "../Slider/Slides";
+import { reducerContext } from "../../constant/Context";
+import Login from "../Account/Login/Login";
+import Successsful from "../Basket/Successsful";
+import Conection from "../Conection";
 import { NavLink } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { useQuery } from "react-query";
-import { getCategory } from "../services/Catgory";
-import Loader from "./Loader";
-import Info from "./Info/Info";
-import Filters from "./Filter/Filters";
-import Layout from "../layout/Layout";
+import { getCategory } from "../../services/Catgory";
+import Loader from "../Loader";
+
+import Layout from "../../layout/Layout";
+import { decrypt } from "../../constant/auth/crypto";
+import Products from "./Products";
+// import { getFavorite } from "../../services/Favorite";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+  const [authUser, setAuthUser] = useState(
+    JSON.parse(decrypt(localStorage.getItem("authUser")))
+  );
+  const [favoriteProduct, setFavoriteProduct] = useState();
 
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
@@ -31,22 +36,15 @@ const Save = () => {
     ["get-category"],
     getCategory
   );
+ 
 
   return (
     <>
-      {isLoadCategory ? (
+      {isLoadCategory  ? (
         <Loader />
       ) : (
         <Layout>
           <div className=" h-full mt-5 ">
-            {/* <div
-            onClick={() => {
-              dispach({ type: "Derawer" });
-            }}
-            className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-              reduce.Derawer ? ` ` : `hidden`
-            }  `}
-          ></div> */}
             <div
               onClick={() => {
                 dispach({ type: "basket" });
@@ -63,26 +61,17 @@ const Save = () => {
                 reduce.pay ? ` ` : `hidden`
               }  `}
             ></div>
-            {/* <div
-            onClick={() => {
-              // searchPrams.get("LogIn") !== "false" &&
-              dispach({ type: "Info" });
-              // console.log(searchPrams.get("LogIn") === "false");
-            }}
-            className={`w-full h-full bg-black fixed top-0 z-10 bg-opacity-30 ${
-              reduce.Info ? ` ` : `hidden`
-            }  `}
-          ></div> */}
+
             <div className="mt-5 container mx-auto mb-5 pr-2">
-              <NavLink to="/" className="flex  item-center  gap-2  ">
-                <IoIosArrowForward className=" mt lg:text-2xl" />
+              <NavLink to="/" className="flex    gap-2  ">
+                <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
                 <span className="text-red-500 font-bold lg:text-xl ">
                   ذخیره شده
                 </span>
               </NavLink>
             </div>
             <p className="text-center font-bold text-red-500">
-              محصولی ذخیره شده ای یافت نشد{" "}
+              محصول ذخیره شده ای یافت نشد{" "}
             </p>
 
             {/* <Slides
@@ -101,7 +90,20 @@ const Save = () => {
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}
             />{" "}
+            
             <Products /> */}
+            {/* <div className=" mx-auto  py-2.5  pb-20 bg-[#F5F5F5]">
+              <div className="container w-full mx-auto ">
+                <div className="2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2  mx-auto">
+                  {data?.data.data?.map((item, index) => (
+                    <span key={index} className="mb-3  ">
+                      <Product item={item} />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div> */}
+            <Products/>
             <Conter />
             {/*  account & log in */}
             {/* <div
