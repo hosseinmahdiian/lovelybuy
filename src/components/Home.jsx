@@ -33,10 +33,10 @@ const Home = () => {
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
   const [item, setItem] = useState();
 
-  const [authUser, setAuthUser] = useState(
-    JSON.parse(decrypt(localStorage.getItem("authUser")))
-  );
-  authUser;
+  // const [authUser, setAuthUser] = useState(
+  //   JSON.parse(decrypt(localStorage.getItem("authUser")))
+  // );
+  // authUser;
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
     getCategory
@@ -46,11 +46,11 @@ const Home = () => {
   }, []);
   // const { data: user } = useQuery(["get-user"], getUser(authUser?._id));
   // console.log(user);
-  useEffect(() => {
-    console.log("*****");
+  // useEffect(() => {
+  //   console.log("*****");
     
-    getFavorite(authUser?._id, setItem);
-  }, [authUser?._id]);
+  //   getFavorite(authUser?._id, setItem);
+  // }, [authUser?._id]);
 
   return (
     <>

@@ -11,9 +11,9 @@ const NewAccount = ({}) => {
   const [reduce, dispach] = reducer;
   const [arrowCity, setArrowCity] = useState(true);
   const [arrowProvince, setArrowProvince] = useState(true);
-  const [authUser, setAuthUser] = useState(
-    JSON.parse(decrypt(localStorage.getItem("authUser")))
-  );
+  // const [authUser, setAuthUser] = useState(
+  //   JSON.parse(decrypt(localStorage.getItem("authUser")))
+  // );
   // console.log(authUser);
   const navigate = useNavigate();
 
@@ -180,7 +180,7 @@ const NewAccount = ({}) => {
               navigate("/");
               console.log(data);
 
-              editUser(authUser?._id, data);
+              // editUser(authUser?._id, data);
             }}
             className="w-[calc(100%-40px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
           >

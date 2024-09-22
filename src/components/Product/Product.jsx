@@ -22,32 +22,37 @@ const Product = ({ item }) => {
   const [reduce, dispach] = reducer;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
-  const [authUser, setAuthUser] = useState(
-    JSON.parse(decrypt(localStorage.getItem("authUser")))
-  );
-
-  const [data, setData] = useState({ userID: authUser._id, productID: id });
+  const [authUser, setAuthUser] = useState();
+  const [data, setData] = useState();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!!localStorage.getItem("authUser")) {
+      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      setData({ userID: authUser?._id, productID: id });
+    } else {
+      setAuthUser("Login");
+    }
+  }, []);
   const increaseHandeler = () => {
     setCount(count + 1);
   };
   const decreaseHandeler = () => {
     setCount(count - 1);
   };
-  const [searchPrams, setSearchPrams] = useSearchParams();
-  const navigate = useNavigate();
 
   return (
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       {/* <Link to={}> */}
       <span
         onClick={() => {
+          authUser== "Login"?navigate("/LoginUser"):
           setSave(!save);
+          
           // dispach({ type: "Info" });
           // console.log(data);
           // deleteFavorite(id);
-          addFavorite(data);
-// !save ? addFavorite(data) : deleteFavorite(id);
-          
+          // addFavorite(data);
+          // !save ? addFavorite(data) : deleteFavorite(id);
         }}
         className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg  "
       >
