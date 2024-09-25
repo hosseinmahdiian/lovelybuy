@@ -1,4 +1,12 @@
-export const token =
-  "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZlMDE0NWQ0ZGFlNDAxM2VmMWFjN2RmIiwiaWF0IjoxNzI2ODcwNzU5LCJleHAiOjE3MjcyNjY3NTl9.WYoNCkZlsUxIXIjjSjXFV2Va4ipnOgLpDuOmZSpLDDQ";
+import { decrypt } from "../constant/auth/crypto";
+
+let token;
 
 export const baseAPI = "https://lovelybuy.liara.run";
+
+if (!!localStorage.getItem("authUser")) {
+  token = `token=${JSON.parse(decrypt(localStorage.getItem("authUser"))).token}`;
+} else {
+  // window.location.replace ("http://localhost:5173/LoginUser");
+}
+export { token };

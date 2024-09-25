@@ -1,21 +1,21 @@
 import React, { useContext, useState } from "react";
-import { reducerContext } from "../../../constant/Context";
+import { reducerContext } from "../../../../constant/Context";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { GoUnlock } from "react-icons/go";
 import { GrLocation } from "react-icons/gr";
 import { MdOutlineLogout, MdOutlineRemoveRedEye } from "react-icons/md";
 import { FiPhone, FiPhoneCall } from "react-icons/fi";
 
-import inojy from "../../../assets/images/75 (1).png";
+import inojy from "../../../../assets/images/75 (1).png";
 import { BsFileEarmarkText } from "react-icons/bs";
-import Filter from "../../Filter/Filter";
-// import Filters from "../Filter/Filters";
-import { FilterData, UserData } from "../../../constant/DataSets";
+
+import {  UserData } from "../../../../constant/DataSets";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   getCurrentUser,
   LocalStorageService,
-} from "../../../constant/auth/localStoreage";
+  removeCurrentUser,
+} from "../../../../constant/auth/localStoreage";
 
 const User = ({ dispach }) => {
   const [data1, setdata] = useState(UserData);
@@ -207,10 +207,8 @@ const User = ({ dispach }) => {
         <div
           className="flex gap-3  mb-32 text-red-600 items-center mt-6 cursor-pointer "
           onClick={() => {
-            dispach({ type: "Login" });
-            dispach({ type: "Account" });
-            // dispacher({ type: "Derawer" });
-            // setSearchPrams({ LogIn: "false" });
+            navigate("/")
+            removeCurrentUser();
           }}
         >
           <span>

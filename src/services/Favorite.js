@@ -3,31 +3,34 @@ import { baseAPI, token } from "../API/API";
 import { Await } from "react-router-dom";
 let get;
 
-export const getUniqueIds = (array) => {
-  const uniqueIds = new Set();
-  const result = [];
+// export const getUniqueIds = (array) => {
+//   const uniqueIds = new Set();
+//   const result = [];
 
-  array?.map((item) => {
-    if (!uniqueIds.has(item.id)) {
-      uniqueIds.add(item.id);
-      result.push(item);
-    }
-  });
+//   array?.map((item) => {
+//     if (!uniqueIds.has(item.id)) {
+//       uniqueIds.add(item.id);
+//       result.push(item);
+//     }
+//   });
 
-  return result;
-};
-export const getFavorite = async (id, set) => {
+//   return result;
+// };
+export const getFavorite = async (id,set) => {
+  // console.log(`${baseAPI}/user/getFavorite/${id}?${token}`);
+  
+  let rsult=
   await axios
     .get(`${baseAPI}/user/getFavorite/${id}?${token}`)
     .then((res) => {
-      get = res;
       set(res);
     })
-    // .then((data) => console.log(data))
     .catch((e) => console.log(e));
+
+  return rsult;
 };
 
-console.log(get);
+// console.log(get);
 export const addFavorite = (data) => {
   let rsult = get?.data.data.filter((i) => i.productID != data.productID);
   console.log(rsult);
@@ -42,12 +45,10 @@ export const addFavorite = (data) => {
 };
 
 export const deleteFavorite = (id) => {
-  // console.log(`${baseAPI}/user/deleteFavorite/${id}?${token}`);
+  console.log(`${baseAPI}/user/deleteFavorite/${id}?${token}`);
 
   return axios
     .delete(`${baseAPI}/user/deleteFavorite/${id}?${token}`)
     .then((res) => console.log(res))
     .catch((e) => console.log(e));
 };
-const uniqueArray = getUniqueIds(get?.data.data);
-console.log(uniqueArray);

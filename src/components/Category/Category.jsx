@@ -1,7 +1,7 @@
 import React from "react";
 import { TbSquareRoundedCheckFilled } from "react-icons/tb";
 const Category = ({ item, select }) => {
-  const { title, id, image } = item;
+  const { title, id, icon } = item;
   // console.log(item);
   return (
     <>
@@ -10,7 +10,7 @@ const Category = ({ item, select }) => {
         id={id}
       >
         <img
-          src={image}
+          src={icon}
           className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
             select.id == id ? `border-black` : ` border-black border-opacity-20`
           } `}

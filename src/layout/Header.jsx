@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import logo from "../assets/images/logo.png";
 import { BsBookmarkFill } from "react-icons/bs";
@@ -8,13 +8,30 @@ import { LuPhoneCall } from "react-icons/lu";
 import { reducerContext } from "../constant/Context";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
-// import { reducerContext } from "../App";
+import { decrypt } from "../constant/auth/crypto";
+import { getFavorite } from "../services/Favorite";
+
 const Header = () => {
+
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+  const [favorite, setFavorite] = useState();
+  const [authUser, setAuthUser] = useState();
+  const [item, setItem] = useState();
+  const navigate = useNavigate();
 
-  const navigat = useNavigate();
-  // console.log(reduce);
+  useEffect(() => {
+    if (!!localStorage.getItem("authUser")) {
+      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+    } else {
+      setAuthUser("Login");
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   getFavorite(authUser?._id, setFavorite);
+  // }, [authUser?._id]);
+
   return (
     <>
       {/* // desctop header */}
@@ -40,20 +57,18 @@ const Header = () => {
               </NavLink>
             </div>
             <div className="flex items-center">
-              <NavLink
-                to={`/Save`}
-                // onClick={() => {
-                //   dispach({ type: "save" });
-                // }}
-                className="h flex px-2"
-              >
+              <NavLink to={`/Save`} className="items-center flex px-2">
                 <div className="hidden md:inline-block  h-[50px] w-[50px]  cursor-pointer rounded-xl border-black  ">
                   <BsBookmarkFill className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
                 </div>
                 <span className="">
                   <p className="text-nowrap"> ذخیره شده</p>
-                  <span className="  text-red-600  bg-white text-center  ">
-                    0 کالا
+                  <span
+                    className={` text-red-600  bg-white 
+                       ${!!favorite ? `block` : `hidden`} 
+                    `}
+                  >
+                    {favorite} کالا
                   </span>
                 </span>
               </NavLink>
@@ -83,7 +98,13 @@ const Header = () => {
               >
                 <RiShoppingBag3Line className="m-[13px] h-5 w-5 lg:h-6 lg:w-6  md:inline-block" />
               </span>
-              <Link to="Account">
+              <div
+                onClick={() => {
+                  authUser == "Login"
+                    ? navigate("/LoginUser")
+                    : navigate("/Account");
+                }}
+              >
                 {/* <div
                   onClick={() => {}}
                   className=" border-x flex  items-center  px-2 cursor-pointer "
@@ -104,17 +125,18 @@ const Header = () => {
                     <FaRegCircleUser className="m-[13px] h-6 w-6  " />
                   </span>
                   <div className="hidden lg:inline-block text-right">
-                    <h4 className=" font-bold text-nowrap mb-1.5">ورود به حساب  </h4>
-                    
+                    <h4 className=" font-bold text-nowrap mb-1.5">
+                      ورود به حساب{" "}
+                    </h4>
                   </div>
-                </div> 
-              </Link>
+                </div>
+              </div>
               <div
                 className="flex  border-r px-2"
                 onClick={() => {
                   // console.log(reduce.Conection);
                   // dispach({ type: "Conection" });
-                  navigat("InPerson");
+                  navigate("/InPerson");
                 }}
               >
                 <span className=" h-[50px] w-[50px]  rounded-xl border-black">

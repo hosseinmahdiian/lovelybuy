@@ -13,8 +13,7 @@ const Products = () => {
   const [reduce, dispach] = reducer;
 
   const { isLoading, data } = useQuery(["get-products"], getProducts);
-  const [searchPrams, setSearchPrams] = useSearchParams();
-  
+// console.log(data);
 
   return !isLoading&&(
     <>

@@ -1,15 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PayProducts from "../Basket/PayProducts";
 import Basket from "../Basket/Basket";
 import Conter from "../Conter";
-import Items from "../Item/Items";
 import Categorys from "../Category/Categorys";
 import Slides from "../Slider/Slides";
 import { reducerContext } from "../../constant/Context";
 import Login from "../Account/Login/Login";
 import Successsful from "../Basket/Successsful";
 import Conection from "../Conection";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { useQuery } from "react-query";
 import { getCategory } from "../../services/Catgory";
@@ -18,29 +17,45 @@ import Loader from "../Loader";
 import Layout from "../../layout/Layout";
 import { decrypt } from "../../constant/auth/crypto";
 import Products from "./Products";
+import { getFavorite } from "../../services/Favorite";
+import Filters from "../Filter/Filters";
 // import { getFavorite } from "../../services/Favorite";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  const [authUser, setAuthUser] = useState(
-    JSON.parse(decrypt(localStorage.getItem("authUser")))
-  );
+  const [empty, setEmpty] = useState(true);
   const [favoriteProduct, setFavoriteProduct] = useState();
-
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
+  const [item, setItem] = useState("");
+  const [authUser, setAuthUser] = useState();
+  const [favorite, setFavorite] = useState();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!!localStorage.getItem("authUser")) {
+      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+    } else {
+      navigate("/LoginUser");
+    }
+  }, []);
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
     getCategory
   );
  
+  useEffect(() => {
+    getFavorite(authUser?._id, setFavorite);
+  }, [authUser?._id]);
+ 
 
   return (
     <>
-      {isLoadCategory  ? (
+      {isLoadCategory ? (
         <Loader />
       ) : (
         <Layout>
@@ -61,7 +76,6 @@ const Save = () => {
                 reduce.pay ? ` ` : `hidden`
               }  `}
             ></div>
-
             <div className="mt-5 container mx-auto mb-5 pr-2">
               <NavLink to="/" className="flex    gap-2  ">
                 <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
@@ -70,11 +84,8 @@ const Save = () => {
                 </span>
               </NavLink>
             </div>
-            <p className="text-center font-bold text-red-500">
-              محصول ذخیره شده ای یافت نشد{" "}
-            </p>
 
-            {/* <Slides
+            <Slides
               slid={slid?.data.data}
               select={selectCatgory}
               setSelect={setSelectCatgory}
@@ -89,32 +100,16 @@ const Save = () => {
               selectCatgory={selectCatgory}
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}
-            />{" "}
+            />
+            {favorite?.data.success ? (
+              <Products authUser={authUser} item={favorite} />
+            ) : (
+              <p className="text-center font-bold text-red-500">
+                محصول ذخیره شده ای یافت نشد{" "}
+              </p>
+            )}
             
-            <Products /> */}
-            {/* <div className=" mx-auto  py-2.5  pb-20 bg-[#F5F5F5]">
-              <div className="container w-full mx-auto ">
-                <div className="2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2  mx-auto">
-                  {data?.data.data?.map((item, index) => (
-                    <span key={index} className="mb-3  ">
-                      <Product item={item} />
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div> */}
-            <Products/>
             <Conter />
-            {/*  account & log in */}
-            {/* <div
-            className={` ${
-              reduce.Derawer
-                ? ` sm:left-0 top-0  `
-                : `sm:-left-[8000px] -bottom-[8000px] `
-            } fixed  md:w-[400px] es:w-full  z-[12] h-full transition-all  ease-in-out `}
-          >
-            <Login />
-          </div> */}
             {/* Basket & pay */}
             <div
               className={` ${
@@ -127,23 +122,12 @@ const Save = () => {
             >
               <Basket />
             </div>
-            {/* <div
-            className={` ${
-              reduce.Info
-                ? ` sm:left-0 top-0  `
-                : `sm:-left-[8000px] -bottom-[8000px] `
-            } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
-          >
-            <Info />
-          </div> */}
             <div
               className={` ${
                 reduce.pay
                   ? ` sm:left-0 top-0  `
                   : `sm:-left-[8000px] -bottom-[8000px] `
               } fixed  md:w-[400px] es:w-full  z-20 h-full transition-all  ease-in-out `}
-
-              // className="fixed top-0 left-0 z-20 md:w-[500px] es:w-full"
             >
               <PayProducts />
             </div>

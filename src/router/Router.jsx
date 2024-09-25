@@ -15,8 +15,9 @@ import Login from "../components/Account/Login/Login";
 import AcccountLogin from "../components/Account/UserInformation/Acccount-Login";
 import ChengPass from "../components/Account/ChengPass";
 import Place from "../components/Account/Place/Place";
-import ShowProducts from "../components/Account/Items/History/Show-producs";
 import Chose from "../components/Account/Duti/Chose";
+import ShowProducts from "../components/Account/UserInformation/Items/History/Show-producs";
+import EE from "../components/InPerson/eeeeee";
 const Routers = () => {
   return (
     <Routes>
@@ -32,6 +33,7 @@ const Routers = () => {
       <Route path="Account/Place" element={<Place />} />
       <Route path="Account/History/:ID" element={<ShowProducts />} />
       <Route path="chose" element={<Chose />} />
+      <Route path="ee" element={<EE />} />
 
       {/* <Route path="Vrify" element={<Vrify />} /> */}
     </Routes>

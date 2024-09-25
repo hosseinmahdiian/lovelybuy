@@ -77,11 +77,13 @@ const startTimer = (setTimer, setCode) => {
   intervalId = id;
 };
 
-export const authUser = (mobile) => {
-  axios.post(`${baseAPI}/user/authUser`, { mobile }).then((json) => {
-    // console.log(json);
-    
-    saveCurrentUser("authUser", JSON.stringify(json.data.data));
-    return json
-  });
+export const authUser = async (mobile) => {
+  const rsult = await axios
+    .post(`${baseAPI}/user/authUser`, { mobile })
+    .then((json) => {
+      console.log(json);
+
+      saveCurrentUser("authUser", JSON.stringify(json.data.data));
+      return rsult;
+    });
 };

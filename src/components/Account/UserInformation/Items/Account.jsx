@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useParams, useSearchParams } from "react-router-dom";
-import iconcard from "../../../assets/SVG/icon-card.svg";
+import iconcard from "../../../../assets/SVG/icon-card.svg";
 import { IoArrowDown, IoArrowUp } from "react-icons/io5";
 
-import inojy from "../../../assets/images/75 (1).png";
+import inojy from "../../../../assets/images/75 (1).png";
 import { GoCreditCard } from "react-icons/go";
 import { BiDownArrow } from "react-icons/bi";
 
-import empty from "../../../assets/images/Empty2.png";
+import empty from "../../../../assets/images/Empty2.png";
 const Accountt = () => {
   // const [prams, setPrams] = useSearchParams();
   // useEffect(() => {

@@ -36,6 +36,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
                 dispach({ type: "Vrify" });
                 clearInterval();
                 setMesseage("");
+                // navigate("/");
               }}
             >
               ویرایش شماره
@@ -68,9 +69,11 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
             if (code != "") {
               if (otp == code) {
                 authUser(mobile);
-                console.log(getCurrentUser("authUser"));
-                dispach({ type: "NewAccount" });
-                dispach({ type: "Vrify" });
+                if (!!getCurrentUser("authUser").token) {
+                  navigate("/");
+                   dispach({ type: "Account" });
+                   dispach({ type: "Vrify" });
+                }
 
                 // navigate("/");
               } else if (!otp || otp.length < 4) {

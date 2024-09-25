@@ -2,8 +2,17 @@ import axios from "axios";
 import { baseAPI, token } from "../API/API";
 
 export const getCategory = async () => {
-  const rsult = await axios.get(`${baseAPI}/user/getCat`);
-  // console.log(rsult);
+  // console.log(`${baseAPI}/user/getcat`);
   
+  let rsult;
+  await axios
+    .get(`${baseAPI}/user/getcat`)
+    .then((res) => {
+      rsult = res;
+      // console.log(res);
+    })
+    .catch((e) => console.log(e));
+  // console.log(rsult);
+
   return rsult;
 };

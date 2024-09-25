@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import BuyProducts from "./BuyProducts";
-import { HistoryOrderData } from "../../../../constant/DataSets";
+import { HistoryOrderData } from "../../../../../constant/DataSets";
 import { IoIosArrowForward } from "react-icons/io";
-import { reducerContext } from "../../../../constant/Context";
+import { reducerContext } from "../../../../../constant/Context";
 import { MobileOnlyView } from "react-device-detect";
-import Conter from "../../../Conter";
+import Conter from "../../../../Conter";
 import { useNavigate } from "react-router-dom";
 
 const ShowProducts = () => {

@@ -41,7 +41,7 @@ const Login = () => {
         setTimer={setTimer}
         // setAuthUser={setAuthUser}
       />
-      <NewAccount />
+      {/* <NewAccount /> */}
     </div>
   );
 };

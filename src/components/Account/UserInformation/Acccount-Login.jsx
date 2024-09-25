@@ -3,9 +3,9 @@ import { reducerContext } from "../../../constant/Context";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import { FilterData, UserData } from "../../../constant/DataSets";
-import User from "../Items/User";
-import Acconutt from "../Items/Account";
-import History from "../Items/History/History";
+import User from "./Items/User";
+import Acconutt from "./Items/Account";
+import History from "./Items/History/History";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Conection from "../../Conection";
 

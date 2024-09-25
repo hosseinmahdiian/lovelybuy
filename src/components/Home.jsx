@@ -17,13 +17,14 @@ import Conection from "./Conection";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
 import Info from "./Info/Info";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Slide from "./Slider/slide";
 import { checkTokenExamination } from "../constant/auth/Token-Service";
 import { getUser } from "../services/User";
 import { decrypt } from "../constant/auth/crypto";
 import { getFavorite } from "../services/Favorite";
+import { checkToten } from "../services/Products";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -32,29 +33,35 @@ const Home = () => {
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
   const [item, setItem] = useState();
+  const [m, setM] = useState();
 
-  // const [authUser, setAuthUser] = useState(
-  //   JSON.parse(decrypt(localStorage.getItem("authUser")))
-  // );
-  // authUser;
-  const { isLoading: isLoadCategory, data: slid } = useQuery(
-    ["get-category"],
-    getCategory
-  );
-  useEffect(() => {
-    checkTokenExamination(slid?.data.data, "user");
-  }, []);
-  // const { data: user } = useQuery(["get-user"], getUser(authUser?._id));
-  // console.log(user);
+  const navigate = useNavigate();
+  const {
+    isLoading: isLoadCategory,
+    data: slid,
+    error: errorCat,
+    isError: isErrorCat,
+  } = useQuery(["get-category"], getCategory);
+  const {
+    isLoading: isLoadCheck,
+    data: check,
+    error: errorCheck,
+    isError: isErrorCheck,
+  } = useQuery(["check"],  checkToten);
+
   // useEffect(() => {
-  //   console.log("*****");
-    
-  //   getFavorite(authUser?._id, setItem);
-  // }, [authUser?._id]);
+  //   if (!!localStorage.getItem("authUser")) {
+  //     console.log("[[[");
+
+  //     checkTokenExamination(m, "user", navigate);
+  //   }
+  // }, []);
+
+  // console.log(isErrorCheck, isErrorCat);
 
   return (
     <>
-      {isLoadCategory ? (
+      {isLoadCategory || isLoadCheck ? (
         <Loader />
       ) : (
         <Layout>
