@@ -22,6 +22,8 @@ export const getFavorite = async (id, set) => {
   let rsult = await axios
     .get(`${baseAPI}/user/getFavorite/${id}?${token}`)
     .then((res) => {
+      console.log("get favorite");
+      
       set(res);
     })
     .catch((e) => console.log(e));
@@ -33,16 +35,16 @@ export const getFavorite = async (id, set) => {
 export const addFavorite = async (data) => {
   let rsult = await axios
     .post(`${baseAPI}/user/addFavorite?${token}`, data)
-    .then((res) => console.log(res))
+    .then((res) => console.log(res.data))
     .catch((e) => console.log(e));
   return rsult;
 };
 
 export const deleteFavorite = (id) => {
-  console.log(`${baseAPI}/user/deleteFavorite/${id}?${token}`);
-
+  console.log(id);
+  
   return axios
     .delete(`${baseAPI}/user/deleteFavorite/${id}?${token}`)
-    .then((res) => console.log(res))
+    .then((res) => console.log(res.data))
     .catch((e) => console.log(e));
 };

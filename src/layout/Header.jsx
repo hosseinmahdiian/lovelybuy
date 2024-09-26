@@ -12,7 +12,6 @@ import { decrypt } from "../constant/auth/crypto";
 import { getFavorite } from "../services/Favorite";
 
 const Header = () => {
-
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [favorite, setFavorite] = useState();
@@ -28,9 +27,18 @@ const Header = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   getFavorite(authUser?._id, setFavorite);
-  // }, [authUser?._id]);
+  useEffect(() => {
+    console.log("get favorit");
+
+    if (authUser?._id) {
+      getFavorite(authUser._id, setFavorite);
+    }
+  }, [authUser?._id]);
+  const [count, setCount] = useState();
+  useEffect(() => {
+    setCount(favorite?.data.data.length);
+  }, [favorite]);
+console.log(count);
 
   return (
     <>
@@ -65,10 +73,10 @@ const Header = () => {
                   <p className="text-nowrap"> ذخیره شده</p>
                   <span
                     className={` text-red-600  bg-white 
-                       ${!!favorite ? `block` : `hidden`} 
+                       ${!!count ? `block` : `hidden`} 
                     `}
                   >
-                    {favorite} کالا
+                    {count} کالا
                   </span>
                 </span>
               </NavLink>

@@ -20,7 +20,7 @@ import {
 import { decrypt } from "../../constant/auth/crypto";
 import { useQuery } from "react-query";
 
-const Product = ({ item, favorite }) => {
+const Product = ({ item }) => {
   const { image, name, sellPrice, oldPrice, id, _id } = item;
   //  console.log(item);
   // console.log(id, favorite);
@@ -30,6 +30,7 @@ const Product = ({ item, favorite }) => {
   const [save, setSave] = useState(false);
   const [idF, setIdF] = useState();
   const [authUser, setAuthUser] = useState();
+  const [favorite, setFavorite] = useState();
 
   const navigate = useNavigate();
 
@@ -49,7 +50,18 @@ const Product = ({ item, favorite }) => {
   }, []);
 
   useEffect(() => {
-    favorite?.map((i) => {
+    console.log("get favorit");
+
+    // console.log("authUser:", authUser);
+    if (authUser?._id) {
+      getFavorite(authUser._id, setFavorite);
+    }
+  }, [authUser?._id, save]);
+
+  useEffect(() => {
+    console.log("rerender favorit");
+
+    favorite?.data.data.map((i) => {
       i.productID == id ? setSave(true) : setSave(false);
       i.productID == id && setIdF(i._id);
       // console.log(i.productID, id);
@@ -61,9 +73,10 @@ const Product = ({ item, favorite }) => {
       {/* <Link to={}> */}
       <span
         onClick={() => {
-          !save && addFavorite({ userID: authUser._id, productID: id }),
-            setSave(true);
-          save && deleteFavorite(idF), setSave(true);
+          !save &&
+            (addFavorite({ userID: authUser._id, productID: id }),
+            setSave(true));
+          save && (deleteFavorite(idF), setSave(false));
         }}
         className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg  "
       >

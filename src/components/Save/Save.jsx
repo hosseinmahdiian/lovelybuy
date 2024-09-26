@@ -33,13 +33,7 @@ const Save = () => {
   
   const navigate = useNavigate();
   
-  useEffect(() => {
-    if (!!localStorage.getItem("authUser")) {
-      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-    } else {
-      navigate("/LoginUser");
-    }
-  }, []);
+ 
   
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
