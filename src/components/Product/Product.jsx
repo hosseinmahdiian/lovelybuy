@@ -20,26 +20,18 @@ import {
 import { decrypt } from "../../constant/auth/crypto";
 import { useQuery } from "react-query";
 
-const Product = ({ item }) => {
+const Product = ({ item, favorite }) => {
   const { image, name, sellPrice, oldPrice, id, _id } = item;
   //  console.log(item);
+  // console.log(id, favorite);
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
+  const [idF, setIdF] = useState();
   const [authUser, setAuthUser] = useState();
-  const [data, setData] = useState();
-  const [favorite, setFavorite] = useState();
-  const navigate = useNavigate();
 
-  useEffect(async () => {
-    if (!!localStorage.getItem("authUser")) {
-      setAuthUser(await JSON.parse(decrypt(localStorage.getItem("authUser"))));
-      setData({ userID: authUser?._id, productID: id });
-    } else {
-      setAuthUser("Login");
-    }
-  }, []);
+  const navigate = useNavigate();
 
   const increaseHandeler = () => {
     setCount(count + 1);
@@ -49,26 +41,29 @@ const Product = ({ item }) => {
   };
 
   useEffect(() => {
-    getFavorite(authUser?._id, setFavorite);
-  }, [authUser?._id]);
+    if (!!localStorage.getItem("authUser")) {
+      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+    } else {
+      navigate("/LoginUser");
+    }
+  }, []);
 
-  // favorite?.data?.data?.map((i) => {
-  //   console.log(i);
-  // });
-  
+  useEffect(() => {
+    favorite?.map((i) => {
+      i.productID == id ? setSave(true) : setSave(false);
+      i.productID == id && setIdF(i._id);
+      // console.log(i.productID, id);
+    });
+  }, [favorite]);
+
   return (
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       {/* <Link to={}> */}
       <span
         onClick={() => {
-          authUser == "Login" ? navigate("/LoginUser") : setSave(!save);
-
-          // dispach({ type: "Info" });
-          // console.log(data);
-          // deleteFavorite(id);
-          // addFavorite(data);
-          // !save ? addFavorite(data) :
-          deleteFavorite(_id);
+          !save && addFavorite({ userID: authUser._id, productID: id }),
+            setSave(true);
+          save && deleteFavorite(idF), setSave(true);
         }}
         className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg  "
       >

@@ -30,11 +30,24 @@ const Save = () => {
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
   const [item, setItem] = useState("");
-  const [authUser, setAuthUser] = useState();
-  const [favorite, setFavorite] = useState();
-
+  
   const navigate = useNavigate();
-
+  
+  useEffect(() => {
+    if (!!localStorage.getItem("authUser")) {
+      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+    } else {
+      navigate("/LoginUser");
+    }
+  }, []);
+  
+  const { isLoading: isLoadCategory, data: slid } = useQuery(
+    ["get-category"],
+    getCategory
+  );
+  const [favorite, setFavorite] = useState();
+  
+  const [authUser, setAuthUser] = useState();
   useEffect(() => {
     if (!!localStorage.getItem("authUser")) {
       setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
@@ -43,15 +56,12 @@ const Save = () => {
     }
   }, []);
 
-  const { isLoading: isLoadCategory, data: slid } = useQuery(
-    ["get-category"],
-    getCategory
-  );
- 
   useEffect(() => {
-    getFavorite(authUser?._id, setFavorite);
+    if (authUser?._id) {
+      getFavorite(authUser._id, setFavorite);
+    }
   }, [authUser?._id]);
- 
+
 
   return (
     <>
@@ -102,13 +112,13 @@ const Save = () => {
               setSelectSubSubCatgory={setSelectSubSubCatgory}
             />
             {favorite?.data.success ? (
-              <Products authUser={authUser} item={favorite} />
+              <Products item={favorite}  />
             ) : (
               <p className="text-center font-bold text-red-500">
                 محصول ذخیره شده ای یافت نشد{" "}
               </p>
             )}
-            
+
             <Conter />
             {/* Basket & pay */}
             <div

@@ -16,11 +16,10 @@ let get;
 
 //   return result;
 // };
-export const getFavorite = async (id,set) => {
+export const getFavorite = async (id, set) => {
   // console.log(`${baseAPI}/user/getFavorite/${id}?${token}`);
-  
-  let rsult=
-  await axios
+
+  let rsult = await axios
     .get(`${baseAPI}/user/getFavorite/${id}?${token}`)
     .then((res) => {
       set(res);
@@ -31,17 +30,12 @@ export const getFavorite = async (id,set) => {
 };
 
 // console.log(get);
-export const addFavorite = (data) => {
-  let rsult = get?.data.data.filter((i) => i.productID != data.productID);
-  console.log(rsult);
-
-  // if (i.productID != data.productID) {
-  // console.log("نبود")
-  // axios
-  //   .post(`${baseAPI}/user/addFavorite?${token}`, data)
-  //   // .then((res) => console.log(res))
-  //   .catch((e) => console.log(e));
-  // }
+export const addFavorite = async (data) => {
+  let rsult = await axios
+    .post(`${baseAPI}/user/addFavorite?${token}`, data)
+    .then((res) => console.log(res))
+    .catch((e) => console.log(e));
+  return rsult;
 };
 
 export const deleteFavorite = (id) => {
