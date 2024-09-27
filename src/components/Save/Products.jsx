@@ -6,7 +6,7 @@ import { getFavorite } from "../../services/Favorite";
 import Product from "../Product/Product";
 import Loader from "../Loader";
 
-const Products = ({ item }) => {
+const Products = ({ item ,FN}) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   // console.log(item?.data.data);
@@ -18,7 +18,7 @@ const Products = ({ item }) => {
           <div className="2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid es:grid-cols-2  mx-auto">
             {item?.data.data?.map((item, index) => (
               <span key={index} className="mb-3  ">
-                <Product item={item?.Product[0]} />
+                <Product item={item?.Product[0]} FN={FN} />
               </span>
             ))}
           </div>

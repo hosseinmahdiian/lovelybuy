@@ -24,38 +24,49 @@ import Filters from "../Filter/Filters";
 const Save = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  const [empty, setEmpty] = useState(true);
-  const [favoriteProduct, setFavoriteProduct] = useState();
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
-  const [item, setItem] = useState("");
-  
+  const [favorite, setFavorite] = useState();
+  const [authUser, setAuthUser] = useState();
+  const [count, setCount] = useState();
   const navigate = useNavigate();
-  
- 
-  
+
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
     getCategory
   );
-  const [favorite, setFavorite] = useState();
-  
-  const [authUser, setAuthUser] = useState();
-  useEffect(() => {
-    if (!!localStorage.getItem("authUser")) {
-      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-    } else {
-      navigate("/LoginUser");
-    }
-  }, []);
 
-  useEffect(() => {
-    if (authUser?._id) {
-      getFavorite(authUser._id, setFavorite);
-    }
-  }, [authUser?._id]);
+  let i = false;
+  const rerender = () => {
+    console.log(i);
 
+    i = !i;
+  };
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      if (!!localStorage.getItem("authUser")) {
+        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      } else {
+        navigate("/LoginUser");
+      }
+    }, []);
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      
+      // console.log(i);
+      if (authUser?._id) {
+        getFavorite(authUser._id, setFavorite);
+      }
+    }, [authUser?._id, i]);
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      setCount(favorite?.data.data.length);
+    }, [favorite]);
+  // console.log(count)
 
   return (
     <>
@@ -105,8 +116,8 @@ const Save = () => {
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}
             />
-            {favorite?.data.success ? (
-              <Products item={favorite}  />
+            {!!count ? (
+              <Products item={favorite} FN={rerender} />
             ) : (
               <p className="text-center font-bold text-red-500">
                 محصول ذخیره شده ای یافت نشد{" "}

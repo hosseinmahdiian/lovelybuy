@@ -20,7 +20,7 @@ import {
 import { decrypt } from "../../constant/auth/crypto";
 import { useQuery } from "react-query";
 
-const Product = ({ item }) => {
+const Product = ({ item, FN }) => {
   const { image, name, sellPrice, oldPrice, id, _id } = item;
   //  console.log(item);
   // console.log(id, favorite);
@@ -41,38 +41,36 @@ const Product = ({ item }) => {
     setCount(count - 1);
   };
 
-  useEffect(() => {
-    if (!!localStorage.getItem("authUser")) {
-      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-    } else {
-      navigate("/LoginUser");
-    }
-  }, []);
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      if (!!localStorage.getItem("authUser")) {
+        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      } else {
+        navigate("/LoginUser");
+      }
+    }, []);
 
-  useEffect(() => {
-    console.log("get favorit");
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      // console.log("get favorit");
+      if (authUser?._id) {
+        getFavorite(authUser._id, setFavorite);
+      }
+    }, [authUser?._id, save]);
 
-    // console.log("authUser:", authUser);
-    if (authUser?._id) {
-      getFavorite(authUser._id, setFavorite);
-    }
-  }, [authUser?._id, save]);
-
-  useEffect(() => {
-    console.log("rerender favorit");
-
-    favorite?.data.data.map((i) => {
-      i.productID == id ? setSave(true) : setSave(false);
-      i.productID == id && setIdF(i._id);
-      // console.log(i.productID, id);
-    });
-  }, [favorite]);
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      let find = favorite?.data.data.find((i) => i.productID == id);
+      find?.productID == id ? setSave(true) : setSave(false);
+      find?.productID == id && setIdF(find._id);
+    }, [favorite]);
 
   return (
     <div className="xl:w-56 \\ lg:w-56 \\ md:w-48 \\ sm:w-52 \\ es:w-44  \\ w-72  \\      mx-auto rounded-2xl lg:border-2 relative font-IrSans  lg:mb-0  border-b-0 line-clamp-1 ">
       {/* <Link to={}> */}
       <span
         onClick={() => {
+          !!FN && FN();
           !save &&
             (addFavorite({ userID: authUser._id, productID: id }),
             setSave(true));

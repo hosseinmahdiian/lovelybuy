@@ -15,17 +15,6 @@ const Products = () => {
 const navigate = useNavigate();
 
   const { isLoading, data } = useQuery(["get-products"], getProducts);
-// console.log(data);
-
-  // useEffect(() => {
-  //   if (!!localStorage.getItem("authUser")) {
-  //     setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-  //   } else {
-  //     navigate("/LoginUser");
-  //   }
-  // }, []);
-
-
 
   return (
     !isLoading && (

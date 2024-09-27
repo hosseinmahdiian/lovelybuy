@@ -21,7 +21,7 @@ const EE = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [selectCatgory, setSelectCatgory] = useState();
-  const [arrow, setArrow] = useState(false);
+  const [arrow, setArrow] = useState(true);
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
 
@@ -35,7 +35,6 @@ const EE = () => {
     getCategory
   );
   // con
-  console.log(reduce.InPerson);
 
   return isLoadCategory ? (
     <Loader />

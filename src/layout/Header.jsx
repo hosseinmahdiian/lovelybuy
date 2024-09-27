@@ -16,29 +16,33 @@ const Header = () => {
   const [reduce, dispach] = reducer;
   const [favorite, setFavorite] = useState();
   const [authUser, setAuthUser] = useState();
+  const [count, setCount] = useState();
   const [item, setItem] = useState();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!!localStorage.getItem("authUser")) {
-      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-    } else {
-      setAuthUser("Login");
-    }
-  }, []);
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      if (!!localStorage.getItem("authUser")) {
+        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      } else {
+        setAuthUser("Login");
+      }
+    }, []);
 
-  useEffect(() => {
-    console.log("get favorit");
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      // console.log("get favorit");
 
-    if (authUser?._id) {
-      getFavorite(authUser._id, setFavorite);
-    }
-  }, [authUser?._id]);
-  const [count, setCount] = useState();
-  useEffect(() => {
-    setCount(favorite?.data.data.length);
-  }, [favorite]);
-console.log(count);
+      if (authUser?._id) {
+        getFavorite(authUser._id, setFavorite);
+      }
+    }, [authUser?._id]);
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      setCount(favorite?.data.data.length);
+    }, [favorite]);
+  // console.log(count);
 
   return (
     <>
