@@ -40,7 +40,7 @@ export const addFavorite = async (data) => {
 };
 
 export const deleteFavorite = (id) => {
-  console.log(id);
+  // console.log(id);
 
   return axios
     .delete(`${baseAPI}/user/deleteFavorite/${id}?${token}`)

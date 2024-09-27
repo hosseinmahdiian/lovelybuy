@@ -30,6 +30,7 @@ const Save = () => {
   const [favorite, setFavorite] = useState();
   const [authUser, setAuthUser] = useState();
   const [count, setCount] = useState();
+  const [reRender, setReRender] = useState(1);
   const navigate = useNavigate();
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
@@ -38,34 +39,28 @@ const Save = () => {
   );
 
   let i = false;
-  const rerender = () => {
-    console.log(i);
-
-    i = !i;
+  const rerenderFN = () => {
+    setReRender(reRender+1);
   };
 
-  !!localStorage.getItem("authUser") &&
-    useEffect(() => {
-      if (!!localStorage.getItem("authUser")) {
-        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-      } else {
-        navigate("/LoginUser");
-      }
-    }, []);
+  useEffect(() => {
+    if (!!localStorage.getItem("authUser")) {
+      setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+    } else {
+      navigate("/LoginUser");
+    }
+  }, []);
 
-  !!localStorage.getItem("authUser") &&
-    useEffect(() => {
-      
-      // console.log(i);
-      if (authUser?._id) {
-        getFavorite(authUser._id, setFavorite);
-      }
-    }, [authUser?._id, i]);
+  useEffect(() => {
+    // console.log(i);
+    if (authUser?._id) {
+      getFavorite(authUser._id, setFavorite);
+    }
+  }, [authUser?._id, reRender]);
 
-  !!localStorage.getItem("authUser") &&
-    useEffect(() => {
-      setCount(favorite?.data.data.length);
-    }, [favorite]);
+  useEffect(() => {
+    setCount(favorite?.data.data.length);
+  }, [favorite]);
   // console.log(count)
 
   return (
@@ -117,7 +112,7 @@ const Save = () => {
               setSelectSubSubCatgory={setSelectSubSubCatgory}
             />
             {!!count ? (
-              <Products item={favorite} FN={rerender} />
+              <Products item={favorite} FN={rerenderFN} />
             ) : (
               <p className="text-center font-bold text-red-500">
                 محصول ذخیره شده ای یافت نشد{" "}

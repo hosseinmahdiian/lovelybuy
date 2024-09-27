@@ -4,13 +4,7 @@ import { FaBookmark } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import noImage from "../../assets/images/no-image.png";
 import { percent, sp } from "../../constant/Functions";
-import {
-  Link,
-  Navigate,
-  NavLink,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { reducerContext } from "../../constant/Context";
 import {
   addFavorite,
@@ -18,10 +12,9 @@ import {
   getFavorite,
 } from "../../services/Favorite";
 import { decrypt } from "../../constant/auth/crypto";
-import { useQuery } from "react-query";
 
 const Product = ({ item, FN }) => {
-  const { image, name, sellPrice, oldPrice, id, _id } = item;
+  const { image, name, sellPrice, oldPrice, id } = item;
   //  console.log(item);
   // console.log(id, favorite);
   const reducer = useContext(reducerContext);
@@ -31,13 +24,37 @@ const Product = ({ item, FN }) => {
   const [idF, setIdF] = useState();
   const [authUser, setAuthUser] = useState();
   const [favorite, setFavorite] = useState();
-
   const navigate = useNavigate();
 
-  const increaseHandeler = () => {
+  const increaseHandeler = (id) => {
+    let check = JSON.parse(localStorage.getItem("product"));
+    console.log(!check);
+    let temp = check?.filter((i) => i.id != id);
+    console.log(temp);
+    if (!check) {
+      localStorage.setItem(
+        "product",
+        JSON.stringify([{ id, count: count + 1 }])
+      );
+    } else {
+      localStorage.setItem(
+        "product",
+        JSON.stringify([...temp, { id, count: count + 1 }])
+      );
+    }
     setCount(count + 1);
   };
-  const decreaseHandeler = () => {
+  const decreaseHandeler = (id) => {
+     let check = JSON.parse(localStorage.getItem("product"));
+    //  console.log(check);
+    let temp1 = check?.filter((i) => i.id != id);
+    let temp = check?.filter((i) => i.id == id);
+    console.log(temp);
+    
+  localStorage.setItem(
+    "product",
+    JSON.stringify([...temp1, { id, count: count - 1 }])
+  );
     setCount(count - 1);
   };
 
@@ -70,11 +87,15 @@ const Product = ({ item, FN }) => {
       {/* <Link to={}> */}
       <span
         onClick={() => {
-          !!FN && FN();
-          !save &&
-            (addFavorite({ userID: authUser._id, productID: id }),
-            setSave(true));
-          save && (deleteFavorite(idF), setSave(false));
+          if (!localStorage.getItem("authUser")) {
+            navigate("/LoginUser");
+          } else {
+            !!FN && FN();
+            !save &&
+              (addFavorite({ userID: authUser._id, productID: id }),
+              setSave(true));
+            save && (deleteFavorite(idF), setSave(false));
+          }
         }}
         className="absolute top-3 left-3 child:sm:text-2xl text-lg child:es:text-lg  "
       >
@@ -93,7 +114,7 @@ const Product = ({ item, FN }) => {
         />
 
         <h2 className="text-right mr-3 pt-2 sm:h-9 h-7 line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
-          {name}
+          {id}
         </h2>
         <div>
           <div className="child:gap-3 child:mr-2  mt-1  flex  justify-between mx-2">
@@ -129,7 +150,7 @@ const Product = ({ item, FN }) => {
           <button
             className="lg:w-[calc(100%-20px)] lg:my-2.5  font-bold h-12  w-full  text-sm  mx-auto items-center block lg:px-10  lg:bg-blue-600 lg:h-10  lg:rounded-xl rounded-b-3xl  lg:text-white text-blue-500 "
             onClick={() => {
-              increaseHandeler();
+              increaseHandeler(id);
             }}
           >
             افزودن به سبد خرید
@@ -139,7 +160,7 @@ const Product = ({ item, FN }) => {
             <button
               className="  w-10 h-10  lg:border-[3px] lg:rounded-xl lg:text-green-700 text-3xl border-green-600 "
               onClick={() => {
-                increaseHandeler();
+                increaseHandeler(id);
               }}
             >
               <HiPlusSm className="w-full text-center" />

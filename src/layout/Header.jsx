@@ -16,7 +16,7 @@ const Header = () => {
   const [reduce, dispach] = reducer;
   const [favorite, setFavorite] = useState();
   const [authUser, setAuthUser] = useState();
-  const [count, setCount] = useState();
+  const [countFavorite, setCountFavorite] = useState();
   const [item, setItem] = useState();
   const navigate = useNavigate();
 
@@ -40,9 +40,9 @@ const Header = () => {
 
   !!localStorage.getItem("authUser") &&
     useEffect(() => {
-      setCount(favorite?.data.data.length);
+      setCountFavorite(favorite?.data.data.length);
     }, [favorite]);
-  // console.log(count);
+  // console.log(countFavorite);
 
   return (
     <>
@@ -77,10 +77,10 @@ const Header = () => {
                   <p className="text-nowrap"> ذخیره شده</p>
                   <span
                     className={` text-red-600  bg-white 
-                       ${!!count ? `block` : `hidden`} 
+                       ${!!countFavorite ? `block` : `hidden`} 
                     `}
                   >
-                    {count} کالا
+                    {countFavorite} کالا
                   </span>
                 </span>
               </NavLink>
@@ -112,9 +112,11 @@ const Header = () => {
               </span>
               <div
                 onClick={() => {
-                  authUser == "Login"
-                    ? navigate("/LoginUser")
-                    : navigate("/Account");
+                    if (!localStorage.getItem("authUser")) {
+                    navigate("/LoginUser");
+                  }else{
+                    navigate("/Account");
+                  }
                 }}
               >
                 {/* <div
