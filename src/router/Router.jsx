@@ -35,7 +35,7 @@ const Routers = () => {
       <Route path="Account/Place" element={<Place />} />
       <Route path="Account/History/:ID" element={<ShowProducts />} />
       <Route path="chose" element={<Chose />} />
-      <Route path="ee" element={<NewAccount />} />
+      <Route path="ee" element={<EE />} />
 
       {/* <Route path="Vrify" element={<Vrify />} /> */}
     </Routes>

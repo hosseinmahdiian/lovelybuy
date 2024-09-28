@@ -35,14 +35,15 @@ const Home = () => {
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
   const [item, setItem] = useState();
   const [m, setM] = useState();
-
   const navigate = useNavigate();
+
   const {
     isLoading: isLoadCategory,
     data: slid,
     error: errorCat,
     isError: isErrorCat,
   } = useQuery(["get-category"], getCategory);
+
   const {
     isLoading: isLoadCheck,
     data: check,
@@ -52,13 +53,10 @@ const Home = () => {
 
   // useEffect(() => {
   //   if (!!localStorage.getItem("authUser")) {
-  //     console.log("[[[");
-
-  //     checkTokenExamination(m, "user", navigate);
+  //     checkTokenExamination(check?.data.data, "user", navigate);
   //   }
-  // }, []);
+  // }, [check]);
 
-  // console.log(isErrorCheck, isErrorCat);
 
   return (
     <>
