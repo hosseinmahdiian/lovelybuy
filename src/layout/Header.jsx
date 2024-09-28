@@ -17,7 +17,10 @@ const Header = () => {
   const [favorite, setFavorite] = useState();
   const [authUser, setAuthUser] = useState();
   const [countFavorite, setCountFavorite] = useState();
-  const [item, setItem] = useState();
+  const [ProductsInBascket, setProductsInBascket] = useState(
+    JSON.parse(localStorage.getItem("product"))
+  );
+
   const navigate = useNavigate();
 
   !!localStorage.getItem("authUser") &&
@@ -42,7 +45,12 @@ const Header = () => {
     useEffect(() => {
       setCountFavorite(favorite?.data.data.length);
     }, [favorite]);
-  // console.log(countFavorite);
+
+  // console.log(ProductsInBascket.length);
+
+  // useEffect(() => {
+  //   setProductsInBascket(JSON.parse(localStorage.getItem("product")));
+  // }, [JSON.parse(localStorage.getItem("product"))]);
 
   return (
     <>
@@ -96,8 +104,12 @@ const Header = () => {
                 </div>
                 <span className="">
                   <p className="text-nowrap">سبد خرید</p>
-                  <span className="  text-red-600  bg-white text-center  ">
-                    0 کالا
+                  <span
+                    className={` ${
+                      !!ProductsInBascket ? `block` : `hidden`
+                    }   text-red-600  bg-white text-center  `}
+                  >
+                    {ProductsInBascket?.length}  کالا 
                   </span>
                 </span>
               </div>
@@ -112,9 +124,9 @@ const Header = () => {
               </span>
               <div
                 onClick={() => {
-                    if (!localStorage.getItem("authUser")) {
+                  if (!localStorage.getItem("authUser")) {
                     navigate("/LoginUser");
-                  }else{
+                  } else {
                     navigate("/Account");
                   }
                 }}

@@ -6,11 +6,16 @@ import { sp } from "../../constant/Functions";
 import { MobileOnlyView } from "react-device-detect";
 import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
-
-const Basket = ({ setTotalOP, setTotalSP, totalOldPrice, totalSellPrice }) => {
+import empty from "../../assets/images/Empty2.png";
+const Basket = ({
+  setTotalOP,
+  setTotalSP,
+  totalOldPrice,
+  totalSellPrice,
+  ProductsInBascket,
+}) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-
 
   const { isLoading, data } = useQuery(["get-products"], getProducts);
   useEffect(() => {
@@ -20,6 +25,9 @@ const Basket = ({ setTotalOP, setTotalSP, totalOldPrice, totalSellPrice }) => {
       document.documentElement.classList.remove("overflow-y-hidden");
     }
   }, [reduce.basket]);
+
+  // console.log(ProductsInBascket.length>0);
+
   return (
     reduce.basket && (
       <div className="bg-white mx-auto relative h-full ">
@@ -33,27 +41,34 @@ const Basket = ({ setTotalOP, setTotalSP, totalOldPrice, totalSellPrice }) => {
             >
               <IoIosArrowForward className="text-xl" />
               <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
-                {" "}
                 سبد خرید
               </h1>
             </span>
           </div>
-
-          <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
-            {/* <img src={empty} alt="" className="border mx-auto mt-52"/> */}
-            {data?.data.data.map((item, index) => (
-              <div key={index}>
-                <BuyProducts
-                  item={item}
-                  setTotalSP={setTotalSP}
-                  setTotalOP={setTotalOP}
-                />
-              </div>
-            ))}
-          </div>
+          {!ProductsInBascket.length > 0 ? (
+            <img src={empty} alt="" className="border mx-auto mt-52" />
+          ) : (
+            <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
+              {data?.data.data.map((item, index) => (
+                <div key={index}>
+                  <BuyProducts
+                    item={item}
+                    setTotalSP={setTotalSP}
+                    setTotalOP={setTotalOP}
+                    totalOldPrice={totalOldPrice}
+                    totalSellPrice={totalSellPrice}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         {/* ========================================== */}
-        <div className=" bg-white  bottom-0 pb-6 w-full left-0 right-0  absolute border-t px5">
+        <div
+          className={` ${
+            ProductsInBascket.length == 0 && `!hidden`
+          } bg-white  bottom-0 pb-6 w-full left-0 right-0  absolute border-t px5`}
+        >
           <div className="flex text-gray-400 justify-between mx-5 mt-2">
             <p>مجموعه خرید</p>
             <span className="flex gap-0.5">

@@ -5,6 +5,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { decrypt } from "../../constant/auth/crypto";
 import { editUser } from "../../services/User";
 import { ChengHandler } from "../../constant/Functions";
+import ChoseCities from "./ChoseCities";
 
 const NewAccount = ({}) => {
   const reducer = useContext(reducerContext);
@@ -19,79 +20,78 @@ const NewAccount = ({}) => {
 
   const [data, setData] = useState({});
   return (
-    reduce.NewAccount && (
-      <div
-        className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 max-w-xl `}
-      >
-        <div className="pt-12 mb-5">
-          <div className="mx-auto w-[calc(100%-40px)] ">
-            <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
-            <p className="mb-6">تکمیل اطلاعات کاربری</p>
-          </div>
+    <div
+      className={` overflow-y-scroll h-screen w-full  bg-white  mx-auto relative pb-4 max-w-xl `}
+    >
+      <div className="pt-12 mb-5">
+        <div className="mx-auto w-[calc(100%-40px)] ">
+          <h1 className="mb-6 font-bold">مشخصات خود را وارد کنید</h1>
+          <p className="mb-6">تکمیل اطلاعات کاربری</p>
+        </div>
 
-          <div className="mt-6 child:mb-5 mx-5 ">
-            <div className="relative   ">
-              <input
-                className="peer border rounded-[10px] outline-gray-300 h-12 w-full  px-5"
-                placeholder=" "
-                id="name"
-                type="text"
-                value={data?.name}
-                name="name"
-                onChange={(e) => ChengHandler(e, setData)}
-              />
-              <label
-                htmlFor="name"
-                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
-                  !!data?.name ? `start-2.5 -top-2 !text-sm` : `top-3`
-                }`}
-              >
-                نام
-              </label>
-            </div>
-            {/*  */}
-            <div className="relative   ">
-              <input
-                className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
-                placeholder=" "
-                type="text"
-                id="lastName"
-                value={data?.LastName}
-                name="LastName"
-                onChange={(e) => ChengHandler(e, setData)}
-              />
-              <label
-                htmlFor="lastName"
-                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
-                  !!data?.LastName ? `start-2.5 -top-2 !text-sm` : `top-3`
-                }`}
-              >
-                نام خانوادگی
-              </label>
-            </div>
-            {/*  */}
-            <div className="relative   ">
-              <input
-                className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
-                placeholder=" "
-                id="personId"
-                type="number"
-                value={data?.personId}
-                name="personId"
-                onChange={(e) => ChengHandler(e, setData)}
-                inputMode="numeric"
-              />
-              <label
-                htmlFor="personId"
-                className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
-                  !!data?.personId ? `start-2.5 -top-2 !text-sm` : `top-3`
-                }`}
-              >
-                کدملی{" "}
-              </label>
-            </div>
-            {/*  */}{" "}
-            {/* <div className="relative    ">
+        <div className="mt-6 child:mb-5 mx-5 ">
+          <div className="relative   ">
+            <input
+              className="peer border rounded-[10px] outline-gray-300 h-12 w-full  px-5"
+              placeholder=" "
+              id="name"
+              type="text"
+              value={data?.name}
+              name="name"
+              onChange={(e) => ChengHandler(e, setData)}
+            />
+            <label
+              htmlFor="name"
+              className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                !!data?.name ? `start-2.5 -top-2 !text-sm` : `top-3`
+              }`}
+            >
+              نام
+            </label>
+          </div>
+          {/*  */}
+          <div className="relative   ">
+            <input
+              className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
+              placeholder=" "
+              type="text"
+              id="lastName"
+              value={data?.LastName}
+              name="LastName"
+              onChange={(e) => ChengHandler(e, setData)}
+            />
+            <label
+              htmlFor="lastName"
+              className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                !!data?.LastName ? `start-2.5 -top-2 !text-sm` : `top-3`
+              }`}
+            >
+              نام خانوادگی
+            </label>
+          </div>
+          {/*  */}
+          <div className="relative   ">
+            <input
+              className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5 "
+              placeholder=" "
+              id="personId"
+              type="number"
+              value={data?.personId}
+              name="personId"
+              onChange={(e) => ChengHandler(e, setData)}
+              inputMode="numeric"
+            />
+            <label
+              htmlFor="personId"
+              className={`absolute start-1 IrHomama    rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
+                !!data?.personId ? `start-2.5 -top-2 !text-sm` : `top-3`
+              }`}
+            >
+              کدملی{" "}
+            </label>
+          </div>
+          {/*  */}{" "}
+          {/* <div className="relative    ">
               <input
                 className="peer border rounded-[10px] outline-gray-300 h-12 w-full px-5"
                 placeholder=" "
@@ -105,49 +105,11 @@ const NewAccount = ({}) => {
                 رمزعبور{" "}
               </label>
             </div> */}
-            {/*  */}
-            <div className="relative">
-              <span className="absolute end-3 top-4">
-                {arrowProvince ? <IoIosArrowDown /> : <IoIosArrowUp />}
-              </span>
-              <select
-                name=""
-                id=""
-                className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
-                onClick={() => {
-                  setArrowProvince((item) => !item);
-                }}
-              >
-                <option selected disabled value={0}>
-                  استان
-                </option>
-                <option value="1">خوزستان</option>
-                <option value="2">لرستان</option>
-              </select>
-            </div>
-            {/*  */}
-            <div className="relative">
-              <span className="absolute end-3 top-4">
-                {arrowCity ? <IoIosArrowDown /> : <IoIosArrowUp />}
-              </span>
-              <select
-                name=""
-                id=""
-                className=" w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none "
-                onClick={() => {
-                  setArrowCity((item) => !item);
-                }}
-              >
-                <option selected disabled value={0}>
-                  شهر
-                </option>
-                <option value="1">خرم آباد</option>
-                <option value="2">بروجرد</option>
-                <option value="3">دزفول</option>
-                <option value="4">اهواز</option>
-              </select>
-            </div>
-            {/* <select
+          {/* استان و شهر  */}
+          <div className="relative">
+            <ChoseCities setData ={setData}/>
+          </div>
+          {/* <select
             name=""
             id=""
             className="w-full  p-2 block  border mx-auto h-12 rounded-[10px]  appearance-none  "
@@ -173,33 +135,32 @@ const NewAccount = ({}) => {
               واحد خدمت
             </label>
           </div> */}
-          </div>
-
-          <button
-            onClick={() => {
-              navigate("/");
-              console.log(data);
-
-              // editUser(authUser?._id, data);
-            }}
-            className="w-[calc(100%-40px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
-          >
-            ذخیره اطلاعات
-          </button>
-
-          <p
-            href=""
-            className=" mt-5 mx-auto text-blue-500 block w-fit "
-            onClick={() => {
-              dispach({ type: "Conection" });
-            }}
-          >
-            {" "}
-            نیاز به کمک دارم
-          </p>
         </div>
+
+        <button
+          onClick={() => {
+            // navigate("/");
+            console.log(data);
+
+            // editUser(authUser?._id, data);
+          }}
+          className="w-[calc(100%-40px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
+        >
+          ذخیره اطلاعات
+        </button>
+
+        <p
+          href=""
+          className=" mt-5 mx-auto text-blue-500 block w-fit "
+          onClick={() => {
+            dispach({ type: "Conection" });
+          }}
+        >
+          {" "}
+          نیاز به کمک دارم
+        </p>
       </div>
-    )
+    </div>
   );
 };
 

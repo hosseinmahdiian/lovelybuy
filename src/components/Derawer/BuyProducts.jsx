@@ -17,7 +17,6 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
   }, [check]);
 
   const increaseHandeler = (id) => {
-    let check = JSON.parse(localStorage.getItem("product"));
     let temp = check?.filter((i) => i.id != id);
     if (!check) {
       localStorage.setItem(
@@ -33,12 +32,7 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
     setCount(count + 1);
   };
 
-  useEffect(() => {
-    setTotalOP(count * oldPrice);
-    setTotalSP(count * sellPrice);
-  }, [count]);
   const decreaseHandeler = (id) => {
-    let check = JSON.parse(localStorage.getItem("product"));
     let temp = check?.filter((i) => i.id != id);
     localStorage.setItem(
       "product",
@@ -48,7 +42,12 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
     );
     setCount(count - 1);
   };
-
+  
+  useEffect(() => {
+    setTotalOP(count * oldPrice);
+    setTotalSP(count * sellPrice);
+  }, [count]);
+  
   return (
     count > 0 && (
       <>
@@ -84,7 +83,7 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
               <div className="child:flex child:gap-3 child:mr-2  mt-3 ">
                 <span className="relative  items-center justify-end ">
                   <p className="opacity-70 text-[13px] relative">
-                    {sp(sellPrice)}
+                    {sp(oldPrice)}
                     <span className="opacity-100  w-full  items-center bottom-2.5  right-0 inline-block absolute border-b border-black"></span>
                   </p>
                   <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center">
@@ -94,7 +93,7 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
                   </div>
                 </span>
                 <span className="flex items-center ">
-                  <p className=" text-[14px] inline-block ">{sp(oldPrice)}</p>
+                  <p className=" text-[14px] inline-block ">{sp(sellPrice)}</p>
                   <p className=" text-[14px] inline-block ">تومان</p>
                 </span>
               </div>
