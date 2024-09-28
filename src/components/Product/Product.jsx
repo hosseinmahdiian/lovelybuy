@@ -26,11 +26,17 @@ const Product = ({ item, FN }) => {
   const [favorite, setFavorite] = useState();
   const navigate = useNavigate();
 
+  let check = JSON.parse(localStorage.getItem("product"));
+
+  useEffect(() => {
+    if (!!check) {
+      check?.map((i) => i.id == id && setCount(i?.count));
+    }
+  }, [check]);
+
   const increaseHandeler = (id) => {
     let check = JSON.parse(localStorage.getItem("product"));
-    console.log(!check);
     let temp = check?.filter((i) => i.id != id);
-    console.log(temp);
     if (!check) {
       localStorage.setItem(
         "product",
@@ -44,17 +50,16 @@ const Product = ({ item, FN }) => {
     }
     setCount(count + 1);
   };
+
   const decreaseHandeler = (id) => {
-     let check = JSON.parse(localStorage.getItem("product"));
-    //  console.log(check);
-    let temp1 = check?.filter((i) => i.id != id);
-    let temp = check?.filter((i) => i.id == id);
-    console.log(temp);
-    
-  localStorage.setItem(
-    "product",
-    JSON.stringify([...temp1, { id, count: count - 1 }])
-  );
+    let check = JSON.parse(localStorage.getItem("product"));
+    let temp = check?.filter((i) => i.id != id);
+    localStorage.setItem(
+      "product",
+      JSON.stringify(
+        count - 1 != 0 ? [...temp, { id, count: count - 1 }] : [...temp]
+      )
+    );
     setCount(count - 1);
   };
 
@@ -171,7 +176,7 @@ const Product = ({ item, FN }) => {
             <button
               className=" w-10 h-10 lg:border-[3px] lg:rounded-xl lg:text-red-700  border-red-600 "
               onClick={() => {
-                decreaseHandeler();
+                decreaseHandeler(id);
               }}
             >
               <FaMinus className="w-full text-center" />

@@ -14,7 +14,7 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
-import { sp } from "../../constant/Functions";
+import { percent, sp } from "../../constant/Functions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -39,14 +39,40 @@ const Info = () => {
   const [data1, setdata] = useState(infoProducts);
   const [select, setSelect] = useState(data1[0]);
 
-  const increaseHandeler = () => {
-    setCount(count + 1);
-    // console.log(count);
-  };
-  const decreaseHandeler = () => {
-    setCount(count - 1);
-    // console.log(count);
-  };
+let check = JSON.parse(localStorage.getItem("product"));
+
+useEffect(() => {
+  if (!!check) {
+    check?.map((i) => i.id == ID && setCount(i?.count));
+  }
+}, []);
+
+const increaseHandeler = (id) => {
+  let check = JSON.parse(localStorage.getItem("product"));
+  let temp = check?.filter((i) => i.id != ID);
+  if (!check) {
+    localStorage.setItem("product", JSON.stringify([{ id:ID, count: count + 1 }]));
+  } else {
+    localStorage.setItem(
+      "product",
+      JSON.stringify([...temp, { id:ID, count: count + 1 }])
+    );
+  }
+  setCount(count + 1);
+};
+
+const decreaseHandeler = (id) => {
+  let check = JSON.parse(localStorage.getItem("product"));
+  let temp = check?.filter((i) => i.id != ID);
+  localStorage.setItem(
+    "product",
+    JSON.stringify(
+      count - 1 != 0 ? [...temp, { id:ID, count: count - 1 }] : [...temp]
+    )
+  );
+  setCount(count - 1);
+};
+
   const clickhandler = (e) => {
     data1.map((item) => {
       if (item.name == e.target.id) {
@@ -204,7 +230,7 @@ const Info = () => {
                       </p>
                       <div className="w-9 !h-4 rounded-xl  bg-red-600 flex items-center mr-1">
                         <p className="px-1 mx-auto pt-0.5 text-white  self-center font-IrSans rounded-md  text-[10px]  ">
-                          10 %
+                          {percent(item?.oldPrice, item?.sellPrice)} %
                         </p>
                       </div>
                     </span>
