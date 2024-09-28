@@ -114,7 +114,7 @@ const Product = ({ item, FN }) => {
         />
 
         <h2 className="text-right mr-3 pt-2 sm:h-9 h-7 line-clamp-1  font-bold es:text-[12px] sm:text-sm lg:text-lg  ">
-          {id}
+          {name}
         </h2>
         <div>
           <div className="child:gap-3 child:mr-2  mt-1  flex  justify-between mx-2">

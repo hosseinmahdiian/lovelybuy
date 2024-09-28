@@ -23,6 +23,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Conter from "../Conter";
 import { MobileOnlyView } from "react-device-detect";
+import {
+  addFavorite,
+  deleteFavorite,
+  getFavorite,
+} from "../../services/Favorite";
+import { decrypt } from "../../constant/auth/crypto";
 const Info = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -50,6 +56,9 @@ const Info = () => {
   };
   const { isLoading, data } = useQuery(["get-products"], getProducts);
   const [item, setItem] = useState();
+  const [idF, setIdF] = useState();
+  const [authUser, setAuthUser] = useState();
+  const [favorite, setFavorite] = useState();
   const navigate = useNavigate();
   const { ID } = useParams();
 
@@ -57,19 +66,45 @@ const Info = () => {
     setItem(data?.data.data?.find((item) => item?.id == ID));
   }, [data]);
 
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      if (!!localStorage.getItem("authUser")) {
+        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      } else {
+        navigate("/LoginUser");
+      }
+    }, []);
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      // console.log("get favorit");
+      if (authUser?._id) {
+        getFavorite(authUser._id, setFavorite);
+      }
+    }, [authUser?._id, save]);
+
+  !!localStorage.getItem("authUser") &&
+    // console.log(item);
+
+    useEffect(() => {
+      let find = favorite?.data.data.find((i) => i.productID == ID);
+      find?.productID == ID ? setSave(true) : setSave(false);
+      find?.productID == ID && setIdF(find._id);
+    }, [favorite]);
+
   return (
     !isLoading && (
       <div className="bg-[#F6F6F6] h-screen overflow-hidden">
         <div className=" max-w-xl  mx-auto h-[calc(100%-50px)] overflow-y-scroll   ">
           <div className={`  border-b    `}>
             <span
-              className=" bg-white h-16 text-center gap-2 cursor-pointer flex items-center"
+              className=" bg-white h-16 text-center gap-2 cursor-pointer flex items-center pr-5"
               onClick={() => {
                 navigate(-1);
               }}
             >
               <IoIosArrowForward className="text-xl" />
-              <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
+              <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap ">
                 {" "}
                 پروفایل محصول
               </h1>
@@ -80,8 +115,17 @@ const Info = () => {
             <div className=" rounded-2xl   ">
               <div className="relative bg-white rounded-t-2xl  mb-2  h-[250px] !overflow-hidden">
                 <span
-                  onClick={() => setSave(!save)}
-                  className="absolute top-5 left-5 child:sm:text-2xl text-lg child:es:text-lg "
+                  onClick={() => {
+                    if (!localStorage.getItem("authUser")) {
+                      navigate("/LoginUser");
+                    } else {
+                      !save &&
+                        (addFavorite({ userID: authUser._id, productID: ID }),
+                        setSave(true));
+                      save && (deleteFavorite(idF), setSave(false));
+                    }
+                  }}
+                  className="absolute top-5 left-5 child:sm:text-2xl text-lg child:es:text-lg z-30"
                 >
                   {save ? <FaBookmark /> : <FaRegBookmark />}
                 </span>
@@ -198,11 +242,14 @@ const Info = () => {
                     </div>
                   </div>
                 </div>
+                <MobileOnlyView>
+                  <div className="h-[64px]  w-2"></div>
+                </MobileOnlyView>
               </div>
             </div>
           </div>
 
-          <div className=" absolute -bottom-5  max-w-xl  left-0 right-0 mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
+          <div className="z-20 absolute -bottom-5  max-w-xl  left-0 right-0 mx-auto bg-white   overflow-hidden    rounded-t-md shadow-sm  rounded-none mb-5 py-4  ">
             {count == 0 ? (
               <button
                 className="w-[calc(100%-40px)] py-2.5  font-bold h-12    text-sm  mx-auto items-center block px-10  bg-blue-600  rounded-xl   text-white "
@@ -229,9 +276,9 @@ const Info = () => {
                 </button>
               </div>
             )}
-                <MobileOnlyView>
-                  <div className="h-[64px]  w-2"></div>
-                </MobileOnlyView>
+            <MobileOnlyView>
+              <div className="h-[64px]  w-2"></div>
+            </MobileOnlyView>
           </div>
           <Conter />
         </div>
