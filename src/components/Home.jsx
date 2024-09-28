@@ -7,12 +7,12 @@ import Products from "./Product/Products";
 import Conter from "./Conter";
 import { reducerContext } from "../constant/Context";
 import Account from "./Account/Login/Accont";
-import Basket from "./Basket/Basket";
-import PayProducts from "./Basket/PayProducts";
+import Basket from "./Derawer/Basket";
+import PayProducts from "./Derawer/PayProducts";
 import Order from "./order";
 import Loader from "./Loader";
 import Login from "./Account/Login/Login";
-import Successsful from "./Basket/Successsful";
+import Successsful from "./Derawer/Successsful";
 import Conection from "./Conection";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
@@ -25,6 +25,7 @@ import { getUser } from "../services/User";
 import { decrypt } from "../constant/auth/crypto";
 import { getFavorite } from "../services/Favorite";
 import { checkToten } from "../services/Products";
+import Derawer from "./Derawer/Derawer";
 
 const Home = () => {
   const reducer = useContext(reducerContext);
@@ -47,7 +48,7 @@ const Home = () => {
     data: check,
     error: errorCheck,
     isError: isErrorCheck,
-  } = useQuery(["check"],  checkToten);
+  } = useQuery(["check"], checkToten);
 
   // useEffect(() => {
   //   if (!!localStorage.getItem("authUser")) {
@@ -102,47 +103,9 @@ const Home = () => {
             <div className="mt-1">
               <Products />
             </div>
-            {/* ===== */}
-            {/* <div
-            className={` ${
-              reduce.Info
-                ? ` sm:left-0 top-0  `
-                : `sm:-left-[8000px] -bottom-[8000px] `
-            } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
-          >
-            <Info />
-            </div> */}
-            {/* account & log in */}
-            {/* <div
-              className={` ${
-                reduce.Derawer
-                  ? ` left-0 top-0  `
-                  : `sm:-left-[8000px] -bottom-[8000px] `
-              } fixed  sm:w-[400px] w-full  z-[12] h-full transition-all  ease-in-out `}
-            >
-              <Login />
-            </div> */}
-            {/* Basket & pay */}
-            <div
-              className={` ${
-                reduce.basket
-                  ? reduce.pay
-                    ? ` sm:left-96 top-0 !z-[11] `
-                    : ` left-0 top-0  `
-                  : `sm:-left-[8000px] -bottom-[8000px] `
-              } fixed  sm:w-[400px] w-full  z-[16] h-full transition-all  ease-in-out border-r`}
-            >
-              <Basket />
-            </div>
-            <div
-              className={` ${
-                reduce.pay
-                  ? ` sm:left-0 top-0  `
-                  : `sm:-left-[8000px] -bottom-[8000px] `
-              } fixed  sm:w-[400px] w-full  z-20 h-full transition-all  ease-in-out `}
-            >
-              <PayProducts />
-            </div>
+
+            <Derawer />
+
             <div
               className={`
               ${reduce.successful ? `block` : `hidden`}

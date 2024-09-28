@@ -15,7 +15,7 @@ const time = [
   { time: "ساعت 13 تا 14", id: 2 },
   { time: "ساعت 19 تا 20", id: 3 },
 ];
-const PayProducts = () => {
+const PayProducts = ({ totalOldPrice, totalSellPrice }) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
@@ -179,7 +179,7 @@ const PayProducts = () => {
           <div className="flex text-gray-400 justify-between mx-5 mt-2">
             <p>مجموعه خرید</p>
             <span className="flex gap-0.5">
-              <p>{}</p>
+              <p>{sp(totalOldPrice)}</p>
               <p>تومان</p>
             </span>
           </div>
@@ -187,7 +187,7 @@ const PayProducts = () => {
           <div className="flex text-gray-400 justify-between mx-5 mt-1">
             <p>مجموع تخفیف</p>
             <span className="flex gap-0.5">
-              <p>{}</p>
+              <p>{sp(totalOldPrice - totalSellPrice)}</p>
               <p>تومان</p>
             </span>
           </div>
@@ -200,7 +200,7 @@ const PayProducts = () => {
           <div className="flex justify-between mx-5 text-lg mt-">
             <p>قابل پرداخت</p>
             <span className="flex gap-0.5">
-              <p>{sp(2164896)}</p>
+              <p>{sp(totalSellPrice)}</p>
               <p>تومان</p>
             </span>
           </div>
@@ -209,7 +209,6 @@ const PayProducts = () => {
             className=" w-[calc(100%-40px)] bg-blue-600 rounded-lg mt-4 h-12 block mx-auto text-white my-2"
             onClick={() => {
               dispach({ type: "successful" });
-              // console.log(reduce.successful);
             }}
           >
             انتقال به درگاه

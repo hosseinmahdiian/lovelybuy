@@ -1,21 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import { reducerContext } from "../../constant/Context";
-import { BuyProDuctsData } from "../../constant/DataSets";
 import BuyProducts from "./BuyProducts";
-import PayProducts from "./PayProducts";
-import Successsful from "./Successsful";
 import { sp } from "../../constant/Functions";
 import { MobileOnlyView } from "react-device-detect";
+import { getProducts } from "../../services/Products";
+import { useQuery } from "react-query";
 
-import empty from "../../assets/images/Empty2.png"
-
-const Basket = () => {
+const Basket = ({ setTotalOP, setTotalSP, totalOldPrice, totalSellPrice }) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  const [buyProducts, setBuyProducts] = useState(BuyProDuctsData);
-  const [count, setCount] = useState(0);
 
+
+  const { isLoading, data } = useQuery(["get-products"], getProducts);
   useEffect(() => {
     if (reduce.basket) {
       document.documentElement.classList.add("overflow-y-hidden");
@@ -23,7 +20,6 @@ const Basket = () => {
       document.documentElement.classList.remove("overflow-y-hidden");
     }
   }, [reduce.basket]);
-
   return (
     reduce.basket && (
       <div className="bg-white mx-auto relative h-full ">
@@ -44,12 +40,16 @@ const Basket = () => {
           </div>
 
           <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
-            <img src={empty} alt="" className="border mx-auto mt-52"/>
-            {/* {buyProducts.map((item, index) => (
+            {/* <img src={empty} alt="" className="border mx-auto mt-52"/> */}
+            {data?.data.data.map((item, index) => (
               <div key={index}>
-                <BuyProducts item={item} />
+                <BuyProducts
+                  item={item}
+                  setTotalSP={setTotalSP}
+                  setTotalOP={setTotalOP}
+                />
               </div>
-            ))} */}
+            ))}
           </div>
         </div>
         {/* ========================================== */}
@@ -57,7 +57,7 @@ const Basket = () => {
           <div className="flex text-gray-400 justify-between mx-5 mt-2">
             <p>مجموعه خرید</p>
             <span className="flex gap-0.5">
-              <p>{}</p>
+              <p>{sp(totalOldPrice)}</p>
               <p>تومان</p>
             </span>
           </div>
@@ -65,7 +65,7 @@ const Basket = () => {
           <div className="flex text-gray-400 justify-between mx-5 mt-1">
             <p>مجموع تخفیف</p>
             <span className="flex gap-0.5">
-              <p>{}</p>
+              <p>{sp(totalOldPrice - totalSellPrice)}</p>
               <p>تومان</p>
             </span>
           </div>
@@ -78,7 +78,7 @@ const Basket = () => {
           <div className="flex justify-between mx-5 text-lg mt-">
             <p>قابل پرداخت</p>
             <span className="flex gap-0.5">
-              <p>{sp(2164896)}</p>
+              <p>{sp(totalSellPrice)}</p>
               <p>تومان</p>
             </span>
           </div>

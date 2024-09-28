@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import PayProducts from "../Basket/PayProducts";
-import Basket from "../Basket/Basket";
+import PayProducts from "../Derawer/PayProducts";
+import Basket from "../Derawer/Basket";
 import Conter from "../Conter";
 import Categorys from "../Category/Categorys";
 import Slides from "../Slider/Slides";
 import { reducerContext } from "../../constant/Context";
 import Login from "../Account/Login/Login";
-import Successsful from "../Basket/Successsful";
+import Successsful from "../Derawer/Successsful";
 import Conection from "../Conection";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
@@ -40,7 +40,7 @@ const Save = () => {
 
   let i = false;
   const rerenderFN = () => {
-    setReRender(reRender+1);
+    setReRender(reRender + 1);
   };
 
   useEffect(() => {
