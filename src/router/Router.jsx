@@ -1,40 +1,34 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../components/Home";
-import NotFind from "../components/NotFind";
-// import Category from "../components//Category/Categorys";
+import Home from "../Users/components/Home";
+import NotFind from "../Users/components/NotFind";
+import Save from "../Users/components/Save/Save";
+import Search from "../Users/components/Search/Search";
+import InPerson from "../MainPage";
+import AcccountLogin from "../Users/components/Account/UserInformation/Acccount-Login";
+import ChengPass from "../Users/components/Account/ChengPass";
+import Place from "../Users/components/Account/Place/Place";
+import Chose from "../Users/components/Account/Duti/Chose";
+import ShowProducts from "../Users/components/Account/UserInformation/Items/History/Show-producs";
+import EE from "../Users/components/InShope/eeeeee";
+import Info from "../Users/components/Info/Info";
+import Login from "../Users/components/Account/Login/Login";
 
-import Save from "../components/Save/Save";
-import Search from "../components/Search/Search";
-import Private from "../components/Private/Private ";
-import InPerson from "../components/InPerson/InPerson";
-import Info from "../components/Info/Info";
-// import Acconut from "../components/Account/Login/Accont";
-// import Vrify from "../components/Account/Login/Vrify";
-import Login from "../components/Account/Login/Login";
-import AcccountLogin from "../components/Account/UserInformation/Acccount-Login";
-import ChengPass from "../components/Account/ChengPass";
-import Place from "../components/Account/Place/Place";
-import Chose from "../components/Account/Duti/Chose";
-import ShowProducts from "../components/Account/UserInformation/Items/History/Show-producs";
-import EE from "../components/InPerson/eeeeee";
-import ChoseCities from "../components/Account/ChoseCities";
-import NewAccount from "../components/Account/NewAccount";
 const Routers = () => {
   return (
     <Routes>
-      <Route index element={<Home />} />
       <Route path="*" element={<NotFind />} />
-      <Route path="Save" element={<Save />} />
-      <Route path="Search" element={<Search />} />
-      <Route path="Inperson" element={<InPerson />} />
-      <Route path="ProductID/:ID" element={<Info />} />
-      <Route path="LoginUser" element={<Login />} />
-      <Route path="Account" element={<AcccountLogin />} />
-      <Route path="Account/ChengPasseord" element={<ChengPass />} />
-      <Route path="Account/Place" element={<Place />} />
-      <Route path="Account/History/:ID" element={<ShowProducts />} />
-      <Route path="chose" element={<Chose />} />
+      <Route index element={<InPerson />} />
+      <Route path="/user" element={<Home />} />
+      <Route path="user/Save" element={<Save />} />
+      <Route path="user/Search" element={<Search />} />
+      <Route path="user/ProductID/:ID" element={<Info />} />
+      <Route path="user/LoginUser" element={<Login />} />
+      <Route path="user/Account" element={<AcccountLogin />} />
+      <Route path="user/Account/ChengPasseord" element={<ChengPass />} />
+      <Route path="user/Account/Place" element={<Place />} />
+      <Route path="user/Account/History/:ID" element={<ShowProducts />} />
+      <Route path="user/chose" element={<Chose />} />
       <Route path="ee" element={<EE />} />
 
       {/* <Route path="Vrify" element={<Vrify />} /> */}

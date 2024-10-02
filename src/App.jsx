@@ -1,12 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./router/Router";
-import Layout from "./layout/Layout";
 import { createContext, useEffect, useReducer, useState } from "react";
-import { reducerContext } from "./constant/Context";
-import Home from "./components/Home";
+import { reducerContext } from "./Users/constant/Context";
 import { QueryClient, QueryClientProvider, useQueryClient } from "react-query";
-import { FnReducer, init } from "./constant/Functions";
-import NoInternet from "./components/NoInternet";
+import { FnReducer, init } from "./Users/constant/Functions";
+import NoInternet from "./Users/components/NoInternet";
 
 function App() {
   const [online, setOnline] = useState(window.navigator.onLine);
