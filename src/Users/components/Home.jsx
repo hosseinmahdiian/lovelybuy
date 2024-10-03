@@ -27,7 +27,7 @@ import { getFavorite } from "../services/Favorite";
 import { checkToten } from "../services/Products";
 import Derawer from "./Derawer/Derawer";
 
-const Home = () => {
+const HomeUser = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [selectCatgory, setSelectCatgory] = useState();
@@ -124,4 +124,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeUser;

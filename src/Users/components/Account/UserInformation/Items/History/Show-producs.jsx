@@ -7,7 +7,7 @@ import { MobileOnlyView } from "react-device-detect";
 import Conter from "../../../../Conter";
 import { useNavigate } from "react-router-dom";
 
-const ShowProducts = () => {
+const ShowHistoryProducts = () => {
   const [buyProducts, setBuyProducts] = useState(HistoryOrderData);
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -21,7 +21,8 @@ const ShowProducts = () => {
           <span
             className=" h- text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
-navigate("/Account")            }}
+              navigate("/Account");
+            }}
           >
             <IoIosArrowForward className="text-xl" />
             <p className="text-red-500 font-bold">سابقه سفارش 1242</p>
@@ -74,4 +75,4 @@ navigate("/Account")            }}
   );
 };
 
-export default ShowProducts;
+export default ShowHistoryProducts;

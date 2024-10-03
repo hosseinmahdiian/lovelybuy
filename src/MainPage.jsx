@@ -1,48 +1,28 @@
 import React, { useContext, useState } from "react";
-import Slides from "./Users/components/Slider/Slides";
-import Categorys from "./Users/components/Category/Categorys";
-import Filters from "./Users/components/Filter/Filters";
 import { reducerContext } from "./Users/constant/Context";
 import { useQuery } from "react-query";
 import { getCategory } from "./Users/services/Catgory";
 import Loader from "./Users/components/Loader";
-// import img from "../../../assets/images/photo13134369710.jpg";
-import { FaBookmark, FaPercentage } from "react-icons/fa";
-import { PiPercentLight } from "react-icons/pi";
-import { MdOutlineAccessTime } from "react-icons/md";
-import { SlArrowDown, SlArrowUp } from "react-icons/sl";
-import { CgScreen } from "react-icons/cg";
-import { IoLocationOutline } from "react-icons/io5";
-import { BiPhoneCall } from "react-icons/bi";
-import { DeliveryData, infoShop } from "./Users/constant/DataSets";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import logo from "./assets/images/logo.png";
+
 const navigation = [
   { name: "خانه", href: "/" },
   { name: "فروشگاه", href: "/user" },
   { name: "فروشگاه حضوری", href: "/ee" },
-  { name: "Company", href: "#" },
+  { name: "ادمین", href: "/admin" },
 ];
-import logo from "./assets/images/logo.png";
 const InPerson = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-  const [selectCatgory, setSelectCatgory] = useState();
-  const [arrow, setArrow] = useState(false);
-  const [selectSubCatgory, setSelectSubCatgory] = useState();
 
-  const [info, setinfo] = useState(infoShop);
-  const [select, setSelect] = useState(info[0]);
-  console.log(info);
 
   const { isLoading: isLoadCategory, data: slid } = useQuery(
     ["get-category"],
     getCategory
   );
-  // con
-  console.log(reduce.InPerson);
 
   return isLoadCategory ? (
     <Loader />
