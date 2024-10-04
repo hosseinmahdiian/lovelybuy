@@ -7,7 +7,11 @@ import toast from "react-hot-toast";
 import { TfiCheckBox } from "react-icons/tfi";
 import { GrCheckbox } from "react-icons/gr";
 import { RiCheckboxBlankLine } from "react-icons/ri";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import {
+  IoIosArrowDown,
+  IoIosArrowForward,
+  IoIosArrowUp,
+} from "react-icons/io";
 
 const CategoryPage = ({ setcat, cat, setData, data: i }) => {
   const [Cat, setCat] = useState([]);
@@ -47,7 +51,21 @@ const CategoryPage = ({ setcat, cat, setData, data: i }) => {
 
   return (
     !isLoading && (
-      <div className="max-w-3xl mt-6 mx-5">
+      <div className="max-w-3xl mt-2 mx-5 overflow-y-scroll ">
+        <div className={` py-6 px-3 border-b  z-20 bg-white  `}>
+          <span
+            className=" h-5 text-center gap-2 cursor-pointer flex items-center"
+            onClick={() => {
+              setcat((i) => !i);
+            }}
+          >
+            <IoIosArrowForward className="text-xl" />
+            <h1 className="font-IrSana text-red-600 text-lg font-bold text-nowrap">
+              {" "}
+               دسته بندی {" "}
+            </h1>
+          </span>
+        </div>
         <div className="flex gap-2 child:px-5 child:py-2 child:border child:rounded-3xl mt-4 child:bg-white ">
           {data?.data.data?.map((item) => (
             <h3
@@ -108,12 +126,6 @@ const CategoryPage = ({ setcat, cat, setData, data: i }) => {
                               id={ssc?._id}
                               onChange={(e) => chengSubSubCatHandeler(e)}
                             />
-                            {/* {!!SubSubCat?.find((ssci) => ssci == ssc._id) ? (
-                              <TfiCheckBox />
-                            ) : (
-                              <RiCheckboxBlankLine />
-                            )} */}
-
                             <label htmlFor={ssc._id}>{ssc.title}</label>
                           </div>
                         )

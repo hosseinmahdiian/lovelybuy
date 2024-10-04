@@ -4,13 +4,14 @@ import { GetProducts } from "../../../services/Products";
 import { useQuery } from "react-query";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { BeatLoader } from "react-spinners";
 
 const ProductRegistration = () => {
   const { isLoading, data } = useQuery(["get-products"], GetProducts);
   const [tost, setTost] = useState(false);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState([]);
-  // console.log(window.navigator.onLine);
+  // console.log(data);
 
   tost && toast.success("محصول اضافه شد");
 
@@ -34,7 +35,7 @@ const ProductRegistration = () => {
               );
             }}
           />
-          {console.log(filter)}
+          {/* {console.log(filter)} */}
           <label
             htmlFor="search"
             className={`absolute start-1 IrHomama  rounded-2xl transition-all ease-linear peer-focus:start-2.5 peer-focus:-top-2 peer-focus:text-sm bg-white px-2 ${
@@ -46,7 +47,7 @@ const ProductRegistration = () => {
         </div>
         {search && (
           <NavLink
-            to="/AddProdoct"
+            to="/admin/AddProdoct"
             className="border pt-1  text-gray-600  border-opacity-5 rounded-[10px] bg-white h-14 w-14 text-2xl font-bold  flex items-center justify-center "
           >
             +
@@ -56,11 +57,15 @@ const ProductRegistration = () => {
 
       <div className=" mx-5 mt-5">
         {!!search ? (
-          filter?.map((item) => (
-            <Link to={`/ChargeProduct/${item.id}`} key={item.id}>
-              <Product data={item} />
-            </Link>
-          ))
+          filter.length > 0 ? (
+            filter?.map((item) => (
+              <Link to={`/admin/ChargeProduct/${item.id}`} key={item.id}>
+                <Product data={item} />
+              </Link>
+            ))
+          ) : (
+            <p>محصول با این نام وجود ندارد</p>
+          )
         ) : (
           <div>
             <p>فبل از اضافه کردن محصول آن را سرچ کنید</p>

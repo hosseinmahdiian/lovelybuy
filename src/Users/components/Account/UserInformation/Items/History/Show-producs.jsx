@@ -21,7 +21,7 @@ const ShowHistoryProducts = () => {
           <span
             className=" h- text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
-              navigate("/Account");
+              navigate(-1);
             }}
           >
             <IoIosArrowForward className="text-xl" />

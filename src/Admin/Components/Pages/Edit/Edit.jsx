@@ -62,7 +62,7 @@ const Edit = () => {
         ))} */}
         {!!search ? (
           filter.map((item) => (
-            <NavLink to={`/EditProdoct/${item.id}`} key={item.id}>
+            <NavLink to={`/admin/EditProdoct/${item.id}`} key={item.id}>
               <Product data={item} />
             </NavLink>
           ))

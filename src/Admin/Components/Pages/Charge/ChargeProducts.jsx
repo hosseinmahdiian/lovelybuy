@@ -21,7 +21,7 @@ const ChargeProducts = () => {
     setData(getData?.data.data.find((item) => item.id == id));
   }, [id]);
   return (
-    <div className="child:child:mb-5 mt-4 relative mx-4  max-w-2xl mx-auto">
+    <div className="child:child:mb-5 mt-4 relative   max-w-2xl mx-auto">
       <div
         className={`${
           !date && `hidden`

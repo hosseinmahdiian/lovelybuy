@@ -9,9 +9,9 @@ import logo from "./assets/images/logo.png";
 
 const navigation = [
   { name: "خانه", href: "/" },
-  { name: "فروشگاه", href: "/user" },
-  { name: "فروشگاه حضوری", href: "/ee" },
-  { name: "ادمین", href: "/admin" },
+  { name: "فروشگاه", href: "user" },
+  { name: "فروشگاه حضوری", href: "ee" },
+  { name: "ادمین", href: "admin" },
 ];
 const InPerson = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

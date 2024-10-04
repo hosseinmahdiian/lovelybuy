@@ -77,13 +77,13 @@ const startTimer = (setTimer, setCode) => {
   intervalId = id;
 };
 
-export const authUser = async (mobile) => {
+export const authUser = async (mobile, set) => {
   const rsult = await axios
     .post(`${baseAPI}/user/authUser`, { mobile })
     .then((json) => {
-      console.log(json);
-
+      set(json);
+       localStorage.removeItem("authAdmin");
       saveCurrentUser("authUser", JSON.stringify(json.data.data));
-      return rsult;
     });
+  return rsult;
 };

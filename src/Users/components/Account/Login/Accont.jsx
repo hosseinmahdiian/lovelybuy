@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import logo from "../../../../assets/images/logo.png";
 import { reducerContext } from "../../../constant/Context";
-
 import { BsFileEarmarkText } from "react-icons/bs";
 
 const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
@@ -15,11 +13,12 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
     setForm({ mobile: e.target.value });
   };
 
+  
   return (
     reduce.Account && (
       <div className={`bg-white max-w-xl relative mx-auto  h-full`}>
         <div className={``}>
-          <img src={logo} alt="" className="mx-auto mb-20 mt-28 " />
+          <img src={logo} alt="" className="mx-auto mb-20 mt-40 w-56 " />
 
           <div className=" ">
             <div className="relative w-[calc(100%-40px)] mx-auto ">

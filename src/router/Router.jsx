@@ -14,7 +14,7 @@ import EE from "../Users/components/InShope/eeeeee";
 import Info from "../Users/components/Info/Info";
 import Login from "../Users/components/Account/Login/Login";
 
-import HomeAdmin from "../Admin/Components/Home";
+import HomeAdmin from "../Admin/Components/HomeAdmin";
 import Acconut from "../Admin/Components/Account";
 import Bill from "../Admin/Components/Pages/Bill/Bill";
 import Edit from "../Admin/Components/Pages/Edit/Edit";
@@ -78,80 +78,77 @@ const Routers = () => {
       <Route path="ee" element={<EE />} />
       {/*  ============================ admin pages ====================== */}
 
-      <Route path="/loginAdmin" element={<Acconut />} />
-      <Route path="/Admin" element={<HomeAdmin />} />
+      <Route path="admin" element={<HomeAdmin />} />
+      <Route path="admin/loginAdmin" element={<Acconut />} />
       {/* ====================================================================== */}
-      <Route path="/Product-Registration" element={<ProductRegistration />} />
+      <Route path="admin/Product-Registration" element={<ProductRegistration />} />
       {/* ======================================================================= */}
-      <Route path="/Bill" element={<Bill />} />
-      <Route path="/Bill/Printer/:id" element={<BillPrenter />} />
+      <Route path="admin/Bill" element={<Bill />} />
+      <Route path="admin/Bill/Printer/:id" element={<BillPrenter />} />
       {/* ============================================================ */}
-      <Route path="/Edit" element={<Edit />} />
-      <Route path="/Edit/Category/:id" element={<CategoryPage />} />
-      <Route path="/EditProdoct/:id" element={<EditProdoct />} />
+      <Route path="admin/Edit" element={<Edit />} />
+      <Route path="admin/Edit/Category/:id" element={<CategoryPage />} />
+      <Route path="admin/EditProdoct/:id" element={<EditProdoct />} />
 
       {/* ================================================== */}
-      <Route path="/Charge" element={<Charge />} />
-      <Route path="/ChargeProduct/:id" element={<ChargeProducts />} />
-      <Route path="/AddProdoct" element={<AddProdoct />} />
+      <Route path="admin/Charge" element={<Charge />} />
+      <Route path="admin/ChargeProduct/:id" element={<ChargeProducts />} />
+      <Route path="admin/AddProdoct" element={<AddProdoct />} />
       {/* ==================================================================== */}
       <Route
-        path="/Buyer-User-Registration"
+        path="admin/Buyer-User-Registration"
         element={<BuyerUserRegistration />}
       />
       <Route
-        path="/Buyer-User-Registration/Edit-User/:id"
+        path="admin/Buyer-User-Registration/Edit-User/:id"
         element={<EditUser />}
       />
       {/* ==================================================================== */}
       <Route
-        path="/System-User-Registration"
+        path="admin/System-User-Registration"
         element={<SystemUserRegistration />}
       />
-      <Route path="/System-User-Registration/:id" element={<EditUsers />} />
+      <Route path="admin/System-User-Registration/:id" element={<EditUsers />} />
       <Route
-        path="/System-User-Registration/Setting-User/:id"
+        path="admin/System-User-Registration/Setting-User/:id"
         element={<SettingUser />}
       />
 
       {/* =================================================================== */}
-      <Route path="/Access-Management" element={<AccessManagement />} />
-      <Route path="/Create-Access" element={<CreateAccess />} />
-      <Route path="/User-Information" element={<UserInformation />} />
-      <Route path="/Store-Registration" element={<StoreRegistration />} />
+      <Route path="admin/Access-Management" element={<AccessManagement />} />
+      <Route path="admin/Create-Access" element={<CreateAccess />} />
+      <Route path="admin/User-Information" element={<UserInformation />} />
+      <Route path="admin/Store-Registration" element={<StoreRegistration />} />
       <Route
-        path="/Organization-Registration"
+        path="admin/Organization-Registration"
         element={<OrganizationRegistration />}
       />
-      <Route path="/Warehouse-Handling" element={<WarehouseHandling />} />
-      <Route path="/Warehouse-Information" element={<WarehouseInformation />} />
-      <Route path="/History" element={<History />} />
-      <Route path="/Orders" element={<Orders />} />
-      <Route path="/Archive" element={<Archive />} />
-      <Route path="/Notices" element={<Notices />} />
-      <Route path="/Program-Management" element={<ProgramManagement />} />
-      <Route path="/Advertise" element={<Advertise />} />
-      <Route path="/Discount-Code" element={<DiscountCode />} />
-      <Route path="/Data-Monitoring" element={<DataMonitoring />} />
-      <Route path="/Employee-Management" element={<EmployeeManagement />} />
-      <Route path="/Store-arehouse" element={<StoreWarehouse />} />
+      <Route path="admin/Warehouse-Handling" element={<WarehouseHandling />} />
+      <Route path="admin/Warehouse-Information" element={<WarehouseInformation />} />
+      <Route path="admin/History" element={<History />} />
+      <Route path="admin/Orders" element={<Orders />} />
+      <Route path="admin/Archive" element={<Archive />} />
+      <Route path="admin/Notices" element={<Notices />} />
+      <Route path="admin/Program-Management" element={<ProgramManagement />} />
+      <Route path="admin/Advertise" element={<Advertise />} />
+      <Route path="admin/Discount-Code" element={<DiscountCode />} />
+      <Route path="admin/Data-Monitoring" element={<DataMonitoring />} />
+      <Route path="admin/Employee-Management" element={<EmployeeManagement />} />
+      <Route path="admin/Store-arehouse" element={<StoreWarehouse />} />
       {/* =================================================================================== */}
-      <Route path="/Processing" element={<Processing />} />
-      <Route path="/Processing/Printer/:id" element={<Printer />} />
-      <Route path="/Processing/Location/:id" element={<Works />} />
+      <Route path="admin/Processing" element={<Processing />} />
+      <Route path="admin/Processing/Printer/:id" element={<Printer />} />
+      <Route path="admin/Processing/Location/:id" element={<Works />} />
       {/* ==================================================================================== */}
-      <Route path="/Dispacher" element={<Dispacher />} />
-
-      <Route path="/Dispacher/Loaction/:id" element={<Detail />} />
-
-      <Route path="/Dispacher/Detil/:id" element={<RegistrationDispacher />} />
-
+      <Route path="admin/Dispacher" element={<Dispacher />} />
+      <Route path="admin/Dispacher/Loaction/:id" element={<Detail />} />
+      <Route path="admin/Dispacher/Detil/:id" element={<RegistrationDispacher />} />
       <Route
-        path="/Dispacher/:id/RegisterationDeliveryProducts"
+        path="admin/Dispacher/:id/RegisterationDeliveryProducts"
         element={<RegisterationDeliveryProducts />}
       />
       <Route
-        path="/Dispacher/:id/ُShowProducts"
+        path="admin/Dispacher/:id/ُShowProducts"
         element={<ShowHistoryProducts />}
       />
     </Routes>

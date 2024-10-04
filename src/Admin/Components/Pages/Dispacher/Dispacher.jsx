@@ -6,10 +6,10 @@ const Dispacher = () => {
   return (
     <>
       <div className=" mt-10 w-[calc(100%-40px)] max-w-2xl mx-auto">
-        <NavLink to="/Dispacher/Loaction/1">
+        <NavLink to="/admin/Dispacher/Loaction/1">
           <Location />
         </NavLink>
-        <NavLink to="/Dispacher/Loaction/1">
+        <NavLink to="/admin/Dispacher/Loaction/1">
           <Location />
         </NavLink>
       </div>

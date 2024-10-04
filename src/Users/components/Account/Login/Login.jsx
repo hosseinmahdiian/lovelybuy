@@ -39,9 +39,7 @@ const Login = () => {
         timer={timer}
         sendSms={sendSms}
         setTimer={setTimer}
-        // setAuthUser={setAuthUser}
       />
-      {/* <NewAccount /> */}
     </div>
   );
 };

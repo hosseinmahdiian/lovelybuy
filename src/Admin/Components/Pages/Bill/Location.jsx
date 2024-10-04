@@ -13,12 +13,11 @@ const Location = () => {
           <span className="text-gray-600">12:41:20</span>
         </div>
         <NavLink
-          to="/Bill/Printer/1"
+          to="/admin/Bill/Printer/1"
           className="w-2/12  h-16 bg-white rounded-xl px-3 items-center flex "
         >
           <FiPrinter className="mx-auto text-gray-600" />
         </NavLink>
-       
       </div>
     </div>
   );

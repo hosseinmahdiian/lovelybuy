@@ -10,7 +10,7 @@ const RegistrationDispacher = () => {
     <>
       <div className="mb-28 mt-4 pt-4 child:!rounded-[20px] w-[calc(100%-40px)] max-w-2xl mx-auto">
         <Link
-          to={`/Dispacher/1/RegisterationDeliveryProducts`}
+          to={`/admin/Dispacher/1/RegisterationDeliveryProducts`}
           className="w-11/12 mx-auto border rounded-lg flex justify-between items-center py-4 pr-3 my-2 bg-white "
         >
           <h2>ثبت تحویل کالا</h2>
@@ -30,7 +30,7 @@ const RegistrationDispacher = () => {
         </Link>
 
         <NavLink
-          to={`/Dispacher/1/ُShowProducts`}
+          to={`/admin/Dispacher/1/ُShowProducts`}
           className="w-11/12 mx-auto border rounded-lg flex justify-between items-center py-4 pr-3 my-2 bg-white "
         >
           <h2>نمایش محصولات</h2>

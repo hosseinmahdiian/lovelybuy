@@ -109,7 +109,7 @@ const Product = ({ item, FN }) => {
       <div
         className="bg-white pt-2 rounded-b-lg  lg:rounded-b-none mb-1 lg:mb-0 shadow-sm "
         onClick={() => {
-          navigate(`/user/ProductID/${id}`);
+          navigate(`ProductID/${id}`);
         }}
       >
         <img

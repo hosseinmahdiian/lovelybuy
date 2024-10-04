@@ -1,23 +1,40 @@
 import React, { useContext, useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { reducerContext } from "../../../constant/Context";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authUser } from "./OTP";
 import { getCurrentUser } from "../../../auth/localStoreage";
+import { useMutation } from "react-query";
+import { BeatLoader } from "react-spinners";
 
 const Vrify = ({ code, mobile, timer, sendSms }) => {
   const [otp, setOtp] = useState(code);
   const [messeage, setMesseage] = useState("");
+  const [res, setRes] = useState();
+
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const navigate = useNavigate();
+
   useEffect(() => {
     setOtp(() => code);
   }, [code]);
-  const [searchPrams, setSearchPrams] = useSearchParams();
 
   var minutes = Math.floor(timer % 60);
   var seconds = Math.floor(timer / 60);
+
+  const { mutate, isLoading, isError } = useMutation(["post-Role"], () =>
+    authUser(mobile, setRes)
+  );
+  
+  useEffect(() => {
+    console.log(res);
+    if (res?.data.success) {
+      dispach({ type: "Account" });
+      dispach({ type: "Vrify" });
+      navigate(`/user`);
+    }
+  }, [res?.data.success]);
 
   return (
     reduce.Vrify && (
@@ -68,12 +85,12 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
           onClick={() => {
             if (code != "") {
               if (otp == code) {
-                authUser(mobile);
-                if (!!getCurrentUser("authUser").token) {
-                  navigate("/user");
-                  dispach({ type: "Account" });
-                  dispach({ type: "Vrify" });
-                }
+                mutate(mobile, setRes);
+                // if (!!getCurrentUser("authUser").token) {
+                // navigate("/user");
+                //   dispach({ type: "Account" });
+                //   dispach({ type: "Vrify" });
+                // }
 
                 // navigate("/");
               } else if (!otp || otp.length < 4) {
@@ -85,12 +102,16 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
           }}
           disabled={timer == 0}
           className={`w-full  h-14 block mx-auto mt-8 rounded-[10px]  font-IrHoma ${
-            timer == 0
+            timer == 0 || isLoading
               ? ` bg-gray-200 text-gray-600`
               : ` bg-blue-500 text-white`
           }`}
         >
-          ادامه
+          {isLoading ? (
+            <BeatLoader color="#3b82f6" size={15} className="mt-2" />
+          ) : (
+            <p>ادامه</p>
+          )}
         </button>
         <div className="flex justify-between mt-7 items-center">
           <div

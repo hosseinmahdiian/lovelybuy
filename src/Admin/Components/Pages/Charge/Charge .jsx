@@ -48,7 +48,7 @@ const Charge = () => {
         <div className="mt-6 mx-4">
           {!!search ? (
             filter.map((item) => (
-              <NavLink to={`/ChargeProduct/${item.id}`} key={item.id}>
+              <NavLink to={`/admin/ChargeProduct/${item.id}`} key={item.id}>
                 <Product data={item} />
               </NavLink>
             ))

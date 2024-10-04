@@ -5,6 +5,7 @@ import { reducerContext } from "./Users/constant/Context";
 import { QueryClient, QueryClientProvider, useQueryClient } from "react-query";
 import { FnReducer, init } from "./Users/constant/Functions";
 import NoInternet from "./Users/components/NoInternet";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [online, setOnline] = useState(window.navigator.onLine);
@@ -20,11 +21,8 @@ function App() {
       <reducerContext.Provider value={reducer}>
         <QueryClientProvider client={QueryClint}>
           <BrowserRouter>
-            {online ? (
-                <Routers />
-            ) : (
-              <NoInternet />
-            )}
+            {online ? <Routers /> : <NoInternet />}
+            <Toaster position="top-center" reverseOrder={false} />
           </BrowserRouter>
         </QueryClientProvider>
       </reducerContext.Provider>

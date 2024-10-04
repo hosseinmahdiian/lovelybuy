@@ -20,7 +20,7 @@ const User = () => {
         </div>
         <NavLink
           className="w-12 h-12  bg-white ml-2   py-2.5"
-          to="/System-User-Registration/Setting-User/1"
+          to="/admin/System-User-Registration/Setting-User/1"
         >
           <CiSettings className="text-xl w-full text-center text-gray-600" />
         </NavLink>{" "}

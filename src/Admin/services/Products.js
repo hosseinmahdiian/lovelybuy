@@ -1,9 +1,17 @@
 import axios from "axios";
 import { baseAPI, token } from "../auth/API";
 
-// console.log(`${baseAPI}/admin/getProduct?${token}`);
 export const GetProducts = async () => {
-  const rsult = await axios.get(`${baseAPI}/admin/getProduct?${token}`);
+  let rsult;
+  await axios
+    .get(`${baseAPI}/admin/getProduct?${token}`)
+    .then((res) => {
+      // console.log(res);
+      rsult = res;
+    })
+    .catch((e) => console.log(e));
+  // console.log(rsult);
+
   return rsult;
 };
 

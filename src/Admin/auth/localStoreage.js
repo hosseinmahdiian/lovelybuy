@@ -9,21 +9,23 @@ export const LocalStorageService = {
   userMobile: "",
 };
 
-export const saveCurrentUser = (key, value) =>
+export const saveCurrentAdmin = (key, value) =>
   localStorage.setItem(key, encrypt(value));
 
-export const getCurrentUser = (key) => {
+export const getCurrentAdmin = (key) => {
   let data = localStorage.getItem(key) || "";
   if (data !== undefined && data !== null && data !== "") {
-    LocalStorageService.userJson = JSON.parse(decrypt(data));
-    LocalStorageService.userType = LocalStorageService.userJson.type;
-    LocalStorageService.userToken = LocalStorageService.userJson.token;
-    LocalStorageService.userID = LocalStorageService.userJson._id;
-    LocalStorageService.userMobile = LocalStorageService.userJson.mobile;
-    return LocalStorageService.userJson;
+    LocalStorageService.adminJson = JSON.parse(decrypt(data));
+    console.log(LocalStorageService.adminJson);
+    
+    // LocalStorageService.adminType = LocalStorageService.adminJson.type;
+    // LocalStorageService.adminToken = LocalStorageService.adminJson.token;
+    // LocalStorageService.adminID = LocalStorageService.adminJson._id;
+    // LocalStorageService.adminMobile = LocalStorageService.adminJson.mobile;
+    return LocalStorageService.adminJson;
   } else {
     return false;
   }
 };
 
-export const removeCurrentUser = () => localStorage.clear();
+export const removeCurrentAdmin = () => localStorage.removeItem("authAdmin");

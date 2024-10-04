@@ -7,7 +7,7 @@ const ToDo = ({ check }) => {
     <>
       <div className="flex items-center h-12 justify-between w-full  my-2 ">
         <div className="flex items-center gap-4  ">
-          <img src={Yogurt} alt="" className="w-12 h-12 border rounded-lg" />
+          <img src="" alt="" className="w-12 h-12 border rounded-lg" />
           <div>
             <h2>ماست سون</h2>
             <p className="text-gray-600 text-sm">12 عدد</p>

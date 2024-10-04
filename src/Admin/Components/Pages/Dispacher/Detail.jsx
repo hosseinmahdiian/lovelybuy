@@ -26,7 +26,7 @@ const Detail = () => {
               <IoMdSave className="text-center w-full text-gray-600" />
             </span>
             <Link
-              to="/Dispacher/Detil/1"
+              to="/admin/Dispacher/Detil/1"
               className="border border-black border-opacity-10 w-12 h-12 rounded-[10px] pt-3  "
             >
               <BsThreeDotsVertical className="text-center w-full  text-gray-600 inline " />

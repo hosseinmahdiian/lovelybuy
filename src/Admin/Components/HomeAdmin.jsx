@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MainData } from "../Constant/DataDets";
 import { MdOutlineArrowBackIos } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { reducerContext } from "../Context/Context";
+import { decrypt } from "../auth/crypto";
 
-const MainPage = () => {
+const HomeAdmin = () => {
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
   const [data, setData] = useState(MainData);
+    const navigate = useNavigate();
+
+// console.log(JSON.parse(decrypt(localStorage.getItem("authAdmin"))).token);
+ useEffect(() => {
+   if (!localStorage.getItem("authAdmin")) {
+     navigate("/admin/loginAdmin");
+   }
+ }, []);
 
   return (
     <div className="mb-28 mt-4 pt-4 max-w-2xl mx-auto">
@@ -22,9 +34,8 @@ const MainPage = () => {
           </span>
         </NavLink>
       ))}
-      
     </div>
   );
 };
 
-export default MainPage;
+export default HomeAdmin;

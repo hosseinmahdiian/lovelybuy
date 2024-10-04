@@ -26,4 +26,4 @@ export const getCurrentUser = (key) => {
   }
 };
 
-export const removeCurrentUser = () => localStorage.clear();
+export const removeCurrentUser = () => localStorage.removeItem("authUser");

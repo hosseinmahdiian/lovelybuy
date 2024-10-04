@@ -22,17 +22,17 @@ const Users = () => {
         </div>
         <NavLink
           className="w-14 h-14 bg-white  border rounded-[10px] pt-4"
-          to="/System-User-Registration/1"
+          to="/admin/System-User-Registration/1"
         >
           <FiPlus className="text-xl w-full text-center text-gray-600" />
         </NavLink>
       </div>
 
       <div className="mt-5 ">
-        <NavLink to="/System-User-Registration/1">
+        <NavLink to="/admin/System-User-Registration/1">
           <User />
         </NavLink>
-        <NavLink to="/System-User-Registration/1">
+        <NavLink to="/admin/System-User-Registration/1">
           <User />
         </NavLink>
       </div>

@@ -57,7 +57,7 @@ const BuyerUserRegistration = () => {
           </label>
         </div>
         <NavLink
-          to="/Buyer-User-Registration/Edit-User/1"
+          to="/admin/Buyer-User-Registration/Edit-User/1"
           className="w-14 h-14 bg-white  border rounded-[10px] p-3.5 "
         >
           <FiPlus className="text-xl w-full text-center inline-block text-gray-600 " />
@@ -65,10 +65,10 @@ const BuyerUserRegistration = () => {
       </div>
 
       <div className="mt-6">
-        <NavLink to="/Buyer-User-Registration/Edit-User/1">
+        <NavLink to="/admin/Buyer-User-Registration/Edit-User/1">
           <User />
         </NavLink>
-        <NavLink to="/Buyer-User-Registration/Edit-User/1">
+        <NavLink to="/admin/Buyer-User-Registration/Edit-User/1">
           <User />
         </NavLink>
       </div>

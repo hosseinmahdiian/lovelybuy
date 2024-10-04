@@ -13,13 +13,13 @@ const Location = () => {
           <span className="text-gray-500 text-sm">12:41:20</span>
         </div>
         <NavLink
-          to="/Processing/Printer/1"
+          to="/admin/Processing/Printer/1"
           className="w-2/12  h-14 bg-white rounded-xl px-3 items-center flex "
         >
           <FiPrinter className="mx-auto text-gray-600" />
         </NavLink>
         <NavLink
-          to="/Processing/Location/1"
+          to="/admin/Processing/Location/1"
           className="w-2/12  h-14 bg-white rounded-xl px-3 items-center flex "
         >
           <GiSettingsKnobs className="mx-auto text-gray-600" />

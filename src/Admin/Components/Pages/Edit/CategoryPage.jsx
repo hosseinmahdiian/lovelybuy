@@ -29,7 +29,7 @@ const CategoryPage = ({ setcat, cat, setData, data: i }) => {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className=" mt-6 mx-5 max-w-2xl mx-auto">
+    <div className=" mt-6 w-[calc(100%-40px)] max-w-2xl mx-auto">
       <div className="flex gap-2 child:px-5 child:py-2 child:border child:rounded-3xl mt-4 child:bg-white ">
         {data?.data.data.map((item) => (
           <h3

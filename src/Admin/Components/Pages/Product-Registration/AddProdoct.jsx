@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiChromeLine } from "react-icons/ri";
 import { MdArrowBackIos } from "react-icons/md";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {
   PostGallery,
   PostImage,
@@ -19,29 +19,32 @@ import {
 } from "react-icons/io";
 import CategoryPage from "./CategoryPage";
 import { CgClose, CgCloseO } from "react-icons/cg";
+import { useMutation } from "react-query";
 
 const AddProdoct = () => {
   const [data, setData] = useState({
     info: "توضیحات محصول",
     gallery: [],
   });
-
   const [arrowWareouse, setArrowWareouse] = useState(true);
-  const { id } = useParams();
-
-  // useEffect(() => {
-  //   true
-  //     ? document.documentElement.classList.add("overflow-y-hidden")
-  //     : document.documentElement.classList.remove("overflow-y-hidden");
-  // }, [id]);
   const [date, setDate] = useState(false);
   const navigate = useNavigate();
   const [cat, setcat] = useState(false);
 
+
+   const { mutate, isLoading, isError } = useMutation(["post-Products"], () =>
+     PostProduct(data)
+   );
   return (
     <>
-      <div className="relative overflow-y-scroll h-screen pb-20 max-w-2xl mx-auto">
-        <div className={` py-6 px-3 border-b   `}>
+      <div
+        className={`${
+          cat && `hidden`
+        }relative overflow-y-scroll h-screen pb-20 max-w-2xl mx-auto`}
+      >
+        <div
+          className={`${cat && `hidden`} py-6 px-3 border-b  z-20 bg-white  `}
+        >
           <span
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
@@ -192,7 +195,7 @@ const AddProdoct = () => {
                 minDate={new Date()}
                 calendarPosition="bottom-right"
                 onChange={(date) => {
-                  setea((item) => ({
+                  setData((item) => ({
                     ...item,
                     expirDate: `${date?.year}/${date?.month.number}/${date?.day}`,
                   }));
@@ -374,8 +377,7 @@ const AddProdoct = () => {
             <button
               className="w-[calc(100%-20px)] mx-auto  h-12 bg-blue-500 block  mt-5 rounded-[10px] text-white "
               onClick={() => {
-                console.log(data);
-                console.log(PostProduct(data));
+                mutate(data);
                 // navigate(-1);
               }}
             >
@@ -396,15 +398,6 @@ const AddProdoct = () => {
           />
         </div>
       </div>
-      {/* <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6867.199671576982!2d48.35835464417799!3d33.498664077569366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3feec0d9b52f92c5%3A0x347e52786cf3087b!2sShohada-ye%20Ashayer%20Hospital!5e0!3m2!1sen!2s!4v1726829495702!5m2!1sen!2s"
-        width="600"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe> */}
     </>
   );
 };

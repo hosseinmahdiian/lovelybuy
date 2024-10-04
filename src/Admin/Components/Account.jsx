@@ -1,34 +1,37 @@
 import React, { useContext, useEffect, useState } from "react";
-import { IoIosArrowBack, IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import logo from "../../assets/images/logo.png";
 import { reducerContext } from "../Context/Context";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ChengHandler } from "../Functions/Fonctions";
 import { PostRole } from "../services/Admin";
 import Loader from "./Loader";
+import { useMutation } from "react-query";
+import { BeatLoader } from "react-spinners";
 
 const Acconut = () => {
-  const navegate = useNavigate();
+  const navigate = useNavigate();
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+
   const [role, setRole] = useState({ userName: "", password: "" });
   const [res, setRes] = useState();
   const [eye, setEye] = useState(true);
 
+  const { mutate, isLoading, isError } = useMutation(["post-Role"], () =>
+    PostRole(role, setRes)
+  );
+
   useEffect(() => {
-    navegate(res?.data.success && `/home`);
+    navigate(res?.data.success && `/admin`);
   }, [res?.data.success]);
 
-  return false ? (
-    <Loader />
-  ) : (
+  return (
     <div className="  h-full bg-white  relative ont-IrSans mt-16 max-w-2xl mx-auto">
-      <div className={`${reduce.acconut ? `hidden` : `block`}`}>
+      <div className={` block`}>
         <NavLink>
-
-          <img src={logo} alt="" className="mx-auto mb-20 mt-10 " />
+          <img src={logo} alt="" className="mx-auto mb-20 w-56 mt-40 " />
         </NavLink>
-        
 
         <div className=" ">
           <div className="relative  mx-[20px] ">
@@ -80,22 +83,23 @@ const Acconut = () => {
               رمز عبور یا نام کار بری اشتباه است
             </p>
           )}
-          {/* <NavLink to=""> */}
           <button
             disabled={!(!!role.userName && role.password.length >= 8)}
-            onClick={async () => {
-              // dispach({ type: "acconut" });
-              await PostRole(role, setRes);
+            onClick={() => {
+              mutate(role, setRes);
             }}
             className={` ${
-              !(!!role.userName && role.password.length >= 8)
+              !(!!role.userName && role.password.length >= 8) || isLoading
                 ? ` bg-gray-200 text-gray-600`
                 : ` bg-blue-500 text-white`
             } w-[calc(100%-40px)] mx-auto h-12  block mt-10 rounded-[10px]  `}
           >
-            ورود به فروشگاه
+            {isLoading ? (
+              <BeatLoader color="#3b82f6" size={15} className="mt-2" />
+            ) : (
+              <p>ورود به فروشگاه</p>
+            )}
           </button>
-          {/* </NavLink> */}
         </div>
       </div>
     </div>
