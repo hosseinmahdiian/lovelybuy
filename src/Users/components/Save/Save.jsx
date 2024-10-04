@@ -47,7 +47,7 @@ const Save = () => {
     if (!!localStorage.getItem("authUser")) {
       setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
     } else {
-      navigate("/LoginUser");
+      navigate("/user/LoginUser");
     }
   }, []);
 
@@ -87,7 +87,7 @@ const Save = () => {
               }  `}
             ></div>
             <div className="mt-5 container mx-auto mb-5 pr-2">
-              <NavLink to="/" className="flex    gap-2  ">
+              <NavLink to={-1} className="flex    gap-2  ">
                 <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
                 <span className="text-red-500 font-bold lg:text-xl ">
                   ذخیره شده

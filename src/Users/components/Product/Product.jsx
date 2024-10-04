@@ -93,7 +93,7 @@ const Product = ({ item, FN }) => {
       <span
         onClick={() => {
           if (!localStorage.getItem("authUser")) {
-            navigate("/LoginUser");
+            navigate("/user/LoginUser");
           } else {
             !!FN && FN();
             !save &&

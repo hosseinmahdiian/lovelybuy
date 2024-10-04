@@ -6,12 +6,13 @@ import Loader from "./Users/components/Loader";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "./assets/images/logo.png";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "خانه", href: "/" },
-  { name: "فروشگاه", href: "user" },
-  { name: "فروشگاه حضوری", href: "ee" },
-  { name: "ادمین", href: "admin" },
+  { name: "خانه", to: "/" },
+  { name: "فروشگاه", to: "user" },
+  { name: "فروشگاه حضوری", to: "ee" },
+  { name: "ادمین", to: "admin" },
 ];
 const InPerson = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,28 +45,28 @@ const InPerson = () => {
             </button>
           </div>
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a to="#" className="-m-1.5 p-1.5">
               <img alt="" src={logo} className="h-8 w-auto" />
             </a>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation?.map((item) => (
-              <a
+              <NavLink
                 key={item.name}
-                href={item.href}
+                to={item.to}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 {item.name}
-              </a>
+              </NavLink>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="/LoginUser"
+            <NavLink
+              to="/LoginUser"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               ورود <span aria-hidden="true">&rarr;</span>
-            </a>
+            </NavLink>
           </div>
         </nav>
         <Dialog
@@ -76,10 +77,10 @@ const InPerson = () => {
           <div className="fixed inset-0 z-50" />
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <NavLink to="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img alt="" src={logo} className="h-8 w-auto" />
-              </a>
+              </NavLink>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
@@ -93,22 +94,22 @@ const InPerson = () => {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <NavLink
                       key={item.name}
-                      href={item.href}
+                      to={item.to}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="/loginUser"
+                  <NavLink
+                    to="/loginUser"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     ورود
-                  </a>
+                  </NavLink>
                 </div>
               </div>
             </div>

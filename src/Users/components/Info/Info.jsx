@@ -32,12 +32,17 @@ import { decrypt } from "../../auth/crypto";
 const Info = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
-
   const [count, setCount] = useState(0);
   const [save, setSave] = useState(false);
-
   const [data1, setdata] = useState(infoProducts);
   const [select, setSelect] = useState(data1[0]);
+  const { isLoading, data } = useQuery(["get-products"], getProducts);
+  const [item, setItem] = useState();
+  const [idF, setIdF] = useState();
+  const [authUser, setAuthUser] = useState();
+  const [favorite, setFavorite] = useState();
+  const navigate = useNavigate();
+  const { ID } = useParams();
 
   let check = JSON.parse(localStorage.getItem("product"));
 
@@ -46,6 +51,35 @@ const Info = () => {
       check?.map((i) => i.id == ID && setCount(i?.count));
     }
   }, []);
+
+  useEffect(() => {
+    setItem(data?.data.data?.find((item) => item?.id == ID));
+  }, [data]);
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      if (!!localStorage.getItem("authUser")) {
+        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      } else {
+        navigate("/LoginUser");
+      }
+    }, []);
+
+  !!localStorage.getItem("authUser") &&
+    useEffect(() => {
+      // console.log("get favorit");
+      if (authUser?._id) {
+        getFavorite(authUser._id, setFavorite);
+      }
+    }, [authUser?._id, save]);
+
+
+    useEffect(() => {
+      let find = favorite?.data.data.find((i) => i.productID == ID);
+      find?.productID == ID ? setSave(true) : setSave(false);
+      find?.productID == ID && setIdF(find._id);
+    }, [favorite]);
+
 
   const increaseHandeler = (id) => {
     let check = JSON.parse(localStorage.getItem("product"));
@@ -83,43 +117,6 @@ const Info = () => {
       }
     });
   };
-  const { isLoading, data } = useQuery(["get-products"], getProducts);
-  const [item, setItem] = useState();
-  const [idF, setIdF] = useState();
-  const [authUser, setAuthUser] = useState();
-  const [favorite, setFavorite] = useState();
-  const navigate = useNavigate();
-  const { ID } = useParams();
-
-  useEffect(() => {
-    setItem(data?.data.data?.find((item) => item?.id == ID));
-  }, [data]);
-
-  !!localStorage.getItem("authUser") &&
-    useEffect(() => {
-      if (!!localStorage.getItem("authUser")) {
-        setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
-      } else {
-        navigate("/LoginUser");
-      }
-    }, []);
-
-  !!localStorage.getItem("authUser") &&
-    useEffect(() => {
-      // console.log("get favorit");
-      if (authUser?._id) {
-        getFavorite(authUser._id, setFavorite);
-      }
-    }, [authUser?._id, save]);
-
-  !!localStorage.getItem("authUser") &&
-    // console.log(item);
-
-    useEffect(() => {
-      let find = favorite?.data.data.find((i) => i.productID == ID);
-      find?.productID == ID ? setSave(true) : setSave(false);
-      find?.productID == ID && setIdF(find._id);
-    }, [favorite]);
 
   return (
     !isLoading && (

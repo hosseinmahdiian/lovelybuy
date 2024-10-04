@@ -7,6 +7,7 @@ import { MobileOnlyView } from "react-device-detect";
 import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
 import empty from "../../../assets/images/Empty2.png";
+
 const Basket = ({
   setTotalOP,
   setTotalSP,
@@ -26,7 +27,7 @@ const Basket = ({
     }
   }, [reduce.basket]);
 
-  // console.log(ProductsInBascket.length>0);
+  console.log(totalOldPrice, totalSellPrice);
 
   return (
     reduce.basket && (
@@ -45,9 +46,7 @@ const Basket = ({
               </h1>
             </span>
           </div>
-          {!ProductsInBascket?.length > 0 ? (
-            <img src={empty} alt="" className="border mx-auto mt-52" />
-          ) : (
+          {!!ProductsInBascket?.length > 0 ?  (
             <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
               {data?.data.data.map((item, index) => (
                 <div key={index}>
@@ -61,7 +60,9 @@ const Basket = ({
                 </div>
               ))}
             </div>
-          )}
+          ):(
+            <img src={empty} alt="" className="border mx-auto mt-52" />
+          ) }
         </div>
         {/* ========================================== */}
         <div

@@ -1,18 +1,28 @@
-import React, { useContext, useState } from "react";
-import { reducerContext } from "../../constant/Context";
-import Basket from "./Basket";
-import PayProducts from "./PayProducts";
+import React, { useContext, useEffect, useState } from "react"
+import { reducerContext } from "../../constant/Context"
+import Basket from "./Basket"
+import PayProducts from "./PayProducts"
 
 const Derawer = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
+
   const [totalOldPrice, setTotalOldPrice] = useState(0);
   const [totalSellPrice, setTotalSellPrice] = useState(0);
   const [ProductsInBascket, setProductsInBascket] = useState(
     JSON.parse(localStorage.getItem("product"))
   );
-    console.log(totalOldPrice,totalSellPrice);
 
+    console.log(totalOldPrice, totalSellPrice);
+
+    let check = JSON.parse(localStorage.getItem("product"));
+
+    useEffect(() => {
+      if (!!check) {
+        check?.map((i) => console.log(i.count)
+        );
+      }
+    }, [check]);
 
   return (
     <>

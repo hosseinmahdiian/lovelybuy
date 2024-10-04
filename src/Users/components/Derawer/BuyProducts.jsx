@@ -4,7 +4,13 @@ import { HiPlusSm } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { percent, sp } from "../../constant/Functions";
 
-const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
+const BuyProducts = ({
+  item,
+  setTotalSP,
+  setTotalOP,
+  totalOldPrice,
+  totalSellPrice,
+}) => {
   const { name, oldPrice, sellPrice, image, id } = item;
 
   const [count, setCount] = useState();
@@ -30,6 +36,8 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
       );
     }
     setCount(count + 1);
+    setTotalOP(totalOldPrice + oldPrice);
+    setTotalSP(totalSellPrice + sellPrice);
   };
 
   const decreaseHandeler = (id) => {
@@ -41,12 +49,16 @@ const BuyProducts = ({ item, setTotalSP, setTotalOP }) => {
       )
     );
     setCount(count - 1);
+    setTotalOP(totalOldPrice - oldPrice);
+    setTotalSP(totalSellPrice - sellPrice);
   };
-  
-  useEffect(() => {
-    setTotalOP(count * oldPrice);
-    setTotalSP(count * sellPrice);
-  }, [count]);
+  console.log(totalOldPrice );
+
+  // useEffect(async() => {
+  //  await setTotalOP(  totalOldPrice + count * oldPrice);
+  //   await setTotalSP(  totalSellPrice + count * sellPrice);
+  // }, []);
+
   
   return (
     count > 0 && (
