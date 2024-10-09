@@ -26,7 +26,7 @@ const Login = () => {
   };
   // ===============================================
   return (
-    <div className="h-full  bg-white  ">
+    <div className="h-full w-full  bg-white   ">
       <Acconut
         sendSms={sendSms}
         mobile={mobile}

@@ -58,7 +58,7 @@ const ShowHistoryProducts = () => {
             </div>
 
             <div className="flex justify-between mx-5 text-lg mt-2">
-              <p>قابل پرداخت</p>
+              <p> پرداخت شده</p>
               <span className="flex gap-0.5">
                 <p>{2164896}</p>
                 <p>تومان</p>

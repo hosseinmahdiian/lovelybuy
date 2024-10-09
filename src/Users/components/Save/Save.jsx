@@ -98,7 +98,7 @@ const Save = () => {
             <Slides
               slid={slid?.data.data}
               select={selectCatgory}
-              setSelect={setSelectCatgory}
+              setSelectCatgory={setSelectCatgory}
             />
             <Categorys
               sub={slid?.data.data}

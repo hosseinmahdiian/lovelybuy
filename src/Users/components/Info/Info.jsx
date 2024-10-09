@@ -52,6 +52,7 @@ const Info = () => {
     }
   }, []);
 
+  
   useEffect(() => {
     setItem(data?.data.data?.find((item) => item?.id == ID));
   }, [data]);

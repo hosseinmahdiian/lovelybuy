@@ -6,7 +6,7 @@ import { sp } from "../../constant/Functions";
 import { MobileOnlyView } from "react-device-detect";
 import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
-import empty from "../../../assets/images/Empty2.png";
+import empty from "../../../assets/images/hasntItem.png";
 
 const Basket = ({
   setTotalOP,
@@ -27,7 +27,7 @@ const Basket = ({
     }
   }, [reduce.basket]);
 
-  console.log(totalOldPrice, totalSellPrice);
+  // console.log(totalOldPrice, totalSellPrice);
 
   return (
     reduce.basket && (
@@ -61,7 +61,7 @@ const Basket = ({
               ))}
             </div>
           ):(
-            <img src={empty} alt="" className="border mx-auto mt-52" />
+            <img src={empty} alt="" className=" mx-auto w-10/12 mt-28" />
           ) }
         </div>
         {/* ========================================== */}
@@ -103,7 +103,7 @@ const Basket = ({
             className=" w-[calc(100%-40px)] bg-blue-600 rounded-lg mt-4 h-12 block mx-auto text-white my-2"
             onClick={() => dispach({ type: "pay" })}
           >
-            ادامه خرید
+             تکمیل سفارش
           </button>
           <MobileOnlyView>
             <div className="h-10"></div>

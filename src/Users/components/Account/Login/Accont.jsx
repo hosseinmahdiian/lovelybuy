@@ -16,7 +16,7 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
   
   return (
     reduce.Account && (
-      <div className={`bg-white max-w-xl relative mx-auto  h-full`}>
+      <div className={`  bg-white w-full fixed max-w-xl mx-auto right-0 left-0  mt-3 `}>
         <div className={``}>
           <img src={logo} alt="" className="mx-auto mb-20 mt-40 w-56 " />
 

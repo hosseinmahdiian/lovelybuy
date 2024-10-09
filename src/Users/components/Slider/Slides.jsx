@@ -1,37 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
 import Slide from "./slide";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { slideDadta } from "../../constant/DataSets";
 import {
   IoIosArrowBack,
   IoIosArrowDropleft,
   IoIosArrowDropright,
   IoIosArrowForward,
 } from "react-icons/io";
-import { useQuery } from "react-query";
-import { getCategory } from "../../services/Catgory";
-import Loader from "../Loader";
-// import { settingsForSlide } from "../../constant/constant";
 
-function Slides({ slid, select, setSelect }) {
+function Slides({ slid, select, setSelectCatgory }) {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
-
-  
   useEffect(() => {
     // console.log(slid);
-    setSelect(slid[0]);
+    setSelectCatgory(slid[0]);
   }, [slid]);
 
   const clickhandler = (e) => {
     slid?.map((item) => {
-      // console.log(item.id == e.target.id);
+      // console.log(item.id , e.target.id);
       if (item.id == e.target.id) {
-        setSelect(item);
         setSelectCatgory(item);
-
       }
     });
   };

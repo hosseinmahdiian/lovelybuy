@@ -56,7 +56,7 @@ const Conter = () => {
                   dispach({ type: "basket" });
                 }}
               />
-              <NavLink to="user/Search" className=" ">
+              <NavLink to="/user/Search" className=" ">
                 <IoIosSearch className=" mx-auto text-2xl" />
               </NavLink>
               <span

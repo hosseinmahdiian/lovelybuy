@@ -1,10 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-// import Item from "./Item";
-import { FilterData, itemsData } from "../../constant/DataSets";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// import { settingsForitem } from "../../constant/constant";
 import Filter from "./Filter";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
@@ -18,27 +12,27 @@ const Filters = ({
   const [select, setSelect] = useState();
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
-// console.log(selectCatgory)
+  // console.log(selectCatgory)
 
-// console.log(selectSubCatgory);
+  // console.log(selectSubCatgory);
 
   useEffect(() => {
     setData(selectSubCatgory?.SubSubCat);
-    setSelectSubSubCatgory(selectSubCatgory?.SubSubCat[0]);
-    setSelect({_id:"all"});
+    setSelectSubSubCatgory({ _id: "allSubSubCat", title: "allSubSubCat" });
+    setSelect({ _id: "allSubSubCat" , title: "allSubSubCat"});
   }, [selectSubCatgory]);
 
   const clickhandler = (e) => {
     console.log(e.target.id);
     data?.map((item) => {
-      if (item._id == e.target.id ) {
+      if (item._id == e.target.id) {
         setSelect(item);
         setSelectSubSubCatgory(item);
       }
     });
-    if("all" == e.target.id ){
-      setSelect({ _id: "all" });
-      setSelectSubSubCatgory({ _id: "all" });
+    if ("allSubSubCat" == e.target.id) {
+      setSelect({ _id: "allSubSubCat", title: "allSubSubCat" });
+      setSelectSubSubCatgory({ _id: "allSubSubCat", title: "allSubSubCat" });
     }
   };
 
@@ -91,11 +85,11 @@ const Filters = ({
           <div className="flex gap-2    items-center  ">
             <div
               onClick={clickhandler}
-              id={"all"}
+              id={"allSubSubCat"}
               // name={subCatID}
               // style={{}}
               className={`font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap  ${
-                "all" == select?._id
+                "allSubSubCat" == select?._id
                   ? `text-white bg-black bg-opacity-80`
                   : `bg-white`
               }  `}

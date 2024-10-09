@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import Conection from "../Conection";
 
-const Private = () => {
+const Privacy = () => {
   return (
     <div className=" lg:mt-0  container mx-auto">
       <div className=" mt-5  mx-auto   ">
@@ -22,4 +22,4 @@ const Private = () => {
   );
 };
 
-export default Private;
+export default Privacy;

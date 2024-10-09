@@ -1,29 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import Categorys from "./Category/Categorys";
 import Slides from "./Slider/Slides";
-import Items from "./Item/Items";
 import Filters from "./Filter/Filters";
 import Products from "./Product/Products";
-import Conter from "./Conter";
 import { reducerContext } from "../constant/Context";
-import Account from "./Account/Login/Accont";
-import Basket from "./Derawer/Basket";
-import PayProducts from "./Derawer/PayProducts";
-import Order from "./order";
 import Loader from "./Loader";
-import Login from "./Account/Login/Login";
 import Successsful from "./Derawer/Successsful";
 import Conection from "./Conection";
 import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
-import Info from "./Info/Info";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "../layout/Layout";
-import Slide from "./Slider/slide";
-import { checkTokenExamination } from "../auth/Token-Service";
-import { getUser } from "../services/User";
-import { decrypt } from "../auth/crypto";
-import { getFavorite } from "../services/Favorite";
 import { checkToten } from "../services/Products";
 import Derawer from "./Derawer/Derawer";
 
@@ -84,7 +71,7 @@ const HomeUser = () => {
             <Slides
               slid={slid?.data.data}
               select={selectCatgory}
-              setSelect={setSelectCatgory}
+              setSelectCatgory={setSelectCatgory}
             />
             <Categorys
               sub={slid?.data.data}
@@ -98,7 +85,11 @@ const HomeUser = () => {
               setSelectSubSubCatgory={setSelectSubSubCatgory}
             />
             <div className="mt-1">
-              <Products />
+              <Products
+                selectCatgory={selectCatgory}
+                selectSubCatgory={selectSubCatgory}
+                selectSubSubCatgory={selectSubSubCatgory}
+              />
             </div>
 
             <Derawer />

@@ -1,15 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Category from "./Category";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-// import { settingsForCategory } from "../../constant/constant";
-import { CategoryData } from "../../constant/DataSets";
-import {
-  IoIosArrowBack,
-  IoIosArrowForward,
-} from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { TbSquareRoundedCheckFilled } from "react-icons/tb";
 
 const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
@@ -24,24 +15,33 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
     sub.map((item, indxe) => {
       if (item.id === selectCatgory?.id) {
         setData(item.SubCat);
-        setSelect({ id: "66c91f8f531a33d8799c42e0" });
-        setSelectSubCatgory(item.SubCat[0]);
+        setSelect({ _id: selectCatgory._id, title: "allSubCat" });
+        setSelectSubCatgory({
+          _id: selectCatgory._id,
+          title: "allSubCat",
+        });
         // console.log(item)
       }
     });
   }, [selectCatgory]);
 
   const clickhandler = (e) => {
+    // console.log(e);
     data?.map((item) => {
       if (item.id == e.target.id) {
+        // console.log(item.id == e.target.id);
+
         setSelect(item);
         setSelectSubCatgory(item);
       }
+      if (selectCatgory._id == e.target.id) {
+        setSelect({ _id: selectCatgory._id, title: "allSubCat" });
+        setSelectSubCatgory({
+          _id: selectCatgory._id,
+          title: "allSubCat",
+        });
+      }
     });
-    console.log(e.target.id);
-    if ("66c91f8f531a33d8799c42e0" == e.target.id) {
-      setSelect({ id: "66c91f8f531a33d8799c42e0" });
-    }
   };
 
   const scrollR = () => {
@@ -99,24 +99,22 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
             <span>
               <div
                 className={`items-center   relative  md:w-[100px]  w-[80px]`}
-                id={selectCatgory?.id}
+                id={selectCatgory?._id}
                 onClick={clickhandler}
               >
                 <img
                   src={selectCatgory?.image}
                   className={`md:w-[100px] md:h-[100px] w-[80px] h-[80px] border-2 rounded-3xl ${
-                    select?.id == "66c91f8f531a33d8799c42e0"
+                    select?._id == selectCatgory?._id
                       ? `border-black`
                       : ` border-black border-opacity-20`
                   } `}
-                  id={selectCatgory?.id}
+                  id={selectCatgory?._id}
                 />
 
                 <span
                   className={`absolute   md:top-[72px] top-[52px] left-3  ${
-                    select?.id == "66c91f8f531a33d8799c42e0"
-                      ? `inline-block`
-                      : `hidden`
+                    select?._id == selectCatgory?._id ? `inline-block` : `hidden`
                   }  `}
                 >
                   <TbSquareRoundedCheckFilled />

@@ -41,11 +41,11 @@ const PayProducts = ({ totalOldPrice, totalSellPrice }) => {
                 <IoIosArrowForward className="text-xl mt-1 " />
                 <h1 className="font-IrSana text-red-600 text-lg font-bold">
                   {" "}
-                  ادامه خرید
+                   تکمیل سفارش
                 </h1>
               </span>
             </div>
-            <div className="mx-5 h-[calc(100%-290px)] overflow-y-scroll delivery">
+            <div className="mx-5 h-[calc(100%-330px)] overflow-y-scroll delivery">
               {/* محل تحویل */}
               <div className="py-4 border-b">
                 <div className="flex  gap-2">
@@ -127,12 +127,12 @@ const PayProducts = ({ totalOldPrice, totalSellPrice }) => {
               <div>
                 <div className="border-y    gap-4 py-4">
                   <div className=" ">
-                    <div className="flex justify-between gap-60">
+                    <div className="flex justify-between">
                       <div className="flex items-center justify-between gap-3">
                         <span>
                           <FiTruck className="text-lg text-gray-600" />
                         </span>
-                        <p className="font-bold"> هزینه ارسال </p>
+                        <p className="font-bold text-nowrap"> هزینه ارسال </p>
                       </div>
                       <span className="flex gap-0.5">
                         <p>0</p>

@@ -2,7 +2,6 @@
 // reducer
 export const FnReducer = (state, action) => {
   switch (action.type) {
-    
     case "acconut":
       return {
         ...state,
@@ -110,7 +109,7 @@ export const FnReducer = (state, action) => {
         InPerson: !state.InPerson,
       };
     // ====================
- 
+
     case "logIn":
       return {
         ...state,
@@ -161,25 +160,24 @@ export const init = {
   Place: false,
   Show: false,
   History: false,
-  Derawer: true, 
+  Derawer: true,
   Info: false,
   Chose: false,
   InPerson: false,
 
   // ======
-    logIn: false,
-    basket: false,
-    pay: false,
-    successful: false,
-    save: false,
+  logIn: false,
+  basket: false,
+  pay: false,
+  successful: false,
+  save: false,
 };
 
 export const sp = (number) => {
   const seperatedNumber = number
     ?.toString()
-    .match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
-  const joinedNumber = seperatedNumber?.join(",");
-  return joinedNumber;
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return seperatedNumber;
 };
 
 export const ChengHandler = (e, set) => {
