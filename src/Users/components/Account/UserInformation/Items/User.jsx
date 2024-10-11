@@ -10,7 +10,7 @@ import inojy from "../../../../../assets/images/75 (1).png";
 import { BsFileEarmarkText } from "react-icons/bs";
 
 import { UserData } from "../../../../constant/DataSets";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import {
   getCurrentUser,
   LocalStorageService,
@@ -179,7 +179,8 @@ const User = ({ dispach }) => {
           <p className="text-black "> شرایط و قوانین استفاده </p>
         </div>
 
-        <div
+        <NavLink
+          to="/user/Privacy"
           className="flex gap-3 items-center mt-6 "
           // onClick={() => {
           //   dispach({ type: "Login" });
@@ -191,7 +192,7 @@ const User = ({ dispach }) => {
             <MdOutlineRemoveRedEye />{" "}
           </span>
           <p className="text-black "> حریم خصوصی </p>
-        </div>
+        </NavLink>
         <div
           className="flex gap-3 text-red-600 items-center mt-6 "
           // onClick={() => {

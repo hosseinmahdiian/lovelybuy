@@ -217,7 +217,7 @@ const MainPage = () => {
 
       <div className="bg-white ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className=" mb-8 text-justify  font-bold ">
+          <div className=" mb-8 text-center  font-bold ">
             هر روز صدها نفر از وب‌سایت ما بازدید می‌کنند تا از اخبار و تخفیف‌های
             ویژه بهره‌مند شوند. همین حالا ثبت‌نام کنید و تجربه‌ای متفاوت از
             خدمات آنلاین را تجربه کنید!

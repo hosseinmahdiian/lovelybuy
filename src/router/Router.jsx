@@ -55,6 +55,7 @@ import Detail from "../Admin/Components/Pages/Dispacher/Detail";
 import CategoryPage from "../Admin/Components/Pages/Edit/CategoryPage";
 import BillPrenter from "../Admin/Components/Pages/processing/BillPrinter";
 import EditProdoct from "../Admin/Components/Pages/Edit/EditProdoct";
+import Privacy from "../Users/components/Privacy/Private ";
 
 const Routers = () => {
   return (
@@ -63,6 +64,7 @@ const Routers = () => {
       {/*  ============================ user pages ====================== */}
       <Route path="*" element={<NotFind />} />
       <Route path="/user" element={<HomeUser />} />
+      <Route path="user/Privacy" element={<Privacy />} />
       <Route path="user/Save" element={<Save />} />
       <Route path="user/Search" element={<Search />} />
       <Route path="user/ProductID/:ID" element={<Info />} />
