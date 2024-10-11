@@ -61,7 +61,7 @@ const Basket = ({
               ))}
             </div>
           ):(
-            <img src={empty} alt="" className=" mx-auto w-10/12 mt-28" />
+            <img src={empty} alt="" className="w-40  mx-auto  mt-28" />
           ) }
         </div>
         {/* ========================================== */}

@@ -1,16 +1,16 @@
 import React from "react";
-const Slide = ({ item ,select}) => {
+const Slide = ({ item ,selectCatgory}) => {
   const { image, title, name,id } = item;
 
-  // console.log(select?.id);
+  // console.log(selectCatgory?.id);
   
 
   return (
-      <div className={`relative md:w-[245px]  sm:w-[205px]   w-[170px] rounded-xl overflow-hidden  border `} id={id}>
+      <div className={`relative   w-[270px] h-36 rounded-xl overflow-hidden  border `} id={id}>
         <img
           src={image}
-          className={` w-72 h-20 bg ${
-            (id==select?.id) && ` opacity-25 !bg-black `
+          className={` w-full h-full bg ${
+            (id!=selectCatgory?.id) && ` opacity-25 !bg-black `
           } `}
           id={id}
         />

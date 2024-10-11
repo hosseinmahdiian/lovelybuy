@@ -1,5 +1,5 @@
 import React from "react";
-import QM from "../../assets/images/questionMarck.jpg";
+import QM from "../../assets/images/404.jpg";
 import { useNavigate } from "react-router-dom";
 const NotFind = () => {
   const navigate = useNavigate();

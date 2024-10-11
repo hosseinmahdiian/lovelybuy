@@ -9,7 +9,7 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 
-function Slides({ slid, select, setSelectCatgory }) {
+function Slides({ slid, selectCatgory, setSelectCatgory }) {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
   useEffect(() => {
@@ -54,7 +54,7 @@ function Slides({ slid, select, setSelectCatgory }) {
             ref={scroll}
           >
             <span
-              className={`absolute  right-0  items-center lg:flex hidden border rounded-md h-24  child:hover:text-gray-600 hover:border-black
+              className={`absolute  right-0  items-center lg:flex hidden border rounded-md !h-full  child:hover:text-gray-600 hover:border-black
               ${endScroll === 0 && `!hidden`}
                `}
             >
@@ -64,7 +64,7 @@ function Slides({ slid, select, setSelectCatgory }) {
               />
             </span>
             <span
-              className={`absolute  left-0  items-center lg:flex hidden border rounded-md h-24  child:hover:text-gray-600 hover:border-black  ${
+              className={`absolute  left-0  items-center lg:flex hidden border rounded-md !h-full  child:hover:text-gray-600 hover:border-black  ${
                 endScroll === 100 && `!hidden`
               }`}
             >
@@ -83,7 +83,7 @@ function Slides({ slid, select, setSelectCatgory }) {
                   className="  "
                   onClick={clickhandler}
                 >
-                  <Slide item={item} select={select} />
+                  <Slide item={item} selectCatgory={selectCatgory} />
                 </span>
               ))}
             </div>

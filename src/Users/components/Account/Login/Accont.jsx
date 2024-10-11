@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import logo from "../../../../assets/images/logo.png";
 import { reducerContext } from "../../../constant/Context";
 import { BsFileEarmarkText } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
   const reducer = useContext(reducerContext);
@@ -16,9 +18,17 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
   
   return (
     reduce.Account && (
-      <div className={`  bg-white w-full fixed max-w-xl mx-auto right-0 left-0  mt-3 `}>
+      <div
+        className={`  bg-white w-full fixed max-w-xl mx-auto right-0 left-0  mt-3 `}
+      >
         <div className={``}>
-          <img src={logo} alt="" className="mx-auto mb-20 mt-40 w-56 " />
+            <NavLink to='/user' className="flex  mt-10  gap-2  ">
+              <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
+              <span className="text-red-500 font-bold lg:text-xl ">
+                  برگشت
+              </span>
+            </NavLink>
+          <img src={logo} alt="" className="mx-auto mb-20 mt-36 w-56 " />
 
           <div className=" ">
             <div className="relative w-[calc(100%-40px)] mx-auto ">
@@ -63,19 +73,7 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
               ادامه
             </button>
 
-            <p
-              href=""
-              className=" mt-5 mx-auto text-blue-500 block w-fit "
-              onClick={() => {
-                dispach({ type: "Conection" });
-              }}
-            >
-              {" "}
-              نیاز به کمک دارم
-            </p>
-          </div>
-
-          <div className="flex w-fit  mx-auto items-center gap-2 ">
+          <div className="flex w-fit  mt-10  mx-5 items-right gap-2 ">
             <span>
               <BsFileEarmarkText className="text-xl" />
             </span>
@@ -87,6 +85,18 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
               آن را می پذیرم
             </p>
           </div>
+            <p
+              href=""
+              className=" mt-5 pl-5 font-bold w-full text-blue-500 text-left block "
+              onClick={() => {
+                dispach({ type: "Conection" });
+              }}
+            >
+              {" "}
+              نیاز به کمک دارم
+            </p>
+          </div>
+
         </div>
 
         {/*  */}

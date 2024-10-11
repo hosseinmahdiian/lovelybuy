@@ -50,7 +50,7 @@ const Search = () => {
             سابقه جستجویی در دسترس نیست
           </p>
 
-          <div className=" bg-[#F5F5F5]  w-full ">
+          <div className=" bg-[#F5F5F5]  h-[calc(100vh-300px)] ">
             <p className="  text-xl mt-1 pb-1.5 pt-7  pr-2  container mx-auto ">
               20 محصول اخیر
             </p>

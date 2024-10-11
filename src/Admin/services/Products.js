@@ -16,14 +16,16 @@ export const GetProducts = async () => {
 };
 
 export const PostProduct = (data) => {
-  return axios
-    .post(
-      `${baseAPI}/admin/addProduct?${token}
-      `,
-      data
-    )
-    .then((res) => console.log(res))
-    .catch((e) => console.log(e));
+  console.log(`${baseAPI}/admin/addProduct?${token}
+      `)
+  // return axios
+  //   .post(
+  //     `${baseAPI}/admin/addProduct?${token}
+  //     `,
+  //     data
+  //   )
+  //   .then((res) => console.log(res))
+  //   .catch((e) => console.log(e));
 };
 
 export const PutProduct = (id, data) => {

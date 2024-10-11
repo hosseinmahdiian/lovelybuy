@@ -3,7 +3,7 @@ import { FaMinus } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { percent, sp } from "../../constant/Functions";
-
+import empty from "../../../assets/images/no-image.png";
 const BuyProducts = ({
   item,
   setTotalSP,
@@ -52,20 +52,19 @@ const BuyProducts = ({
     setTotalOP(totalOldPrice - oldPrice);
     setTotalSP(totalSellPrice - sellPrice);
   };
-  console.log(totalOldPrice );
+  console.log(totalOldPrice);
 
   // useEffect(async() => {
   //  await setTotalOP(  totalOldPrice + count * oldPrice);
   //   await setTotalSP(  totalSellPrice + count * sellPrice);
   // }, []);
 
-  
   return (
     count > 0 && (
       <>
         <div className="flex w-11/12 font-IrSans border-b mx-4 py-2  ">
           <img
-            src={image}
+            src={!image ? empty : image}
             alt=""
             className="w-[70px] h-[70px] border rounded-md ml-2"
           />

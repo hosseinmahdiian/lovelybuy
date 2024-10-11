@@ -4,7 +4,7 @@ import HomeUser from "../Users/components/Home";
 import NotFind from "../Users/components/NotFind";
 import Save from "../Users/components/Save/Save";
 import Search from "../Users/components/Search/Search";
-import InPerson from "../MainPage";
+import MainPage from "../Main/MainPage";
 import AcccountLogin from "../Users/components/Account/UserInformation/Acccount-Login";
 import ChengPass from "../Users/components/Account/ChengPass";
 import Place from "../Users/components/Account/Place/Place";
@@ -59,7 +59,7 @@ import EditProdoct from "../Admin/Components/Pages/Edit/EditProdoct";
 const Routers = () => {
   return (
     <Routes>
-      <Route index element={<InPerson />} />
+      <Route index element={<MainPage />} />
       {/*  ============================ user pages ====================== */}
       <Route path="*" element={<NotFind />} />
       <Route path="/user" element={<HomeUser />} />
@@ -81,7 +81,10 @@ const Routers = () => {
       <Route path="admin" element={<HomeAdmin />} />
       <Route path="admin/loginAdmin" element={<Acconut />} />
       {/* ====================================================================== */}
-      <Route path="admin/Product-Registration" element={<ProductRegistration />} />
+      <Route
+        path="admin/Product-Registration"
+        element={<ProductRegistration />}
+      />
       {/* ======================================================================= */}
       <Route path="admin/Bill" element={<Bill />} />
       <Route path="admin/Bill/Printer/:id" element={<BillPrenter />} />
@@ -108,7 +111,10 @@ const Routers = () => {
         path="admin/System-User-Registration"
         element={<SystemUserRegistration />}
       />
-      <Route path="admin/System-User-Registration/:id" element={<EditUsers />} />
+      <Route
+        path="admin/System-User-Registration/:id"
+        element={<EditUsers />}
+      />
       <Route
         path="admin/System-User-Registration/Setting-User/:id"
         element={<SettingUser />}
@@ -124,7 +130,10 @@ const Routers = () => {
         element={<OrganizationRegistration />}
       />
       <Route path="admin/Warehouse-Handling" element={<WarehouseHandling />} />
-      <Route path="admin/Warehouse-Information" element={<WarehouseInformation />} />
+      <Route
+        path="admin/Warehouse-Information"
+        element={<WarehouseInformation />}
+      />
       <Route path="admin/History" element={<History />} />
       <Route path="admin/Orders" element={<Orders />} />
       <Route path="admin/Archive" element={<Archive />} />
@@ -133,7 +142,10 @@ const Routers = () => {
       <Route path="admin/Advertise" element={<Advertise />} />
       <Route path="admin/Discount-Code" element={<DiscountCode />} />
       <Route path="admin/Data-Monitoring" element={<DataMonitoring />} />
-      <Route path="admin/Employee-Management" element={<EmployeeManagement />} />
+      <Route
+        path="admin/Employee-Management"
+        element={<EmployeeManagement />}
+      />
       <Route path="admin/Store-arehouse" element={<StoreWarehouse />} />
       {/* =================================================================================== */}
       <Route path="admin/Processing" element={<Processing />} />
@@ -142,7 +154,10 @@ const Routers = () => {
       {/* ==================================================================================== */}
       <Route path="admin/Dispacher" element={<Dispacher />} />
       <Route path="admin/Dispacher/Loaction/:id" element={<Detail />} />
-      <Route path="admin/Dispacher/Detil/:id" element={<RegistrationDispacher />} />
+      <Route
+        path="admin/Dispacher/Detil/:id"
+        element={<RegistrationDispacher />}
+      />
       <Route
         path="admin/Dispacher/:id/RegisterationDeliveryProducts"
         element={<RegisterationDeliveryProducts />}

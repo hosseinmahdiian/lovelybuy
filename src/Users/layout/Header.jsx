@@ -187,8 +187,8 @@ const Header = () => {
                 <span className=" h-[50px] w-[50px]  rounded-xl border-black">
                   <LuPhoneCall className="hidden md:inline-block m-[13px] h-6 w-6" />
                 </span>
-                <div className="hidden lg:inline-block   text-justify">
-                  <p className="text-sm font-bold text-nowrap w-fit ">
+                <div className="hidden lg:inline-block  ">
+                  <p className="text-sm  !text-justify border  ">
                     ارتباط با ما
                   </p>
                   <h1>

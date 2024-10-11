@@ -97,7 +97,7 @@ const Save = () => {
 
             <Slides
               slid={slid?.data.data}
-              select={selectCatgory}
+              selectCatgory={selectCatgory}
               setSelectCatgory={setSelectCatgory}
             />
             <Categorys
@@ -112,11 +112,21 @@ const Save = () => {
               setSelectSubSubCatgory={setSelectSubSubCatgory}
             />
             {!!count ? (
-              <Products item={favorite} FN={rerenderFN} />
+              <Products
+                item={favorite}
+                FN={rerenderFN}
+                selectCatgory={selectCatgory}
+                selectSubCatgory={selectSubCatgory}
+                selectSubSubCatgory={selectSubSubCatgory}
+              />
             ) : (
-              <p className="text-center font-bold text-red-500">
-                محصول ذخیره شده ای یافت نشد{" "}
-              </p>
+              <div className="container w-full mx-auto h-[calc(100vh-430px)] bg-[#F5F5F5]">
+                <div className=" mx-auto">
+                  <p className="text-center font-bold text-red-500">
+                    محصول ذخیره شده ای یافت نشد{" "}
+                  </p>
+                </div>
+              </div>
             )}
 
             <Conter />

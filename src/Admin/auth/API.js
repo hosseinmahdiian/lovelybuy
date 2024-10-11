@@ -8,7 +8,6 @@ if (!!localStorage.getItem("authAdmin")) {
   token = `token=${
     JSON.parse(decrypt(localStorage.getItem("authAdmin"))).token
   }`;
-} else {
-  // window.location.replace ("http://localhost:5173/LoginUser");
+  console.log(JSON.parse(decrypt(localStorage.getItem("authAdmin"))).token);
 }
 export { token };

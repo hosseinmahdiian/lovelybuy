@@ -57,7 +57,7 @@ const ProductRegistration = () => {
 
       <div className=" mx-5 mt-5">
         {!!search ? (
-          filter.length > 0 ? (
+          filter?.length > 0 ? (
             filter?.map((item) => (
               <Link to={`/admin/ChargeProduct/${item.id}`} key={item.id}>
                 <Product data={item} />

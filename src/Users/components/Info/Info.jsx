@@ -62,7 +62,7 @@ const Info = () => {
       if (!!localStorage.getItem("authUser")) {
         setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
       } else {
-        navigate("/LoginUser");
+        navigate("/user/LoginUser");
       }
     }, []);
 
@@ -144,7 +144,7 @@ const Info = () => {
                 <span
                   onClick={() => {
                     if (!localStorage.getItem("authUser")) {
-                      navigate("/LoginUser");
+                      navigate("/user/LoginUser");
                     } else {
                       !save &&
                         (addFavorite({ userID: authUser._id, productID: ID }),

@@ -70,7 +70,7 @@ const HomeUser = () => {
             {/* <Order /> */}
             <Slides
               slid={slid?.data.data}
-              select={selectCatgory}
+              selectCatgory={selectCatgory}
               setSelectCatgory={setSelectCatgory}
             />
             <Categorys
