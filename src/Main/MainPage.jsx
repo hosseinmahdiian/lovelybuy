@@ -177,11 +177,11 @@ const MainPage = () => {
               className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             />
           </div>
-          <div className="mx-auto  py-14 sm:py-28 lg:py-5 ">
-            <div className="  sm:py-14">
-              <div className="mx-auto  px-6 lg:px-8">
-                <div className="mx-auto text-center ">
-                  <h2 className="sm:text-2xl  text-xl text-nowrap font-bold tracking-tight text-[#f90305] ">
+          <div className="mx-auto w-full  py-14 sm:py-28 lg:py-5 ">
+            <div className=" w-full sm:py-14">
+              <div className="mx-auto   w-full">
+                <div className="mx-auto text-center w-full ">
+                  <h2 className="sm:text-2xl  text-xl text-nowrap font-bold tracking-tight  w-full text-[#f90305] ">
                     به خرید دوست داشتنی خوش آمدید{" "}
                   </h2>
                   <p className="mt-2 text-lg leading-8 text-gray-600">
@@ -222,25 +222,25 @@ const MainPage = () => {
             ویژه بهره‌مند شوند. همین حالا ثبت‌نام کنید و تجربه‌ای متفاوت از
             خدمات آنلاین را تجربه کنید!
           </div>
-          <dl className="grid border  rounded-2xl px-10 py-5 mb-6 bg-gray-50 gap-x-8 gap-y-16 text-center grid-cols-3">
+          <dl className="flex border  rounded-2xl px-8 py-5 mb-6 bg-gray-50 gap-x-8 gap-y-16 text-center ">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base leading-7 text-gray-600">فروشندگان </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+              <dd className="order-first text-xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
                 200 +{" "}
               </dd>
             </div>
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base leading-7 text-gray-600">کاربران</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+              <dd className="order-first text-xl font-semibold tracking-tight text-nowrap text-gray-900 sm:text-4xl">
                 46,000 +
               </dd>
             </div>
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base leading-7 text-gray-600">
+              <dt className="text-nowrap text-base leading-7 text-gray-600">
                 {" "}
                 کالا و خدمات{" "}
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+              <dd className="order-first text-xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
                 150 +{" "}
               </dd>
             </div>

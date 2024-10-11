@@ -61,7 +61,7 @@ const Save = () => {
   useEffect(() => {
     setCount(favorite?.data.data.length);
   }, [favorite]);
-  // console.log(count)
+  console.log(count)
 
   return (
     <>
