@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import Category from "./Category";
+import SubCat from "../SubCat/SubCat";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { TbSquareRoundedCheckFilled } from "react-icons/tb";
 
-const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
+const SubCats = ({ subCat, selectCatgory, setSelectSubCatgory }) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState(data);
   const [endScroll, setEndScroll] = useState(0);
@@ -12,7 +12,7 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
   // console.log(selectCatgory);
 
   useEffect(() => {
-    sub.map((item, indxe) => {
+    subCat.map((item, indxe) => {
       if (item.id === selectCatgory?.id) {
         setData(item.SubCat);
         setSelect({ _id: selectCatgory._id, title: "allSubCat" });
@@ -20,17 +20,14 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
           _id: selectCatgory._id,
           title: "allSubCat",
         });
-        // console.log(item)
       }
     });
   }, [selectCatgory]);
 
   const clickhandler = (e) => {
-    // console.log(e);
+    console.log(e.target.id);
     data?.map((item) => {
       if (item.id == e.target.id) {
-        // console.log(item.id == e.target.id);
-
         setSelect(item);
         setSelectSubCatgory(item);
       }
@@ -114,7 +111,9 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
 
                 <span
                   className={`absolute   md:top-[72px] top-[52px] left-3  ${
-                    select?._id == selectCatgory?._id ? `inline-block` : `hidden`
+                    select?._id == selectCatgory?._id
+                      ? `inline-block`
+                      : `hidden`
                   }  `}
                 >
                   <TbSquareRoundedCheckFilled />
@@ -130,7 +129,7 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
 
             {data?.map((item, index) => (
               <span key={index} onClick={clickhandler} className="    ">
-                <Category item={item} select={select} />
+                <SubCat item={item} select={select} />
               </span>
             ))}
           </div>
@@ -140,4 +139,4 @@ const Categorys = ({ sub, selectCatgory, setSelectSubCatgory }) => {
   );
 };
 
-export default Categorys;
+export default SubCats;

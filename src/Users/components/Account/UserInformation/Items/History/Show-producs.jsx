@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BuyProducts from "./BuyProducts";
 import { HistoryOrderData } from "../../../../../constant/DataSets";
 import { IoIosArrowForward } from "react-icons/io";
@@ -6,14 +6,22 @@ import { reducerContext } from "../../../../../constant/Context";
 import { MobileOnlyView } from "react-device-detect";
 import Conter from "../../../../Conter";
 import { useNavigate } from "react-router-dom";
+import { getCurrentAdmin } from "../../../../../../Admin/auth/localStoreage";
 
 const ShowHistoryProducts = () => {
   const [buyProducts, setBuyProducts] = useState(HistoryOrderData);
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
-  const navigate = useNavigate();
+ const navigate = useNavigate();
 
+ useEffect(() => {
+   if (!localStorage.getItem("authAdmin")) {
+     navigate("/admin/loginAdmin");
+   } else {
+     getCurrentAdmin("authAdmin");
+   }
+ }, []);
   return (
     <div className=" absolute w-full max-w-xl mx-auto right-0 left-0 top-0  bg-white">
       <div className=" relative w-full  overflow-y-scroll sm:h-[calc(100vh-200px)] h-[calc(100vh-350px)] ">

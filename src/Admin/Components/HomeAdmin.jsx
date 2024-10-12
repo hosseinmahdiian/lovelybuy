@@ -3,7 +3,7 @@ import { MainData } from "../Constant/DataDets";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import { NavLink, useNavigate } from "react-router-dom";
 import { reducerContext } from "../Context/Context";
-import { decrypt } from "../auth/crypto";
+import { getCurrentAdmin } from "../auth/localStoreage";
 
 const HomeAdmin = () => {
   const reducer = useContext(reducerContext);
@@ -11,10 +11,11 @@ const HomeAdmin = () => {
   const [data, setData] = useState(MainData);
     const navigate = useNavigate();
 
-// console.log(JSON.parse(decrypt(localStorage.getItem("authAdmin"))).token);
  useEffect(() => {
    if (!localStorage.getItem("authAdmin")) {
      navigate("/admin/loginAdmin");
+   }else{
+    getCurrentAdmin("authAdmin");
    }
  }, []);
 

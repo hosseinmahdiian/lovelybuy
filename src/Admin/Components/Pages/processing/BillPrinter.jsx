@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegSquare } from "react-icons/fa";
 import { FiCheckSquare, FiPrinter } from "react-icons/fi";
 import Print from "./Print";
 import InputSearch from "../../InputSearch";
+import { useNavigate } from "react-router-dom";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const BillPrenter = () => {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+    if (!localStorage.getItem("authAdmin")) {
+      navigate("/admin/loginAdmin");
+    } else {
+      getCurrentAdmin("authAdmin");
+    }
+   }, []);
   return (
     <div className="mt-5 max-w-2xl mx-auto">
       <div className="flex justify-between  gap-3 items-center mx-5 mb-4 ">

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import { baseAPI } from "../../../auth/API";
-import { saveCurrentUser } from "../../../auth/localStoreage";
+import { baseAPI } from "../auth/API";
+import { getCurrentUser, saveCurrentUser } from "../auth/localStoreage";
 
 export const Random = () => {
   let randomNumber = 1000 + Math.floor(Math.random() * (9999 - 1000));
@@ -84,6 +84,7 @@ export const authUser = async (mobile, set) => {
       set(json);
        localStorage.removeItem("authAdmin");
       saveCurrentUser("authUser", JSON.stringify(json.data.data));
+      getCurrentUser("authUser");
     });
   return rsult;
 };

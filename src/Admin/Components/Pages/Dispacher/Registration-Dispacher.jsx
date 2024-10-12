@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 const RegistrationDispacher = () => {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+     if (!localStorage.getItem("authAdmin")) {
+       navigate("/admin/loginAdmin");
+     } else {
+       getCurrentAdmin("authAdmin");
+     }
+   }, []);
   return (
     <>
       <div className="mb-28 mt-4 pt-4 child:!rounded-[20px] w-[calc(100%-40px)] max-w-2xl mx-auto">

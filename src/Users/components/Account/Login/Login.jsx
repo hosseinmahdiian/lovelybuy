@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import { reducerContext } from "../../../constant/Context";
 import Acconut from "./Accont";
 import Vrify from "./Vrify";
-
-import { sendSMS } from "./OTP";
-import NewAccount from "../NewAccount";
+import { sendSMS } from "../../../services/OTP";
 
 const Login = () => {
   const reducer = useContext(reducerContext);

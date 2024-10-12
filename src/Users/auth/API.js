@@ -8,7 +8,5 @@ if (!!localStorage.getItem("authUser")) {
   token = `token=${
     JSON.parse(decrypt(localStorage.getItem("authUser"))).token
   }`;
-} else {
-  // window.location.replace ("http://localhost:5173/LoginUser");
-}
+} 
 export { token };

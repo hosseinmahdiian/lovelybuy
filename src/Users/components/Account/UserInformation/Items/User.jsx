@@ -166,34 +166,21 @@ const User = ({ dispach }) => {
           <p className="text-black "> ارتباط با ما</p>
         </div>
 
-        <div
-          className="flex gap-3 items-center mt-6 "
-          onClick={() => {
-            getCurrentUser("authUser");
-            console.log(LocalStorageService);
-          }}
-        >
+        <NavLink to="/user/Rules" className="flex gap-3 items-center mt-6 ">
           <span>
             <BsFileEarmarkText />{" "}
           </span>
           <p className="text-black "> شرایط و قوانین استفاده </p>
-        </div>
+        </NavLink>
 
-        <NavLink
-          to="/user/Privacy"
-          className="flex gap-3 items-center mt-6 "
-          // onClick={() => {
-          //   dispach({ type: "Login" });
-          //   dispach({ type: "Account" });
-          //   dispacher({ type: "logIn" });
-          // }}
-        >
+        <NavLink to="/user/Privacy" className="flex gap-3 items-center mt-6 ">
           <span>
             <MdOutlineRemoveRedEye />{" "}
           </span>
           <p className="text-black "> حریم خصوصی </p>
         </NavLink>
-        <div
+        <NavLink
+          to="/user/AboutUS"
           className="flex gap-3 text-red-600 items-center mt-6 "
           // onClick={() => {
           //   dispach({ type: "Login" });
@@ -205,7 +192,7 @@ const User = ({ dispach }) => {
             <img src={inojy} className="w-4" />{" "}
           </span>
           <p className="text-black "> درباره ما </p>
-        </div>
+        </NavLink>
         <div
           className="flex gap-3  mb-32 text-red-600 items-center mt-6 cursor-pointer "
           onClick={() => {

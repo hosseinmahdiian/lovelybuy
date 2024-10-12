@@ -8,6 +8,7 @@ import { TfiCheckBox } from "react-icons/tfi";
 import { RiCheckboxBlankLine } from "react-icons/ri";
 import toast from "react-hot-toast";
 import Loader from "../../Loader";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const CategoryPage = ({ setcat, cat, setData, data: i }) => {
   const [Cat, setCat] = useState();
@@ -17,10 +18,13 @@ const CategoryPage = ({ setcat, cat, setData, data: i }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setSubSubCat();
-  //   setSubCat();
-  // }, [Cat]);
+  useEffect(() => {
+    if (!localStorage.getItem("authAdmin")) {
+      navigate("/admin/loginAdmin");
+    } else {
+      getCurrentAdmin("authAdmin");
+    }
+  }, []);
 
   cat
     ? document.documentElement.classList.add("overflow-y-hidden")

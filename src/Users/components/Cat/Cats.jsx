@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slide from "./slide";
+import Cat from "./Cat";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
@@ -9,17 +9,17 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 
-function Slides({ slid, selectCatgory, setSelectCatgory }) {
+function Cats({ cat, selectCatgory, setSelectCatgory }) {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
   useEffect(() => {
     // console.log(slid);
-    setSelectCatgory(slid[0]);
-  }, [slid]);
+    setSelectCatgory(cat[0]);
+  }, [cat]);
 
   const clickhandler = (e) => {
-    slid?.map((item) => {
-      // console.log(item.id , e.target.id);
+    cat?.map((item) => {
+      console.log(item.id , e.target.id);
       if (item.id == e.target.id) {
         setSelectCatgory(item);
       }
@@ -76,14 +76,14 @@ function Slides({ slid, selectCatgory, setSelectCatgory }) {
               />
             </span>
             <div className="flex gap-2   ">
-              {slid?.map((item, index) => (
+              {cat?.map((item, index) => (
                 <span
                   key={index}
                   id={item.id}
                   className="  "
                   onClick={clickhandler}
                 >
-                  <Slide item={item} selectCatgory={selectCatgory} />
+                  <Cat item={item} selectCatgory={selectCatgory} />
                 </span>
               ))}
             </div>
@@ -94,4 +94,4 @@ function Slides({ slid, selectCatgory, setSelectCatgory }) {
   );
 }
 
-export default Slides;
+export default Cats;

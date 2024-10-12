@@ -1,24 +1,11 @@
 import React, { useContext, useRef, useState } from "react";
-
-import logo from "../../../assets/images/logo.png";
-
-import { BsBookmarkFill, BsPersonCircle } from "react-icons/bs";
-import { LuPhoneCall } from "react-icons/lu";
-import { RiShoppingBag3Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { reducerContext } from "../../constant/Context";
-import { IoClose } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
-import Products from "../Product/Products";
-import Filters from "../Filter/Filters";
 import PayProducts from "../Derawer/PayProducts";
 import Successsful from "../Derawer/Successsful";
 import Conection from "../Conection";
-import Login from "../Account/Login/Login";
 import Basket from "../Derawer/Basket";
-import Items from "../Item/Items";
-import { FaRegCircleUser } from "react-icons/fa6";
-import Info from "../Info/Info";
 import Layout from "../../layout/Layout";
 
 const Search = () => {

@@ -12,10 +12,10 @@ import { LuCalendarSearch, LuCalendarX } from "react-icons/lu";
 import Loader from "../../Loader";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import CategoryPage from "./CategoryPage";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const EditProdoct = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { isLoading, data: getData } = useQuery(["get-products"], GetProducts);
   const [data, setData] = useState({});
   const [date, setDate] = useState(false);
@@ -23,7 +23,15 @@ const EditProdoct = () => {
 
   // const [myValue, setMyValue] = useState("");
   const [arrowWareouse, setArrowWareouse] = useState(true);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!localStorage.getItem("authAdmin")) {
+      navigate("/admin/loginAdmin");
+    } else {
+      getCurrentAdmin("authAdmin");
+    }
+  }, []);
   useEffect(() => {
     setData(getData?.data.data.find((item) => item.id == id));
     true

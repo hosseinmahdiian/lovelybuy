@@ -1,34 +1,31 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slide from "./slide";
+import Cat from "./Cat";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
   IoIosArrowBack,
- 
+  IoIosArrowDropleft,
+  IoIosArrowDropright,
   IoIosArrowForward,
 } from "react-icons/io";
 
-// import { settingsForSlide } from "../../constant/constant";
-
-function Slides({ slid, select, setSelect }) {
+function Cats({ cat, selectCatgory, setSelectCatgory }) {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
-
-
   useEffect(() => {
-    setSelect(slid[0].id);
-  }, []);
-  
+    // console.log(slid);
+    setSelectCatgory(cat[0]);
+  }, [cat]);
 
   const clickhandler = (e) => {
-    slid?.map((item) => {
+    cat?.map((item) => {
+      // console.log(item.id , e.target.id);
       if (item.id == e.target.id) {
-        setSelect(item.id);
+        setSelectCatgory(item);
       }
     });
   };
 
-  
   const scrollR = () => {
     if (scroll.current) {
       scroll.current.scrollBy({ left: -200, behavior: "smooth" });
@@ -57,7 +54,7 @@ function Slides({ slid, select, setSelect }) {
             ref={scroll}
           >
             <span
-              className={`absolute  right-0  items-center lg:flex hidden border rounded-md h-24  child:hover:text-gray-600 hover:border-black
+              className={`absolute  right-0  items-center lg:flex hidden border rounded-md !h-full  child:hover:text-gray-600 hover:border-black
               ${endScroll === 0 && `!hidden`}
                `}
             >
@@ -67,7 +64,7 @@ function Slides({ slid, select, setSelect }) {
               />
             </span>
             <span
-              className={`absolute  left-0  items-center lg:flex hidden border rounded-md h-24  child:hover:text-gray-600 hover:border-black  ${
+              className={`absolute  left-0  items-center lg:flex hidden border rounded-md !h-full  child:hover:text-gray-600 hover:border-black  ${
                 endScroll === 100 && `!hidden`
               }`}
             >
@@ -79,14 +76,14 @@ function Slides({ slid, select, setSelect }) {
               />
             </span>
             <div className="flex gap-2   ">
-              {slid?.map((item, index) => (
+              {cat?.map((item, index) => (
                 <span
                   key={index}
                   id={item.id}
                   className="  "
                   onClick={clickhandler}
                 >
-                  <Slide item={item} select={select} />
+                  <Cat item={item} selectCatgory={selectCatgory} />
                 </span>
               ))}
             </div>
@@ -97,4 +94,4 @@ function Slides({ slid, select, setSelect }) {
   );
 }
 
-export default Slides;
+export default Cats;

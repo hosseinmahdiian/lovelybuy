@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiMaximize } from "react-icons/fi";
 
 import Product from "./product";
@@ -7,15 +7,21 @@ import Product from "./product";
 import { useQuery } from "react-query";
 import { GetProducts } from "../../../services/Products";
 import Loader from "../../Loader";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const Edit = () => {
   const { isLoading, data } = useQuery(["get-products"], GetProducts);
   const [tost, setTost] = useState(false);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState([]);
-  // console.log(data?.data.data);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // window.location.reload()
+    if (!localStorage.getItem("authAdmin")) {
+      navigate("/admin/loginAdmin");
+    } else {
+      getCurrentAdmin("authAdmin");
+    }
   }, []);
 
   return isLoading ? (

@@ -1,10 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Product from "./product";
 import { GetProducts } from "../../../services/Products";
 import { useQuery } from "react-query";
 import toast from "react-hot-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const ProductRegistration = () => {
   const { isLoading, data } = useQuery(["get-products"], GetProducts);
@@ -12,7 +13,15 @@ const ProductRegistration = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState([]);
   // console.log(data);
+ const navigate = useNavigate();
 
+ useEffect(() => {
+   if (!localStorage.getItem("authAdmin")) {
+     navigate("/admin/loginAdmin");
+   } else {
+     getCurrentAdmin("authAdmin");
+   }
+ }, []);
   tost && toast.success("محصول اضافه شد");
 
   return (

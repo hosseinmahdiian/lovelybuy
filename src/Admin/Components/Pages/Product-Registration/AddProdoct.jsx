@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiChromeLine } from "react-icons/ri";
 import { MdArrowBackIos } from "react-icons/md";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   PostGallery,
   PostImage,
@@ -20,6 +20,7 @@ import {
 import CategoryPage from "./CategoryPage";
 import { CgClose, CgCloseO } from "react-icons/cg";
 import { useMutation } from "react-query";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const AddProdoct = () => {
   const [data, setData] = useState({
@@ -28,13 +29,19 @@ const AddProdoct = () => {
   });
   const [arrowWareouse, setArrowWareouse] = useState(true);
   const [date, setDate] = useState(false);
-  const navigate = useNavigate();
   const [cat, setcat] = useState(false);
+  const navigate = useNavigate();
 
-
-   const { mutate, isLoading, isError } = useMutation(["post-Products"], () =>
-     PostProduct(data)
-   );
+  useEffect(() => {
+   if (!localStorage.getItem("authAdmin")) {
+     navigate("/admin/loginAdmin");
+   } else {
+     getCurrentAdmin("authAdmin");
+   }
+  }, []);
+  const { mutate, isLoading, isError } = useMutation(["post-Products"], () =>
+    PostProduct(data)
+  );
   return (
     <>
       <div

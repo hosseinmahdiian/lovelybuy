@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { reducerContext } from "../../../constant/Context";
 import { useNavigate } from "react-router-dom";
-import { authUser } from "./OTP";
-import { getCurrentUser } from "../../../auth/localStoreage";
+import { authUser } from "../../../services/OTP";
 import { useMutation } from "react-query";
 import { BeatLoader } from "react-spinners";
 
@@ -32,7 +31,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
     if (res?.data.success) {
       dispach({ type: "Account" });
       dispach({ type: "Vrify" });
-      navigate(`/user`);
+      navigate(-1);
     }
   }, [res?.data.success]);
 
@@ -86,13 +85,7 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
             if (code != "") {
               if (otp == code) {
                 mutate(mobile, setRes);
-                // if (!!getCurrentUser("authUser").token) {
-                // navigate("/user");
-                //   dispach({ type: "Account" });
-                //   dispach({ type: "Vrify" });
-                // }
-
-                // navigate("/");
+                
               } else if (!otp || otp.length < 4) {
                 setMesseage("کد را وارد کنید");
               } else {

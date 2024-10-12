@@ -13,28 +13,35 @@ const Products = ({
   const [reduce, dispach] = reducer;
   // console.log(item?.data.data);
   const [products, setProducts] = useState(item?.data.data);
-
+ 
   useEffect(() => {
-  //   setProducts(item?.data.data);
-  //   if (selectCatgory?.title != "allCat") {
-  //     let temp = item?.data.data?.filter(
-  //       (item) => item.catID == selectCatgory?._id
-  //     );
-  //     setProducts(temp);
-  //   }
-  //   if (selectSubCatgory?.title != "allSubCat") {
-  //     let temp = item?.data.data?.filter(
-  //       (item) => item.subCatID == selectSubCatgory?._id
-  //     );
-  //     setProducts(temp);
-  //   }
-  //   if (selectSubSubCatgory?.title != "allSubSubCat") {
-  //     let temp = item?.data.data?.filter(
-  //       (item) => item.subSubCatID == selectSubSubCatgory?._id
-  //     );
-  //     setProducts(temp);
-  //   }
-  }, [selectCatgory, selectSubCatgory, selectSubSubCatgory, item]);
+    setProducts(item?.data.data);
+    if (selectCatgory?.title != "allCat") {
+      // console.log(selectCatgory?.title);
+
+      let temp = item?.data.data?.filter(
+        (i) => i?.Product[0]?.catID == selectCatgory?._id
+      );
+      setProducts(temp);
+    }
+    if (selectSubCatgory?.title != "allSubCat") {
+      // console.log(selectSubCatgory?.title);
+
+      let temp = item?.data.data?.filter(
+        (i) => i?.Product[0]?.subCatID == selectSubCatgory?._id
+      );
+      setProducts(temp);
+    }
+    if (selectSubSubCatgory?.title != "allSubSubCat") {
+      // console.log(selectSubSubCatgory?.title);
+
+      let temp = item?.data.data?.filter(
+        (i) => i?.Product[0]?.subSubCatID == selectSubSubCatgory?._id
+      );
+      setProducts(temp);
+    }
+
+  }, [selectCatgory, selectSubCatgory, selectSubSubCatgory,item]);
 
   return (
     <>

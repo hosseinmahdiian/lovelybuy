@@ -1,7 +1,4 @@
 import React, { useContext, useState } from "react";
-import Slides from "../Slider/Slides";
-import Categorys from "../Category/Categorys";
-import Filters from "../Filter/Filters";
 import { reducerContext } from "../../constant/Context";
 import { useQuery } from "react-query";
 import { getCategory } from "../../services/Catgory";
@@ -10,12 +7,14 @@ import img from "../../../assets/images/photo13134369710.jpg";
 import { FaBookmark } from "react-icons/fa";
 import { PiPercentLight } from "react-icons/pi";
 import { MdOutlineAccessTime } from "react-icons/md";
-import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { CgScreen } from "react-icons/cg";
 import { IoLocationOutline } from "react-icons/io5";
 import { BiPhoneCall } from "react-icons/bi";
-import { DeliveryData, infoShop } from "../../constant/DataSets";
+import { infoShop } from "../../constant/DataSets";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Cats from "./Cat/Cats";
+import SubCats from "./SubCat/SubCats";
+import SubSubCats from "./SubSubCat/SubSubCats";
 
 const EE = () => {
   const reducer = useContext(reducerContext);
@@ -30,7 +29,7 @@ const EE = () => {
   const [select, setSelect] = useState(info[0]);
   console.log(info);
 
-  const { isLoading: isLoadCategory, data: slid } = useQuery(
+  const { isLoading: isLoadCategory, data: catgorys } = useQuery(
     ["get-category"],
     getCategory
   );
@@ -41,18 +40,18 @@ const EE = () => {
   ) : (
     <div className={`  h-full  mx-auto relative   `}>
       <div className="bg-white  pb-3 mx-5">
-        <Slides
-          slid={slid?.data.data}
-          select={selectCatgory}
-          setSelect={setSelectCatgory}
+        <Cats
+          cat={catgorys?.data.data}
+          selectCatgory={selectCatgory}
+          setSelectCatgory={setSelectCatgory}
         />
-        <Categorys
-          sub={slid?.data.data}
+        <SubCats
+          subCat={catgorys?.data.data}
           selectCatgory={selectCatgory}
           setSelectSubCatgory={setSelectSubCatgory}
         />
-        <Filters
-          sub={slid?.data.data}
+        <SubSubCats
+          subSubCat={catgorys?.data.data}
           selectCatgory={selectCatgory}
           selectSubCatgory={selectSubCatgory}
           setSelectSubSubCatgory={setSelectSubSubCatgory}

@@ -1,10 +1,11 @@
 import axios from "axios";
-import { baseAPI, token } from "../auth/API";
+import { baseAPI } from "../auth/API";
+import { LocalStorageService } from "../auth/localStoreage";
 
 export const GetProducts = async () => {
   let rsult;
   await axios
-    .get(`${baseAPI}/admin/getProduct?${token}`)
+    .get(`${baseAPI}/user/getProduct`)
     .then((res) => {
       // console.log(res);
       rsult = res;
@@ -16,23 +17,23 @@ export const GetProducts = async () => {
 };
 
 export const PostProduct = (data) => {
-  console.log(`${baseAPI}/admin/addProduct?${token}
+  console.log(`${baseAPI}/admin/addProduct?${LocalStorageService.token}
       `)
-  // return axios
-  //   .post(
-  //     `${baseAPI}/admin/addProduct?${token}
-  //     `,
-  //     data
-  //   )
-  //   .then((res) => console.log(res))
-  //   .catch((e) => console.log(e));
+  return axios
+    .post(
+      `${baseAPI}/admin/addProduct?${LocalStorageService.token}
+      `,
+      data
+    )
+    .then((res) => console.log(res))
+    .catch((e) => console.log(e));
 };
 
 export const PutProduct = (id, data) => {
   return axios
     .put(
       `
-      ${baseAPI}/admin/editProduct/${id}?${token}
+      ${baseAPI}/admin/editProduct/${id}?${LocalStorageService.token}
       `,
       data
     )
@@ -44,7 +45,7 @@ export const DeleteProduct = (id) => {
   return axios
     .delete(
       `
-      ${baseAPI}/admin/deleteProduct/${id}?${token}
+      ${baseAPI}/admin/deleteProduct/${id}?${LocalStorageService.token}
       `
     )
     .then((res) => console.log(res))

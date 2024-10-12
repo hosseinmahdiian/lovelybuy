@@ -4,7 +4,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { HiPlusSm } from "react-icons/hi";
 import { FaBookmark, FaMinus, FaRegBookmark } from "react-icons/fa";
 import { infoProducts } from "../../constant/DataSets";
-import Filter from "../Filter/Filter";
 import noImage from "../../../assets/images/no-image.png";
 import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
@@ -29,6 +28,7 @@ import {
   getFavorite,
 } from "../../services/Favorite";
 import { decrypt } from "../../auth/crypto";
+import Filter from "./Filter";
 const Info = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
@@ -52,7 +52,6 @@ const Info = () => {
     }
   }, []);
 
-  
   useEffect(() => {
     setItem(data?.data.data?.find((item) => item?.id == ID));
   }, [data]);
@@ -74,13 +73,11 @@ const Info = () => {
       }
     }, [authUser?._id, save]);
 
-
-    useEffect(() => {
-      let find = favorite?.data.data.find((i) => i.productID == ID);
-      find?.productID == ID ? setSave(true) : setSave(false);
-      find?.productID == ID && setIdF(find._id);
-    }, [favorite]);
-
+  useEffect(() => {
+    let find = favorite?.data.data.find((i) => i.productID == ID);
+    find?.productID == ID ? setSave(true) : setSave(false);
+    find?.productID == ID && setIdF(find._id);
+  }, [favorite]);
 
   const increaseHandeler = (id) => {
     let check = JSON.parse(localStorage.getItem("product"));

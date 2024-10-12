@@ -1,15 +1,24 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiMaximize } from "react-icons/fi";
 import Product from "./product";
 import { useQuery } from "react-query";
 import { GetProducts } from "../../../services/Products";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 const Charge = () => {
   const { isLoading, data } = useQuery(["get-products"], GetProducts);
   const [tost, setTost] = useState(false);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState([]);
+ const navigate = useNavigate();
 
+ useEffect(() => {
+  if (!localStorage.getItem("authAdmin")) {
+    navigate("/admin/loginAdmin");
+  } else {
+    getCurrentAdmin("authAdmin");
+  }
+ }, []);
   return (
     <div className="relative h-screen max-w-2xl mx-auto">
       <div className="h-[calc(100vh-100px)] overflow-y-auto ">

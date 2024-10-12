@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import Categorys from "./Category/Categorys";
-import Slides from "./Slider/Slides";
-import Filters from "./Filter/Filters";
+import SubCats from "./SubCat/SubCats";
+import Cats from "./Cat/Cats";
+import SubSubCats from "./SubSubCat/SubSubCats";
 import Products from "./Product/Products";
 import { reducerContext } from "../constant/Context";
 import Loader from "./Loader";
@@ -11,8 +11,9 @@ import { useQuery } from "react-query";
 import { getCategory } from "../services/Catgory";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "../layout/Layout";
-import { checkToten } from "../services/Products";
 import Derawer from "./Derawer/Derawer";
+import { getCurrentAdmin } from "../../Admin/auth/localStoreage";
+import { getCurrentUser } from "../auth/localStoreage";
 
 const HomeUser = () => {
   const reducer = useContext(reducerContext);
@@ -20,33 +21,24 @@ const HomeUser = () => {
   const [selectCatgory, setSelectCatgory] = useState();
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
-  const [item, setItem] = useState();
-  const [m, setM] = useState();
   const navigate = useNavigate();
 
   const {
     isLoading: isLoadCategory,
-    data: slid,
+    data: catgorys,
     error: errorCat,
     isError: isErrorCat,
   } = useQuery(["get-category"], getCategory);
 
-  const {
-    isLoading: isLoadCheck,
-    data: check,
-    error: errorCheck,
-    isError: isErrorCheck,
-  } = useQuery(["check"], checkToten);
-
-  // useEffect(() => {
-  //   if (!!localStorage.getItem("authUser")) {
-  //     checkTokenExamination(check?.data.data, "user", navigate);
-  //   }
-  // }, [check]);
+  useEffect(() => {
+    if (!!localStorage.getItem("authUser")) {
+      getCurrentUser("authUser");
+    }
+  }, []);
 
   return (
     <>
-      {isLoadCategory || isLoadCheck ? (
+      {isLoadCategory ? (
         <Loader />
       ) : (
         <Layout>
@@ -68,18 +60,18 @@ const HomeUser = () => {
               }  `}
             ></div>
             {/* <Order /> */}
-            <Slides
-              slid={slid?.data.data}
+            <Cats
+              cat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectCatgory={setSelectCatgory}
             />
-            <Categorys
-              sub={slid?.data.data}
+            <SubCats
+              subCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectSubCatgory={setSelectSubCatgory}
             />
-            <Filters
-              sub={slid?.data.data}
+            <SubSubCats
+              subSubCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}

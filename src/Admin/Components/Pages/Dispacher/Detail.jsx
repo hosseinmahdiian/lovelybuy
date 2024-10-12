@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
  ;
 import InputSearch from "../../InputSearch";
 import InputDispacher from "./InputDispacher";
 import { IoMdSave } from "react-icons/io";
 import Delver from "./delver";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const Detail = () => {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+    if (!localStorage.getItem("authAdmin")) {
+      navigate("/admin/loginAdmin");
+    } else {
+      getCurrentAdmin("authAdmin");
+    }
+   }, []);
   return (
     <div className="w-[calc(100%-40px)] max-w-2xl mx-auto mt-4">
       <div className="child:!w-full">

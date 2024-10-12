@@ -1,12 +1,11 @@
 import { decrypt, encrypt } from "./crypto";
 
 export const LocalStorageService = {
-  userJson: "",
-  userType: "",
-  userToken: "",
-  userID: "",
-  userEmail: "",
-  userMobile: "",
+  adminJson: "",
+  userName: "",
+  token: "",
+  ID: "",
+  type: "",
 };
 
 export const saveCurrentAdmin = (key, value) =>
@@ -16,12 +15,11 @@ export const getCurrentAdmin = (key) => {
   let data = localStorage.getItem(key) || "";
   if (data !== undefined && data !== null && data !== "") {
     LocalStorageService.adminJson = JSON.parse(decrypt(data));
-    console.log(LocalStorageService.adminJson);
-    
-    // LocalStorageService.adminType = LocalStorageService.adminJson.type;
-    // LocalStorageService.adminToken = LocalStorageService.adminJson.token;
-    // LocalStorageService.adminID = LocalStorageService.adminJson._id;
-    // LocalStorageService.adminMobile = LocalStorageService.adminJson.mobile;
+    LocalStorageService.userName = LocalStorageService.adminJson.userName;
+    LocalStorageService.type = LocalStorageService.adminJson.type;
+    LocalStorageService.token = LocalStorageService.adminJson.token;
+    LocalStorageService.ID = LocalStorageService.adminJson._Id;
+
     return LocalStorageService.adminJson;
   } else {
     return false;

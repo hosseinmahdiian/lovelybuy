@@ -1,9 +1,10 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import User from "./User";
 import EditUser from "./Edit-User";
 import { FiPlus } from "react-icons/fi";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 const BuyerUserRegistration = () => {
   const init = {
     page1: true,
@@ -40,6 +41,15 @@ const BuyerUserRegistration = () => {
   };
 
   const [reducer, dispach] = useReducer(reducerHandler, init);
+   const navigate = useNavigate();
+
+   useEffect(() => {
+   if (!localStorage.getItem("authAdmin")) {
+     navigate("/admin/loginAdmin");
+   } else {
+     getCurrentAdmin("authAdmin");
+   }
+   }, []);
   return (
     <>
       <div className="flex items-center  gap-2.5  mt-5 max-w-2xl mx-auto">

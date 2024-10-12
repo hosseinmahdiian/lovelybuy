@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { reducerContext } from "../../constant/Context";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { decrypt } from "../../auth/crypto";
 import { editUser } from "../../services/User";
 import { ChengHandler } from "../../constant/Functions";
 import ChoseCities from "./ChoseCities";
@@ -12,10 +11,7 @@ const NewAccount = ({}) => {
   const [reduce, dispach] = reducer;
   const [arrowCity, setArrowCity] = useState(true);
   const [arrowProvince, setArrowProvince] = useState(true);
-  // const [authUser, setAuthUser] = useState(
-  //   JSON.parse(decrypt(localStorage.getItem("authUser")))
-  // );
-  // console.log(authUser);
+ 
   const navigate = useNavigate();
 
   const [data, setData] = useState({});

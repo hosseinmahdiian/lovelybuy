@@ -13,14 +13,14 @@ export const getProducts = async () => {
   return rsult;
 };
 
-export const checkToten = async () => {
-  // console.log(`${baseAPI}/admin/getProduct?${token}`);
+// export const checkToten = async () => {
+//   // console.log(`${baseAPI}/admin/getProduct?${token}`);
 
-  let rsult = await axios
-    .get(`${baseAPI}/user/getProduct?${token}`)
-    // .then((json) => console.log(json))
-    .catch((e) => console.log(e));
+//   let rsult = await axios
+//     .get(`${baseAPI}/user/getProduct?${token}`)
+//     // .then((json) => console.log(json))
+//     .catch((e) => console.log(e));
 
-  // setM(rsult?.data.data);
-  return rsult;
-};
+//   // setM(rsult?.data.data);
+//   return rsult;
+// };

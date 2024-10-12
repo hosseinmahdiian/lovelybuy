@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import Filter from "./Filter";
+import SubSubCat from "./SubSubCat";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
-const Filters = ({
-  sub,
+const SubSubCats = ({
+  subSubCat,
   selectSubCatgory,
   selectCatgory,
   setSelectSubSubCatgory,
@@ -19,11 +19,11 @@ const Filters = ({
   useEffect(() => {
     setData(selectSubCatgory?.SubSubCat);
     setSelectSubSubCatgory({ _id: "allSubSubCat", title: "allSubSubCat" });
-    setSelect({ _id: "allSubSubCat" , title: "allSubSubCat"});
+    setSelect({ _id: "allSubSubCat", title: "allSubSubCat" });
   }, [selectSubCatgory]);
 
   const clickhandler = (e) => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     data?.map((item) => {
       if (item._id == e.target.id) {
         setSelect(item);
@@ -98,7 +98,7 @@ const Filters = ({
             </div>
             {data?.map((item, index) => (
               <span onClick={clickhandler} key={index} id={item.name}>
-                <Filter item={item} select={select} className=" mb-5 " />
+                <SubSubCat item={item} select={select} className=" mb-5 " />
               </span>
             ))}
           </div>
@@ -108,4 +108,4 @@ const Filters = ({
   );
 };
 
-export default Filters;
+export default SubSubCats;

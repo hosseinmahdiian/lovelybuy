@@ -55,16 +55,20 @@ import Detail from "../Admin/Components/Pages/Dispacher/Detail";
 import CategoryPage from "../Admin/Components/Pages/Edit/CategoryPage";
 import BillPrenter from "../Admin/Components/Pages/processing/BillPrinter";
 import EditProdoct from "../Admin/Components/Pages/Edit/EditProdoct";
-import Privacy from "../Users/components/Privacy/Private ";
+import Privacy from "../Users/components/Privacy&Rules&AboutUs/Private ";
+import Rules from "../Users/components/Privacy&Rules&AboutUs/Rules";
+import AboutUS from "../Users/components/Privacy&Rules&AboutUs/AboutUS";
 
 const Routers = () => {
   return (
     <Routes>
       <Route index element={<MainPage />} />
-      {/*  ============================ user pages ====================== */}
       <Route path="*" element={<NotFind />} />
+      {/*  ============================ user pages ====================== */}
       <Route path="/user" element={<HomeUser />} />
       <Route path="user/Privacy" element={<Privacy />} />
+      <Route path="user/Rules" element={<Rules />} />
+      <Route path="user/AboutUS" element={<AboutUS />} />
       <Route path="user/Save" element={<Save />} />
       <Route path="user/Search" element={<Search />} />
       <Route path="user/ProductID/:ID" element={<Info />} />

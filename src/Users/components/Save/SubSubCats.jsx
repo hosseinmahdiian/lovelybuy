@@ -1,39 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
-// import Item from "./Item";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// import { settingsForitem } from "../../constant/constant";
-import Filter from "./Filter";
+import SubSubCat from "../SubSubCat/SubSubCat";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
-const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
+const SubSubCats = ({
+  subSubCat,
+  selectSubCatgory,
+  selectCatgory,
+  setSelectSubSubCatgory,
+}) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState();
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
 
-  // useEffect(() => {
-  //   sub.map((item, indxe) => {
-  //     if (item.id === selectCatgory) {
-  //       item.SubCat.map((item2, indxe) => {
-  //         if (item2.id === selectSubCatgory) {
-  //           setData(item2.SubSubCat);
-  //           setSelect(item2.SubSubCat[0]);
-  //         }
-  //       });
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    setData(selectSubCatgory?.SubSubCat);
+    setSelectSubSubCatgory({ _id: "allSubSubCat", title: "allSubSubCat" });
+    setSelect({ _id: "allSubSubCat", title: "allSubSubCat" });
+  }, [selectSubCatgory]);
 
   const clickhandler = (e) => {
+    console.log(e.target.id);
     data?.map((item) => {
-      if (item.name == e.target.id) {
-        setSelect(() => item);
+      if (item._id == e.target.id) {
+        setSelect(item);
+        setSelectSubSubCatgory(item);
       }
     });
+    if ("allSubSubCat" == e.target.id) {
+      setSelect({ _id: "allSubSubCat", title: "allSubSubCat" });
+      setSelectSubSubCatgory({ _id: "allSubSubCat", title: "allSubSubCat" });
+    }
   };
-
 
   const scrollL = () => {
     if (scroll.current) {
@@ -45,17 +43,17 @@ const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
       scroll.current.scrollBy({ left: -400, behavior: "smooth" });
     }
   };
-    const scrollHandler = (e) => {
-      console.log(
-        setEndScroll(
-          Math.round(
-            (e.target.scrollLeft /
-              (e.target.scrollWidth - e.target.clientWidth)) *
-              -100
-          )
+  const scrollHandler = (e) => {
+    console.log(
+      setEndScroll(
+        Math.round(
+          (e.target.scrollLeft /
+            (e.target.scrollWidth - e.target.clientWidth)) *
+            -100
         )
-      );
-    };
+      )
+    );
+  };
 
   return (
     <div className="relative  mx-auto container my-4 ">
@@ -82,9 +80,22 @@ const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
             />
           </span>
           <div className="flex gap-2    items-center  ">
+            <div
+              onClick={clickhandler}
+              id={"allSubSubCat"}
+              // name={subCatID}
+              // style={{}}
+              className={`font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap  ${
+                "allSubSubCat" == select?._id
+                  ? `text-white bg-black bg-opacity-80`
+                  : `bg-white`
+              }  `}
+            >
+              همه
+            </div>
             {data?.map((item, index) => (
-              <span onClick={clickhandler} key={index}>
-                <Filter item={item} select={select} className=" mb-5 " />
+              <span onClick={clickhandler} key={index} id={item.name}>
+                <SubSubCat item={item} select={select} className=" mb-5 " />
               </span>
             ))}
           </div>
@@ -94,4 +105,4 @@ const Filters = ({ sub, selectSubCatgory, selectCatgory }) => {
   );
 };
 
-export default Filters;
+export default SubSubCats;

@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import PayProducts from "../Derawer/PayProducts";
 import Basket from "../Derawer/Basket";
 import Conter from "../Conter";
-import Categorys from "../Category/Categorys";
-import Slides from "../Slider/Slides";
+import SubCats from "./SubCats";
+import Cats from "./Cats";
+import SubSubCats from "./SubSubCats";
 import { reducerContext } from "../../constant/Context";
-import Login from "../Account/Login/Login";
 import Successsful from "../Derawer/Successsful";
 import Conection from "../Conection";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -13,13 +13,11 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useQuery } from "react-query";
 import { getCategory } from "../../services/Catgory";
 import Loader from "../Loader";
-
 import Layout from "../../layout/Layout";
 import { decrypt } from "../../auth/crypto";
 import Products from "./Products";
 import { getFavorite } from "../../services/Favorite";
-import Filters from "../Filter/Filters";
-// import { getFavorite } from "../../services/Favorite";
+import { getCurrentUser } from "../../auth/localStoreage";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
@@ -33,12 +31,11 @@ const Save = () => {
   const [reRender, setReRender] = useState(1);
   const navigate = useNavigate();
 
-  const { isLoading: isLoadCategory, data: slid } = useQuery(
+  const { isLoading: isLoadCategory, data: catgorys } = useQuery(
     ["get-category"],
     getCategory
   );
 
-  let i = false;
   const rerenderFN = () => {
     setReRender(reRender + 1);
   };
@@ -46,14 +43,14 @@ const Save = () => {
   useEffect(() => {
     if (!!localStorage.getItem("authUser")) {
       setAuthUser(JSON.parse(decrypt(localStorage.getItem("authUser"))));
+      getCurrentUser("authUser");
     } else {
       navigate("/user/LoginUser");
     }
   }, []);
 
   useEffect(() => {
-    // console.log(i);
-    if (authUser?._id) {
+    if (!!authUser?._id) {
       getFavorite(authUser._id, setFavorite);
     }
   }, [authUser?._id, reRender]);
@@ -61,7 +58,9 @@ const Save = () => {
   useEffect(() => {
     setCount(favorite?.data.data.length);
   }, [favorite]);
-  console.log(count)
+
+  // console.log(favorite?.data.data);
+  console.log(catgorys?.data.data);
 
   return (
     <>
@@ -95,18 +94,18 @@ const Save = () => {
               </NavLink>
             </div>
 
-            <Slides
-              slid={slid?.data.data}
+            <Cats
+              cat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectCatgory={setSelectCatgory}
             />
-            <Categorys
-              sub={slid?.data.data}
+            <SubCats
+              subCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectSubCatgory={setSelectSubCatgory}
             />
-            <Filters
-              sub={slid?.data.data}
+            <SubSubCats
+              subSubCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}

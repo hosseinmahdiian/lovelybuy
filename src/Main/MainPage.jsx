@@ -46,26 +46,24 @@ const MainPage = () => {
     <Loader />
   ) : (
     <>
-      <div class="rounded-full mt-2  relative isolate flex items-center gap-x-6 overflow-hidden bg-blue-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 container  mx-auto">
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="rounded-full mt-2  flex items-center gap-x-6 overflow-hidden bg-blue-600 px-6 py-2.5 sm:px-3.5 container  mx-auto">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <h1 className="text-sm px-4 md:px-0 text-white">
             سفارش در حال انجام خرید اینترنتی / تاریخ تحویل/محل تحویل بیمارستان
             شهدای عشایر
           </h1>
           <a
             href="#"
-            class="flex-none rounded-full bg-white px-3.5 py-1 text-sm font-semibold text-[#f90305] shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+            className="flex-none rounded-full bg-white px-3.5 py-1 text-sm font-semibold text-[#f90305] shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
           >
             کد تحویل 1243
           </a>
         </div>
-        <div class="flex flex-1 justify-end">
+        <div className="flex flex-1 justify-end">
           <button
             type="button"
-            class="-m-3 p-3 focus-visible:outline-offset-[-4px]"
           >
             <svg
-              class="h-5 w-5 text-gray-900"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"

@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import logo from "../../../../assets/images/logo.png";
 import { reducerContext } from "../../../constant/Context";
 import { BsFileEarmarkText } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 
 const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
   const [mobileAlert, setMobileAlert] = useState("");
+  const navigate = useNavigate();
 
   const chenchHandeler = (e) => {
     setMobile(e.target.value);
@@ -22,7 +23,7 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
         className={`  bg-white w-full fixed max-w-xl mx-auto right-0 left-0  mt-3 `}
       >
         <div className={``}>
-            <NavLink to='/user' className="flex  mt-10  gap-2  ">
+            <NavLink onClick={()=>navigate(-1)} className="flex  mt-10  gap-2  ">
               <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
               <span className="text-red-500 font-bold lg:text-xl ">
                   برگشت

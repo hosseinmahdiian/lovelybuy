@@ -1,6 +1,6 @@
 import axios from "axios";
 import { baseAPI, token } from "../auth/API";
-import { saveCurrentAdmin } from "../auth/localStoreage.js";
+import { getCurrentAdmin, saveCurrentAdmin } from "../auth/localStoreage.js";
 
 export const PostRole = async (Role, set) => {
   let result;
@@ -9,6 +9,7 @@ export const PostRole = async (Role, set) => {
     .then((json) => {
       localStorage.removeItem("authUser");
       saveCurrentAdmin("authAdmin", JSON.stringify(json.data.data));
+      getCurrentAdmin("authAdmin");
       result = json;
     })
     .catch((error) => console.log(error));

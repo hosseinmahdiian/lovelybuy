@@ -7,19 +7,27 @@ import { LuCalendarSearch, LuCalendarX } from "react-icons/lu";
 import DatePicker, { Calendar } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import { getCurrentAdmin } from "../../../auth/localStoreage";
 
 const ChargeProducts = () => {
   const { isLoading, data: getData } = useQuery(["get-products"], GetProducts);
-
   const [data, setData] = useState();
   const [date, setDate] = useState(false);
-
   const { id } = useParams();
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+ if (!localStorage.getItem("authAdmin")) {
+   navigate("/admin/loginAdmin");
+ } else {
+   getCurrentAdmin("authAdmin");
+ }
+  }, []);
+
   useEffect(() => {
     setData(getData?.data.data.find((item) => item.id == id));
   }, [id]);
+  
   return (
     <div className="child:child:mb-5 mt-4 relative   max-w-2xl mx-auto">
       <div
