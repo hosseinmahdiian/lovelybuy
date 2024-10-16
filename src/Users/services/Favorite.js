@@ -16,6 +16,9 @@ import { LocalStorageService } from "../auth/localStoreage";
 //   return result;
 // };
 export const getFavorite = async (id, set) => {
+  console.log(
+    `${baseAPI}/user/getFavorite/${id}?token=${LocalStorageService.userToken}`
+  );
 
   let rsult = await axios
     .get(

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseAPI, token } from "../auth/API";
+import { baseAPI } from "../auth/API";
 
 export const getCategory = async () => {
   // console.log(`${baseAPI}/user/getcat`);

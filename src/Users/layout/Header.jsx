@@ -1,9 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-
 import logo from "../../assets/images/logo.png";
 import { BsBookmarkFill } from "react-icons/bs";
 import { RiShoppingBag3Line } from "react-icons/ri";
-import { BsPersonCircle } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
 import { reducerContext } from "../constant/Context";
 import {
@@ -11,7 +9,6 @@ import {
   NavLink,
   useLocation,
   useNavigate,
-  useParams,
 } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { decrypt } from "../auth/crypto";
@@ -56,11 +53,6 @@ const Header = () => {
       setCountFavorite(favorite?.data.data.length);
     }, [favorite]);
 
-  // console.log(ProductsInBascket.length);
-
-  // useEffect(() => {
-  //   setProductsInBascket(JSON.parse(localStorage.getItem("product")));
-  // }, [JSON.parse(localStorage.getItem("product"))]);
 
   return (
     <>
@@ -188,7 +180,7 @@ const Header = () => {
                   <LuPhoneCall className="hidden md:inline-block m-[13px] h-6 w-6" />
                 </span>
                 <div className="hidden lg:inline-block  ">
-                  <p className="text-sm  !text-justify border  ">
+                  <p className="text-center w-full    ">
                     ارتباط با ما
                   </p>
                   <h1>

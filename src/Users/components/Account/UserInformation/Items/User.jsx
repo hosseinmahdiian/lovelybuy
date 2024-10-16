@@ -182,11 +182,7 @@ const User = ({ dispach }) => {
         <NavLink
           to="/user/AboutUS"
           className="flex gap-3 text-red-600 items-center mt-6 "
-          // onClick={() => {
-          //   dispach({ type: "Login" });
-          //   dispach({ type: "Account" });
-          //   dispacher({ type: "logIn" });
-          // }}
+       
         >
           <span>
             <img src={inojy} className="w-4" />{" "}

@@ -7,6 +7,7 @@ import { MobileOnlyView } from "react-device-detect";
 import { getProducts } from "../../services/Products";
 import { useQuery } from "react-query";
 import empty from "../../../assets/images/hasntItem.png";
+import Loader from "../Loader";
 
 const Basket = ({
   setTotalOP,
@@ -28,6 +29,7 @@ const Basket = ({
   }, [reduce.basket]);
 
   // console.log(totalOldPrice, totalSellPrice);
+  let check = JSON.parse(localStorage.getItem("product"));
 
   return (
     reduce.basket && (
@@ -46,23 +48,29 @@ const Basket = ({
               </h1>
             </span>
           </div>
-          {!!ProductsInBascket?.length > 0 ?  (
+          {!!ProductsInBascket?.length > 0 ? (
             <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
-              {data?.data.data.map((item, index) => (
-                <div key={index}>
-                  <BuyProducts
-                    item={item}
-                    setTotalSP={setTotalSP}
-                    setTotalOP={setTotalOP}
-                    totalOldPrice={totalOldPrice}
-                    totalSellPrice={totalSellPrice}
-                  />
-                </div>
-              ))}
+              {isLoading ? (
+                <Loader />
+              ) : (
+                check?.map((i, index) => (
+                  <div key={index}>
+                    <BuyProducts
+                      data={data?.data.data}
+                      item={i}
+                      count1={i.count}
+                      setTotalSP={setTotalSP}
+                      setTotalOP={setTotalOP}
+                      totalOldPrice={totalOldPrice}
+                      totalSellPrice={totalSellPrice}
+                    />
+                  </div>
+                ))
+              )}
             </div>
-          ):(
+          ) : (
             <img src={empty} alt="" className="w-40  mx-auto  mt-28" />
-          ) }
+          )}
         </div>
         {/* ========================================== */}
         <div
@@ -103,7 +111,7 @@ const Basket = ({
             className=" w-[calc(100%-40px)] bg-blue-600 rounded-lg mt-4 h-12 block mx-auto text-white my-2"
             onClick={() => dispach({ type: "pay" })}
           >
-             تکمیل سفارش
+            تکمیل سفارش
           </button>
           <MobileOnlyView>
             <div className="h-10"></div>

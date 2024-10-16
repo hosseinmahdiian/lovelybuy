@@ -4,23 +4,31 @@ import { HiPlusSm } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { percent, sp } from "../../constant/Functions";
 import empty from "../../../assets/images/no-image.png";
+
 const BuyProducts = ({
   item,
+  data,
+  count1,
   setTotalSP,
   setTotalOP,
   totalOldPrice,
   totalSellPrice,
 }) => {
-  const { name, oldPrice, sellPrice, image, id } = item;
-
-  const [count, setCount] = useState();
+  const [count, setCount] = useState(count1);
+  const [cc, setCc] = useState(true);
   let check = JSON.parse(localStorage.getItem("product"));
-
+  const { name, oldPrice, sellPrice, image, id } = data?.find(
+    (i) => i.id == item.id
+  );
+  // c
   useEffect(() => {
-    if (!!check) {
-      check?.map((i) => i.id == id && setCount(i?.count));
-    }
-  }, [check]);
+    // console.log("old", totalOldPrice, count, oldPrice);
+    // console.log("sell", totalOldPrice, count, sellPrice);
+    totalOldPrice == 0 &&
+      setTotalOP((totalOldPrice) => totalOldPrice + count * oldPrice);
+    totalSellPrice == 0 &&
+      setTotalSP((totalOldPrice) => totalOldPrice + count * sellPrice);
+  }, []);
 
   const increaseHandeler = (id) => {
     let temp = check?.filter((i) => i.id != id);
@@ -36,8 +44,8 @@ const BuyProducts = ({
       );
     }
     setCount(count + 1);
-    setTotalOP(totalOldPrice + oldPrice);
-    setTotalSP(totalSellPrice + sellPrice);
+    setTotalOP((totalOldPrice) => totalOldPrice + oldPrice);
+    setTotalSP((totalSellPrice) => totalSellPrice + sellPrice);
   };
 
   const decreaseHandeler = (id) => {
@@ -49,15 +57,9 @@ const BuyProducts = ({
       )
     );
     setCount(count - 1);
-    setTotalOP(totalOldPrice - oldPrice);
-    setTotalSP(totalSellPrice - sellPrice);
+    setTotalOP((totalOldPrice) => totalOldPrice - oldPrice);
+    setTotalSP((totalSellPrice) => totalSellPrice - sellPrice);
   };
-  console.log(totalOldPrice);
-
-  // useEffect(async() => {
-  //  await setTotalOP(  totalOldPrice + count * oldPrice);
-  //   await setTotalSP(  totalSellPrice + count * sellPrice);
-  // }, []);
 
   return (
     count > 0 && (

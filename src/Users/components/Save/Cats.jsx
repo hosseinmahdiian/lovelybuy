@@ -3,9 +3,10 @@ import Cat from "../Cat/Cat";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-function Cats({ cat, selectCatgory, setSelectCatgory }) {
+function Cats({ favorite, cat, selectCatgory, setSelectCatgory }) {
   const [endScroll, setEndScroll] = useState(0);
   const scroll = useRef(null);
+  
   useEffect(() => {
     // console.log(slid);
     setSelectCatgory(cat[0]);

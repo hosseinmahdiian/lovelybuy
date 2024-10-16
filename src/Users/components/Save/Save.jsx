@@ -18,6 +18,7 @@ import { decrypt } from "../../auth/crypto";
 import Products from "./Products";
 import { getFavorite } from "../../services/Favorite";
 import { getCurrentUser } from "../../auth/localStoreage";
+import Derawer from "../Derawer/Derawer";
 
 const Save = () => {
   const reducer = useContext(reducerContext);
@@ -59,7 +60,7 @@ const Save = () => {
     setCount(favorite?.data.data.length);
   }, [favorite]);
 
-  // console.log(favorite?.data.data);
+  console.log(favorite?.data.data);
   console.log(catgorys?.data.data);
 
   return (
@@ -93,23 +94,25 @@ const Save = () => {
                 </span>
               </NavLink>
             </div>
-
-            <Cats
+            {/* <Cats
+              favorite={favorite?.data.data}
               cat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectCatgory={setSelectCatgory}
-            />
-            <SubCats
+            /> */}
+            {/* <SubCats
+              favorite={favorite?.data.data}
               subCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectSubCatgory={setSelectSubCatgory}
             />
             <SubSubCats
+              favorite={favorite?.data.data}
               subSubCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}
-            />
+            /> */}
             {!!count ? (
               <Products
                 item={favorite}
@@ -127,29 +130,9 @@ const Save = () => {
                 </div>
               </div>
             )}
-
             <Conter />
-            {/* Basket & pay */}
-            <div
-              className={` ${
-                !!reduce.basket
-                  ? reduce.pay
-                    ? ` sm:left-96 top-0 !z-[11] `
-                    : ` sm:left-0 top-0  `
-                  : `sm:-left-[8000px] -bottom-[8000px] `
-              } fixed  sm:w-[400px] es:w-full  z-[16] h-full transition-all  ease-in-out border-r`}
-            >
-              <Basket />
-            </div>
-            <div
-              className={` ${
-                reduce.pay
-                  ? ` sm:left-0 top-0  `
-                  : `sm:-left-[8000px] -bottom-[8000px] `
-              } fixed  md:w-[400px] es:w-full  z-20 h-full transition-all  ease-in-out `}
-            >
-              <PayProducts />
-            </div>
+
+            <Derawer/>
             <div
               className={`
           ${reduce.successful ? `block` : `hidden`}
