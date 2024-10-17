@@ -8,7 +8,7 @@ const Rules = () => {
       <div className="  max-w-3xl  mx-auto">
         <div className=" mt-5  mx-auto   ">
           <NavLink
-            to="/user/Account"
+            to="/user"
             className="flex  item-center align-middle gap-2  "
           >
             <IoIosArrowForward className=" mt-1 text-2xl" />

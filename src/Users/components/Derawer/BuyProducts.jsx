@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaMinus } from "react-icons/fa6";
 import { HiPlusSm } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { percent, sp } from "../../constant/Functions";
 import empty from "../../../assets/images/no-image.png";
+import { reducerContext } from "../../constant/Context";
 
 const BuyProducts = ({
   item,
@@ -14,16 +15,13 @@ const BuyProducts = ({
   totalOldPrice,
   totalSellPrice,
 }) => {
+  const reducer = useContext(reducerContext);
+  const [reduce, dispach] = reducer;
   const [count, setCount] = useState(count1);
-  const [cc, setCc] = useState(true);
   let check = JSON.parse(localStorage.getItem("product"));
-  const { name, oldPrice, sellPrice, image, id } = data?.find(
-    (i) => i.id == item.id
-  );
-  // c
+  const { name, oldPrice, sellPrice, image, id } = data;
+
   useEffect(() => {
-    // console.log("old", totalOldPrice, count, oldPrice);
-    // console.log("sell", totalOldPrice, count, sellPrice);
     totalOldPrice == 0 &&
       setTotalOP((totalOldPrice) => totalOldPrice + count * oldPrice);
     totalSellPrice == 0 &&
@@ -46,6 +44,7 @@ const BuyProducts = ({
     setCount(count + 1);
     setTotalOP((totalOldPrice) => totalOldPrice + oldPrice);
     setTotalSP((totalSellPrice) => totalSellPrice + sellPrice);
+    dispach({ type: "reRender" });
   };
 
   const decreaseHandeler = (id) => {
@@ -59,6 +58,7 @@ const BuyProducts = ({
     setCount(count - 1);
     setTotalOP((totalOldPrice) => totalOldPrice - oldPrice);
     setTotalSP((totalSellPrice) => totalSellPrice - sellPrice);
+    dispach({ type: "reRender" });
   };
 
   return (

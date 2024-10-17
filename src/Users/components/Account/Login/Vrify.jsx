@@ -6,13 +6,18 @@ import { authUser } from "../../../services/OTP";
 import { useMutation } from "react-query";
 import { BeatLoader } from "react-spinners";
 
-const Vrify = ({ code, mobile, timer, sendSms }) => {
+const Vrify = ({
+  code,
+  mobile,
+  timer,
+  sendSms,
+  vrify,
+  setVrify,
+  setAccount,
+}) => {
   const [otp, setOtp] = useState(code);
   const [messeage, setMesseage] = useState("");
   const [res, setRes] = useState();
-
-  const reducer = useContext(reducerContext);
-  const [reduce, dispach] = reducer;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,18 +30,18 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
   const { mutate, isLoading, isError } = useMutation(["post-Role"], () =>
     authUser(mobile, setRes)
   );
-  
+
   useEffect(() => {
     console.log(res);
     if (res?.data.success) {
-      dispach({ type: "Account" });
-      dispach({ type: "Vrify" });
+      setVrify((vrify) => !vrify);
+      setAccount((account) => !account);
       navigate(-1);
     }
   }, [res?.data.success]);
 
   return (
-    reduce.Vrify && (
+    vrify && (
       <div className={` max-w-xl bg-white  mx-auto relative px-5 pt-1 block `}>
         {" "}
         <div className="mt-28">
@@ -47,12 +52,10 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
             <span
               className="text-blue-500 cursor-pointer"
               onClick={() => {
-                // console.log(reduce.Account);
-                dispach({ type: "Account" });
-                dispach({ type: "Vrify" });
+                setVrify((vrify) => !vrify);
+                setAccount((account) => !account);
                 clearInterval();
                 setMesseage("");
-                // navigate("/");
               }}
             >
               ویرایش شماره
@@ -85,7 +88,6 @@ const Vrify = ({ code, mobile, timer, sendSms }) => {
             if (code != "") {
               if (otp == code) {
                 mutate(mobile, setRes);
-                
               } else if (!otp || otp.length < 4) {
                 setMesseage("کد را وارد کنید");
               } else {

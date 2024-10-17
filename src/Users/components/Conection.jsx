@@ -26,7 +26,7 @@ const Conection = () => {
         onClick={() => {
           dispach({ type: "Conection" });
         }}
-        className={`w-full h-screen bg-black  fixed top-0  bg-opacity-30 ${
+        className={`w-full h-screen bg-black right-0 fixed top-0  bg-opacity-30 ${
           reduce.Conection ? ` ` : `hidden`
         }  `}
       >

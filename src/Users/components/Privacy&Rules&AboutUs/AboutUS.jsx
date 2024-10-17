@@ -6,10 +6,7 @@ const AboutUS = () => {
   return (
     <div className="  max-w-3xl  mx-auto">
       <div className=" mt-5  mx-auto   ">
-        <NavLink
-          to="/user/Account"
-          className="flex  item-center align-middle gap-2  "
-        >
+        <NavLink to="/user" className="flex  item-center align-middle gap-2  ">
           <IoIosArrowForward className=" mt-1 text-2xl" />
           <span className="text-red-500 font-bold text-xl"> درباره ما</span>
         </NavLink>

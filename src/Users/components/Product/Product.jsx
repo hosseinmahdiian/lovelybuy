@@ -32,7 +32,7 @@ const Product = ({ item, FN }) => {
     if (!!check) {
       check?.map((i) => i.id == id && setCount(i?.count));
     }
-  }, [check]);
+  }, [check, reduce.reRender]);
 
   const increaseHandeler = (id) => {
     let check = JSON.parse(localStorage.getItem("product"));
@@ -49,6 +49,7 @@ const Product = ({ item, FN }) => {
       );
     }
     setCount(count + 1);
+    dispach({ type: "reRender" });
   };
 
   const decreaseHandeler = (id) => {
@@ -61,6 +62,7 @@ const Product = ({ item, FN }) => {
       )
     );
     setCount(count - 1);
+    dispach({ type: "reRender" });
   };
 
   !!localStorage.getItem("authUser") &&

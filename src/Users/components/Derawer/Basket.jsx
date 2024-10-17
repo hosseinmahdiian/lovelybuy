@@ -53,19 +53,23 @@ const Basket = ({
               {isLoading ? (
                 <Loader />
               ) : (
-                check?.map((i, index) => (
-                  <div key={index}>
-                    <BuyProducts
-                      data={data?.data.data}
-                      item={i}
-                      count1={i.count}
-                      setTotalSP={setTotalSP}
-                      setTotalOP={setTotalOP}
-                      totalOldPrice={totalOldPrice}
-                      totalSellPrice={totalSellPrice}
-                    />
-                  </div>
-                ))
+                data?.data.data.map((item) =>
+                  check?.map((i, index) => (
+                    <div key={index}>
+                      {item._id == i.id && (
+                        <BuyProducts
+                          data={item}
+                          item={i}
+                          count1={i.count}
+                          setTotalSP={setTotalSP}
+                          setTotalOP={setTotalOP}
+                          totalOldPrice={totalOldPrice}
+                          totalSellPrice={totalSellPrice}
+                        />
+                      )}
+                    </div>
+                  ))
+                )
               )}
             </div>
           ) : (

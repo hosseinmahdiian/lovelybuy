@@ -1,13 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import logo from "../../../../assets/images/logo.png";
-import { reducerContext } from "../../../constant/Context";
 import { BsFileEarmarkText } from "react-icons/bs";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import Conection from "../../Conection";
 
-const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
-  const reducer = useContext(reducerContext);
-  const [reduce, dispach] = reducer;
+const Acconut = ({
+  sendSms,
+  setMobile,
+  mobile,
+  setForm,
+  account,
+  setVrify,
+  setAccount,
+}) => {
   const [mobileAlert, setMobileAlert] = useState("");
   const navigate = useNavigate();
 
@@ -16,19 +22,19 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
     setForm({ mobile: e.target.value });
   };
 
-  
   return (
-    reduce.Account && (
+    account && (
       <div
         className={`  bg-white w-full fixed max-w-xl mx-auto right-0 left-0  mt-3 `}
       >
         <div className={``}>
-            <NavLink onClick={()=>navigate(-1)} className="flex  mt-10  gap-2  ">
-              <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
-              <span className="text-red-500 font-bold lg:text-xl ">
-                  برگشت
-              </span>
-            </NavLink>
+          <NavLink
+            onClick={() => navigate(-1)}
+            className="flex  mt-10  gap-2  "
+          >
+            <IoIosArrowForward className=" mt-1 lg:mt-0 lg:text-2xl" />
+            <span className="text-red-500 font-bold lg:text-xl ">برگشت</span>
+          </NavLink>
           <img src={logo} alt="" className="mx-auto mb-20 mt-36 w-56 " />
 
           <div className=" ">
@@ -58,8 +64,8 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
             <button
               onClick={() => {
                 if (mobile?.length == 11 && !!mobile) {
-                  dispach({ type: "Account" });
-                  dispach({ type: "Vrify" });
+                  setVrify((vrify) => !vrify);
+                  setAccount((account) => !account);
 
                   setMobileAlert("");
                   sendSms();
@@ -74,18 +80,21 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
               ادامه
             </button>
 
-          <div className="flex w-fit  mt-10  mx-5 items-right gap-2 ">
-            <span>
-              <BsFileEarmarkText className="text-xl" />
-            </span>
-            <p className=" mb-0.5">
-              با ورود به فروشگاه
-              <a href="" className="text-blue-500 inline-block mx-1">
-                قوانین و مقررات
-              </a>
-              آن را می پذیرم
-            </p>
-          </div>
+            <div
+              className="flex w-fit  mt-10  mx-5 items-right gap-2 "
+              onClick={() => navigate("/user/Rules")}
+            >
+              <span>
+                <BsFileEarmarkText className="text-xl" />
+              </span>
+              <p className=" mb-0.5">
+                با ورود به فروشگاه
+                <a href="" className="text-blue-500 inline-block mx-1">
+                  قوانین و مقررات
+                </a>
+                آن را می پذیرم
+              </p>
+            </div>
             <p
               href=""
               className=" mt-5 pl-5 font-bold w-full text-blue-500 text-left block "
@@ -97,9 +106,8 @@ const Acconut = ({ sendSms, setMobile, mobile, setForm }) => {
               نیاز به کمک دارم
             </p>
           </div>
-
         </div>
-
+        <Conection />
         {/*  */}
       </div>
     )
