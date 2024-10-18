@@ -18,7 +18,7 @@ import {
 } from "../../../../auth/localStoreage";
 import { sp } from "../../../../constant/Functions";
 
-const User = ({ dispach }) => {
+const User = () => {
   const [data1, setdata] = useState(UserData);
   const [select, setSelect] = useState(data1[0]);
   const reducer = useContext(reducerContext);

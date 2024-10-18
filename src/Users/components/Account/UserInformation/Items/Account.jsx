@@ -9,7 +9,7 @@ import { GoCreditCard } from "react-icons/go";
 import { BiDownArrow } from "react-icons/bi";
 
 import empty from "../../../../../assets/images/Empty2.png";
-const Accountt = () => {
+const Account = () => {
   // const [prams, setPrams] = useSearchParams();
   // useEffect(() => {
   //   setPrams({ prams: "account" });
@@ -256,4 +256,4 @@ const Accountt = () => {
   );
 };
 
-export default Accountt;
+export default Account;

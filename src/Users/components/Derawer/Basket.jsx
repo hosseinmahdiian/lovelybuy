@@ -30,6 +30,9 @@ const Basket = ({
 
   // console.log(totalOldPrice, totalSellPrice);
   let check = JSON.parse(localStorage.getItem("product"));
+  useEffect(() => {
+    check = JSON.parse(localStorage.getItem("product"));
+  }, [reduce.reRender]);
 
   return (
     reduce.basket && (
@@ -48,7 +51,7 @@ const Basket = ({
               </h1>
             </span>
           </div>
-          {!!ProductsInBascket?.length > 0 ? (
+          {ProductsInBascket?.length > 0 ? (
             <div className=" h-[calc(100%-290px)] delivery  overflow-y-scroll">
               {isLoading ? (
                 <Loader />

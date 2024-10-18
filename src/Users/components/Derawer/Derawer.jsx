@@ -15,15 +15,6 @@ const Derawer = () => {
 
     // console.log(totalOldPrice, totalSellPrice);
 
-    let check = JSON.parse(localStorage.getItem("product"));
-
-    // useEffect(() => {
-    //   if (!!check) {
-    //     check?.map((i) => console.log(i.count)
-    //     );
-    //   }
-    // }, [check]);
-
   return (
     <>
       <div

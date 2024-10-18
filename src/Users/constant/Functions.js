@@ -36,6 +36,16 @@ export const FnReducer = (state, action) => {
         ...state,
         reRender: state.reRender + 1,
       };
+    case "account":
+      return {
+        ...state,
+        account: action.payLoad,
+      };
+    case "history":
+      return {
+        ...state,
+        history: action.payLoad,
+      };
 
     default:
       break;
@@ -48,6 +58,8 @@ export const init = {
   successful: false,
   Conection: false,
   reRender: 0,
+  account: false,
+  history: false,
 };
 
 export const sp = (number) => {

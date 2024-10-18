@@ -34,17 +34,15 @@ const Conter = () => {
               <RiMapPinTimeLine
                 className=" text-2xl "
                 onClick={() => {
-                  reduce.Info && dispach({ type: "Info" });
-                  dispach({ type: "Derawer" });
-                  dispach({ type: "Show" });
+                  dispach({ type: "history",payLoad:true });
+                  navigate("/user/Account");
                 }}
               />
 
               <span
                 onClick={() => {
-                  reduce.Info && dispach({ type: "Info" });
-                  dispach({ type: "Derawer" });
-                  dispach({ type: "Show" });
+                  dispach({ type: "account", payLoad: true });
+                  navigate("/user/Account");
                 }}
               >
                 <PiCreditCardLight className=" mx-auto text-2xl " />
@@ -52,7 +50,6 @@ const Conter = () => {
               <HiOutlineShoppingBag
                 className=" text-2xl "
                 onClick={() => {
-                  reduce.Info && dispach({ type: "Info" });
                   dispach({ type: "basket" });
                 }}
               />

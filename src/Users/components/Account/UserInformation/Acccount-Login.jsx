@@ -1,22 +1,45 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { reducerContext } from "../../../constant/Context";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-import { FilterData, UserData } from "../../../constant/DataSets";
+import { UserData } from "../../../constant/DataSets";
 import User from "./Items/User";
 import Acconutt from "./Items/Account";
 import History from "./Items/History/History";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Conection from "../../Conection";
 
+const Data = [
+  { title: " پروفایل", name: "user" },
+  { title: " حساب سرمایه ", name: "account" },
+  { title: "سابقه خرید ", name: "history" },
+];
 const AcccountLogin = () => {
   const reducer = useContext(reducerContext);
   const [reduce, dispach] = reducer;
 
   const [data1, setdata] = useState(UserData);
-  const [select, setSelect] = useState(data1[0]);
+  const [select, setSelect] = useState();
+  useEffect(() => {
+    if (reduce.account) {
+      setSelect(data1[1]);
+    } else if (reduce.history) {
+      setSelect(data1[2]);
+    } else {
+      setSelect(data1[0]);
+    }
+  }, []);
 
   const clickhandler = (e) => {
+    if (reduce.account) {
+      dispach({ type: "history", payLoad: false });
+      dispach({ type: "account", payLoad: true });
+    } else if (reduce.history) {
+      dispach({ type: "history", payLoad: true });
+      dispach({ type: "account", payLoad: false });
+    } else {
+      dispach({ type: "history", payLoad: false });
+      dispach({ type: "account", payLoad: false });
+    }
     data1.map((item) => {
       if (item.name == e.target.id) {
         setSelect(() => item);
@@ -33,6 +56,8 @@ const AcccountLogin = () => {
             className=" h-5 text-center gap-2 cursor-pointer flex items-center"
             onClick={() => {
               navigate("/user");
+              dispach({ type: "history", payLoad: false });
+              dispach({ type: "account", payLoad: false });
             }}
           >
             <IoIosArrowForward className="text-xl" />
@@ -51,7 +76,7 @@ const AcccountLogin = () => {
                   id={item.name}
                   name={item.name}
                   className={` font-IrSans  rounded-full items-center h-8 px-4  pt-0.5 cursor-pointer w-fit border   whitespace-nowrap ${
-                    item.name == select.name
+                    item.name == select?.name
                       ? `text-white bg-black bg-opacity-80`
                       : `bg-white`
                   }  `}
@@ -62,21 +87,19 @@ const AcccountLogin = () => {
             ))}
           </div>
           <div className=" overflow-y-scroll  h-[calc(100vh-120px)] pb-5 ">
-            {select.name == "user" && <User dispach={dispach} />}
-            {select.name == "history" && (
-              <History dispach={dispach} reduce={reduce} />
-            )}
-            {select.name == "account" && <Acconutt />}
+            {select?.name == "user" && <User />}
+            {select?.name == "history" && <History />}
+            {select?.name == "account" && <Acconutt />}
           </div>
         </div>
       </div>
-        <div
-          className={`
+      <div
+        className={`
           ${reduce.Conection ? `block` : `hidden`}
           absolute  h-full w-full right-0 top-0   z-[35] `}
-        >
-          <Conection />
-        </div>
+      >
+        <Conection />
+      </div>
     </>
   );
 };
