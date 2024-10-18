@@ -669,10 +669,10 @@ const OrderData = [
 ];
 
 const lacations = [
-  { name: "بیمارستان عشایر", id: 1, selected: true },
-  { name: "بیمارستان رحیمی", id: 3, selected: false },
-  { name: "بیمارستان شفا", id: 2, selected: true },
-  { name: "بیمارستان عسلیان", id: 4, selected: false },
+  { name: "بیمارستان عشایر", id: 1, selected: true, duty: "چشم" },
+  { name: "بیمارستان رحیمی", id: 3, selected: false, duty: "" },
+  { name: "بیمارستان شفا", id: 2, selected: true, duty: "قلب" },
+  { name: "بیمارستان عسلیان", id: 4, selected: false, duty: "" },
 ];
 
 export {

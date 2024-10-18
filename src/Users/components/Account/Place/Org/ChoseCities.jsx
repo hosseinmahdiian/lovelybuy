@@ -19,7 +19,7 @@ const ChoseCities = ({ setData, setModal }) => {
 
   return (
     <div className="   z-30  fixed right-0 left-0 mx-auto max-w-xl px-5 ">
-      <div className=" bg-white p-5 border  rounded-2xl ">
+      <div className=" bg-white p-5 border  rounded-xl ">
         <div
           className=" text-lg text-red-500  w-full items-center mb-4 gap-2 font-bold flex"
           onClick={() => setModal((i) => !i)}

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ChoseCities from "./ChoseCities";
 import { lacations } from "../../../../constant/DataSets";
-import { LuCheckCircle } from "react-icons/lu";
-import { FaRegCircle } from "react-icons/fa";
+import Loc from "./Loc";
+import { CgClose } from "react-icons/cg";
 const Org = () => {
   const navigate = useNavigate();
   const [cityAndProvince, setCityAndProvince] = useState();
   const [cityAndProvinceModal, setCityAndProvinceModal] = useState(true);
   const [location, setLocation] = useState();
-  
+
   const sortBySelected = (array) => {
     const trueItems = array.filter((item) => item.selected == true);
     const falseItems = array.filter((item) => item.selected == false);
@@ -61,26 +61,32 @@ const Org = () => {
         autoFocus
         type="text"
         placeholder="جستجوی محل تحویل"
-        className="inline-block px-5  my-5  w-[calc(100%-20px)]  h-[50px] border rounded-[10px] "
+        className="block px-5  my-5 mx-auto w-[calc(100%-20px)]  h-[50px] border rounded-[10px] "
       />
-
-      <div className="flex flex-wrap gap-2  ">
+      <div className="max-h-60 overflow-y-scroll">
         {location?.map((i, index) => (
-          <span
+          <div
             key={index}
-            className={` ${
-              i.selected
-                ? `text-green-600 child:bg-green-300 `
-                : `text-gray-600 child:bg-gray-300 `
-            }`}
+            className={`${
+              i.selected ? `block` : `hidden`
+            } flex items-center justify-between  border-b mx-5 h-20  `}
           >
-            <div className="flex gap-2 px-2 w-fit rounded-full items-center">
-              {i.selected ? <LuCheckCircle /> : <FaRegCircle />}
-              <p className="">{i.name}</p>
+            <div>
+              <h1 className=" text-lg font-bold">{i.name}</h1>
+              <p className="text-lg text-gray-500">{i?.duty}</p>
             </div>
-          </span>
+            <CgClose className="text-red-500 font-bold text-xl" />
+          </div>
         ))}
       </div>
+
+      <div className="flex flex-wrap gap-2 mt-10 ">
+        {location?.map((i, index) => (
+          <Loc i={i} index={index} />
+        ))}
+      </div>
+
+      
     </div>
   );
 };
