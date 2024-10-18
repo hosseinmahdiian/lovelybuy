@@ -7,8 +7,6 @@ import {
 import { setStateClickHadneler, states } from "../../../../constant/satae";
 
 const ChoseCities = ({ setData, setModal }) => {
-  console.log("xxxxxxxx");
-
   const [Province, setProvince] = useState(0);
   const [arrowProvince, setArrowProvince] = useState(false);
   const [arrowCity, setArrowCity] = useState(false);
@@ -20,8 +18,8 @@ const ChoseCities = ({ setData, setModal }) => {
   }, [Province]);
 
   return (
-    <div className=" px-5 z-30  relative ">
-      <div className=" bg-white p-5 border rounded-2xl ">
+    <div className="   z-30  fixed right-0 left-0 mx-auto max-w-xl px-5 ">
+      <div className=" bg-white p-5 border  rounded-2xl ">
         <div
           className=" text-lg text-red-500  w-full items-center mb-4 gap-2 font-bold flex"
           onClick={() => setModal((i) => !i)}
