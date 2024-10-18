@@ -667,6 +667,14 @@ const OrderData = [
     offer: 550000,
   },
 ];
+
+const lacations = [
+  { name: "بیمارستان عشایر", id: 1, selected: true },
+  { name: "بیمارستان رحیمی", id: 3, selected: false },
+  { name: "بیمارستان شفا", id: 2, selected: true },
+  { name: "بیمارستان عسلیان", id: 4, selected: false },
+];
+
 export {
   slideDadta,
   itemsData,
@@ -680,4 +688,5 @@ export {
   HistoryOrderData,
   infoProducts,
   infoShop,
+  lacations,
 };

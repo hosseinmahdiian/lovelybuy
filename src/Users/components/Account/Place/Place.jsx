@@ -3,12 +3,10 @@ import { reducerContext } from "../../../constant/Context";
 import { useNavigate } from "react-router-dom";
 import { BiArrowFromRight } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
-import Org from "./Org";
+import Org from "./Org/Org";
 import Location from "./Location";
 
 const Place = () => {
-  const reducer = useContext(reducerContext);
-  const [reduce, dispach] = reducer;
   const navigate = useNavigate();
   const UserData = [
     { title: " ارگانی", name: "org" },
@@ -25,12 +23,12 @@ const Place = () => {
   };
   return (
     <div
-      className={` border  max-w-xl bg-white  mx-auto relative  mt-52 rounded-[10px] py-5 `}
+      className={`   max-w-xl bg-white  mx-auto relative    `}
     >
       {" "}
       <div className="w-[calc(100%-40px)] mx-auto ">
         <div
-          className="flex gap-3 items-center mb-6"
+          className="flex gap-3 items-center mb-6 border-b py-5"
           onClick={() => navigate(-1)}
         >
           <IoIosArrowForward className="text-xl" />
