@@ -47,8 +47,6 @@
   }
 }
 
-
-
 * {
   padding: 0;
   margin: 0;
@@ -65,6 +63,12 @@
 *::-webkit-scrollbar-thumb {
   background: #9c9a9a;
 }
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
 
 input[type="number"] {
   -webkit-appearance: textfield;
@@ -76,9 +80,9 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
- .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   background: rgb(229, 73, 73) !important;
 }
-.swiper-button-disabled > *{
+.swiper-button-disabled > * {
   color: rgba(100, 102, 102, 0.168) !important;
 }
