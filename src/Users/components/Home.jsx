@@ -13,7 +13,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Derawer from "./Derawer/Derawer";
 import { getCurrentAdmin } from "../../Admin/auth/localStoreage";
-import { getCurrentUser } from "../auth/localStoreage";
+import { getCurrentUser, removeCurrentUser } from "../auth/localStoreage";
 import { getFavorite } from "../services/Favorite";
 import { checkToken } from "../services/CheckToken";
 
@@ -48,6 +48,7 @@ const HomeUser = () => {
 
   useEffect(() => {
     if (check?.data.data == "Failed to authenticate token.") {
+      removeCurrentUser();
       navigate("/user/LoginUser");
     }
   }, [check?.data]);
