@@ -14,6 +14,8 @@ import Layout from "../layout/Layout";
 import Derawer from "./Derawer/Derawer";
 import { getCurrentAdmin } from "../../Admin/auth/localStoreage";
 import { getCurrentUser } from "../auth/localStoreage";
+import { getFavorite } from "../services/Favorite";
+import { checkToken } from "../services/Products";
 
 const HomeUser = () => {
   const reducer = useContext(reducerContext);
@@ -22,6 +24,9 @@ const HomeUser = () => {
   const [selectSubCatgory, setSelectSubCatgory] = useState();
   const [selectSubSubCatgory, setSelectSubSubCatgory] = useState();
   const navigate = useNavigate();
+  const [favorite, setFavorite] = useState();
+  const [authUser, setAuthUser] = useState();
+
 
   const {
     isLoading: isLoadCategory,
@@ -32,9 +37,23 @@ const HomeUser = () => {
 
   useEffect(() => {
     if (!!localStorage.getItem("authUser")) {
-      getCurrentUser("authUser");
+      setAuthUser(getCurrentUser("authUser"));
     }
   }, []);
+
+  useEffect(() => {
+    if (!!authUser?._id) {
+      checkToken(authUser?._id, setFavorite);
+    }
+  }, [authUser?._id]);
+
+  useEffect(() => {
+    if (favorite?.data.data == "Failed to authenticate token.") {
+      navigate("/user/LoginUser");
+    }
+    
+  }, [favorite]);;
+  
 
   return (
     <>
