@@ -46,12 +46,12 @@ const Header = () => {
       if (authUser?._id) {
         getFavorite(authUser._id, setFavorite);
       }
-    }, [authUser?._id]);
+    }, [authUser?._id, reduce.reRender]);
 
   !!localStorage.getItem("authUser") &&
     useEffect(() => {
       setCountFavorite(favorite?.data.data.length);
-    }, [favorite]);
+    }, [favorite,reduce.reRender]);
 
 
   return (

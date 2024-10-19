@@ -94,13 +94,13 @@ const Save = () => {
                 </span>
               </NavLink>
             </div>
-            {/* <Cats
+            <Cats
               favorite={favorite?.data.data}
               cat={catgorys?.data.data}
               selectCatgory={selectCatgory}
               setSelectCatgory={setSelectCatgory}
-            /> */}
-            {/* <SubCats
+            />
+            <SubCats
               favorite={favorite?.data.data}
               subCat={catgorys?.data.data}
               selectCatgory={selectCatgory}
@@ -112,7 +112,7 @@ const Save = () => {
               selectCatgory={selectCatgory}
               selectSubCatgory={selectSubCatgory}
               setSelectSubSubCatgory={setSelectSubSubCatgory}
-            /> */}
+            />
             {!!count ? (
               <Products
                 item={favorite}
@@ -122,7 +122,7 @@ const Save = () => {
                 selectSubSubCatgory={selectSubSubCatgory}
               />
             ) : (
-              <div className="container w-full mx-auto h-[calc(100vh-430px)] bg-[#F5F5F5]">
+              <div className=" w-full mx-auto h-full bg-[#F5F5F5]">
                 <div className=" mx-auto">
                   <p className="text-center font-bold text-red-500">
                     محصول ذخیره شده ای یافت نشد{" "}

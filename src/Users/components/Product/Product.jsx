@@ -26,13 +26,21 @@ const Product = ({ item, FN }) => {
   const [favorite, setFavorite] = useState();
   const navigate = useNavigate();
 
-  let check = JSON.parse(localStorage.getItem("product"));
+  // let check = JSON.parse(localStorage.getItem("product"));
 
   useEffect(() => {
+    let check = JSON.parse(localStorage.getItem("product"));
+    let temp;
     if (!!check) {
-      check?.map((i) => i.id == id && setCount(i?.count));
+      temp = check?.find((i) => i.id == id);
+      if (temp) {
+        setCount(temp.count);
+      } else {
+        setCount(0);
+      }
     }
-  }, [check, reduce.reRender]);
+    console.log(temp);
+  }, [reduce.reRender]);
 
   const increaseHandeler = (id) => {
     let check = JSON.parse(localStorage.getItem("product"));
@@ -94,6 +102,7 @@ const Product = ({ item, FN }) => {
       {/* <Link to={}> */}
       <span
         onClick={() => {
+          dispach({ type: "reRender" });
           if (!localStorage.getItem("authUser")) {
             navigate("/user/LoginUser");
           } else {

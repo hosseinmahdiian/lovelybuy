@@ -22,11 +22,19 @@ const BuyProducts = ({
   const { name, oldPrice, sellPrice, image, id } = data;
 
   useEffect(() => {
-    totalOldPrice == 0 &&
-      setTotalOP((totalOldPrice) => totalOldPrice + count * oldPrice);
-    totalSellPrice == 0 &&
-      setTotalSP((totalOldPrice) => totalOldPrice + count * sellPrice);
-  }, []);
+    // console.log("xxxxxxxx");
+
+    reduce.basket
+      ? totalOldPrice == 0 &&
+        setTotalOP((totalOldPrice) => totalOldPrice + count * oldPrice)
+      : setTotalOP(0);
+
+    reduce.basket
+      ? totalSellPrice == 0 &&
+        setTotalSP((totalSellPrice) => totalSellPrice + count * sellPrice)
+      : setTotalSP(0);
+
+  }, [reduce.basket]);
 
   const increaseHandeler = (id) => {
     let temp = check?.filter((i) => i.id != id);
